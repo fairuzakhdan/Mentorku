@@ -3,8 +3,9 @@ const {reviewSchema} = require('./review')
 
 const Mentor = z.object({
     name: z.string().min(1, "Nama harus diisi"),
-    email: z.string().email("Email harus valid").min(1, "Email harus diisi"), // Gabungkan validasi email dan min
+    email: z.string().email("Email harus valid").min(1, "Email harus diisi"), 
     phone: z.string().min(1, "Nomor telepon harus diisi"),
+    skills: z.array(z.string()).nonempty("Minimal harus memiliki 1 skills"),
     password: z.string().min(1).max(100).nonempty("Password harus diisi"),
     experience: z
       .array(

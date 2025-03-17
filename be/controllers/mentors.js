@@ -12,6 +12,7 @@ const createMentors = async (req, res) => {
       password: req.body.password,
       email: req.body.email,
       phone: req.body.phone,
+      skills: req.body.skills,
       experience: req.body.experience,
       expertise: req.body.expertise,
       education: req.body.education,

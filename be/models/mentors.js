@@ -12,6 +12,9 @@ const mentorSchema = new Schema({
   email: { type: String},
   password: {type: String},
   phone: { type: String},
+  skills: {
+    type: [String]
+  },
   experience: [
     {
       company: {
