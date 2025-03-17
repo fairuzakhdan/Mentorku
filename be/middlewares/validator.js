@@ -1,3 +1,1 @@
-const validateMentor = (req, res, next) => {
-    
-}
+// const mentorSchema = require('../schemas/mentor'
