@@ -28,7 +28,6 @@ const createMentors = async (req, res) => {
       const newMentor = new Mentor(validatedData);
       await newMentor.save();
   
-      // Mengirimkan response sukses
       return res
         .status(201)
         .json({ message: "Mentor berhasil ditambahkan", data: newMentor });
