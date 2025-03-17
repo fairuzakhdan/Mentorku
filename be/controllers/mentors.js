@@ -23,7 +23,6 @@ const createMentors = async (req, res) => {
     try {
       // Validasi data menggunakan Zod
       const validatedData = mentorSchema.parse(mentorPost);
-  
       // Jika validasi berhasil, simpan data ke database
       const newMentor = new Mentor(validatedData);
       await newMentor.save();
