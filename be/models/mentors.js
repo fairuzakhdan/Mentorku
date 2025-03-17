@@ -4,12 +4,13 @@ const { v4: uuidv4 } = require("uuid");
 const moment = require('moment-timezone')
 
 const mentorSchema = new Schema({
-  id: {
+  _id: {
     type: String,
-    default: uuidv4,
+    default: () => uuidv4(), 
   },
   name: { type: String},
   email: { type: String},
+  password: {type: String},
   phone: { type: String},
   experience: [
     {
@@ -44,13 +45,15 @@ const mentorSchema = new Schema({
     },
   ],
   reviews: [{ type: String, ref: "Review" }],
-  createdAt: { type: Date, default: Date.now },
-  updatedAt: { type: Date, default: Date.now },
+  createdAt: {
+    type: String,
+    default: () => moment().tz('Asia/Jakarta').format('YYYY-MM-DD HH:mm:ss'),
+  },
+  updatedAt: {
+    type: String,
+    default: () => moment().tz('Asia/Jakarta').format('YYYY-MM-DD HH:mm:ss'),
+  },
 });
-
-mentorSchema.methods.getWIBTime = function(date) {
-    return moment(date).tz('Asia/Jakarta').format('YYYY-MM-DD HH:mm:ss');
-  };
 
 const Mentor = mongoose.model("Mentor", mentorSchema);
 
