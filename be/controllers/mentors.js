@@ -118,7 +118,6 @@ const createMentors = async (req, res) => {
     }
   };
   
-  
 module.exports = {
   getAllMentors,
   createMentors,
