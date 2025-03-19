@@ -38,13 +38,13 @@ const mentorSchema = new Schema({
     type: String,
   },
   profilePicture: {
-    url: String,
-    filename: String,
+    url: {type:String, default: 'public/images/user.jpg'},
+    filename: {type:String, default: 'user.jpg'},
   },
   skills_certificate: [
     {
-      url: String,
-      filename: String,
+      url: { type: String, default: "public/images/expert.jpg" },
+      filename: { type: String, default: "expert.jpg" }
     },
   ],
   reviews: [{ type: String, ref: "Review" }],

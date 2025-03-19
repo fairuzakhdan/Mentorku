@@ -10,12 +10,16 @@ const findMentorByRecommendation = async (req, res) => {
 
     // Validasi input
     if (!Array.isArray(expertise) || expertise.length === 0) {
-      return res.status(400).json({ message: "Expertise harus berupa array yang tidak kosong" });
+      return res
+        .status(400)
+        .json({ message: "Expertise harus berupa array yang tidak kosong" });
     }
 
     const mentors = await Mentor.find();
     if (mentors.length === 0) {
-      return res.status(404).json({ status: false, message: "Mentor tidak ditemukan" });
+      return res
+        .status(404)
+        .json({ status: false, message: "Mentor tidak ditemukan" });
     }
 
     // Gabungkan expertise pengguna menjadi satu string
@@ -80,46 +84,109 @@ const getAllMentors = async (req, res) => {
 };
 
 const createMentors = async (req, res) => {
-    const mentorPost = {
-      name: req.body.name,
-      password: req.body.password,
-      email: req.body.email,
-      phone: req.body.phone,
-      skills: req.body.skills,
-      experience: req.body.experience,
-      expertise: req.body.expertise,
-      education: req.body.education,
-      summary: req.body.summary,
-      reviews: req.body.reviews,
-    };
-  
-    try {
-      // Validasi data menggunakan Zod
-      const validatedData = mentorSchema.parse(mentorPost);
-      // Jika validasi berhasil, simpan data ke database
-      const newMentor = new Mentor(validatedData);
-      await newMentor.save();
-  
-      return res
-        .status(201)
-        .json({ message: "Mentor berhasil ditambahkan", data: newMentor });
-    } catch (err) {
-      // Cek apakah error tersebut adalah error validasi dari Zod
-      if (err instanceof z.ZodError) {
-        // Menampilkan detail error dari Zod
-        return res.status(400).json({
-          message: "Data tidak valid",
-          errors: err.errors, // Menampilkan detail error dari Zod
-        });
-      }
-  
-      // Jika ada error lain (misalnya masalah server)
-      return res.status(500).json({ error: "Internal Server Error" });
-    }
+  const mentorPost = {
+    name: req.body.name,
+    password: req.body.password,
+    email: req.body.email,
+    phone: req.body.phone,
+    skills: req.body.skills,
+    experience: req.body.experience,
+    expertise: req.body.expertise,
+    education: req.body.education,
+    summary: req.body.summary,
+    reviews: req.body.reviews,
   };
-  
+
+  try {
+    const validatedData = mentorSchema.parse(mentorPost);
+    const newMentor = new Mentor(validatedData);
+    await newMentor.save();
+
+    return res
+      .status(201)
+      .json({ message: "Mentor berhasil ditambahkan", data: newMentor });
+  } catch (err) {
+    if (err instanceof z.ZodError) {
+      return res.status(400).json({
+        message: "Data tidak valid",
+        errors: err.errors,
+      });
+    }
+    return res.status(500).json({ error: "Internal Server Error" });
+  }
+};
+
+const getMentorById = async (req, res) => {
+  try {
+    const { mentorId } = req.params;
+    const mentor = await Mentor.findById(mentorId);
+    if (!mentor) {
+      return res.status(404).json({
+        status: false,
+        message: "Mentor tidak ditemukan",
+      });
+    }
+    return res.status(200).json(mentor);
+  } catch (err) {
+    return res.status(500).json({
+      error: "Internal Server Error",
+    });
+  }
+};
+
+const updateMentorById = async (req, res) => {
+  const {mentorId} = req.params
+  const mentor = await Mentor.findById(mentorId);
+  if (!mentor) {
+    return res.status(404).json({
+      status: false,
+      message: "Mentor tidak ditemukan",
+    })
+  }
+
+  try {
+    const updatedMentor = await Mentor.findByIdAndUpdate(mentorId, req.body, {
+      new: true,
+    });
+    return res.status(200).json({
+      status: true,
+      message: "Mentor berhasil diubah",
+      data: updatedMentor,
+    });
+  } catch (err) {
+    return res.status(500).json({
+      error: "Internal Server Error",
+    });
+  }
+}
+
+const deleteMentorById = async (req, res) => {
+ try {
+  const {mentorId} = req.params;
+  const mentor = await Mentor.findById(mentorId);
+  if (!mentor) {
+    return res.status(404).json({
+      status: false,
+      message: "Mentor tidak ditemukan",
+    })
+  }
+  await mentor.deleteOne();
+  res.status(200).json({
+    status: true,
+    message: "Mentor berhasil dihapus"
+  })
+ }catch (err) {
+  return res.status(500).json({
+    error: "Internal Server Error",
+  });
+ }
+}
+
 module.exports = {
   getAllMentors,
   createMentors,
-  findMentorByRecommendation
+  findMentorByRecommendation,
+  getMentorById,
+  updateMentorById,
+  deleteMentorById
 };

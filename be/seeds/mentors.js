@@ -128,12 +128,12 @@ async function seedMentor() {
             education : ["Binus University", "Apple Developer Academy"],
             summary : "Saya adalah Senior Software Engineer dengan pengalaman dalam perancangan, pengembangan, dan optimasi sistem perangkat lunak. Saya berfokus pada solusi teknologi yang efisien dan skalabel.",
               profilePicture: {
-                        url: "public/images",
+                        url: "public/images/user.jpg",
                         filename: "user.jpg"
                     },
                     skills_certificate: [
                         {
-                        url: "public/images",
+                        url: "public/images/expert.jpg",
                         filename: "expert.jpg"
                         }
                     ]
