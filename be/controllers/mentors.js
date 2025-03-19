@@ -159,7 +159,6 @@ const updateMentorById = async (req, res) => {
     });
   }
 }
-
 const deleteMentorById = async (req, res) => {
  try {
   const {mentorId} = req.params;
