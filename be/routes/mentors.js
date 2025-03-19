@@ -3,6 +3,8 @@ const router = express.Router();
 
 const mentors = require("../controllers/mentors");
 
-router.route("/mentors").get(mentors.getAllMentors).post(mentors.createMentors);
+router.route("/").get(mentors.getAllMentors).post(mentors.createMentors);
+
+router.route('/find').post(mentors.findMentorByReccomendation)
 
 module.exports = router;
