@@ -5,6 +5,6 @@ const mentors = require("../controllers/mentors");
 
 router.route("/").get(mentors.getAllMentors).post(mentors.createMentors);
 
-router.route('/find').post(mentors.findMentorByReccomendation)
+router.route('/recommend').post(mentors.findMentorByRecommendation)
 
 module.exports = router;

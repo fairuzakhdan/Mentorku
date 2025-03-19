@@ -1,8 +1,78 @@
 const Mentor = require("../models/mentors");
 const mentorSchema = require("../schemas/mentor");
 const z = require("zod");
-const natural = require('natural');
+const natural = require("natural");
+const cosineSimilarity = require("cosine-similarity");
 
+const findMentorByRecommendation = async (req, res) => {
+  try {
+    let { expertise } = req.body;
+
+    // Validasi input
+    if (!Array.isArray(expertise) || expertise.length === 0) {
+      return res.status(400).json({ message: "Expertise harus berupa array yang tidak kosong" });
+    }
+
+    const mentors = await Mentor.find();
+    if (mentors.length === 0) {
+      return res.status(404).json({ status: false, message: "Mentor tidak ditemukan" });
+    }
+
+    // Gabungkan expertise pengguna menjadi satu string
+    const userText = expertise.join(" ").toLowerCase();
+
+    const tfidf = new natural.TfIdf();
+    let documents = [];
+    let mentorList = [];
+
+    mentors.forEach((mentor, index) => {
+      if (Array.isArray(mentor.expertise) && mentor.expertise.length > 0) {
+        let mentorText = mentor.expertise.join(" ").toLowerCase();
+        tfidf.addDocument(mentorText);
+        documents.push(mentorText);
+        mentorList.push({ mentor, index });
+      }
+    });
+
+    // Hitung vektor TF-IDF untuk user
+    tfidf.addDocument(userText);
+    let userVector = [];
+    tfidf.tfidfs(userText, (index, measure) => {
+      userVector[index] = measure;
+    });
+
+    // Hitung similarity menggunakan cosine similarity
+    let scores = mentorList.map(({ mentor, index }) => {
+      let mentorVector = [];
+      tfidf.tfidfs(documents[index], (i, measure) => {
+        mentorVector[i] = measure;
+      });
+
+      let similarity = cosineSimilarity(userVector, mentorVector) || 0;
+      return { mentor, similarity };
+    });
+
+    // Urutkan berdasarkan similarity tertinggi
+    scores.sort((a, b) => b.similarity - a.similarity);
+
+    // Filter hanya mentor dengan similarity > 0
+    const result = scores
+      .filter((score) => score.similarity > 0)
+      .map((score) => ({
+        name: score.mentor.name,
+        expertise: score.mentor.expertise,
+        similarity: score.similarity.toFixed(2), // Menampilkan dua angka di belakang koma
+        skills: score.mentor.skills,
+        experience: score.mentor.experience,
+        profilePicture: score.mentor.profilePicture,
+      }));
+
+    res.json(result);
+  } catch (err) {
+    console.error("Error:", err);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
+};
 
 const getAllMentors = async (req, res) => {
   const mentors = await Mentor.find();
@@ -48,51 +118,9 @@ const createMentors = async (req, res) => {
     }
   };
   
-
-
-  const tokenizer = new natural.WordTokenizer();
-  const tfidf = new natural.TfIdf();
-
-  const findMentorByReccomendation = async (req, res) => {
-    try {
-      const {expertise} = req.body
-      const mentors = await Mentor.find();
-      if (mentors.length === 0) {
-        return res.status(404).json({
-          status: false,
-          message: "Mentor not found",
-        })
-      }
-      
-    // 2️⃣ Hitung kemiripan menggunakan TF-IDF dan Cosine Similarity
-    const scores = mentors.map((mentor) => {
-      const userText = expertise.join(' ')
-      const mentorText = mentor.expertise.join(' ')
-
-      tfidf.addDocument(userText)
-      tfidf.addDocument(mentorText)
-
-      const similarity = tfidf.tfidf(0, 1); // Hitung kemiripan
-      return { mentor, similarity };
-    })
-    scores.sort((a, b) => b.similarity - a.similarity ); // Urutkan berdasarkan kemiripan
-    res.json(scores.map((score) => {
-      return {
-        name: score.mentor.name,
-        expertise: score.mentor.expertise,
-        similarity: score.similarity.toFixed(2),
-        skills: score.mentor.skills,
-        experience: score.mentor.experience,
-        profilePicture: score.mentor.profilePicture
-      }
-    }))
-    } catch (err) {
-      res.status(500).json({ message: "Internal Server Error" });
-    }
-  }
-
+  
 module.exports = {
   getAllMentors,
   createMentors,
-  findMentorByReccomendation
+  findMentorByRecommendation
 };
