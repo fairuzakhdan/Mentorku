@@ -37,7 +37,7 @@ async function seedMentor() {
             },
             skills_certificate: [
                 {
-                    url: 'public/images',
+                url: 'public/images',
                 filename: 'expert.jpg',
                 }
             ]
@@ -105,6 +105,38 @@ async function seedMentor() {
                 filename: 'expert.jpg',
                 }
             ]
+        },
+        {
+            name : "Haidar Hanif",
+            email : "haidar@gmail.com",
+            phone : "082711212",
+            password : "haidar123",
+            skills : ["React","Next Js","Typescript","Laravel","Swift"],
+            experience : [ 
+                {
+                company : "Telkom Indonesia",
+                position : "Fullstack Developer",
+                years : 5
+                },
+                {
+                company : "Indosat Ooredo",
+                position : "Software Developer",
+                years : 10
+                }
+            ],
+            expertise : ["Web","Mobile","Android","Blockchain","IOS"],
+            education : ["Binus University", "Apple Developer Academy"],
+            summary : "Saya adalah Senior Software Engineer dengan pengalaman dalam perancangan, pengembangan, dan optimasi sistem perangkat lunak. Saya berfokus pada solusi teknologi yang efisien dan skalabel.",
+              profilePicture: {
+                        url: "public/images",
+                        filename: "user.jpg"
+                    },
+                    skills_certificate: [
+                        {
+                        url: "public/images",
+                        filename: "expert.jpg"
+                        }
+                    ]
         }
     ]
 
