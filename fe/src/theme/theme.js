@@ -6,6 +6,7 @@ const customConfig = defineConfig({
       colors: {
         textGreen: { value: '#188474' },
         textBlue: { value: '#0B163D' },
+        textGray: '#BEBEBE',
       },
     },
   },
