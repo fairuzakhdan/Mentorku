@@ -1,17 +1,17 @@
-import { createSystem, defaultConfig, defineConfig } from "@chakra-ui/react";
+import { createSystem, defaultConfig, defineConfig } from '@chakra-ui/react';
 
 const customConfig = defineConfig({
   globalCss: {
-    "*::placeholder": {
+    '*::placeholder': {
       // opacity: 1,
-      color: "fg.subtle",
+      color: 'fg.subtle',
     },
-    "*": {
-      fontFamily: "Poppins, sans-serif",
+    '*': {
+      fontFamily: 'Poppins, sans-serif',
     },
     html: {
       backgroundColor: '#fff',
-      height: "200%",
+      height: '200%',
     },
   },
 });
