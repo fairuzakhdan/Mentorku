@@ -8,10 +8,10 @@ const customConfig = defineConfig({
     },
     "*": {
       fontFamily: "Poppins, sans-serif",
-      // color: "black",
     },
-    "body": {
-      backgroundColor: "#fff",
+    html: {
+      backgroundColor: '#fff',
+      height: "200%",
     },
   },
 });
