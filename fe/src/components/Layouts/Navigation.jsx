@@ -4,6 +4,7 @@ import { BiLogIn } from 'react-icons/bi';
 import { FaChalkboardTeacher } from 'react-icons/fa';
 import Logo from '../Elements/Logo';
 import CatalogMenu from '../Elements/KatalogMenu';
+import Layouts from '../Layouts/Layouts';
 
 const Navigation = () => {
   const links = [
@@ -21,8 +22,8 @@ const Navigation = () => {
     },
   ];
   return (
-    <Container borderBottom={'1px solid rgb(204, 201, 201)'} position={'sticky'} top={0}>
-      <Box display="flex" justifyContent={'space-between'} alignItems={'center'} marginInline={7}>
+    <Layouts>
+      <Box display="flex" justifyContent={'space-between'} alignItems={'center'}>
         <Box display="flex" alignItems={'center'}>
           <Logo navigate="/" />
 
@@ -54,7 +55,7 @@ const Navigation = () => {
           </Button>
         </HStack>
       </Box>
-    </Container>
+    </Layouts>
   );
 };
 export default Navigation;
