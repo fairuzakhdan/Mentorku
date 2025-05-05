@@ -26,6 +26,7 @@ const Homepage = () => {
             justifyContent="center"
             alignItems="start"
             rowGap={5}
+            marginBottom="12"
           >
             <Text>Learn a new skill, launch a project, land your dream career.</Text>
             <Text fontSize={'5xl'} fontWeight={'bolder'} color="textBlue">
