@@ -2,14 +2,17 @@ import React from 'react';
 import { Box, Container, Flex, Grid, GridItem, Group, Text, Span } from '@chakra-ui/react';
 import Layouts from '../components/Layouts/Layouts';
 import ButtonInput from '../components/Fragments/SearchBar';
-import CardHorizontal from '../components/Fragments/Card';
-import data from '../utils/mentors';
+import CardHorizontal from '../components/Fragments/CardHorizontal';
+import { mentors as data, boxes as boxesData } from '../utils/mentors';
 import CircleBadge from '../components/Elements/Badge';
 import { useState, useEffect } from 'react';
+import CardBox from '../components/Fragments/CardBox';
 
 const Homepage = () => {
   const [mentors, setMentors] = useState([]);
+  const [boxes, setBoxes] = useState([]);
   useEffect(() => {
+    setBoxes(boxesData);
     setMentors(data);
   }, []);
   return (
@@ -53,15 +56,11 @@ const Homepage = () => {
             Not sure if mentorship is right for you? <br /> Give it a try with a one-off session.
           </Text>
           <Grid templateColumns={'repeat(3, 1fr)'} id="explore" columnGap="9">
-            <GridItem colSpan={1} border={'1px solid #ccc'}>
-              s
-            </GridItem>
-            <GridItem colSpan={1} border={'1px solid #ccc'}>
-              s
-            </GridItem>
-            <GridItem colSpan={1} border={'1px solid #ccc'}>
-              s
-            </GridItem>
+            {boxes.map((boxe, index) => (
+              <GridItem colSpan={1}>
+                <CardBox key={index} {...boxe} />
+              </GridItem>
+            ))}
           </Grid>
         </Layouts>
       </Box>

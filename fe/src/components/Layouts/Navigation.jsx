@@ -26,7 +26,6 @@ const Navigation = () => {
       <Box display="flex" justifyContent={'space-between'} alignItems={'center'}>
         <Box display="flex" alignItems={'center'}>
           <Logo navigate="/" />
-
           <CatalogMenu links={links} />
           <Button size="sm" variant="solid" outline="none" color="black" fontSize="md">
             Mentor On Demand

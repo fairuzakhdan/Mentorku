@@ -6,7 +6,15 @@ import Homepage from './pages/Homepage';
 const App = () => {
   return (
     <>
-      <header style={{ borderBottom: '1px solid #ccc' }}>
+      <header
+        style={{
+          borderBottom: '1px solid #ccc',
+          position: 'sticky',
+          top: 0,
+          backgroundColor: 'white',
+          zIndex: 1,
+        }}
+      >
         <Navigation />
       </header>
       <main>
