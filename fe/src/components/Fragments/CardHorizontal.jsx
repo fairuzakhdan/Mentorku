@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Button, Card, HStack, Span, Flex, Icon } from '@chakra-ui/react';
+import { Box, , Card, HStack, Span, Flex, Icon } from '@chakra-ui/react';
 import PropTypes from 'prop-types';
 import AvatarCard from '../Elements/Avatar';
 import CircleBadge from '../Elements/Badge';
