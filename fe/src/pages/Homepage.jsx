@@ -99,7 +99,32 @@ const Homepage = () => {
               </GridItem>
             ))}
           </Grid>
+        </Layouts>
+      </Box>
 
+      <Layouts>
+        <Grid templateColumns={'repeat(2, 1fr)'} columnGap={9} my={10}>
+          <GridItem colSpan={1}>
+            <Text fontSize={'3xl'} fontWeight={'bolder'} color="textBlue" mb={5}>
+              Want Trusted Guidance <br /> Ask the Expert Directly!
+            </Text>
+            <Text mb={5}>
+              Decisions are easier with the right advice. Gain peace of mind and clarity by
+              connecting with professionals who are ready to guide you step by step — no delays, no
+              confusion.
+            </Text>
+            <Button colorPalette="teal" variant="solid">
+              Start a mentoring session
+            </Button>
+          </GridItem>
+          <GridItem colSpan={1} border={'1px solid #ccc'}>
+            w
+          </GridItem>
+        </Grid>
+      </Layouts>
+
+      <Box bgColor="textGreen" p={10}>
+        <Layouts>
           <Grid templateColumns={'repeat(6, 1fr)'} columnGap={9} mt={10}>
             <GridItem colSpan={2} color={'white'}>
               <Text fontSize="2xl" fontWeight={'bold'}>
@@ -117,7 +142,7 @@ const Homepage = () => {
                 mt={5}
                 fontWeight={'semibold'}
               >
-                Find Mentors
+                Find a Mentor
               </Button>
             </GridItem>
             <GridItem colSpan={4} color="textBlue">
