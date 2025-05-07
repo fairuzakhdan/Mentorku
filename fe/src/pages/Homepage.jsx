@@ -1,5 +1,17 @@
 import React from 'react';
-import { Box, Container, Flex, Grid, GridItem, Group, Text, Span } from '@chakra-ui/react';
+import {
+  Box,
+  Container,
+  Flex,
+  Grid,
+  GridItem,
+  Group,
+  Text,
+  Span,
+  Button,
+  Icon,
+  SimpleGrid,
+} from '@chakra-ui/react';
 import Layouts from '../components/Layouts/Layouts';
 import ButtonInput from '../components/Fragments/SearchBar';
 import CardHorizontal from '../components/Fragments/CardHorizontal';
@@ -7,13 +19,18 @@ import { mentors as data, boxes as boxesData } from '../utils/mentors';
 import CircleBadge from '../components/Elements/Badge';
 import { useState, useEffect } from 'react';
 import CardBox from '../components/Fragments/CardBox';
+import { mentees as menteesData } from '../utils/mentors';
+import { FaStar } from 'react-icons/fa';
+import { FaCheckCircle } from 'react-icons/fa';
 
 const Homepage = () => {
   const [mentors, setMentors] = useState([]);
   const [boxes, setBoxes] = useState([]);
+  const [mentees, setMentees] = useState([]);
   useEffect(() => {
     setBoxes(boxesData);
     setMentors(data);
+    setMentees(menteesData);
   }, []);
   return (
     <>
@@ -42,8 +59,27 @@ const Homepage = () => {
           </GridItem>
           <GridItem colSpan={2}>
             {mentors.map((mentor, index) => (
-              <CardHorizontal key={index} image={mentor.image}>
-                <CardHorizontal.Body {...mentor} />
+              <CardHorizontal key={index} image={mentor.image} gapCard={3}>
+                {console.log(mentor.name)}
+                <CardHorizontal.Header
+                  name={
+                    <Box display="flex" alignItems="center">
+                      {mentor.name}
+                      <Button color={'textGreen'} variant="plain" size="2xs" pointerEvents={'none'}>
+                        <FaStar />{' '}
+                        <Span fontSize="sm" fontWeight="semibold">
+                          5.0{' '}
+                        </Span>{' '}
+                      </Button>
+                    </Box>
+                  }
+                  role={
+                    <Box display="flex" alignItems="center">
+                      {mentor.role}
+                      <Icon as={FaCheckCircle} color="blue.400" ml={1} />
+                    </Box>
+                  }
+                />
                 <CardHorizontal.Footer {...mentor} />
               </CardHorizontal>
             ))}
@@ -58,10 +94,42 @@ const Homepage = () => {
           </Text>
           <Grid templateColumns={'repeat(3, 1fr)'} id="explore" columnGap="9">
             {boxes.map((boxe, index) => (
-              <GridItem colSpan={1}>
-                <CardBox key={index} {...boxe} />
+              <GridItem key={index} colSpan={1}>
+                <CardBox {...boxe} />
               </GridItem>
             ))}
+          </Grid>
+
+          <Grid templateColumns={'repeat(6, 1fr)'} columnGap={9} mt={10}>
+            <GridItem colSpan={2} color={'white'}>
+              <Text fontSize="2xl" fontWeight={'bold'}>
+                Still not convinced? <br /> Don’t just take our word for it
+              </Text>
+              <Text>
+                We’ve already delivered 1-on-1 mentorship to thousands of students, professionals,
+                managers and executives. Even better, they’ve left an average rating of 4.9 out of 5
+                for our mentors.
+              </Text>
+              <Button
+                bgColor="white"
+                color={'textGreen'}
+                variant="solid"
+                mt={5}
+                fontWeight={'semibold'}
+              >
+                Find Mentors
+              </Button>
+            </GridItem>
+            <GridItem colSpan={4} color="textBlue">
+              <SimpleGrid columns={2} gap={5}>
+                {mentees.map((mente, index) => (
+                  <CardHorizontal key={index} image={mente.image}>
+                    <CardHorizontal.Header {...mente} />
+                    <CardHorizontal.Body fontStyle={'italic'} {...mente} />
+                  </CardHorizontal>
+                ))}
+              </SimpleGrid>
+            </GridItem>
           </Grid>
         </Layouts>
       </Box>

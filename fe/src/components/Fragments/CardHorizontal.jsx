@@ -2,18 +2,16 @@ import React from 'react';
 import { Box, Button, Card, HStack, Span, Flex, Icon } from '@chakra-ui/react';
 import PropTypes from 'prop-types';
 import AvatarCard from '../Elements/Avatar';
-import { FaStar } from 'react-icons/fa';
-import { FaCheckCircle } from 'react-icons/fa';
 import CircleBadge from '../Elements/Badge';
 
-export const CardHorizontal = ({ children, image }) => (
+export const CardHorizontal = ({ children, image, gapCard }) => (
   <Card.Root
     flexDirection="row"
     overflow="hidden"
     bg={'white'}
     color="black"
     border={'1px solid #ccc'}
-    marginBlock={3}
+    marginBlock={gapCard}
   >
     <Flex padding="3" gap={3}>
       <AvatarCard image={image} />
@@ -22,23 +20,20 @@ export const CardHorizontal = ({ children, image }) => (
   </Card.Root>
 );
 
-const Body = ({ role, name }) => {
+const Header = ({ title, name, role }) => {
   return (
-    <Card.Body padding={0}>
-      <Card.Title mb="2">
-        {name}{' '}
-        <Button color={'textGreen'} variant="plain" size="2xs" pointerEvents={'none'}>
-          <FaStar />{' '}
-          <Span fontSize="sm" fontWeight="semibold">
-            5.0
-          </Span>
-        </Button>
-      </Card.Title>
-      <Card.Description>
-        {role}{' '}
-        <Icon color="blue.400" marginLeft={1}>
-          <FaCheckCircle />
-        </Icon>
+    <Card.Header padding={0}>
+      <Card.Title fontSize="md">{name} </Card.Title>
+      <Card.Description>{title || role}</Card.Description>
+    </Card.Header>
+  );
+};
+
+const Body = ({ description, fontStyle }) => {
+  return (
+    <Card.Body paddingLeft={0}>
+      <Card.Description color={'textBlue'} fontStyle={fontStyle}>
+        {description}{' '}
       </Card.Description>
     </Card.Body>
   );
@@ -46,7 +41,7 @@ const Body = ({ role, name }) => {
 
 const Footer = ({ expertise }) => {
   return (
-    <Card.Footer>
+    <Card.Footer paddingLeft={0}>
       <HStack mt="4">
         {expertise.map((expert, index) => (
           <CircleBadge key={index}>{expert}</CircleBadge>
@@ -55,7 +50,7 @@ const Footer = ({ expertise }) => {
     </Card.Footer>
   );
 };
-
+CardHorizontal.Header = Header;
 CardHorizontal.Body = Body;
 CardHorizontal.Footer = Footer;
 
@@ -63,9 +58,14 @@ CardHorizontal.propTypes = {
   children: PropTypes.node,
 };
 
-Body.propTypes = {
-  role: PropTypes.string,
+Header.propTypes = {
+  title: PropTypes.string,
   name: PropTypes.string,
+  role: PropTypes.string,
+};
+
+Body.propTypes = {
+  description: PropTypes.string,
 };
 
 Footer.propTypes = {

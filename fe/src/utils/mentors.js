@@ -1,9 +1,9 @@
 const mentors = [
   {
     id: 1,
-    name: 'Mentor 1',
+    name: 'John Doe',
     image:
-      'https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+      'https://cdn.mentorcruise.com/cdn-cgi/image/width=128,format=auto/https://cdn.mentorcruise.com/cache/0173f11442a3f4bdbbf5d143e82f5989/27e9b1f123d9fa5c/f98fd004c02b6c4342ca73650723db36.jpg',
     role: 'UI/UX Designer',
     experienence: [
       {
@@ -16,9 +16,9 @@ const mentors = [
   },
   {
     id: 1,
-    name: 'Mentor 1',
+    name: 'John Doe',
     image:
-      'https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+      'https://cdn.mentorcruise.com/cdn-cgi/image/width=128,format=auto/https://cdn.mentorcruise.com/cache/d51c4c431d2e5a58e1afb1d32cfc87fd/a5f7fc2cc2e2e86f/085f6d9e14ce7b6d9f58ea4964518a07.jpg',
     role: 'Machine Learning Engineer',
     experienence: [
       {
@@ -31,9 +31,9 @@ const mentors = [
   },
   {
     id: 1,
-    name: 'Mentor 1',
+    name: 'John Doe',
     image:
-      'https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+      'https://cdn.mentorcruise.com/cdn-cgi/image/width=128,format=auto/https://cdn.mentorcruise.com/cache/b4ebd6f18284be520f09dc43431e1f82/9251bd0eba24ccc4/07ac4903445a354e4e6a4caa165630bd.jpg',
     role: 'Software Engineer',
     experienence: [
       {
@@ -72,4 +72,43 @@ const boxes = [
   },
 ];
 
-export { mentors, boxes };
+const mentees = [
+  {
+    id: 1,
+    name: 'John Doe',
+    role: 'Design Mentee',
+    description:
+      'has been supporting me with a software engineering job hunt and has provided amazing value with his industry knowledge, tips unique to my situation and support as I prepared for my interviews and applications.',
+    image:
+      'https://cdn.mentorcruise.com/cdn-cgi/image/width=128,format=auto/https://cdn.mentorcruise.com/cache/0173f11442a3f4bdbbf5d143e82f5989/27e9b1f123d9fa5c/f98fd004c02b6c4342ca73650723db36.jpg',
+  },
+  {
+    id: 1,
+    name: 'John Doe',
+    role: 'Design Mentee',
+    description:
+      'has been supporting me with a software engineering job hunt and has provided amazing value with his industry knowledge, tips unique to my situation and support as I prepared for my interviews and applications.',
+    image:
+      'https://cdn.mentorcruise.com/cdn-cgi/image/width=128,format=auto/https://cdn.mentorcruise.com/cache/0173f11442a3f4bdbbf5d143e82f5989/27e9b1f123d9fa5c/f98fd004c02b6c4342ca73650723db36.jpg',
+  },
+  {
+    id: 1,
+    name: 'John Doe',
+    role: 'Design Mentee',
+    description:
+      'has been supporting me with a software engineering job hunt and has provided amazing value with his industry knowledge, tips unique to my situation and support as I prepared for my interviews and applications.',
+    image:
+      'https://cdn.mentorcruise.com/cdn-cgi/image/width=128,format=auto/https://cdn.mentorcruise.com/cache/0173f11442a3f4bdbbf5d143e82f5989/27e9b1f123d9fa5c/f98fd004c02b6c4342ca73650723db36.jpg',
+  },
+  {
+    id: 1,
+    name: 'John Doe',
+    role: 'Design Mentee',
+    description:
+      'has been supporting me with a software engineering job hunt and has provided amazing value with his industry knowledge, tips unique to my situation and support as I prepared for my interviews and applications.',
+    image:
+      'https://cdn.mentorcruise.com/cdn-cgi/image/width=128,format=auto/https://cdn.mentorcruise.com/cache/0173f11442a3f4bdbbf5d143e82f5989/27e9b1f123d9fa5c/f98fd004c02b6c4342ca73650723db36.jpg',
+  },
+];
+
+export { mentors, boxes, mentees };
