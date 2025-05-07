@@ -123,6 +123,44 @@ const Homepage = () => {
         </Grid>
       </Layouts>
 
+      <Layouts>
+        <Text fontSize="2xl" fontWeight={'bold'}>
+          What are the benefits of Mentor on Demand?
+        </Text>
+        <Grid templateColumns={'repeat(3, 1fr)'} columnGap={9} my={10}>
+          <GridItem
+            colspan={1}
+            textAlign={'center'}
+            fontWeight="semibold"
+            color="textBlue"
+            fontSize="lg"
+          >
+            <Image src="src\assets\images\benefit-ques1.png" width={220} mb="3" mx="auto" />
+            <Text>You can ask anything to the expert</Text>
+          </GridItem>
+          <GridItem
+            colspan={1}
+            textAlign={'center'}
+            fontSize="lg"
+            fontWeight="semibold"
+            color="textBlue"
+          >
+            <Image src="src\assets\images\benefit-personal2.png" width={220} mb="3" mx="auto" />
+            <Text>1 : 1 Mentoring</Text>
+          </GridItem>
+          <GridItem
+            colspan={1}
+            textAlign={'center'}
+            fontSize="lg"
+            fontWeight="semibold"
+            color="textBlue"
+          >
+            <Image src="src\assets\images\benefit-schedule3.png" width={220} mb="3" mx="auto" />
+            <Text>Flexible schedule</Text>
+          </GridItem>
+        </Grid>
+      </Layouts>
+
       <Box bgColor="textGreen" p={10}>
         <Layouts>
           <Grid templateColumns={'repeat(6, 1fr)'} columnGap={9} mt={10}>
