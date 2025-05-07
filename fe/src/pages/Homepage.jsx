@@ -5,7 +5,7 @@ import {
   Flex,
   Grid,
   GridItem,
-  Group,
+  Image,
   Text,
   Span,
   Button,
@@ -117,8 +117,8 @@ const Homepage = () => {
               Start a mentoring session
             </Button>
           </GridItem>
-          <GridItem colSpan={1} border={'1px solid #ccc'}>
-            w
+          <GridItem colSpan={1}>
+            <Image src="src\assets\images\hero-vector-call.jpg"></Image>
           </GridItem>
         </Grid>
       </Layouts>
