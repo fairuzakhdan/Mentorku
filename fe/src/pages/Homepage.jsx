@@ -196,6 +196,7 @@ const Homepage = () => {
           </Grid>
         </Layouts>
       </Box>
+      <Layouts></Layouts>
     </>
   );
 };
