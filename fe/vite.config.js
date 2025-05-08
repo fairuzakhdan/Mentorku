@@ -6,6 +6,6 @@ import tsconfigPaths from 'vite-tsconfig-paths';
 export default defineConfig({
   plugins: [react(), tsconfigPaths()],
   optimizeDeps: {
-    include: ['keen-slider/react'],
+    include: ['swiper', 'swiper/react'],
   },
 });

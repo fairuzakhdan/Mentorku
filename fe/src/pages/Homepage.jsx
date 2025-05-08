@@ -22,8 +22,6 @@ import { mentees as menteesData } from '../utils/mentors';
 import { FaStar } from 'react-icons/fa';
 import { FaCheckCircle } from 'react-icons/fa';
 import { Typewriter } from 'react-simple-typewriter';
-import 'keen-slider/keen-slider.min.css';
-import { useKeenSlider } from 'keen-slider/react';
 
 const Homepage = () => {
   const [mentors, setMentors] = useState([]);
@@ -36,18 +34,6 @@ const Homepage = () => {
     setMentees(menteesData);
   }, []);
 
-  const [sliderRef, instanceRef] = useKeenSlider({
-    vertical: true,
-    loop: true,
-    slides: { perView: 3, spacing: 10 },
-  });
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      instanceRef.current?.next();
-    }, 2500);
-    return () => clearInterval(timer);
-  }, [instanceRef]);
   const subject = [
     'Learning',
     'Data Science',
@@ -76,7 +62,7 @@ const Homepage = () => {
               <Span color="textGreen">
                 <Typewriter
                   words={subject}
-                  loop={5}
+                  loop="true"
                   cursor
                   cursorStyle="|"
                   typeSpeed={70}
@@ -94,30 +80,37 @@ const Homepage = () => {
               ))}
             </Flex>
           </GridItem>
-          <GridItem colSpan={2} overflow={'hidden'} ref={sliderRef} className="keen-slider">
-            {mentors.map((mentor, index) => (
-              <CardHorizontal key={index} image={mentor.image} gapCard={3}>
-                <CardHorizontal.Header
-                  name={
-                    <Box display="flex" alignItems="center">
-                      {mentor.name}
-                      <Button color={'textGreen'} variant="plain" size="2xs" pointerEvents={'none'}>
-                        <FaStar />{' '}
-                        <Span fontSize="sm" fontWeight="semibold">
-                          5.0{' '}
-                        </Span>{' '}
-                      </Button>
-                    </Box>
-                  }
-                  role={
-                    <Span>
-                      {mentor.role} <Icon as={FaCheckCircle} color="blue.400" ml={1} />
-                    </Span>
-                  }
-                />
-                <CardHorizontal.Footer {...mentor} />
-              </CardHorizontal>
-            ))}
+          <GridItem colSpan={2} overflow={'hidden'}>
+            <Box className="vertical-ticker">
+              {mentors.map((mentor, index) => (
+                <CardHorizontal key={index} image={mentor.image} gapCard={3}>
+                  <CardHorizontal.Header
+                    name={
+                      <Box display="flex" alignItems="center">
+                        {mentor.name}
+                        <Button
+                          color={'textGreen'}
+                          variant="plain"
+                          size="2xs"
+                          pointerEvents={'none'}
+                        >
+                          <FaStar />{' '}
+                          <Span fontSize="sm" fontWeight="semibold">
+                            5.0{' '}
+                          </Span>{' '}
+                        </Button>
+                      </Box>
+                    }
+                    role={
+                      <Span>
+                        {mentor.role} <Icon as={FaCheckCircle} color="blue.400" ml={1} />
+                      </Span>
+                    }
+                  />
+                  <CardHorizontal.Footer {...mentor} />
+                </CardHorizontal>
+              ))}
+            </Box>
           </GridItem>
         </Grid>
       </Layouts>
@@ -251,7 +244,7 @@ const Homepage = () => {
                     left={0}
                     right={0}
                     bottom={0}
-                    height={'50%'}
+                    height={'60%'}
                   />
                   <Box position={'absolute'} bottom={0} left={0} right={0}>
                     <CardBox.Header {...mentor} />
