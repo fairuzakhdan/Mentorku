@@ -23,6 +23,7 @@ import { mentees as menteesData } from '../utils/mentors';
 import { FaStar } from 'react-icons/fa';
 import { FaCheckCircle } from 'react-icons/fa';
 import { Typewriter } from 'react-simple-typewriter';
+import { MdPersonSearch } from 'react-icons/md';
 
 const Homepage = () => {
   const [mentors, setMentors] = useState([]);
@@ -270,16 +271,13 @@ const Homepage = () => {
             </GridItem>
           ))}
         </Grid>
-        <Button
-          colorPalette="teal"
-          variant="solid"
-          m={'auto'}
-          display={'block'}
-          w={200}
-          fontSize={'md'}
-        >
-          See All Mentors
-        </Button>
+        <Flex justify="center" my={5}>
+          {' '}
+          {/* Flex digunakan untuk menempatkan tombol di tengah */}
+          <Button colorPalette="teal" variant="solid" w={200} fontSize={'md'}>
+            <MdPersonSearch /> See All Mentors
+          </Button>
+        </Flex>
       </Layouts>
 
       <Layouts>
