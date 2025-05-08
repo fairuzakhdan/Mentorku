@@ -1,8 +1,13 @@
 .vertical-ticker {
   display: flex;
   flex-direction: column;
-  animation: scroll-up 4s linear infinite;
+  animation: scroll-up 10s linear infinite;
   will-change: transform;
+}
+
+.ticker-item {
+  flex: 0 0 auto;
+  margin-bottom: 16px;
 }
 
 @keyframes scroll-up {

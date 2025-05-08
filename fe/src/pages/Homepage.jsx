@@ -12,6 +12,7 @@ import {
   SimpleGrid,
 } from '@chakra-ui/react';
 import Layouts from '../components/Layouts/Layouts';
+import Footer from '../components/Layouts/Footer';
 import ButtonInput from '../components/Fragments/SearchBar';
 import CardHorizontal from '../components/Fragments/CardHorizontal';
 import { mentors as data, boxes as boxesData } from '../utils/mentors';
@@ -82,34 +83,41 @@ const Homepage = () => {
           </GridItem>
           <GridItem colSpan={2} overflow={'hidden'}>
             <Box className="vertical-ticker">
-              {mentors.map((mentor, index) => (
-                <CardHorizontal key={index} image={mentor.image} gapCard={3}>
-                  <CardHorizontal.Header
-                    name={
-                      <Box display="flex" alignItems="center">
-                        {mentor.name}
-                        <Button
-                          color={'textGreen'}
-                          variant="plain"
-                          size="2xs"
-                          pointerEvents={'none'}
-                        >
-                          <FaStar />{' '}
-                          <Span fontSize="sm" fontWeight="semibold">
-                            5.0{' '}
-                          </Span>{' '}
-                        </Button>
-                      </Box>
-                    }
-                    role={
-                      <Span>
-                        {mentor.role} <Icon as={FaCheckCircle} color="blue.400" ml={1} />
-                      </Span>
-                    }
-                  />
-                  <CardHorizontal.Footer {...mentor} />
-                </CardHorizontal>
-              ))}
+              {[...Array(2)].map((_, blockIdx) =>
+                mentors.map((mentor, i) => (
+                  <CardHorizontal
+                    key={blockIdx + '-' + i}
+                    image={mentor.image}
+                    gapCard={3}
+                    className="ticker-item"
+                  >
+                    <CardHorizontal.Header
+                      name={
+                        <Box display="flex" alignItems="center">
+                          {mentor.name}
+                          <Button
+                            color={'textGreen'}
+                            variant="plain"
+                            size="2xs"
+                            pointerEvents={'none'}
+                          >
+                            <FaStar />{' '}
+                            <Span fontSize="sm" fontWeight="semibold">
+                              5.0{' '}
+                            </Span>{' '}
+                          </Button>
+                        </Box>
+                      }
+                      role={
+                        <Span>
+                          {mentor.role} <Icon as={FaCheckCircle} color="blue.400" ml={1} />
+                        </Span>
+                      }
+                    />
+                    <CardHorizontal.Footer {...mentor} />
+                  </CardHorizontal>
+                )),
+              )}
             </Box>
           </GridItem>
         </Grid>
@@ -244,9 +252,16 @@ const Homepage = () => {
                     left={0}
                     right={0}
                     bottom={0}
-                    height={'60%'}
+                    height={'50%'}
                   />
-                  <Box position={'absolute'} bottom={0} left={0} right={0}>
+                  <Box
+                    position={'absolute'}
+                    bottom={0}
+                    right={0}
+                    left={3}
+                    borderLeft={'5px solid #188474'}
+                    overflow={'hidden'}
+                  >
                     <CardBox.Header {...mentor} />
                     <CardBox.Body price={mentor.price} />
                   </Box>
@@ -255,6 +270,20 @@ const Homepage = () => {
             </GridItem>
           ))}
         </Grid>
+        <Button
+          colorPalette="teal"
+          variant="solid"
+          m={'auto'}
+          display={'block'}
+          w={200}
+          fontSize={'md'}
+        >
+          See All Mentors
+        </Button>
+      </Layouts>
+
+      <Layouts>
+        <Footer />
       </Layouts>
     </>
   );

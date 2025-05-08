@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import AvatarCard from '../Elements/Avatar';
 import CircleBadge from '../Elements/Badge';
 
-export const CardHorizontal = ({ children, image, gapCard }) => (
+export const CardHorizontal = ({ children, image, gapCard, className }) => (
   <Card.Root
     flexDirection="row"
     overflow="hidden"
@@ -12,6 +12,7 @@ export const CardHorizontal = ({ children, image, gapCard }) => (
     color="black"
     border={'1px solid #ccc'}
     marginBlock={gapCard}
+    className={className}
   >
     <Flex padding="3" gap={3}>
       <AvatarCard image={image} />
@@ -56,6 +57,9 @@ CardHorizontal.Footer = Footer;
 
 CardHorizontal.propTypes = {
   children: PropTypes.node,
+  image: PropTypes.string,
+  gapCard: PropTypes.string,
+  className: PropTypes.string,
 };
 
 Header.propTypes = {

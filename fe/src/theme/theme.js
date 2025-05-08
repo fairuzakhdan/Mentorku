@@ -19,7 +19,7 @@ const customConfig = defineConfig({
     },
     html: {
       backgroundColor: '#fff',
-      height: '500%',
+      height: '700%',
     },
   },
 });
