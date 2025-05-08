@@ -202,9 +202,8 @@ const Homepage = () => {
         <Grid templateColumns={'repeat(4, 1fr)'} my={10} gap={5}>
           {mentors.map((mentor, index) => (
             <GridItem key={index} colSpan={1}>
-              {console.log(mentor)}
               <CardBox>
-                <Box position={'relative'} rounded={'xl'} shadow={'md'}>
+                <Box position={'relative'}>
                   <CardBox.Image {...mentor} />
                   <Box
                     rounded={'xl'}

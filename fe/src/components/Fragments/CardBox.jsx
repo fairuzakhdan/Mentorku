@@ -5,7 +5,20 @@ import { RiArrowRightLine } from 'react-icons/ri';
 
 const CardBox = ({ children }) => {
   return (
-    <Card.Root width="full" backgroundColor={'#fff'} color="textBlue" border="none" pt="5">
+    <Card.Root
+      width="full"
+      backgroundColor={'#fff'}
+      color="textBlue"
+      border="none"
+      rounded={'xl'}
+      shadow={'md'}
+      transition={'all 0.3s ease-in-out'}
+      _hover={{
+        transform: 'scale(1.02)',
+        transition: 'all 0.3s ease-in-out',
+        opacity: 0.9,
+      }}
+    >
       {children}
     </Card.Root>
   );
@@ -33,9 +46,9 @@ const Header = ({ name, role }) => {
 };
 const Body = ({ title, description, price }) => {
   return (
-    <Card.Body pt="0">
+    <Card.Body pt="3">
       <Card.Title mt="2">{title}</Card.Title>
-      <Card.Title color={'white'}>
+      <Card.Title color={'white'} fontSize={'md'}>
         {typeof price === 'number'
           ? price.toLocaleString('id-ID', {
               style: 'currency',
