@@ -1,7 +1,6 @@
 import React from 'react';
 import {
   Box,
-  Container,
   Flex,
   Grid,
   GridItem,
@@ -22,16 +21,42 @@ import CardBox from '../components/Fragments/CardBox';
 import { mentees as menteesData } from '../utils/mentors';
 import { FaStar } from 'react-icons/fa';
 import { FaCheckCircle } from 'react-icons/fa';
+import { Typewriter } from 'react-simple-typewriter';
+import 'keen-slider/keen-slider.min.css';
+import { useKeenSlider } from 'keen-slider/react';
 
 const Homepage = () => {
   const [mentors, setMentors] = useState([]);
   const [boxes, setBoxes] = useState([]);
   const [mentees, setMentees] = useState([]);
+
   useEffect(() => {
     setBoxes(boxesData);
     setMentors(data);
     setMentees(menteesData);
   }, []);
+
+  const [sliderRef, instanceRef] = useKeenSlider({
+    vertical: true,
+    loop: true,
+    slides: { perView: 3, spacing: 10 },
+  });
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      instanceRef.current?.next();
+    }, 2500);
+    return () => clearInterval(timer);
+  }, [instanceRef]);
+  const subject = [
+    'Learning',
+    'Data Science',
+    'React',
+    'Web Development',
+    'ML & AI',
+    'JavaScript',
+    'Blockchain',
+  ];
   return (
     <>
       <Layouts>
@@ -46,8 +71,20 @@ const Homepage = () => {
             marginBottom="12"
           >
             <Text>Learn a new skill, launch a project, land your dream career.</Text>
-            <Text fontSize={'5xl'} fontWeight={'bolder'} color="textBlue">
-              1-on-1 <Span color="textGreen">Learning</Span> <br />
+            <Text fontSize="6xl" fontWeight={'bolder'} color="textBlue">
+              1-on-1{' '}
+              <Span color="textGreen">
+                <Typewriter
+                  words={subject}
+                  loop={5}
+                  cursor
+                  cursorStyle="|"
+                  typeSpeed={70}
+                  deleteSpeed={50}
+                  delaySpeed={1000}
+                />
+              </Span>{' '}
+              <br />
               Mentorship
             </Text>
             <ButtonInput />
@@ -57,7 +94,7 @@ const Homepage = () => {
               ))}
             </Flex>
           </GridItem>
-          <GridItem colSpan={2} overflow={'hidden'}>
+          <GridItem colSpan={2} overflow={'hidden'} ref={sliderRef} className="keen-slider">
             {mentors.map((mentor, index) => (
               <CardHorizontal key={index} image={mentor.image} gapCard={3}>
                 <CardHorizontal.Header
