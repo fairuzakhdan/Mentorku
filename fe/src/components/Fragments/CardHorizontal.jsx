@@ -61,7 +61,7 @@ CardHorizontal.propTypes = {
 Header.propTypes = {
   title: PropTypes.string,
   name: PropTypes.string,
-  role: PropTypes.string,
+  role: PropTypes.node,
 };
 
 Body.propTypes = {

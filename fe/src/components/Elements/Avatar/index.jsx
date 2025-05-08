@@ -5,7 +5,7 @@ const AvatarCard = ({ image }) => {
   return (
     <Avatar.Root shape="rounded" size="xl" backgroundColor="transparent" border="none">
       <Avatar.Fallback name="Segun Adebayo" />
-      <Avatar.Image src={image} border="none" />
+      <Avatar.Image src={image} border="none" objectPosition={'top'} />
     </Avatar.Root>
   );
 };

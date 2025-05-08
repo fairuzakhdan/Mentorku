@@ -3,7 +3,7 @@ const mentors = [
     id: 1,
     name: 'John Doe',
     image:
-      'https://cdn.mentorcruise.com/cdn-cgi/image/width=128,format=auto/https://cdn.mentorcruise.com/cache/0173f11442a3f4bdbbf5d143e82f5989/27e9b1f123d9fa5c/f98fd004c02b6c4342ca73650723db36.jpg',
+      'https://images.unsplash.com/photo-1623366302587-b38b1ddaefd9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTF8fGVudGVwcmVuZXVyfGVufDB8fDB8fHww',
     role: 'UI/UX Designer',
     experienence: [
       {
@@ -13,12 +13,13 @@ const mentors = [
       },
     ],
     expertise: ['Figma', 'Adobe XD', 'Sketch'],
+    price: 75000,
   },
   {
     id: 1,
     name: 'John Doe',
     image:
-      'https://cdn.mentorcruise.com/cdn-cgi/image/width=128,format=auto/https://cdn.mentorcruise.com/cache/d51c4c431d2e5a58e1afb1d32cfc87fd/a5f7fc2cc2e2e86f/085f6d9e14ce7b6d9f58ea4964518a07.jpg',
+      'https://images.unsplash.com/photo-1636368086488-bb2c04738214?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8ODA3fHx0ZWFjaGVyfGVufDB8fDB8fHww',
     role: 'Machine Learning Engineer',
     experienence: [
       {
@@ -28,12 +29,13 @@ const mentors = [
       },
     ],
     expertise: ['Figma', 'Adobe XD', 'Sketch'],
+    price: 75000,
   },
   {
     id: 1,
     name: 'John Doe',
     image:
-      'https://cdn.mentorcruise.com/cdn-cgi/image/width=128,format=auto/https://cdn.mentorcruise.com/cache/b4ebd6f18284be520f09dc43431e1f82/9251bd0eba24ccc4/07ac4903445a354e4e6a4caa165630bd.jpg',
+      'https://images.unsplash.com/photo-1742119971773-57e0131095b0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NjZ8fGVudGVwcmVuZXVyfGVufDB8fDB8fHww',
     role: 'Software Engineer',
     experienence: [
       {
@@ -43,8 +45,26 @@ const mentors = [
       },
     ],
     expertise: ['Figma', 'Adobe XD', 'Sketch', 'Photoshop'],
+    price: 75000,
+  },
+  {
+    id: 1,
+    name: 'John Doe',
+    image:
+      'https://plus.unsplash.com/premium_photo-1661594668193-3f105ef4ce8d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzQxfHxlbnRlcHJlbmV1cnxlbnwwfHwwfHx8MA%3D%3D',
+    role: 'Software Engineer',
+    experienence: [
+      {
+        company: 'Google',
+        positon: 'UI/UX Designer',
+        years: '5 years',
+      },
+    ],
+    expertise: ['Figma', 'Adobe XD', 'Sketch', 'Photoshop'],
+    price: 75000,
   },
 ];
+
 const boxes = [
   {
     id: 1,

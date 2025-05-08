@@ -57,10 +57,9 @@ const Homepage = () => {
               ))}
             </Flex>
           </GridItem>
-          <GridItem colSpan={2}>
+          <GridItem colSpan={2} overflow={'hidden'}>
             {mentors.map((mentor, index) => (
               <CardHorizontal key={index} image={mentor.image} gapCard={3}>
-                {console.log(mentor.name)}
                 <CardHorizontal.Header
                   name={
                     <Box display="flex" alignItems="center">
@@ -74,10 +73,9 @@ const Homepage = () => {
                     </Box>
                   }
                   role={
-                    <Box display="flex" alignItems="center">
-                      {mentor.role}
-                      <Icon as={FaCheckCircle} color="blue.400" ml={1} />
-                    </Box>
+                    <Span>
+                      {mentor.role} <Icon as={FaCheckCircle} color="blue.400" ml={1} />
+                    </Span>
                   }
                 />
                 <CardHorizontal.Footer {...mentor} />
@@ -95,7 +93,10 @@ const Homepage = () => {
           <Grid templateColumns={'repeat(3, 1fr)'} id="explore" columnGap="9">
             {boxes.map((boxe, index) => (
               <GridItem key={index} colSpan={1}>
-                <CardBox {...boxe} />
+                <CardBox>
+                  <CardBox.Body description={boxe.description} title={boxe.title} />
+                  <CardBox.Footer {...boxe} />
+                </CardBox>
               </GridItem>
             ))}
           </Grid>
@@ -196,7 +197,36 @@ const Homepage = () => {
           </Grid>
         </Layouts>
       </Box>
-      <Layouts></Layouts>
+
+      <Layouts>
+        <Grid templateColumns={'repeat(4, 1fr)'} my={10} gap={5}>
+          {mentors.map((mentor, index) => (
+            <GridItem key={index} colSpan={1}>
+              {console.log(mentor)}
+              <CardBox>
+                <Box position={'relative'} rounded={'xl'} shadow={'md'}>
+                  <CardBox.Image {...mentor} />
+                  <Box
+                    rounded={'xl'}
+                    bgGradient="to-b"
+                    gradientFrom="transparent"
+                    gradientTo="textGreen"
+                    position={'absolute'}
+                    left={0}
+                    right={0}
+                    bottom={0}
+                    height={'50%'}
+                  />
+                  <Box position={'absolute'} bottom={0} left={0} right={0}>
+                    <CardBox.Header {...mentor} />
+                    <CardBox.Body price={mentor.price} />
+                  </Box>
+                </Box>
+              </CardBox>
+            </GridItem>
+          ))}
+        </Grid>
+      </Layouts>
     </>
   );
 };
