@@ -13,7 +13,7 @@ import {
 } from '@chakra-ui/react';
 import Layouts from '../components/Layouts/Layouts';
 import Footer from '../components/Layouts/Footer';
-import ButtonInput from '../components/Fragments/SearchBar';
+import SearchBar from '../components/Fragments/SearchBar';
 import CardHorizontal from '../components/Fragments/CardHorizontal';
 import { mentors as data, boxes as boxesData } from '../utils/mentors';
 import CircleBadge from '../components/Elements/Badge';
@@ -75,7 +75,7 @@ const Homepage = () => {
               <br />
               Mentorship
             </Text>
-            <ButtonInput />
+            <SearchBar text="Find Mentors" color="teal" />
             <Flex wrap="wrap" gap={5}>
               {mentors.map((mentor, index) => (
                 <CircleBadge key={index}>{mentor.role}</CircleBadge>
@@ -272,8 +272,6 @@ const Homepage = () => {
           ))}
         </Grid>
         <Flex justify="center" my={5}>
-          {' '}
-          {/* Flex digunakan untuk menempatkan tombol di tengah */}
           <Button colorPalette="teal" variant="solid" w={200} fontSize={'md'}>
             <MdPersonSearch /> See All Mentors
           </Button>

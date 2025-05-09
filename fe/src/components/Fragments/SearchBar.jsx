@@ -1,21 +1,26 @@
+import React from 'react';
 import { Button, Group, Input } from '@chakra-ui/react';
-
-const ButtonInput = () => {
+import PropTypes from 'prop-types';
+const SearchBar = ({ text, color }) => {
   return (
     <Group w="full" maxW="xl" border={'1px solid #ccc'} padding="2" rounded={'md'}>
       <Input
         flex="2"
-        placeholder="Search by, skills or role Search by, skills or role"
+        placeholder="Search by, skills or role "
         size={'md'}
-        border={'none'}
-        color="teal"
+        border={'1px solid #ccc'}
+        color={color}
         _placeholder={{ color: 'inherit' }}
       />
-      <Button colorPalette="teal" variant="solid" size={'md'} margin={-1}>
-        Find Mentors
+      <Button colorPalette={color} variant="solid" size={'md'} margin={-1}>
+        {text}
       </Button>
     </Group>
   );
 };
+SearchBar.propTypes = {
+  text: PropTypes.string,
+  color: PropTypes.string,
+};
 
-export default ButtonInput;
+export default SearchBar;

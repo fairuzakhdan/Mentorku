@@ -2,6 +2,7 @@ import React from 'react';
 import '@fontsource/poppins/400.css';
 import Navigation from './components/Layouts/Navigation';
 import Homepage from './pages/Homepage';
+import Mentorpage from './pages/Mentorpage';
 import { Routes, Route } from 'react-router';
 
 const App = () => {
@@ -21,7 +22,7 @@ const App = () => {
       <main>
         <Routes>
           <Route element={<Homepage />} path="/" />
-          <Route element={<Homepage />} path="/" />
+          <Route element={<Mentorpage />} path="/mentors" />
         </Routes>
       </main>
     </>

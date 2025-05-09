@@ -6,7 +6,7 @@ const CatalogMenu = ({ links }) => {
   return (
     <Menu.Root>
       <Menu.Trigger asChild>
-        <Button size="sm" variant="solid" outline="none" color="black" fontSize="md">
+        <Button size="sm" variant="solid" outline="none" color="black" fontSize="md" p={0}>
           Katalog <LuChevronDown />
         </Button>
       </Menu.Trigger>
