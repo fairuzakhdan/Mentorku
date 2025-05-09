@@ -1,7 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router';
 import PropTypes from 'prop-types';
-import { Menu, Button, Portal } from '@chakra-ui/react';
+import { Menu, Button, Portal, Link } from '@chakra-ui/react';
 import { LuChevronDown } from 'react-icons/lu';
 const CatalogMenu = ({ links }) => {
   return (
@@ -18,7 +17,6 @@ const CatalogMenu = ({ links }) => {
               <Menu.Item key={link.href} asChild value={link.title} color="black">
                 <Link
                   href={link.href}
-                  target="_blank"
                   rel="noreferrer"
                   cursor="pointer"
                   variant="underline"

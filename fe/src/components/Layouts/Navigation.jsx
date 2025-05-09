@@ -9,16 +9,16 @@ import Layouts from '../Layouts/Layouts';
 const Navigation = () => {
   const links = [
     {
-      title: 'Naruto',
-      href: '#',
+      title: 'Benefits',
+      href: '#benefits',
     },
     {
-      title: 'One Piece',
-      href: '#',
+      title: 'Testimonials',
+      href: '#testimonials',
     },
     {
-      title: 'Attack on Titan',
-      href: '#',
+      title: 'Top Mentor',
+      href: '#topmentor',
     },
   ];
   return (

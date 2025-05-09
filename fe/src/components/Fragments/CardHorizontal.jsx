@@ -10,7 +10,7 @@ export const CardHorizontal = ({ children, image, gapCard, className }) => (
     overflow="hidden"
     bg={'white'}
     color="black"
-    border={'1px solid #ccc'}
+    border={'1px solid #b0acac'}
     marginBlock={gapCard}
     className={className}
   >

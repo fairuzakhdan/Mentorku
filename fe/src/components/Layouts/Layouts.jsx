@@ -1,6 +1,7 @@
 import { Container } from '@chakra-ui/react';
 import React from 'react';
-const Layouts = ({ children }) => {
+import PropTypes from 'prop-types';
+const Layouts = ({ children, id }) => {
   const maxw = {
     base: '100%',
     sm: '90%',
@@ -9,9 +10,14 @@ const Layouts = ({ children }) => {
     xl: '95%',
   };
   return (
-    <Container color={'black'} maxW={maxw}>
+    <Container color={'black'} maxW={maxw} id={id}>
       {children}
     </Container>
   );
+};
+
+Layouts.propTypes = {
+  children: PropTypes.node,
+  id: PropTypes.string,
 };
 export default Layouts;

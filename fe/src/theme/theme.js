@@ -16,6 +16,7 @@ const customConfig = defineConfig({
     },
     '*': {
       fontFamily: 'Poppins, sans-serif',
+      scrollBehavior: 'smooth',
     },
     html: {
       backgroundColor: '#fff',

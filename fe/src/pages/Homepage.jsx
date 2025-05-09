@@ -163,7 +163,7 @@ const Homepage = () => {
         </Grid>
       </Layouts>
 
-      <Layouts>
+      <Layouts id="benefits">
         <Text fontSize="2xl" fontWeight={'bold'}>
           What are the benefits of Mentor on Demand?
         </Text>
@@ -201,7 +201,7 @@ const Homepage = () => {
         </Grid>
       </Layouts>
 
-      <Box bgColor="textGreen" p={10}>
+      <Box bgColor="textGreen" p={10} id="testimonials">
         <Layouts>
           <Grid templateColumns={'repeat(6, 1fr)'} columnGap={9} mt={10}>
             <GridItem colSpan={2} color={'white'}>
@@ -237,7 +237,7 @@ const Homepage = () => {
         </Layouts>
       </Box>
 
-      <Layouts>
+      <Layouts id="topmentor">
         <Grid templateColumns={'repeat(4, 1fr)'} my={10} gap={5}>
           {mentors.map((mentor, index) => (
             <GridItem key={index} colSpan={1}>
