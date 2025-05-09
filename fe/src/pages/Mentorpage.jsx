@@ -54,8 +54,8 @@ const Mentorpage = () => {
       <Layouts>
         <Grid templateColumns={'repeat(5, 1fr)'} my={10} gap={5}>
           {mentors.map((mentor, index) => (
-            <Link to={`/mentors/${mentor.id}`}>
-              <GridItem key={index} colSpan={1}>
+            <GridItem key={index} colSpan={1}>
+              <Link to={`/mentors/${mentor.id}`}>
                 <CardBox>
                   <Box position={'relative'}>
                     <CardBox.Image {...mentor} />
@@ -83,8 +83,8 @@ const Mentorpage = () => {
                     </Box>
                   </Box>
                 </CardBox>
-              </GridItem>
-            </Link>
+              </Link>
+            </GridItem>
           ))}
         </Grid>
       </Layouts>

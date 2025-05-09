@@ -5,6 +5,7 @@ import Homepage from './pages/Homepage';
 import Mentorpage from './pages/Mentorpage';
 import { Routes, Route } from 'react-router';
 import Footer from './components/Layouts/Footer';
+import DetailMentorpage from './pages/DetailMentorpage';
 
 const App = () => {
   return (
@@ -24,6 +25,7 @@ const App = () => {
         <Routes>
           <Route element={<Homepage />} path="/" />
           <Route element={<Mentorpage />} path="/mentors" />
+          <Route element={<DetailMentorpage />} path="/mentors/:mentorId" />
         </Routes>
       </main>
       <footer>
