@@ -1,7 +1,7 @@
 .vertical-ticker {
   display: flex;
   flex-direction: column;
-  animation: scroll-up 10s linear infinite;
+  animation: scroll-up 40s linear infinite;
   will-change: transform;
 }
 

@@ -5,6 +5,7 @@ import SearchBar from '../components/Fragments/SearchBar';
 import { mentors as data } from '../utils/mentors';
 import { useState, useEffect } from 'react';
 import CardBox from '../components/Fragments/CardBox';
+import { Link } from 'react-router';
 const Mentorpage = () => {
   const [mentors, setMentors] = useState([]);
   useEffect(() => {
@@ -53,35 +54,37 @@ const Mentorpage = () => {
       <Layouts>
         <Grid templateColumns={'repeat(5, 1fr)'} my={10} gap={5}>
           {mentors.map((mentor, index) => (
-            <GridItem key={index} colSpan={1}>
-              <CardBox>
-                <Box position={'relative'}>
-                  <CardBox.Image {...mentor} />
-                  <Box
-                    rounded={'xl'}
-                    bgGradient="to-b"
-                    gradientFrom="transparent"
-                    gradientTo="textGreen"
-                    position={'absolute'}
-                    left={0}
-                    right={0}
-                    bottom={0}
-                    height={'50%'}
-                  />
-                  <Box
-                    position={'absolute'}
-                    bottom={0}
-                    right={0}
-                    left={3}
-                    borderLeft={'5px solid #188474'}
-                    overflow={'hidden'}
-                  >
-                    <CardBox.Header {...mentor} />
-                    <CardBox.Body price={mentor.price} />
+            <Link to={`/mentors/${mentor.id}`}>
+              <GridItem key={index} colSpan={1}>
+                <CardBox>
+                  <Box position={'relative'}>
+                    <CardBox.Image {...mentor} />
+                    <Box
+                      rounded={'xl'}
+                      bgGradient="to-b"
+                      gradientFrom="transparent"
+                      gradientTo="textGreen"
+                      position={'absolute'}
+                      left={0}
+                      right={0}
+                      bottom={0}
+                      height={'50%'}
+                    />
+                    <Box
+                      position={'absolute'}
+                      bottom={0}
+                      right={0}
+                      left={3}
+                      borderLeft={'5px solid #188474'}
+                      overflow={'hidden'}
+                    >
+                      <CardBox.Header {...mentor} />
+                      <CardBox.Body price={mentor.price} />
+                    </Box>
                   </Box>
-                </Box>
-              </CardBox>
-            </GridItem>
+                </CardBox>
+              </GridItem>
+            </Link>
           ))}
         </Grid>
       </Layouts>

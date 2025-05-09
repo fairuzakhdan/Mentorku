@@ -24,6 +24,7 @@ import { FaStar } from 'react-icons/fa';
 import { FaCheckCircle } from 'react-icons/fa';
 import { Typewriter } from 'react-simple-typewriter';
 import { MdPersonSearch } from 'react-icons/md';
+import { Link } from 'react-router';
 
 const Homepage = () => {
   const [mentors, setMentors] = useState([]);
@@ -77,8 +78,8 @@ const Homepage = () => {
             </Text>
             <SearchBar text="Find Mentors" color="teal" />
             <Flex wrap="wrap" gap={5}>
-              {mentors.map((mentor, index) => (
-                <CircleBadge key={index}>{mentor.role}</CircleBadge>
+              {[...new Set(mentors.map((mentor) => mentor.role))].map((role, index) => (
+                <CircleBadge key={index}>{role}</CircleBadge>
               ))}
             </Flex>
           </GridItem>
@@ -271,15 +272,14 @@ const Homepage = () => {
             </GridItem>
           ))}
         </Grid>
-        <Flex justify="center" my={5}>
-          <Button colorPalette="teal" variant="solid" w={200} fontSize={'md'}>
-            <MdPersonSearch /> See All Mentors
-          </Button>
+        <Flex justify="center" alignItems={'center'} my={5}>
+          <Link to="/mentors">
+            <Button colorPalette="teal" variant="solid" w={200} fontSize={'md'}>
+              <MdPersonSearch />
+              See All Mentors
+            </Button>
+          </Link>
         </Flex>
-      </Layouts>
-
-      <Layouts>
-        <Footer />
       </Layouts>
     </>
   );

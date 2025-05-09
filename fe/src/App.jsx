@@ -4,6 +4,7 @@ import Navigation from './components/Layouts/Navigation';
 import Homepage from './pages/Homepage';
 import Mentorpage from './pages/Mentorpage';
 import { Routes, Route } from 'react-router';
+import Footer from './components/Layouts/Footer';
 
 const App = () => {
   return (
@@ -25,6 +26,9 @@ const App = () => {
           <Route element={<Mentorpage />} path="/mentors" />
         </Routes>
       </main>
+      <footer>
+        <Footer />
+      </footer>
     </>
   );
 };
