@@ -63,6 +63,102 @@ const mentors = [
     expertise: ['Figma', 'Adobe XD', 'Sketch', 'Photoshop'],
     price: 75000,
   },
+  {
+    id: 1,
+    name: 'John Doe',
+    image:
+      'https://plus.unsplash.com/premium_photo-1661594668193-3f105ef4ce8d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzQxfHxlbnRlcHJlbmV1cnxlbnwwfHwwfHx8MA%3D%3D',
+    role: 'Software Engineer',
+    experienence: [
+      {
+        company: 'Google',
+        positon: 'UI/UX Designer',
+        years: '5 years',
+      },
+    ],
+    expertise: ['Figma', 'Adobe XD', 'Sketch', 'Photoshop'],
+    price: 75000,
+  },
+  {
+    id: 1,
+    name: 'John Doe',
+    image:
+      'https://plus.unsplash.com/premium_photo-1661594668193-3f105ef4ce8d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzQxfHxlbnRlcHJlbmV1cnxlbnwwfHwwfHx8MA%3D%3D',
+    role: 'Software Engineer',
+    experienence: [
+      {
+        company: 'Google',
+        positon: 'UI/UX Designer',
+        years: '5 years',
+      },
+    ],
+    expertise: ['Figma', 'Adobe XD', 'Sketch', 'Photoshop'],
+    price: 75000,
+  },
+  {
+    id: 1,
+    name: 'John Doe',
+    image:
+      'https://plus.unsplash.com/premium_photo-1661594668193-3f105ef4ce8d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzQxfHxlbnRlcHJlbmV1cnxlbnwwfHwwfHx8MA%3D%3D',
+    role: 'Software Engineer',
+    experienence: [
+      {
+        company: 'Google',
+        positon: 'UI/UX Designer',
+        years: '5 years',
+      },
+    ],
+    expertise: ['Figma', 'Adobe XD', 'Sketch', 'Photoshop'],
+    price: 75000,
+  },
+  {
+    id: 1,
+    name: 'John Doe',
+    image:
+      'https://plus.unsplash.com/premium_photo-1661594668193-3f105ef4ce8d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzQxfHxlbnRlcHJlbmV1cnxlbnwwfHwwfHx8MA%3D%3D',
+    role: 'Software Engineer',
+    experienence: [
+      {
+        company: 'Google',
+        positon: 'UI/UX Designer',
+        years: '5 years',
+      },
+    ],
+    expertise: ['Figma', 'Adobe XD', 'Sketch', 'Photoshop'],
+    price: 75000,
+  },
+  {
+    id: 1,
+    name: 'John Doe',
+    image:
+      'https://plus.unsplash.com/premium_photo-1661594668193-3f105ef4ce8d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzQxfHxlbnRlcHJlbmV1cnxlbnwwfHwwfHx8MA%3D%3D',
+    role: 'Software Engineer',
+    experienence: [
+      {
+        company: 'Google',
+        positon: 'UI/UX Designer',
+        years: '5 years',
+      },
+    ],
+    expertise: ['Figma', 'Adobe XD', 'Sketch', 'Photoshop'],
+    price: 75000,
+  },
+  {
+    id: 1,
+    name: 'John Doe',
+    image:
+      'https://plus.unsplash.com/premium_photo-1661594668193-3f105ef4ce8d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzQxfHxlbnRlcHJlbmV1cnxlbnwwfHwwfHx8MA%3D%3D',
+    role: 'Software Engineer',
+    experienence: [
+      {
+        company: 'Google',
+        positon: 'UI/UX Designer',
+        years: '5 years',
+      },
+    ],
+    expertise: ['Figma', 'Adobe XD', 'Sketch', 'Photoshop'],
+    price: 75000,
+  },
 ];
 
 const boxes = [

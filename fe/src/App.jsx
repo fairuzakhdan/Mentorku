@@ -14,7 +14,7 @@ const App = () => {
           position: 'sticky',
           top: 0,
           backgroundColor: 'white',
-          zIndex: 1,
+          zIndex: 2,
         }}
       >
         <Navigation />

@@ -239,7 +239,7 @@ const Homepage = () => {
 
       <Layouts id="topmentor">
         <Grid templateColumns={'repeat(4, 1fr)'} my={10} gap={5}>
-          {mentors.map((mentor, index) => (
+          {mentors.slice(0, 4).map((mentor, index) => (
             <GridItem key={index} colSpan={1}>
               <CardBox>
                 <Box position={'relative'}>
