@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Card, Flex, Image } from '@chakra-ui/react';
+import { Button, Card, Flex, Image, Text } from '@chakra-ui/react';
 import PropTypes from 'prop-types';
 import { RiArrowRightLine } from 'react-icons/ri';
 
@@ -48,19 +48,18 @@ const Header = ({ name, role }) => {
     </Card.Header>
   );
 };
-const Body = ({ title, description, price, color = 'white' }) => {
+const Body = ({ title, description, price, color = 'white', fontSize = 'md' }) => {
   return (
     <Card.Body pt="3">
       <Card.Title mt="2">{title}</Card.Title>
-      <Card.Title color={color} fontSize={'md'}>
+      <Card.Title color={color} fontSize={fontSize} pb="4">
         {typeof price === 'number'
-          ? price.toLocaleString('id-ID', {
+          ? `${price.toLocaleString('id-ID', {
               style: 'currency',
               currency: 'IDR',
               minimumFractionDigits: 0,
-            })
+            })}/Session`
           : null}
-        /Session
       </Card.Title>
       <Card.Description>{description}</Card.Description>
     </Card.Body>
@@ -97,6 +96,8 @@ Body.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
   price: PropTypes.number,
+  color: PropTypes.string,
+  fontSize: PropTypes.string,
 };
 
 Footer.propTypes = {
@@ -105,6 +106,8 @@ Footer.propTypes = {
 };
 CardBox.propTypes = {
   children: PropTypes.node,
+  hover: PropTypes.object,
+  backgroundColor: PropTypes.string,
 };
 CardBox.Image = CardImage;
 CardBox.Header = Header;

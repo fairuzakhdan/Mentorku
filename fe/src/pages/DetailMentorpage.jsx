@@ -26,14 +26,14 @@ const DetailMentorpage = () => {
 
   return (
     <>
-      <Box backgroundColor="textGreen" height={300}>
+      <Box backgroundColor="textGreen" height={250}>
         <Layouts>
           <Grid templateColumns={'repeat(3, 1fr)'}>
             <GridItem colSpan={2} border={'1px solid #ccc'}>
               s
             </GridItem>
-            <GridItem colSpan={1} position={'relative'}>
-              <Box position={'sticky'} top={10} bottom={10} left={10} right={10}>
+            <GridItem colSpan={1} position={'relative'} mt="5">
+              <Box position={'sticky'} zIndex={1} ml="10">
                 <CardBox
                   hover={{
                     transform: 'none',
@@ -42,24 +42,25 @@ const DetailMentorpage = () => {
                 >
                   <CardBox.Body
                     color="textBlue"
-                    title={detailMentor.price}
+                    price={detailMentor.price}
+                    fontSize="xl"
                     description="Cocok untuk mereka yang ingin melakukan perubahan karier, mendapatkan promosi, atau membutuhkan bimbingan/arahan karier"
                   />
                   <Box p={3}>
                     <Flex columnGap={3} alignItems={'center'}>
-                      <IconColor color="white">
+                      <IconColor color="white" cursor="auto">
                         <BsFillTelephoneFill color="teal" />
                       </IconColor>
                       <Text fontSize="sm">Regular calls, per agreement</Text>
                     </Flex>
                     <Flex columnGap={3} alignItems={'center'}>
-                      <IconColor color="white">
+                      <IconColor color="white" cursor="auto">
                         <IoChatbubbleEllipsesSharp color="teal" />
                       </IconColor>
                       <Text fontSize="sm">Unlimited Q&A via chat</Text>
                     </Flex>
                     <Flex columnGap={3} alignItems={'center'}>
-                      <IconColor color="white">
+                      <IconColor color="white" cursor="auto">
                         <MdOutlineAccessTimeFilled color="teal" />
                       </IconColor>
                       <Text fontSize="sm">Expect responses in 3-4 days</Text>
