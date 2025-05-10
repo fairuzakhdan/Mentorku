@@ -4,6 +4,7 @@
   animation: scroll-up 40s linear infinite;
   will-change: transform;
 }
+
 .ticker-item {
   flex: 0 0 auto;
   margin-bottom: 16px;
