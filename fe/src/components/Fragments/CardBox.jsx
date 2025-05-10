@@ -10,11 +10,12 @@ const CardBox = ({
     transition: 'all 0.3s ease-in-out',
     opacity: 0.9,
   },
+  backgroundColor = '#fff',
 }) => {
   return (
     <Card.Root
       width="full"
-      backgroundColor={'#fff'}
+      backgroundColor={backgroundColor}
       color="textBlue"
       border="none"
       rounded={'xl'}
@@ -47,11 +48,11 @@ const Header = ({ name, role }) => {
     </Card.Header>
   );
 };
-const Body = ({ title, description, price }) => {
+const Body = ({ title, description, price, color = 'white' }) => {
   return (
     <Card.Body pt="3">
       <Card.Title mt="2">{title}</Card.Title>
-      <Card.Title color={'white'} fontSize={'md'}>
+      <Card.Title color={color} fontSize={'md'}>
         {typeof price === 'number'
           ? price.toLocaleString('id-ID', {
               style: 'currency',
