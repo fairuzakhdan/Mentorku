@@ -3,7 +3,14 @@ import { Button, Card, Flex, Image } from '@chakra-ui/react';
 import PropTypes from 'prop-types';
 import { RiArrowRightLine } from 'react-icons/ri';
 
-const CardBox = ({ children }) => {
+const CardBox = ({
+  children,
+  hover = {
+    transform: 'scale(1.02)',
+    transition: 'all 0.3s ease-in-out',
+    opacity: 0.9,
+  },
+}) => {
   return (
     <Card.Root
       width="full"
@@ -13,11 +20,7 @@ const CardBox = ({ children }) => {
       rounded={'xl'}
       shadow={'md'}
       transition={'all 0.3s ease-in-out'}
-      _hover={{
-        transform: 'scale(1.02)',
-        transition: 'all 0.3s ease-in-out',
-        opacity: 0.9,
-      }}
+      _hover={hover}
     >
       {children}
     </Card.Root>
