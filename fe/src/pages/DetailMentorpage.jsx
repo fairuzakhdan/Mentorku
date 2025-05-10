@@ -32,7 +32,7 @@ const DetailMentorpage = () => {
           <Grid templateColumns={'repeat(3, 1fr)'}>
             <GridItem colSpan={2} position={'relative'} pt="10">
               <BreadcrumbLink mentorName={detailMentor.name} />
-              <Box position="absolute" bottom={20} zIndex={1}>
+              <Box position="relative" top="12" zIndex={1}>
                 <Image
                   src={detailMentor.image}
                   alt="card-mentor"
@@ -45,8 +45,8 @@ const DetailMentorpage = () => {
                 />
               </Box>
             </GridItem>
-            <GridItem colSpan={1} position={'relative'} mt="5">
-              <Box position={'sticky'} zIndex={1} ml="10">
+            <GridItem colSpan={1} mt="5">
+              <Box position={'fixed'} right="16" width={340} zIndex={1}>
                 <CardBox
                   hover={{
                     transform: 'none',
