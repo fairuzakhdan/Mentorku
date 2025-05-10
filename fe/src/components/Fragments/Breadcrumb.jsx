@@ -35,4 +35,7 @@ const BreadcrumbLink = ({ mentorName }) => {
     </Breadcrumb.Root>
   );
 };
+BreadcrumbLink.propTypes = {
+  mentorName: PropTypes.string,
+};
 export default BreadcrumbLink;

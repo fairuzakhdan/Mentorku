@@ -9,7 +9,7 @@ import IconColor from '../components/Elements/IconButton';
 import { BsFillTelephoneFill } from 'react-icons/bs';
 import { IoChatbubbleEllipsesSharp } from 'react-icons/io5';
 import { MdOutlineAccessTimeFilled } from 'react-icons/md';
-import BreadcrumbLinkNav from '../components/Fragments/Breadcrumb';
+import BreadcrumbLink from '../components/Fragments/Breadcrumb';
 const DetailMentorpage = () => {
   const { mentorId } = useParams();
   const [detailMentor, setDetailMentor] = useState(null);
@@ -30,8 +30,8 @@ const DetailMentorpage = () => {
       <Box backgroundColor="textGreen" height={250}>
         <Layouts>
           <Grid templateColumns={'repeat(3, 1fr)'}>
-            <GridItem colSpan={2} position={'relative'}>
-              <BreadcrumbLinkNav mentorName={detailMentor.name} />
+            <GridItem colSpan={2} position={'relative'} pt="10">
+              <BreadcrumbLink mentorName={detailMentor.name} />
               <Box position="absolute" bottom={20} zIndex={1}>
                 <Image
                   src={detailMentor.image}
