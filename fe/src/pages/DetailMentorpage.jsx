@@ -3,12 +3,13 @@ import Layouts from '../components/Layouts/Layouts';
 import { useParams } from 'react-router';
 import { useState, useEffect } from 'react';
 import { mentors } from '../utils/mentors';
-import { Grid, GridItem, Box, Flex, Text, Button } from '@chakra-ui/react';
+import { Grid, GridItem, Box, Flex, Text, Button, Image } from '@chakra-ui/react';
 import CardBox from '../components/Fragments/CardBox';
 import IconColor from '../components/Elements/IconButton';
 import { BsFillTelephoneFill } from 'react-icons/bs';
 import { IoChatbubbleEllipsesSharp } from 'react-icons/io5';
 import { MdOutlineAccessTimeFilled } from 'react-icons/md';
+import BreadcrumbLinkNav from '../components/Fragments/Breadcrumb';
 const DetailMentorpage = () => {
   const { mentorId } = useParams();
   const [detailMentor, setDetailMentor] = useState(null);
@@ -29,8 +30,20 @@ const DetailMentorpage = () => {
       <Box backgroundColor="textGreen" height={250}>
         <Layouts>
           <Grid templateColumns={'repeat(3, 1fr)'}>
-            <GridItem colSpan={2} border={'1px solid #ccc'}>
-              s
+            <GridItem colSpan={2} position={'relative'}>
+              <BreadcrumbLinkNav mentorName={detailMentor.name} />
+              <Box position="absolute" bottom={20} zIndex={1}>
+                <Image
+                  src={detailMentor.image}
+                  alt="card-mentor"
+                  height={200}
+                  border={'4px solid #ffff'}
+                  width={200}
+                  rounded="full"
+                  objectFit="cover"
+                  objectPosition="center"
+                />
+              </Box>
             </GridItem>
             <GridItem colSpan={1} position={'relative'} mt="5">
               <Box position={'sticky'} zIndex={1} ml="10">
