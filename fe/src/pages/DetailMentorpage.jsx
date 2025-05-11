@@ -122,11 +122,15 @@ const DetailMentorpage = () => {
                 </Text>
                 <Text>{detailMentor.role}</Text>
               </Box>
-              <Box>
+              <Box fontSize="md" fontWeight="semibold" border={'1px solid #b0acac'}>
                 <Text>Skills</Text>
-                <Flex fontSize="xl">
+                <Flex gap={3} flexWrap="wrap">
                   {detailMentor.expertise.map((skill, index) => {
-                    return <CircleBadge key={index}>{skill}</CircleBadge>;
+                    return (
+                      <CircleBadge key={index} fontSize="sm">
+                        {skill}
+                      </CircleBadge>
+                    );
                   })}
                 </Flex>
               </Box>
