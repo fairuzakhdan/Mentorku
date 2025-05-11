@@ -13,6 +13,7 @@ import BreadcrumbLink from '../components/Fragments/Breadcrumb';
 import { FaLinkedin } from 'react-icons/fa';
 import { Link } from 'react-router';
 import { MdRecentActors } from 'react-icons/md';
+import CircleBadge from '../components/Elements/Badge';
 const DetailMentorpage = () => {
   const { mentorId } = useParams();
   const [detailMentor, setDetailMentor] = useState(null);
@@ -111,6 +112,28 @@ const DetailMentorpage = () => {
           </Grid>
         </Layouts>
       </Box>
+      <Layouts>
+        <Grid templateColumns={'repeat(4, 1fr)'} mt="24">
+          <GridItem colSpan={3} border={'1px solid #b0acac'} mr={10}>
+            <Flex justifyContent="space-between">
+              <Box>
+                <Text fontSize={'2xl'} fontWeight={'semibold'}>
+                  {detailMentor.name}
+                </Text>
+                <Text>{detailMentor.role}</Text>
+              </Box>
+              <Box>
+                <Text>Skills</Text>
+                <Flex fontSize="xl">
+                  {detailMentor.expertise.map((skill, index) => {
+                    return <CircleBadge key={index}>{skill}</CircleBadge>;
+                  })}
+                </Flex>
+              </Box>
+            </Flex>
+          </GridItem>
+        </Grid>
+      </Layouts>
     </>
   );
 };
