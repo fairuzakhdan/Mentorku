@@ -30,11 +30,14 @@ const Homepage = () => {
   const [mentors, setMentors] = useState([]);
   const [boxes, setBoxes] = useState([]);
   const [mentees, setMentees] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    setIsLoading(true);
     setBoxes(boxesData);
     setMentors(data);
     setMentees(menteesData);
+    setIsLoading(false);
   }, []);
 
   const subject = [
@@ -46,6 +49,9 @@ const Homepage = () => {
     'JavaScript',
     'Blockchain',
   ];
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
   return (
     <>
       <Layouts>

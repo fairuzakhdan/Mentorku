@@ -8,9 +8,15 @@ import CardBox from '../components/Fragments/CardBox';
 import { Link } from 'react-router';
 const Mentorpage = () => {
   const [mentors, setMentors] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
+    setIsLoading(true);
     setMentors(data);
+    setIsLoading(false);
   }, []);
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
   return (
     <>
       <Box backgroundColor="textGreen" display="flex">

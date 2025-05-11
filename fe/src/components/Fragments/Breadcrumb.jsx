@@ -3,6 +3,7 @@ import { Breadcrumb, Span, Flex } from '@chakra-ui/react';
 import { LuHouse, LuShirt } from 'react-icons/lu';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router';
+import { LuUserRoundSearch } from 'react-icons/lu';
 
 const BreadcrumbLink = ({ mentorName }) => {
   return (
@@ -21,7 +22,7 @@ const BreadcrumbLink = ({ mentorName }) => {
         <Breadcrumb.Item>
           <Link href="/mentors">
             <Flex columnGap={2} alignItems={'center'} _hover={{ color: '#ccc' }}>
-              <LuShirt />
+              <LuUserRoundSearch />
               Find a Mentor
             </Flex>
           </Link>
