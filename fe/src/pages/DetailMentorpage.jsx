@@ -10,6 +10,7 @@ import { BsFillTelephoneFill } from 'react-icons/bs';
 import { IoChatbubbleEllipsesSharp } from 'react-icons/io5';
 import { MdOutlineAccessTimeFilled } from 'react-icons/md';
 import BreadcrumbLink from '../components/Fragments/Breadcrumb';
+import { FaLinkedin } from 'react-icons/fa';
 const DetailMentorpage = () => {
   const { mentorId } = useParams();
   const [detailMentor, setDetailMentor] = useState(null);
@@ -32,7 +33,14 @@ const DetailMentorpage = () => {
           <Grid templateColumns={'repeat(3, 1fr)'}>
             <GridItem colSpan={2} position={'relative'} pt="10">
               <BreadcrumbLink mentorName={detailMentor.name} />
-              <Box position="relative" top="12" zIndex={1}>
+              <Flex
+                position="relative"
+                top="12"
+                zIndex={1}
+                border={'1px solid #ffff'}
+                justifyContent={'space-between'}
+                alignItems={'center'}
+              >
                 <Image
                   src={detailMentor.image}
                   alt="card-mentor"
@@ -43,7 +51,10 @@ const DetailMentorpage = () => {
                   objectFit="cover"
                   objectPosition="center"
                 />
-              </Box>
+                <IconColor color="transparent">
+                  <FaLinkedin />
+                </IconColor>
+              </Flex>
             </GridItem>
             <GridItem colSpan={1} mt="5">
               <Box position={'fixed'} right="16" width={340} zIndex={1}>
