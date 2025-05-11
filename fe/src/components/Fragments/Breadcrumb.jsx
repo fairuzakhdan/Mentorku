@@ -10,7 +10,7 @@ const BreadcrumbLink = ({ mentorName }) => {
     <Breadcrumb.Root>
       <Breadcrumb.List color="#ffff">
         <Breadcrumb.Item>
-          <Link href="/">
+          <Link to="/">
             <Flex columnGap={2} alignItems={'center'} _hover={{ color: '#ccc' }}>
               <LuHouse />
               Home
@@ -20,7 +20,7 @@ const BreadcrumbLink = ({ mentorName }) => {
         <Breadcrumb.Separator color="#ffff" />
 
         <Breadcrumb.Item>
-          <Link href="/mentors">
+          <Link to="/mentors">
             <Flex columnGap={2} alignItems={'center'} _hover={{ color: '#ccc' }}>
               <LuUserRoundSearch />
               Find a Mentor
