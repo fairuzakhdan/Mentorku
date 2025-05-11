@@ -54,7 +54,7 @@ const DetailMentorpage = () => {
                     objectFit="cover"
                     objectPosition="center"
                   />
-                  <Button rounded="full" color="textBlue" fontWeight="medium">
+                  <Button rounded="full" color="textBlue" fontWeight="medium" cursor="auto">
                     <MdRecentActors color="teal" /> Our Newest
                   </Button>
                 </Group>
