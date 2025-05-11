@@ -114,15 +114,22 @@ const DetailMentorpage = () => {
       </Box>
       <Layouts>
         <Grid templateColumns={'repeat(4, 1fr)'} mt="24">
-          <GridItem colSpan={3} border={'1px solid #b0acac'} mr={10}>
+          <GridItem colSpan={3} mr={10}>
             <Flex justifyContent="space-between">
-              <Box>
+              <Box display="flex" flexDirection="column" rowGap={3}>
                 <Text fontSize={'2xl'} fontWeight={'semibold'}>
                   {detailMentor.name}
                 </Text>
                 <Text>{detailMentor.role}</Text>
               </Box>
-              <Box fontSize="md" fontWeight="semibold" border={'1px solid #b0acac'}>
+              <Box
+                display="flex"
+                flexDirection="column"
+                rowGap={3}
+                fontSize="md"
+                fontWeight="semibold"
+                width={400}
+              >
                 <Text>Skills</Text>
                 <Flex gap={3} flexWrap="wrap">
                   {detailMentor.expertise.map((skill, index) => {
