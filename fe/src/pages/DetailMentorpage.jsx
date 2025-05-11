@@ -3,7 +3,7 @@ import Layouts from '../components/Layouts/Layouts';
 import { useParams } from 'react-router';
 import { useState, useEffect } from 'react';
 import { mentors } from '../utils/mentors';
-import { Grid, GridItem, Box, Flex, Text, Button, Image } from '@chakra-ui/react';
+import { Grid, GridItem, Box, Flex, Text, Button, Image, Group } from '@chakra-ui/react';
 import CardBox from '../components/Fragments/CardBox';
 import IconColor from '../components/Elements/IconButton';
 import { BsFillTelephoneFill } from 'react-icons/bs';
@@ -11,6 +11,8 @@ import { IoChatbubbleEllipsesSharp } from 'react-icons/io5';
 import { MdOutlineAccessTimeFilled } from 'react-icons/md';
 import BreadcrumbLink from '../components/Fragments/Breadcrumb';
 import { FaLinkedin } from 'react-icons/fa';
+import { Link } from 'react-router';
+import { MdRecentActors } from 'react-icons/md';
 const DetailMentorpage = () => {
   const { mentorId } = useParams();
   const [detailMentor, setDetailMentor] = useState(null);
@@ -37,23 +39,27 @@ const DetailMentorpage = () => {
                 position="relative"
                 top="12"
                 zIndex={1}
-                border={'1px solid #ffff'}
                 justifyContent={'space-between'}
                 alignItems={'center'}
               >
-                <Image
-                  src={detailMentor.image}
-                  alt="card-mentor"
-                  height={200}
-                  border={'4px solid #ffff'}
-                  width={200}
-                  rounded="full"
-                  objectFit="cover"
-                  objectPosition="center"
-                />
-                <IconColor color="transparent">
-                  <FaLinkedin />
-                </IconColor>
+                <Group columnGap={7}>
+                  <Image
+                    src={detailMentor.image}
+                    alt="card-mentor"
+                    height={200}
+                    border={'4px solid #ffff'}
+                    width={200}
+                    rounded="full"
+                    objectFit="cover"
+                    objectPosition="center"
+                  />
+                  <Button rounded="full" color="textBlue" fontWeight="medium">
+                    <MdRecentActors color="teal" /> Our Newest
+                  </Button>
+                </Group>
+                <Link to="https://www.linkedin.com/">
+                  <FaLinkedin color="#ffff" size={30} />
+                </Link>
               </Flex>
             </GridItem>
             <GridItem colSpan={1} mt="5">
