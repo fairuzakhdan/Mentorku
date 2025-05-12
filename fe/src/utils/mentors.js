@@ -23,6 +23,20 @@ const mentors = [
     price: 75000,
     language: ['Indonesia', 'English'],
     location: 'Jakarta',
+    education: [
+      {
+        organization: 'Institut Teknologi Bandung',
+        major: 'S2 Computer Science',
+      },
+      {
+        organization: 'Institut Teknologi Garut',
+        major: 'S1 Teknik Informatika',
+      },
+      {
+        organization: 'SMAN 1 Garut',
+        major: 'IPA',
+      },
+    ],
     summary:
       'Saya adalah seorang software engineer dengan pengalaman lebih dari 7 tahun. Saya memiliki kemampuan dalam membangun aplikasi web dan mobile. Saya juga memiliki kemampuan dalam membangun aplikasi web dan mobile.',
   },
@@ -48,6 +62,20 @@ const mentors = [
     price: 75000,
     language: ['Indonesia', 'English'],
     location: 'Jakarta',
+    education: [
+      {
+        organization: 'Institut Teknologi Bandung',
+        major: 'S2 Computer Science',
+      },
+      {
+        organization: 'Institut Teknologi Garut',
+        major: 'S1 Teknik Informatika',
+      },
+      {
+        organization: 'SMAN 1 Garut',
+        major: 'IPA',
+      },
+    ],
     summary:
       'Saya adalah seorang software engineer dengan pengalaman lebih dari 7 tahun. Saya memiliki kemampuan dalam membangun aplikasi web dan mobile. Saya juga memiliki kemampuan dalam membangun aplikasi web dan mobile.',
   },
@@ -73,6 +101,20 @@ const mentors = [
     price: 75000,
     language: ['Indonesia', 'English'],
     location: 'Jakarta',
+    education: [
+      {
+        organization: 'Institut Teknologi Bandung',
+        major: 'S2 Computer Science',
+      },
+      {
+        organization: 'Institut Teknologi Garut',
+        major: 'S1 Teknik Informatika',
+      },
+      {
+        organization: 'SMAN 1 Garut',
+        major: 'IPA',
+      },
+    ],
     summary:
       'Saya adalah seorang software engineer dengan pengalaman lebih dari 7 tahun. Saya memiliki kemampuan dalam membangun aplikasi web dan mobile. Saya juga memiliki kemampuan dalam membangun aplikasi web dan mobile.',
   },
@@ -98,6 +140,20 @@ const mentors = [
     price: 75000,
     language: ['Indonesia', 'English'],
     location: 'Jakarta',
+    education: [
+      {
+        organization: 'Institut Teknologi Bandung',
+        major: 'S2 Computer Science',
+      },
+      {
+        organization: 'Institut Teknologi Garut',
+        major: 'S1 Teknik Informatika',
+      },
+      {
+        organization: 'SMAN 1 Garut',
+        major: 'IPA',
+      },
+    ],
     summary:
       'Saya adalah seorang software engineer dengan pengalaman lebih dari 7 tahun. Saya memiliki kemampuan dalam membangun aplikasi web dan mobile. Saya juga memiliki kemampuan dalam membangun aplikasi web dan mobile.',
   },
@@ -123,6 +179,20 @@ const mentors = [
     price: 75000,
     language: ['Indonesia', 'English'],
     location: 'Jakarta',
+    education: [
+      {
+        organization: 'Institut Teknologi Bandung',
+        major: 'S2 Computer Science',
+      },
+      {
+        organization: 'Institut Teknologi Garut',
+        major: 'S1 Teknik Informatika',
+      },
+      {
+        organization: 'SMAN 1 Garut',
+        major: 'IPA',
+      },
+    ],
     summary:
       'Saya adalah seorang software engineer dengan pengalaman lebih dari 7 tahun. Saya memiliki kemampuan dalam membangun aplikasi web dan mobile. Saya juga memiliki kemampuan dalam membangun aplikasi web dan mobile.',
   },
@@ -148,6 +218,20 @@ const mentors = [
     price: 75000,
     language: ['Indonesia', 'English'],
     location: 'Jakarta',
+    education: [
+      {
+        organization: 'Institut Teknologi Bandung',
+        major: 'S2 Computer Science',
+      },
+      {
+        organization: 'Institut Teknologi Garut',
+        major: 'S1 Teknik Informatika',
+      },
+      {
+        organization: 'SMAN 1 Garut',
+        major: 'IPA',
+      },
+    ],
     summary:
       'Saya adalah seorang software engineer dengan pengalaman lebih dari 7 tahun. Saya memiliki kemampuan dalam membangun aplikasi web dan mobile. Saya juga memiliki kemampuan dalam membangun aplikasi web dan mobile.',
   },
@@ -173,6 +257,20 @@ const mentors = [
     price: 75000,
     language: ['Indonesia', 'English'],
     location: 'Jakarta',
+    education: [
+      {
+        organization: 'Institut Teknologi Bandung',
+        major: 'S2 Computer Science',
+      },
+      {
+        organization: 'Institut Teknologi Garut',
+        major: 'S1 Teknik Informatika',
+      },
+      {
+        organization: 'SMAN 1 Garut',
+        major: 'IPA',
+      },
+    ],
     summary:
       'Saya adalah seorang software engineer dengan pengalaman lebih dari 7 tahun. Saya memiliki kemampuan dalam membangun aplikasi web dan mobile. Saya juga memiliki kemampuan dalam membangun aplikasi web dan mobile.',
   },
@@ -198,6 +296,20 @@ const mentors = [
     price: 75000,
     language: ['Indonesia', 'English'],
     location: 'Jakarta',
+    education: [
+      {
+        organization: 'Institut Teknologi Bandung',
+        major: 'S2 Computer Science',
+      },
+      {
+        organization: 'Institut Teknologi Garut',
+        major: 'S1 Teknik Informatika',
+      },
+      {
+        organization: 'SMAN 1 Garut',
+        major: 'IPA',
+      },
+    ],
     summary:
       'Saya adalah seorang software engineer dengan pengalaman lebih dari 7 tahun. Saya memiliki kemampuan dalam membangun aplikasi web dan mobile. Saya juga memiliki kemampuan dalam membangun aplikasi web dan mobile.',
   },
@@ -223,6 +335,20 @@ const mentors = [
     price: 75000,
     language: ['Indonesia', 'English'],
     location: 'Jakarta',
+    education: [
+      {
+        organization: 'Institut Teknologi Bandung',
+        major: 'S2 Computer Science',
+      },
+      {
+        organization: 'Institut Teknologi Garut',
+        major: 'S1 Teknik Informatika',
+      },
+      {
+        organization: 'SMAN 1 Garut',
+        major: 'IPA',
+      },
+    ],
     summary:
       'Saya adalah seorang software engineer dengan pengalaman lebih dari 7 tahun. Saya memiliki kemampuan dalam membangun aplikasi web dan mobile. Saya juga memiliki kemampuan dalam membangun aplikasi web dan mobile.',
   },
@@ -248,6 +374,20 @@ const mentors = [
     price: 75000,
     language: ['Indonesia', 'English'],
     location: 'Jakarta',
+    education: [
+      {
+        organization: 'Institut Teknologi Bandung',
+        major: 'S2 Computer Science',
+      },
+      {
+        organization: 'Institut Teknologi Garut',
+        major: 'S1 Teknik Informatika',
+      },
+      {
+        organization: 'SMAN 1 Garut',
+        major: 'IPA',
+      },
+    ],
     summary:
       'Saya adalah seorang software engineer dengan pengalaman lebih dari 7 tahun. Saya memiliki kemampuan dalam membangun aplikasi web dan mobile. Saya juga memiliki kemampuan dalam membangun aplikasi web dan mobile.',
   },

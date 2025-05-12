@@ -3,7 +3,7 @@ import Layouts from '../components/Layouts/Layouts';
 import { useParams } from 'react-router';
 import { useState, useEffect } from 'react';
 import { mentors } from '../utils/mentors';
-import { Grid, GridItem, Box, Flex, Text, Button, Image, Group } from '@chakra-ui/react';
+import { Grid, GridItem, Box, Flex, Text, Button, Image, Group, Span } from '@chakra-ui/react';
 import CardBox from '../components/Fragments/CardBox';
 import IconColor from '../components/Elements/IconButton';
 import { BsFillTelephoneFill } from 'react-icons/bs';
@@ -176,31 +176,62 @@ const DetailMentorpage = () => {
                   <Text>Usually responds in half a day</Text>
                 </Flex>
               </Box>
-              <Box mt={3}>
-                <Text fontSize={'lg'} fontWeight="semibold">
-                  Work Experience
-                </Text>
-                <Box
-                  as="ul"
-                  p={5}
-                  display="flex"
-                  listStyleType="circle"
-                  flexDirection="column"
-                  rowGap={3}
-                  alignItems="flex-start"
-                >
-                  {detailMentor.experience.map((item, index) => (
-                    <li key={index}>
-                      <Text fontWeight={'semibold'} fontSize={'md'}>
-                        {item.position}
-                      </Text>
-                      <Text>
-                        {item.company} - {item.years}
-                      </Text>
-                    </li>
-                  ))}
-                </Box>
-              </Box>
+
+              <Grid mt={3} templateColumns={'repeat(2, 1fr)'}>
+                <GridItem colspan="1">
+                  <Text fontSize={'lg'} fontWeight="semibold">
+                    Work Experience
+                  </Text>
+                  <Box
+                    as="ul"
+                    p={5}
+                    display="flex"
+                    listStyleType="circle"
+                    flexDirection="column"
+                    rowGap={3}
+                    alignItems="flex-start"
+                  >
+                    {detailMentor.experience.map((item, index) => (
+                      <li key={index}>
+                        <Text fontWeight={'semibold'} fontSize={'md'}>
+                          {item.position}
+                        </Text>
+                        <Text>
+                          {item.company} - {item.years}
+                        </Text>
+                      </li>
+                    ))}
+                  </Box>
+                </GridItem>
+                <GridItem colspan="1">
+                  <Text fontSize={'lg'} fontWeight="semibold">
+                    Education
+                  </Text>
+                  <Box
+                    as="ul"
+                    p={5}
+                    display="flex"
+                    listStyleType="circle"
+                    flexDirection="column"
+                    rowGap={3}
+                    alignItems="flex-start"
+                  >
+                    {detailMentor.education.map((item, index) => (
+                      <li key={index}>
+                        <Group>
+                          <Text fontWeight={'semibold'} fontSize={'md'}>
+                            {item.organization}
+                          </Text>
+                          <Text>
+                            {'- '}
+                            {item.major}
+                          </Text>
+                        </Group>
+                      </li>
+                    ))}
+                  </Box>
+                </GridItem>
+              </Grid>
             </Box>
           </GridItem>
         </Grid>
