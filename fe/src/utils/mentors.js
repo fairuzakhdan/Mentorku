@@ -37,6 +37,7 @@ const mentors = [
         major: 'IPA',
       },
     ],
+    expertise: ['Web', 'Mobile', 'Blockchain', 'IOS'],
     summary:
       'Saya adalah seorang software engineer dengan pengalaman lebih dari 7 tahun. Saya memiliki kemampuan dalam membangun aplikasi web dan mobile. Saya juga memiliki kemampuan dalam membangun aplikasi web dan mobile.',
   },
@@ -76,6 +77,7 @@ const mentors = [
         major: 'IPA',
       },
     ],
+    expertise: ['Web', 'Mobile', 'Blockchain', 'IOS'],
     summary:
       'Saya adalah seorang software engineer dengan pengalaman lebih dari 7 tahun. Saya memiliki kemampuan dalam membangun aplikasi web dan mobile. Saya juga memiliki kemampuan dalam membangun aplikasi web dan mobile.',
   },
@@ -115,6 +117,7 @@ const mentors = [
         major: 'IPA',
       },
     ],
+    expertise: ['Web', 'Mobile', 'Blockchain', 'IOS'],
     summary:
       'Saya adalah seorang software engineer dengan pengalaman lebih dari 7 tahun. Saya memiliki kemampuan dalam membangun aplikasi web dan mobile. Saya juga memiliki kemampuan dalam membangun aplikasi web dan mobile.',
   },
@@ -154,6 +157,7 @@ const mentors = [
         major: 'IPA',
       },
     ],
+    expertise: ['Web', 'Mobile', 'Blockchain', 'IOS'],
     summary:
       'Saya adalah seorang software engineer dengan pengalaman lebih dari 7 tahun. Saya memiliki kemampuan dalam membangun aplikasi web dan mobile. Saya juga memiliki kemampuan dalam membangun aplikasi web dan mobile.',
   },
@@ -193,6 +197,7 @@ const mentors = [
         major: 'IPA',
       },
     ],
+    expertise: ['Web', 'Mobile', 'Blockchain', 'IOS'],
     summary:
       'Saya adalah seorang software engineer dengan pengalaman lebih dari 7 tahun. Saya memiliki kemampuan dalam membangun aplikasi web dan mobile. Saya juga memiliki kemampuan dalam membangun aplikasi web dan mobile.',
   },
@@ -232,6 +237,7 @@ const mentors = [
         major: 'IPA',
       },
     ],
+    expertise: ['Web', 'Mobile', 'Blockchain', 'IOS'],
     summary:
       'Saya adalah seorang software engineer dengan pengalaman lebih dari 7 tahun. Saya memiliki kemampuan dalam membangun aplikasi web dan mobile. Saya juga memiliki kemampuan dalam membangun aplikasi web dan mobile.',
   },
@@ -271,6 +277,7 @@ const mentors = [
         major: 'IPA',
       },
     ],
+    expertise: ['Web', 'Mobile', 'Blockchain', 'IOS'],
     summary:
       'Saya adalah seorang software engineer dengan pengalaman lebih dari 7 tahun. Saya memiliki kemampuan dalam membangun aplikasi web dan mobile. Saya juga memiliki kemampuan dalam membangun aplikasi web dan mobile.',
   },
@@ -310,6 +317,7 @@ const mentors = [
         major: 'IPA',
       },
     ],
+    expertise: ['Web', 'Mobile', 'Blockchain', 'IOS'],
     summary:
       'Saya adalah seorang software engineer dengan pengalaman lebih dari 7 tahun. Saya memiliki kemampuan dalam membangun aplikasi web dan mobile. Saya juga memiliki kemampuan dalam membangun aplikasi web dan mobile.',
   },
@@ -349,6 +357,7 @@ const mentors = [
         major: 'IPA',
       },
     ],
+    expertise: ['Web', 'Mobile', 'Blockchain', 'IOS'],
     summary:
       'Saya adalah seorang software engineer dengan pengalaman lebih dari 7 tahun. Saya memiliki kemampuan dalam membangun aplikasi web dan mobile. Saya juga memiliki kemampuan dalam membangun aplikasi web dan mobile.',
   },
@@ -388,6 +397,7 @@ const mentors = [
         major: 'IPA',
       },
     ],
+    expertise: ['Web', 'Mobile', 'Blockchain', 'IOS'],
     summary:
       'Saya adalah seorang software engineer dengan pengalaman lebih dari 7 tahun. Saya memiliki kemampuan dalam membangun aplikasi web dan mobile. Saya juga memiliki kemampuan dalam membangun aplikasi web dan mobile.',
   },

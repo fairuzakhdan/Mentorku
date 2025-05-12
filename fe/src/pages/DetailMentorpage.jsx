@@ -3,7 +3,18 @@ import Layouts from '../components/Layouts/Layouts';
 import { useParams } from 'react-router';
 import { useState, useEffect } from 'react';
 import { mentors } from '../utils/mentors';
-import { Grid, GridItem, Box, Flex, Text, Button, Image, Group, Span } from '@chakra-ui/react';
+import {
+  Grid,
+  GridItem,
+  Box,
+  Flex,
+  Text,
+  Button,
+  Image,
+  Group,
+  Span,
+  Badge,
+} from '@chakra-ui/react';
 import CardBox from '../components/Fragments/CardBox';
 import IconColor from '../components/Elements/IconButton';
 import { BsFillTelephoneFill } from 'react-icons/bs';
@@ -197,6 +208,23 @@ const DetailMentorpage = () => {
                 </GridItem>
               </Grid>
             </Box>
+            <Text fontSize={'lg'} fontWeight="semibold" mb={3}>
+              Expertise
+            </Text>
+            <Group>
+              {detailMentor.expertise.map((item, index) => (
+                <Button
+                  key={index}
+                  fontSize="sm"
+                  colorPalette="teal"
+                  outline="1px solid teal"
+                  backgroundColor="white"
+                  color={'textGreen'}
+                >
+                  {item}
+                </Button>
+              ))}
+            </Group>
           </GridItem>
         </Grid>
       </Layouts>
