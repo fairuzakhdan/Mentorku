@@ -200,7 +200,7 @@ const DetailMentorpage = () => {
             <Text fontSize={'lg'} fontWeight="semibold" mb={3}>
               Expertise
             </Text>
-            <Group>
+            <Group columnGap={2}>
               {detailMentor.expertise.map((item, index) => (
                 <Button
                   key={index}
