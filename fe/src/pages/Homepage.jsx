@@ -101,7 +101,7 @@ const Homepage = () => {
                   >
                     <CardHorizontal.Header
                       name={
-                        <Box display="flex" alignItems="center">
+                        <Box display="flex" alignItems="center" flexWrap="wrap">
                           {mentor.name}
                           <Button
                             color={'textGreen'}

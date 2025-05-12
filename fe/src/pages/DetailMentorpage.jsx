@@ -17,7 +17,7 @@ import CircleBadge from '../components/Elements/Badge';
 import { IoLanguage } from 'react-icons/io5';
 import { FaLocationDot } from 'react-icons/fa6';
 import { FaBusinessTime } from 'react-icons/fa6';
-import { BsClipboard2CheckFill } from "react-icons/bs";
+import { BsClipboard2CheckFill } from 'react-icons/bs';
 const DetailMentorpage = () => {
   const { mentorId } = useParams();
   const [detailMentor, setDetailMentor] = useState(null);
@@ -136,7 +136,7 @@ const DetailMentorpage = () => {
               >
                 <Text>Skills</Text>
                 <Flex gap={3} flexWrap="wrap">
-                  {detailMentor.expertise.map((skill, index) => {
+                  {detailMentor.skills.map((skill, index) => {
                     return (
                       <CircleBadge key={index} fontSize="sm">
                         {skill}
@@ -175,6 +175,31 @@ const DetailMentorpage = () => {
                   </IconColor>
                   <Text>Usually responds in half a day</Text>
                 </Flex>
+              </Box>
+              <Box mt={3}>
+                <Text fontSize={'lg'} fontWeight="semibold">
+                  Work Experience
+                </Text>
+                <Box
+                  as="ul"
+                  p={5}
+                  display="flex"
+                  listStyleType="circle"
+                  flexDirection="column"
+                  rowGap={3}
+                  alignItems="flex-start"
+                >
+                  {detailMentor.experience.map((item, index) => (
+                    <li key={index}>
+                      <Text fontWeight={'semibold'} fontSize={'md'}>
+                        {item.position}
+                      </Text>
+                      <Text>
+                        {item.company} - {item.years}
+                      </Text>
+                    </li>
+                  ))}
+                </Box>
               </Box>
             </Box>
           </GridItem>

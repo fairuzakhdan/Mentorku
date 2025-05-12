@@ -40,11 +40,11 @@ const Body = ({ description, fontStyle }) => {
   );
 };
 
-const Footer = ({ expertise }) => {
+const Footer = ({ skills }) => {
   return (
     <Card.Footer paddingLeft={0}>
       <HStack mt="4">
-        {expertise.map((expert, index) => (
+        {skills.slice(0, 4).map((expert, index) => (
           <CircleBadge key={index}>{expert}</CircleBadge>
         ))}
       </HStack>
@@ -73,6 +73,6 @@ Body.propTypes = {
 };
 
 Footer.propTypes = {
-  expertise: PropTypes.arrayOf(PropTypes.string),
+  skills: PropTypes.arrayOf(PropTypes.string),
 };
 export default CardHorizontal;
