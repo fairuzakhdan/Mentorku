@@ -19,7 +19,6 @@ import { FaLocationDot } from 'react-icons/fa6';
 import { FaBusinessTime } from 'react-icons/fa6';
 import { BsClipboard2CheckFill } from 'react-icons/bs';
 import TimelineFlow from '../components/Fragments/Timeline';
-import { PiBagSimpleDuotone } from 'react-icons/pi';
 const DetailMentorpage = () => {
   const { mentorId } = useParams();
   const [detailMentor, setDetailMentor] = useState(null);
@@ -185,42 +184,15 @@ const DetailMentorpage = () => {
                     Work Experience
                   </Text>
                   <Box p={5}>
-                    {detailMentor.experience.map((item, index) => (
-                      <TimelineFlow
-                        key={index}
-                        title={item.position}
-                        body={item.company}
-                        icon={<PiBagSimpleDuotone />}
-                      />
-                    ))}
+                    <TimelineFlow mentor={detailMentor.experience} type="experience" />
                   </Box>
                 </GridItem>
                 <GridItem colspan="1">
                   <Text fontSize={'lg'} fontWeight="semibold">
                     Education
                   </Text>
-                  <Box
-                    as="ul"
-                    p={5}
-                    display="flex"
-                    listStyleType="circle"
-                    flexDirection="column"
-                    rowGap={3}
-                    alignItems="flex-start"
-                  >
-                    {detailMentor.education.map((item, index) => (
-                      <li key={index}>
-                        <Group>
-                          <Text fontWeight={'semibold'} fontSize={'md'}>
-                            {item.organization}
-                          </Text>
-                          <Text>
-                            {'- '}
-                            {item.major}
-                          </Text>
-                        </Group>
-                      </li>
-                    ))}
+                  <Box p={5}>
+                    <TimelineFlow mentor={detailMentor.education} type="education" />
                   </Box>
                 </GridItem>
               </Grid>
