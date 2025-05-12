@@ -12,8 +12,6 @@ import {
   Button,
   Image,
   Group,
-  Span,
-  Badge,
 } from '@chakra-ui/react';
 import CardBox from '../components/Fragments/CardBox';
 import IconColor from '../components/Elements/IconButton';
