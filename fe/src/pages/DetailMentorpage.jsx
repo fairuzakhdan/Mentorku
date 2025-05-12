@@ -3,16 +3,7 @@ import Layouts from '../components/Layouts/Layouts';
 import { useParams } from 'react-router';
 import { useState, useEffect } from 'react';
 import { mentors } from '../utils/mentors';
-import {
-  Grid,
-  GridItem,
-  Box,
-  Flex,
-  Text,
-  Button,
-  Image,
-  Group,
-} from '@chakra-ui/react';
+import { Grid, GridItem, Box, Flex, Text, Button, Image, Group } from '@chakra-ui/react';
 import CardBox from '../components/Fragments/CardBox';
 import IconColor from '../components/Elements/IconButton';
 import { BsFillTelephoneFill } from 'react-icons/bs';
