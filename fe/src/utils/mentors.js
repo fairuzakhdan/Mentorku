@@ -1,3 +1,5 @@
+import { SiPeakdesign } from 'react-icons/si';
+
 const mentors = [
   {
     id: '1',
@@ -14,6 +16,10 @@ const mentors = [
     ],
     expertise: ['Figma', 'Adobe XD', 'Sketch'],
     price: 75000,
+    language: ['Indonesia', 'English'],
+    location: 'Jakarta',
+    summary:
+      'Saya adalah seorang software engineer dengan pengalaman lebih dari 7 tahun. Saya memiliki kemampuan dalam membangun aplikasi web dan mobile. Saya juga memiliki kemampuan dalam membangun aplikasi web dan mobile.',
   },
   {
     id: '2',
@@ -28,8 +34,12 @@ const mentors = [
         years: '5 years',
       },
     ],
-    expertise: ['Figma', 'Adobe XD', 'Sketch'],
+    expertise: ['Figma', 'Adobe XD', 'Sketch', 'Figma', 'Adobe XD', 'Sketch'],
     price: 75000,
+    language: ['Indonesia', 'English'],
+    location: 'Jakarta',
+    summary:
+      'Saya adalah seorang software engineer dengan pengalaman lebih dari 7 tahun. Saya memiliki kemampuan dalam membangun aplikasi web dan mobile. Saya juga memiliki kemampuan dalam membangun aplikasi web dan mobile.',
   },
   {
     id: '3',
@@ -46,6 +56,10 @@ const mentors = [
     ],
     expertise: ['Figma', 'Adobe XD', 'Sketch', 'Photoshop'],
     price: 75000,
+    language: ['Indonesia', 'English'],
+    location: 'Jakarta',
+    summary:
+      'Saya adalah seorang software engineer dengan pengalaman lebih dari 7 tahun. Saya memiliki kemampuan dalam membangun aplikasi web dan mobile. Saya juga memiliki kemampuan dalam membangun aplikasi web dan mobile.',
   },
   {
     id: '4',
@@ -62,6 +76,10 @@ const mentors = [
     ],
     expertise: ['Figma', 'Adobe XD', 'Sketch', 'Photoshop'],
     price: 75000,
+    language: ['Indonesia', 'English'],
+    location: 'Jakarta',
+    summary:
+      'Saya adalah seorang software engineer dengan pengalaman lebih dari 7 tahun. Saya memiliki kemampuan dalam membangun aplikasi web dan mobile. Saya juga memiliki kemampuan dalam membangun aplikasi web dan mobile.',
   },
   {
     id: '5',
@@ -78,6 +96,10 @@ const mentors = [
     ],
     expertise: ['Figma', 'Adobe XD', 'Sketch', 'Photoshop'],
     price: 75000,
+    language: ['Indonesia', 'English'],
+    location: 'Jakarta',
+    summary:
+      'Saya adalah seorang software engineer dengan pengalaman lebih dari 7 tahun. Saya memiliki kemampuan dalam membangun aplikasi web dan mobile. Saya juga memiliki kemampuan dalam membangun aplikasi web dan mobile.',
   },
   {
     id: '6',
@@ -94,6 +116,10 @@ const mentors = [
     ],
     expertise: ['Figma', 'Adobe XD', 'Sketch', 'Photoshop'],
     price: 75000,
+    language: ['Indonesia', 'English'],
+    location: 'Jakarta',
+    summary:
+      'Saya adalah seorang software engineer dengan pengalaman lebih dari 7 tahun. Saya memiliki kemampuan dalam membangun aplikasi web dan mobile. Saya juga memiliki kemampuan dalam membangun aplikasi web dan mobile.',
   },
   {
     id: '7',
@@ -110,6 +136,10 @@ const mentors = [
     ],
     expertise: ['Figma', 'Adobe XD', 'Sketch', 'Photoshop'],
     price: 75000,
+    language: ['Indonesia', 'English'],
+    location: 'Jakarta',
+    summary:
+      'Saya adalah seorang software engineer dengan pengalaman lebih dari 7 tahun. Saya memiliki kemampuan dalam membangun aplikasi web dan mobile. Saya juga memiliki kemampuan dalam membangun aplikasi web dan mobile.',
   },
   {
     id: '8',
@@ -126,6 +156,10 @@ const mentors = [
     ],
     expertise: ['Figma', 'Adobe XD', 'Sketch', 'Photoshop'],
     price: 75000,
+    language: ['Indonesia', 'English'],
+    location: 'Jakarta',
+    summary:
+      'Saya adalah seorang software engineer dengan pengalaman lebih dari 7 tahun. Saya memiliki kemampuan dalam membangun aplikasi web dan mobile. Saya juga memiliki kemampuan dalam membangun aplikasi web dan mobile.',
   },
   {
     id: '9',
@@ -142,6 +176,10 @@ const mentors = [
     ],
     expertise: ['Figma', 'Adobe XD', 'Sketch', 'Photoshop'],
     price: 75000,
+    language: ['Indonesia', 'English'],
+    location: 'Jakarta',
+    summary:
+      'Saya adalah seorang software engineer dengan pengalaman lebih dari 7 tahun. Saya memiliki kemampuan dalam membangun aplikasi web dan mobile. Saya juga memiliki kemampuan dalam membangun aplikasi web dan mobile.',
   },
   {
     id: '10',
@@ -158,6 +196,10 @@ const mentors = [
     ],
     expertise: ['Figma', 'Adobe XD', 'Sketch', 'Photoshop'],
     price: 75000,
+    language: ['Indonesia', 'English'],
+    location: 'Jakarta',
+    summary:
+      'Saya adalah seorang software engineer dengan pengalaman lebih dari 7 tahun. Saya memiliki kemampuan dalam membangun aplikasi web dan mobile. Saya juga memiliki kemampuan dalam membangun aplikasi web dan mobile.',
   },
 ];
 

@@ -140,7 +140,7 @@ const Homepage = () => {
             {boxes.map((boxe, index) => (
               <GridItem key={index} colSpan={1}>
                 <CardBox>
-                  <CardBox.Body description={boxe.description} title={boxe.title} />
+                  <CardBox.Body summary={boxe.description} title={boxe.title} />
                   <CardBox.Footer {...boxe} />
                 </CardBox>
               </GridItem>

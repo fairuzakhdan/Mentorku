@@ -14,6 +14,10 @@ import { FaLinkedin } from 'react-icons/fa';
 import { Link } from 'react-router';
 import { MdRecentActors } from 'react-icons/md';
 import CircleBadge from '../components/Elements/Badge';
+import { IoLanguage } from 'react-icons/io5';
+import { FaLocationDot } from 'react-icons/fa6';
+import { FaBusinessTime } from 'react-icons/fa6';
+import { BsClipboard2CheckFill } from "react-icons/bs";
 const DetailMentorpage = () => {
   const { mentorId } = useParams();
   const [detailMentor, setDetailMentor] = useState(null);
@@ -75,7 +79,7 @@ const DetailMentorpage = () => {
                     color="textBlue"
                     price={detailMentor.price}
                     fontSize="xl"
-                    description="Cocok untuk mereka yang ingin melakukan perubahan karier, mendapatkan promosi, atau membutuhkan bimbingan/arahan karier"
+                    summary="Cocok untuk mereka yang ingin melakukan perubahan karier, mendapatkan promosi, atau membutuhkan bimbingan/arahan karier"
                   />
                   <Box p={3}>
                     <Flex columnGap={3} alignItems={'center'}>
@@ -113,7 +117,7 @@ const DetailMentorpage = () => {
         </Layouts>
       </Box>
       <Layouts>
-        <Grid templateColumns={'repeat(4, 1fr)'} mt="24">
+        <Grid templateColumns={'repeat(4, 1fr)'} mt="24" color={'textBlue'}>
           <GridItem colSpan={3} mr={10}>
             <Flex justifyContent="space-between">
               <Box display="flex" flexDirection="column" rowGap={3}>
@@ -142,6 +146,37 @@ const DetailMentorpage = () => {
                 </Flex>
               </Box>
             </Flex>
+            <Box fontSize="sm" mt={5} display="block">
+              <Text>{detailMentor.summary}</Text>
+              <Box p={3}>
+                <Flex alignItems={'center'} columnGap={3}>
+                  <IconColor color="white" cursor="auto">
+                    <FaLocationDot color="teal" />
+                  </IconColor>
+                  <Text>{detailMentor.location}</Text>
+                </Flex>
+                <Flex alignItems={'center'} columnGap={3}>
+                  <IconColor color="white" cursor="auto">
+                    <IoLanguage color="teal" />
+                  </IconColor>
+                  {detailMentor.language.map((lang, index) => (
+                    <Text key={index}>{lang}</Text>
+                  ))}
+                </Flex>
+                <Flex alignItems={'center'} columnGap={3}>
+                  <IconColor color="white" cursor="auto">
+                    <FaBusinessTime color="teal" />
+                  </IconColor>
+                  <Text>Active today</Text>
+                </Flex>
+                <Flex alignItems={'center'} columnGap={3}>
+                  <IconColor color="white" cursor="auto">
+                    <BsClipboard2CheckFill color="teal" />
+                  </IconColor>
+                  <Text>Usually responds in half a day</Text>
+                </Flex>
+              </Box>
+            </Box>
           </GridItem>
         </Grid>
       </Layouts>

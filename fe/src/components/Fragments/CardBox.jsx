@@ -48,7 +48,7 @@ const Header = ({ name, role }) => {
     </Card.Header>
   );
 };
-const Body = ({ title, description, price, color = 'white', fontSize = 'md' }) => {
+const Body = ({ title, summary, price, color = 'white', fontSize = 'md' }) => {
   return (
     <Card.Body pt="3">
       <Card.Title mt="2">{title}</Card.Title>
@@ -61,7 +61,7 @@ const Body = ({ title, description, price, color = 'white', fontSize = 'md' }) =
             })}/Session`
           : null}
       </Card.Title>
-      <Card.Description>{description}</Card.Description>
+      <Card.Description>{summary}</Card.Description>
     </Card.Body>
   );
 };
@@ -94,7 +94,7 @@ Header.propTypes = {
 
 Body.propTypes = {
   title: PropTypes.string,
-  description: PropTypes.string,
+  summary: PropTypes.string,
   price: PropTypes.number,
   color: PropTypes.string,
   fontSize: PropTypes.string,
