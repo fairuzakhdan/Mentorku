@@ -18,6 +18,8 @@ import { IoLanguage } from 'react-icons/io5';
 import { FaLocationDot } from 'react-icons/fa6';
 import { FaBusinessTime } from 'react-icons/fa6';
 import { BsClipboard2CheckFill } from 'react-icons/bs';
+import TimelineFlow from '../components/Fragments/Timeline';
+import { PiBagSimpleDuotone } from 'react-icons/pi';
 const DetailMentorpage = () => {
   const { mentorId } = useParams();
   const [detailMentor, setDetailMentor] = useState(null);
@@ -182,24 +184,14 @@ const DetailMentorpage = () => {
                   <Text fontSize={'lg'} fontWeight="semibold">
                     Work Experience
                   </Text>
-                  <Box
-                    as="ul"
-                    p={5}
-                    display="flex"
-                    listStyleType="circle"
-                    flexDirection="column"
-                    rowGap={3}
-                    alignItems="flex-start"
-                  >
+                  <Box p={5}>
                     {detailMentor.experience.map((item, index) => (
-                      <li key={index}>
-                        <Text fontWeight={'semibold'} fontSize={'md'}>
-                          {item.position}
-                        </Text>
-                        <Text>
-                          {item.company} - {item.years}
-                        </Text>
-                      </li>
+                      <TimelineFlow
+                        key={index}
+                        title={item.position}
+                        body={item.company}
+                        icon={<PiBagSimpleDuotone />}
+                      />
                     ))}
                   </Box>
                 </GridItem>
