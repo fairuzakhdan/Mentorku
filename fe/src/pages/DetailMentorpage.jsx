@@ -19,6 +19,8 @@ import { FaLocationDot } from 'react-icons/fa6';
 import { FaBusinessTime } from 'react-icons/fa6';
 import { BsClipboard2CheckFill } from 'react-icons/bs';
 import TimelineFlow from '../components/Fragments/Timeline';
+import Selected from '../components/Fragments/Selected';
+
 const DetailMentorpage = () => {
   const { mentorId } = useParams();
   const [detailMentor, setDetailMentor] = useState(null);
@@ -217,6 +219,7 @@ const DetailMentorpage = () => {
                 </Button>
               ))}
             </Group>
+            <Selected />
           </GridItem>
         </Grid>
       </Layouts>
