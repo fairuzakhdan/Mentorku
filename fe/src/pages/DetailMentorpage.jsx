@@ -20,6 +20,7 @@ import { FaBusinessTime } from 'react-icons/fa6';
 import { BsClipboard2CheckFill } from 'react-icons/bs';
 import TimelineFlow from '../components/Fragments/Timeline';
 import Selected from '../components/Fragments/Selected';
+import TabsLink from '../components/Fragments/Tabs';
 
 const DetailMentorpage = () => {
   const { mentorId } = useParams();
@@ -76,45 +77,53 @@ const DetailMentorpage = () => {
                   hover={{
                     transform: 'none',
                     opacity: 1,
+                    transition: 'all 0.3s ease-in-out',
                   }}
                 >
-                  <CardBox.Body
-                    color="textBlue"
-                    price={detailMentor.price}
-                    fontSize="xl"
-                    summary="Cocok untuk mereka yang ingin melakukan perubahan karier, mendapatkan promosi, atau membutuhkan bimbingan/arahan karier"
+                  <TabsLink
+                    plans={
+                      <>
+                        <CardBox.Body
+                          color="textBlue"
+                          price={detailMentor.price}
+                          fontSize="xl"
+                          summary="Cocok untuk mereka yang ingin melakukan perubahan karier, mendapatkan promosi, atau membutuhkan bimbingan/arahan karier"
+                        />
+                        <Box p={3}>
+                          <Flex columnGap={3} alignItems={'center'}>
+                            <IconColor color="white" cursor="auto">
+                              <BsFillTelephoneFill color="teal" />
+                            </IconColor>
+                            <Text fontSize="sm">Regular calls, per agreement</Text>
+                          </Flex>
+                          <Flex columnGap={3} alignItems={'center'}>
+                            <IconColor color="white" cursor="auto">
+                              <IoChatbubbleEllipsesSharp color="teal" />
+                            </IconColor>
+                            <Text fontSize="sm">Unlimited Q&A via chat</Text>
+                          </Flex>
+                          <Flex columnGap={3} alignItems={'center'}>
+                            <IconColor color="white" cursor="auto">
+                              <MdOutlineAccessTimeFilled color="teal" />
+                            </IconColor>
+                            <Text fontSize="sm">Expect responses in 3-4 days</Text>
+                          </Flex>
+                          <Link to={`/mentors/${detailMentor.id}/payment`}>
+                            <Button
+                              variant="solid"
+                              colorPalette="teal"
+                              width={'full'}
+                              mt={5}
+                              fontSize={'md'}
+                            >
+                              Hire a Mentor Now
+                            </Button>
+                          </Link>
+                        </Box>
+                      </>
+                    }
+                    sessions={<Selected />}
                   />
-                  <Box p={3}>
-                    <Flex columnGap={3} alignItems={'center'}>
-                      <IconColor color="white" cursor="auto">
-                        <BsFillTelephoneFill color="teal" />
-                      </IconColor>
-                      <Text fontSize="sm">Regular calls, per agreement</Text>
-                    </Flex>
-                    <Flex columnGap={3} alignItems={'center'}>
-                      <IconColor color="white" cursor="auto">
-                        <IoChatbubbleEllipsesSharp color="teal" />
-                      </IconColor>
-                      <Text fontSize="sm">Unlimited Q&A via chat</Text>
-                    </Flex>
-                    <Flex columnGap={3} alignItems={'center'}>
-                      <IconColor color="white" cursor="auto">
-                        <MdOutlineAccessTimeFilled color="teal" />
-                      </IconColor>
-                      <Text fontSize="sm">Expect responses in 3-4 days</Text>
-                    </Flex>
-                    <Link to={`/mentors/${detailMentor.id}/payment`}>
-                      <Button
-                        variant="solid"
-                        colorPalette="teal"
-                        width={'full'}
-                        mt={5}
-                        fontSize={'md'}
-                      >
-                        Hire a Mentor Now
-                      </Button>
-                    </Link>
-                  </Box>
                 </CardBox>
               </Box>
             </GridItem>
@@ -153,35 +162,37 @@ const DetailMentorpage = () => {
             </Flex>
             <Box fontSize="sm" mt={5} display="block">
               <Text>{detailMentor.summary}</Text>
-              <Box p={3}>
-                <Flex alignItems={'center'} columnGap={3}>
-                  <IconColor color="white" cursor="auto">
-                    <FaLocationDot color="teal" />
-                  </IconColor>
-                  <Text>{detailMentor.location}</Text>
-                </Flex>
-                <Flex alignItems={'center'} columnGap={3}>
-                  <IconColor color="white" cursor="auto">
-                    <IoLanguage color="teal" />
-                  </IconColor>
-                  {detailMentor.language.map((lang, index) => (
-                    <Text key={index}>{lang}</Text>
-                  ))}
-                </Flex>
-                <Flex alignItems={'center'} columnGap={3}>
-                  <IconColor color="white" cursor="auto">
-                    <FaBusinessTime color="teal" />
-                  </IconColor>
-                  <Text>Active today</Text>
-                </Flex>
-                <Flex alignItems={'center'} columnGap={3}>
-                  <IconColor color="white" cursor="auto">
-                    <BsClipboard2CheckFill color="teal" />
-                  </IconColor>
-                  <Text>Usually responds in half a day</Text>
-                </Flex>
-              </Box>
-
+              <Flex alignItems={'center'} justifyContent={'space-between'}>
+                <Box p={3}>
+                  <Flex alignItems={'center'} columnGap={3}>
+                    <IconColor color="white" cursor="auto">
+                      <FaLocationDot color="teal" />
+                    </IconColor>
+                    <Text>{detailMentor.location}</Text>
+                  </Flex>
+                  <Flex alignItems={'center'} columnGap={3}>
+                    <IconColor color="white" cursor="auto">
+                      <IoLanguage color="teal" />
+                    </IconColor>
+                    {detailMentor.language.map((lang, index) => (
+                      <Text key={index}>{lang}</Text>
+                    ))}
+                  </Flex>
+                  <Flex alignItems={'center'} columnGap={3}>
+                    <IconColor color="white" cursor="auto">
+                      <FaBusinessTime color="teal" />
+                    </IconColor>
+                    <Text>Active today</Text>
+                  </Flex>
+                  <Flex alignItems={'center'} columnGap={3}>
+                    <IconColor color="white" cursor="auto">
+                      <BsClipboard2CheckFill color="teal" />
+                    </IconColor>
+                    <Text>Usually responds in half a day</Text>
+                  </Flex>
+                </Box>
+                <Selected />
+              </Flex>
               <Grid mt={3} templateColumns={'repeat(2, 1fr)'}>
                 <GridItem colspan="1">
                   <Text fontSize={'lg'} fontWeight="semibold">

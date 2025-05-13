@@ -43,7 +43,7 @@ const Selected = () => {
           ))}
         </Box>
 
-        <Box flex="1">
+        <Box width={150}>
           <Text fontWeight="bold" mb={2}>
             Times
           </Text>
