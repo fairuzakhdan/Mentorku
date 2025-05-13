@@ -56,9 +56,9 @@ const Selected = () => {
               <Box key={f.day} mb={4}>
                 <Select.Root collection={collection}>
                   <Select.HiddenSelect />
-                  <Select.Control backgroundColor={'teal'} color={'white'}>
+                  <Select.Control backgroundColor={'teal'}>
                     <Select.Trigger border="none">
-                      <Select.ValueText placeholder="Pilih Waktu" />
+                      <Select.ValueText placeholder="Pilih Waktu" color={'white'} />
                     </Select.Trigger>
                     <Select.IndicatorGroup>
                       <Select.Indicator />

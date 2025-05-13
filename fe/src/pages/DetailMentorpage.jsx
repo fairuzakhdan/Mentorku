@@ -108,22 +108,18 @@ const DetailMentorpage = () => {
                             </IconColor>
                             <Text fontSize="sm">Expect responses in 3-4 days</Text>
                           </Flex>
-                          <Link to={`/mentors/${detailMentor.id}/payment`}>
-                            <Button
-                              variant="solid"
-                              colorPalette="teal"
-                              width={'full'}
-                              mt={5}
-                              fontSize={'md'}
-                            >
-                              Hire a Mentor Now
-                            </Button>
-                          </Link>
                         </Box>
                       </>
                     }
                     sessions={<Selected />}
                   />
+                  <Box w="100%" p={3}>
+                    <Link to={`/mentors/${detailMentor.id}/payment`}>
+                      <Button variant="solid" colorPalette="teal" w="100%" fontSize="md">
+                        Hire a Mentor Now
+                      </Button>
+                    </Link>
+                  </Box>
                 </CardBox>
               </Box>
             </GridItem>
