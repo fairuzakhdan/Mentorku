@@ -162,37 +162,36 @@ const DetailMentorpage = () => {
             </Flex>
             <Box fontSize="sm" mt={5} display="block">
               <Text>{detailMentor.summary}</Text>
-              <Flex alignItems={'center'} justifyContent={'space-between'}>
-                <Box p={3}>
-                  <Flex alignItems={'center'} columnGap={3}>
-                    <IconColor color="white" cursor="auto">
-                      <FaLocationDot color="teal" />
-                    </IconColor>
-                    <Text>{detailMentor.location}</Text>
-                  </Flex>
-                  <Flex alignItems={'center'} columnGap={3}>
-                    <IconColor color="white" cursor="auto">
-                      <IoLanguage color="teal" />
-                    </IconColor>
-                    {detailMentor.language.map((lang, index) => (
-                      <Text key={index}>{lang}</Text>
-                    ))}
-                  </Flex>
-                  <Flex alignItems={'center'} columnGap={3}>
-                    <IconColor color="white" cursor="auto">
-                      <FaBusinessTime color="teal" />
-                    </IconColor>
-                    <Text>Active today</Text>
-                  </Flex>
-                  <Flex alignItems={'center'} columnGap={3}>
-                    <IconColor color="white" cursor="auto">
-                      <BsClipboard2CheckFill color="teal" />
-                    </IconColor>
-                    <Text>Usually responds in half a day</Text>
-                  </Flex>
-                </Box>
-                <Selected />
-              </Flex>
+
+              <Box p={3}>
+                <Flex alignItems={'center'} columnGap={3}>
+                  <IconColor color="white" cursor="auto">
+                    <FaLocationDot color="teal" />
+                  </IconColor>
+                  <Text>{detailMentor.location}</Text>
+                </Flex>
+                <Flex alignItems={'center'} columnGap={3}>
+                  <IconColor color="white" cursor="auto">
+                    <IoLanguage color="teal" />
+                  </IconColor>
+                  {detailMentor.language.map((lang, index) => (
+                    <Text key={index}>{lang}</Text>
+                  ))}
+                </Flex>
+                <Flex alignItems={'center'} columnGap={3}>
+                  <IconColor color="white" cursor="auto">
+                    <FaBusinessTime color="teal" />
+                  </IconColor>
+                  <Text>Active today</Text>
+                </Flex>
+                <Flex alignItems={'center'} columnGap={3}>
+                  <IconColor color="white" cursor="auto">
+                    <BsClipboard2CheckFill color="teal" />
+                  </IconColor>
+                  <Text>Usually responds in half a day</Text>
+                </Flex>
+              </Box>
+
               <Grid mt={3} templateColumns={'repeat(2, 1fr)'}>
                 <GridItem colspan="1">
                   <Text fontSize={'lg'} fontWeight="semibold">

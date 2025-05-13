@@ -1,14 +1,35 @@
 import { Tabs } from '@chakra-ui/react';
-import { LuFolder, LuSquareCheck, LuUser } from 'react-icons/lu';
 
 const TabsLink = ({ plans, sessions }) => {
   return (
-    <Tabs.Root defaultValue="plans" variant="line" colorScheme="teal">
-      <Tabs.List p={1}>
-        <Tabs.Trigger value="plans" color={'textBlue'} w={'full'}>
+    <Tabs.Root defaultValue="plans">
+      <Tabs.List borderBottom="1px solid #ccc" display="flex" justifyContent="space-around">
+        <Tabs.Trigger
+          value="plans"
+          w="full"
+          p={5}
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          _selected={{
+            borderBottom: '2px solid teal',
+            color: 'teal',
+          }}
+        >
           Mentorship plans
         </Tabs.Trigger>
-        <Tabs.Trigger value="sessions" color={'textBlue'} w={'full'}>
+        <Tabs.Trigger
+          value="sessions"
+          w="full"
+          p={5}
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          _selected={{
+            borderBottom: '2px solid teal',
+            color: 'teal',
+          }}
+        >
           Sessions
         </Tabs.Trigger>
       </Tabs.List>
@@ -21,4 +42,5 @@ const TabsLink = ({ plans, sessions }) => {
     </Tabs.Root>
   );
 };
+
 export default TabsLink;

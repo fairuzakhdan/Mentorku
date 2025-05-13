@@ -30,10 +30,10 @@ const frameworks = [
 
 const Selected = () => {
   return (
-    <Box width="100%" maxW="500px" mt={6}>
-      <Flex>
+    <Box width="100%" maxW="500px" mt={5}>
+      <Flex justifyContent="space-evenly">
         <Box minW="80px" mr={4}>
-          <Text fontWeight="bold" mb={2}>
+          <Text fontWeight="bold" mb={2} color={'textGreen'}>
             Days
           </Text>
           {frameworks.map((f) => (
@@ -44,7 +44,7 @@ const Selected = () => {
         </Box>
 
         <Box width={150}>
-          <Text fontWeight="bold" mb={2}>
+          <Text fontWeight="bold" mb={2} color={'textGreen'}>
             Times
           </Text>
           {frameworks.map((f) => {
@@ -56,8 +56,8 @@ const Selected = () => {
               <Box key={f.day} mb={4}>
                 <Select.Root collection={collection}>
                   <Select.HiddenSelect />
-                  <Select.Control>
-                    <Select.Trigger>
+                  <Select.Control backgroundColor={'teal'} color={'white'}>
+                    <Select.Trigger border="none">
                       <Select.ValueText placeholder="Pilih Waktu" />
                     </Select.Trigger>
                     <Select.IndicatorGroup>
@@ -66,7 +66,7 @@ const Selected = () => {
                   </Select.Control>
                   <Portal>
                     <Select.Positioner>
-                      <Select.Content>
+                      <Select.Content backgroundColor="teal" color={'white'}>
                         {f.times.map((time) => (
                           <Select.Item key={time.value} item={time}>
                             {time.label}

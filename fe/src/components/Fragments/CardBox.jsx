@@ -50,7 +50,7 @@ const Header = ({ name, role }) => {
 };
 const Body = ({ title, summary, price, color = 'white', fontSize = 'md' }) => {
   return (
-    <Card.Body pt="3">
+    <Card.Body pt="3" pb="0">
       <Card.Title mt="2">{title}</Card.Title>
       <Card.Title color={color} fontSize={fontSize} pb="4">
         {typeof price === 'number'
