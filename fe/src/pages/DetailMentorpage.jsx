@@ -162,7 +162,6 @@ const DetailMentorpage = () => {
             </Flex>
             <Box fontSize="sm" mt={5} display="block">
               <Text>{detailMentor.summary}</Text>
-
               <Box p={3}>
                 <Flex alignItems={'center'} columnGap={3}>
                   <IconColor color="white" cursor="auto">
