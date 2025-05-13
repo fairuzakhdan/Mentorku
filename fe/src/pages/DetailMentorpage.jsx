@@ -229,7 +229,6 @@ const DetailMentorpage = () => {
                 </Button>
               ))}
             </Group>
-            <Selected />
           </GridItem>
         </Grid>
       </Layouts>
