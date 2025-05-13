@@ -58,7 +58,7 @@ const Body = ({ title, summary, price, color = 'white', fontSize = 'md' }) => {
               style: 'currency',
               currency: 'IDR',
               minimumFractionDigits: 0,
-            })}/Session`
+            })}/Month`
           : null}
       </Card.Title>
       <Card.Description>{summary}</Card.Description>

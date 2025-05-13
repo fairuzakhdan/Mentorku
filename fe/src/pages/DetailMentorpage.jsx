@@ -101,15 +101,17 @@ const DetailMentorpage = () => {
                       </IconColor>
                       <Text fontSize="sm">Expect responses in 3-4 days</Text>
                     </Flex>
-                    <Button
-                      variant="solid"
-                      colorPalette="teal"
-                      width={'full'}
-                      mt={5}
-                      fontSize={'md'}
-                    >
-                      Hire a mentor now
-                    </Button>
+                    <Link to={`/mentors/${detailMentor.id}/payment`}>
+                      <Button
+                        variant="solid"
+                        colorPalette="teal"
+                        width={'full'}
+                        mt={5}
+                        fontSize={'md'}
+                      >
+                        Hire a Mentor Now
+                      </Button>
+                    </Link>
                   </Box>
                 </CardBox>
               </Box>
@@ -203,6 +205,7 @@ const DetailMentorpage = () => {
             <Group columnGap={2}>
               {detailMentor.expertise.map((item, index) => (
                 <Button
+                  cursor="auto"
                   key={index}
                   fontSize="sm"
                   colorPalette="teal"
