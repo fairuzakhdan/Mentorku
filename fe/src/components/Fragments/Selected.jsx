@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Box, Flex, Text, Portal, Select, createListCollection } from '@chakra-ui/react';
 
 const frameworks = [
@@ -29,17 +29,31 @@ const frameworks = [
 ];
 
 const Selected = () => {
+  const [selectedDays, setSelectedDays] = useState({}); // contoh: { Senin: '08:00-10:00' }
+
+  const handleSelect = (day, value) => {
+    setSelectedDays((prev) => {
+      const updated = { ...prev, [day]: value };
+      // Batasi maksimal 2 pilihan hari
+      const dayKeys = Object.keys(updated);
+      if (dayKeys.length > 2) {
+        delete updated[dayKeys[0]]; // hapus yang paling awal dipilih
+      }
+      return updated;
+    });
+  };
+
   return (
     <Box width="100%" maxW="500px" mt={5}>
       <Flex justifyContent="space-between" mx="8">
-        <Text fontWeight="bold" mb={2} color={'textGreen'}>
+        <Text fontWeight="bold" mb={2} color={'teal'}>
           Days
         </Text>
-        <Text fontWeight="bold" mb={2} color={'textGreen'}>
+        <Text fontWeight="bold" mb={2} color={'teal'}>
           Time
         </Text>
       </Flex>
-      <Flex justifyContent="space-evenly" alignItems={'center'}>
+      <Flex justifyContent="space-evenly" alignItems="center">
         <Box minW="80px" mr={4}>
           {frameworks.map((f) => (
             <Text key={f.day} mb={6}>
@@ -50,26 +64,29 @@ const Selected = () => {
 
         <Box width={150}>
           {frameworks.map((f) => {
-            const collection = createListCollection({
-              items: f.times,
-            });
+            const isDisabled = !selectedDays[f.day] && Object.keys(selectedDays).length >= 2;
+
+            const collection = isDisabled ? null : createListCollection({ items: f.times });
 
             return (
               <Box key={f.day} mb={4}>
-                <Select.Root collection={collection}>
+                <Select.Root
+                  collection={collection}
+                  onValueChange={(val) => handleSelect(f.day, val)}
+                  isDisabled={isDisabled}
+                >
                   <Select.HiddenSelect />
                   <Select.Control>
-                    <Select.Trigger border={'1px solid teal'}>
-                      <Select.ValueText placeholder="Pilih Waktu" color={'textBlue'} />
+                    <Select.Trigger border="1px solid teal">
+                      <Select.ValueText placeholder="Pilih Waktu" color="teal" />
                     </Select.Trigger>
                     <Select.IndicatorGroup>
-                      <Select.ClearTrigger color={'red'} />
                       <Select.Indicator />
                     </Select.IndicatorGroup>
                   </Select.Control>
                   <Portal>
                     <Select.Positioner>
-                      <Select.Content backgroundColor="teal" color={'white'}>
+                      <Select.Content backgroundColor="teal" color="white">
                         {f.times.map((time) => (
                           <Select.Item key={time.value} item={time}>
                             {time.label}
