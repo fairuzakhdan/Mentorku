@@ -31,11 +31,16 @@ const frameworks = [
 const Selected = () => {
   return (
     <Box width="100%" maxW="500px" mt={5}>
-      <Flex justifyContent="space-evenly">
+      <Flex justifyContent="space-between" mx="8">
+        <Text fontWeight="bold" mb={2} color={'textGreen'}>
+          Days
+        </Text>
+        <Text fontWeight="bold" mb={2} color={'textGreen'}>
+          Time
+        </Text>
+      </Flex>
+      <Flex justifyContent="space-evenly" alignItems={'center'}>
         <Box minW="80px" mr={4}>
-          <Text fontWeight="bold" mb={2} color={'textGreen'}>
-            Days
-          </Text>
           {frameworks.map((f) => (
             <Text key={f.day} mb={6}>
               {f.day}
@@ -44,9 +49,6 @@ const Selected = () => {
         </Box>
 
         <Box width={150}>
-          <Text fontWeight="bold" mb={2} color={'textGreen'}>
-            Times
-          </Text>
           {frameworks.map((f) => {
             const collection = createListCollection({
               items: f.times,
@@ -56,11 +58,12 @@ const Selected = () => {
               <Box key={f.day} mb={4}>
                 <Select.Root collection={collection}>
                   <Select.HiddenSelect />
-                  <Select.Control backgroundColor={'teal'}>
-                    <Select.Trigger border="none">
-                      <Select.ValueText placeholder="Pilih Waktu" color={'white'} />
+                  <Select.Control>
+                    <Select.Trigger border={'1px solid teal'}>
+                      <Select.ValueText placeholder="Pilih Waktu" color={'textBlue'} />
                     </Select.Trigger>
                     <Select.IndicatorGroup>
+                      <Select.ClearTrigger color={'red'} />
                       <Select.Indicator />
                     </Select.IndicatorGroup>
                   </Select.Control>
