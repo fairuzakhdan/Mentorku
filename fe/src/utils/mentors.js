@@ -474,9 +474,9 @@ export const paymentMentor = {
     {
       id: '1',
       name: 'John Doe',
-      role: 'Design Mentee',
+      role: 'UI/UX Designer',
       image:
-        'https://cdn.mentorcruise.com/cdn-cgi/image/width=128,format=auto/https://cdn.mentorcruise.com/cache/0173f11442a3f4bdbbf5d143e82f5989/27e9b1f123d9fa5c/f98fd004c02b6c4342ca73650723db36.jpg',
+        'https://images.unsplash.com/photo-1623366302587-b38b1ddaefd9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTF8fGVudGVwcmVuZXVyfGVufDB8fDB8fHww',
     },
   ],
   totalPrice: 75000,

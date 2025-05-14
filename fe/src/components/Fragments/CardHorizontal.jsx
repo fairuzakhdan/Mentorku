@@ -1,10 +1,10 @@
 import React from 'react';
-import { Box, Card, HStack, Span, Flex, Icon } from '@chakra-ui/react';
+import { Box, Card, HStack, Image, Flex, Icon } from '@chakra-ui/react';
 import PropTypes from 'prop-types';
 import AvatarCard from '../Elements/Avatar';
 import CircleBadge from '../Elements/Badge';
 
-export const CardHorizontal = ({ children, image, gapCard, className, shadow }) => (
+export const CardHorizontal = ({ children, gapCard, className, image, shadow, type }) => (
   <Card.Root
     shadow={shadow}
     flexDirection="row"
@@ -16,7 +16,12 @@ export const CardHorizontal = ({ children, image, gapCard, className, shadow }) 
     className={className}
   >
     <Flex padding="3" gap={3}>
-      <AvatarCard image={image} />
+      {type === 'image' ? (
+        <Image src={image} alt="card-mentor" width={150} rounded={'md'} height="full" />
+      ) : (
+        <AvatarCard image={image} />
+      )}
+
       <Box>{children}</Box>
     </Flex>
   </Card.Root>
