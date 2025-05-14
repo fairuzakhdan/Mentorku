@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Box, Flex, Text, Portal, Select, createListCollection } from '@chakra-ui/react';
+import PropTypes from 'prop-types';
 
 const frameworks = [
   {
@@ -108,6 +109,9 @@ const Selected = ({ addDays }) => {
       </Flex>
     </Box>
   );
+};
+Selected.propTypes = {
+  addDays: PropTypes.func,
 };
 
 export default Selected;
