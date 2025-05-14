@@ -477,6 +477,7 @@ export const paymentMentor = {
       role: 'UI/UX Designer',
       image:
         'https://images.unsplash.com/photo-1623366302587-b38b1ddaefd9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTF8fGVudGVwcmVuZXVyfGVufDB8fDB8fHww',
+      price: 75000,
     },
   ],
   totalPrice: 75000,
@@ -485,4 +486,39 @@ export const paymentMentor = {
     { days: 'Rabu', time: '20.00 - 10.00' },
   ],
 };
+
+export const methodPayments = [
+  {
+    images:
+      'https://jasalogocepat.com/wp-content/uploads/2023/09/Logo-Bank-BCA-PNG-Transparan-jasalogocepat.png',
+    name: 'bca',
+  },
+  {
+    images: 'https://ver02.rumahpiatu.org/wp-content/uploads/2020/04/logo-mandiri.png',
+    name: 'mandiri',
+  },
+  {
+    images:
+      'https://upload.wikimedia.org/wikipedia/id/thumb/5/55/BNI_logo.svg/1200px-BNI_logo.svg.png',
+    name: 'bni',
+  },
+  {
+    images: 'https://www.axway.com/sites/default/files/customers/Permata_Bank_logo_500x225_0.png',
+    name: 'permatabank',
+  },
+  {
+    images:
+      'https://i0.wp.com/umsu.ac.id/berita/wp-content/uploads/2024/07/cara-lihat-nomor-gopay-di-aplikasi-gojek.webp?fit=850%2C510&ssl=1',
+    name: 'gopay',
+  },
+  {
+    images:
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Logo_QRIS.svg/2560px-Logo_QRIS.svg.png',
+    name: 'qris',
+  },
+  {
+    images: 'https://upload.wikimedia.org/wikipedia/id/e/e8/ATM_Bersama_2016.png',
+    name: 'atmbersama',
+  },
+];
 export { mentors, boxes, mentees };

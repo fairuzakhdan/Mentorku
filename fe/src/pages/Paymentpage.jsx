@@ -1,9 +1,9 @@
-import { Box, Text, Flex, Grid, GridItem } from '@chakra-ui/react';
+import { Box, Text, Flex, Grid, GridItem, Image } from '@chakra-ui/react';
 import Layouts from '../components/Layouts/Layouts';
 import CardHorizontal from '../components/Fragments/CardHorizontal';
 import { useParams } from 'react-router';
 import { useEffect, useState } from 'react';
-import { paymentMentor } from '../utils/mentors';
+import { methodPayments, paymentMentor } from '../utils/mentors';
 import FieldGroup from '../components/Fragments/Fieldset';
 const Paymentpage = () => {
   const { mentorId } = useParams();
@@ -21,15 +21,9 @@ const Paymentpage = () => {
   }
   return (
     <Layouts>
-      <Grid
-        templateColumns={'repeat(3, 1fr)'}
-        justifyContent={'center'}
-        border={'1px solid #ccc'}
-        h="70vh"
-        mt={10}
-      >
+      <Grid templateColumns={'repeat(3, 1fr)'} justifyContent={'center'} h="80vh" mt={10}>
         <GridItem colSpan={2}>
-          <Box color={'textGreen'} w={500} backgroundColor={'textGreen'} p={2} rounded={'md'}>
+          <Box color={'textGreen'} w={500} backgroundColor={'teal'} p={2} rounded={'md'} m="auto">
             <CardHorizontal type={'image'} image={detailMentor.image}>
               <CardHorizontal.Header name={detailMentor.name} title={detailMentor.role} />
               {paymentMentor.schedules.map((schedule, index) => (
@@ -46,16 +40,33 @@ const Paymentpage = () => {
                 </Flex>
               ))}
               <Text textAlign={'right'} mt={3} fontWeight={'bold'} fontSize={'xl'} color={'red'}>
-                {paymentMentor.totalPrice.toLocaleString('id-ID', {
+                {detailMentor.price.toLocaleString('id-ID', {
                   style: 'currency',
                   currency: 'IDR',
+                  minimumFractionDigits: 0,
                 })}
               </Text>
             </CardHorizontal>
           </Box>
         </GridItem>
-        <GridItem colSpan={1} border={'1px solid #ccc'}>
-          <FieldGroup />
+        <GridItem colSpan={1} w={350}>
+          <FieldGroup price={detailMentor.price} totalPrice={paymentMentor.totalPrice} />
+          <Box border={'1px solid #b0acac'} mt={4} color={'gray.700'} p={2}>
+            <Text fontWeight="semibold" fontSize="md" mb="2">
+              Supported Payment Methods
+            </Text>
+            <Flex flexWrap={'wrap'} gap={3} justifyContent="space-evenly">
+              {methodPayments.map((payment, index) => (
+                <Image
+                  key={index}
+                  src={payment.images}
+                  alt={payment.name}
+                  w={59}
+                  objectFit={'contain'}
+                />
+              ))}
+            </Flex>
+          </Box>
         </GridItem>
       </Grid>
     </Layouts>
