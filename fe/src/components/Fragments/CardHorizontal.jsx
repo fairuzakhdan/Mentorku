@@ -4,8 +4,9 @@ import PropTypes from 'prop-types';
 import AvatarCard from '../Elements/Avatar';
 import CircleBadge from '../Elements/Badge';
 
-export const CardHorizontal = ({ children, image, gapCard, className }) => (
+export const CardHorizontal = ({ children, image, gapCard, className, shadow }) => (
   <Card.Root
+    shadow={shadow}
     flexDirection="row"
     overflow="hidden"
     bg={'white'}

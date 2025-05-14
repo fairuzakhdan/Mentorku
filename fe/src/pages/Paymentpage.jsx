@@ -1,4 +1,4 @@
-import { Box, Text } from '@chakra-ui/react';
+import { Box, Text, Flex } from '@chakra-ui/react';
 import Layouts from '../components/Layouts/Layouts';
 import CardHorizontal from '../components/Fragments/CardHorizontal';
 import { useParams } from 'react-router';
@@ -15,16 +15,20 @@ const Paymentpage = () => {
     setDetailMentor(mentor);
     setIsLoading(false);
   }, [mentorId]);
-  console.log(detailMentor);
   if (isLoading) {
     return <div>Loading...</div>;
   }
   return (
     <Layouts>
-      <Box color={'textGreen'}>
-        <CardHorizontal image={detailMentor.image}>
-          <CardHorizontal.Header />
-          <CardHorizontal.Body />
+      <Box color={'textGreen'} w={300}>
+        <CardHorizontal image={detailMentor.image} shadow="sm">
+          <CardHorizontal.Header name={detailMentor.name} />
+          {paymentMentor.schedules.map((schedule, index) => (
+            <Flex key={index} gap={5} p={0} mt={3}>
+              <Text p={0}>{schedule.days}</Text>
+              <Text p={0}>{schedule.time}</Text>
+            </Flex>
+          ))}
         </CardHorizontal>
       </Box>
     </Layouts>
