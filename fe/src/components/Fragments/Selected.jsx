@@ -1,6 +1,4 @@
-'use client';
-
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Box, Flex, Text, Portal, Select, createListCollection } from '@chakra-ui/react';
 
 const frameworks = [
@@ -28,7 +26,7 @@ const frameworks = [
   },
 ];
 
-const Selected = () => {
+const Selected = ({ addDays }) => {
   const [selectedDays, setSelectedDays] = useState({}); // contoh: { Senin: '08:00-10:00' }
 
   const handleSelect = (day, value) => {
@@ -42,6 +40,13 @@ const Selected = () => {
       return updated;
     });
   };
+
+  useEffect(() => {
+    // UseEffect to call addDays only after the state is updated
+    if (Object.keys(selectedDays).length > 0) {
+      addDays(selectedDays);
+    }
+  }, [selectedDays, addDays]); // Runs when selectedDays changes
 
   return (
     <Box width="100%" maxW="500px" mt={5}>
@@ -67,13 +72,12 @@ const Selected = () => {
             const isDisabled = !selectedDays[f.day] && Object.keys(selectedDays).length >= 2;
 
             const collection = isDisabled ? null : createListCollection({ items: f.times });
-
             return (
               <Box key={f.day} mb={4}>
                 <Select.Root
                   collection={collection}
                   onValueChange={(val) => handleSelect(f.day, val)}
-                  isDisabled={isDisabled}
+                  // disabled={isDisabled}
                 >
                   <Select.HiddenSelect />
                   <Select.Control>

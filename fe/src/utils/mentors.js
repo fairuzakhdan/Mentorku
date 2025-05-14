@@ -469,4 +469,20 @@ const mentees = [
   },
 ];
 
+export const paymentMentor = {
+  mentorId: [
+    {
+      id: '1',
+      name: 'John Doe',
+      role: 'Design Mentee',
+      image:
+        'https://cdn.mentorcruise.com/cdn-cgi/image/width=128,format=auto/https://cdn.mentorcruise.com/cache/0173f11442a3f4bdbbf5d143e82f5989/27e9b1f123d9fa5c/f98fd004c02b6c4342ca73650723db36.jpg',
+    },
+  ],
+  totalPrice: 75000,
+  schedules: [
+    { days: 'Senin', time: '08.00 - 10.00' },
+    { days: 'Rabu', time: '20.00 - 10.00' },
+  ],
+};
 export { mentors, boxes, mentees };

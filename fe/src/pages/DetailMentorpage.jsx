@@ -21,11 +21,15 @@ import { BsClipboard2CheckFill } from 'react-icons/bs';
 import TimelineFlow from '../components/Fragments/Timeline';
 import Selected from '../components/Fragments/Selected';
 import TabsLink from '../components/Fragments/Tabs';
+import { useNavigate } from 'react-router';
 
 const DetailMentorpage = () => {
+  const navigate = useNavigate();
   const { mentorId } = useParams();
   const [detailMentor, setDetailMentor] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [selectedDays, setSelectedDays] = useState({});
+
   useEffect(() => {
     setIsLoading(true);
     const mentor = mentors.find((mentor) => mentor.id === mentorId);
@@ -36,6 +40,18 @@ const DetailMentorpage = () => {
   if (isLoading) {
     return <div>Loading...</div>;
   }
+
+  const addDays = (days) => {
+    console.log(days.length);
+    setSelectedDays(days);
+  };
+  const addTimes = () => {
+    if (Object.keys(selectedDays).length < 2) {
+      alert('Please select at least two days before hiring a mentor.');
+    } else {
+      navigate(`/mentors/${mentorId}/payment`);
+    }
+  };
 
   return (
     <>
@@ -111,14 +127,18 @@ const DetailMentorpage = () => {
                         </Box>
                       </>
                     }
-                    sessions={<Selected />}
+                    sessions={<Selected addDays={addDays} />}
                   />
                   <Box w="100%" p={3}>
-                    <Link to={`/mentors/${detailMentor.id}/payment`}>
-                      <Button variant="solid" colorPalette="teal" w="100%" fontSize="md">
-                        Hire a Mentor Now
-                      </Button>
-                    </Link>
+                    <Button
+                      variant="solid"
+                      colorPalette="teal"
+                      w="100%"
+                      fontSize="md"
+                      onClick={addTimes}
+                    >
+                      Hire a Mentor Now
+                    </Button>
                   </Box>
                 </CardBox>
               </Box>

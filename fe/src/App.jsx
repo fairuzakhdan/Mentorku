@@ -6,6 +6,7 @@ import Mentorpage from './pages/Mentorpage';
 import { Routes, Route } from 'react-router';
 import Footer from './components/Layouts/Footer';
 import DetailMentorpage from './pages/DetailMentorpage';
+import Paymentpage from './pages/Paymentpage';
 
 const App = () => {
   return (
@@ -26,6 +27,7 @@ const App = () => {
           <Route element={<Homepage />} path="/" />
           <Route element={<Mentorpage />} path="/mentors" />
           <Route element={<DetailMentorpage />} path="/mentors/:mentorId" />
+          <Route element={<Paymentpage />} path="/mentors/:mentorId/payment" />
         </Routes>
       </main>
       <footer>
