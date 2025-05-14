@@ -5,6 +5,9 @@ import { useParams } from 'react-router';
 import { useEffect, useState } from 'react';
 import { methodPayments, paymentMentor } from '../utils/mentors';
 import FieldGroup from '../components/Fragments/Fieldset';
+import IconColor from '../components/Elements/IconButton';
+import { IoArrowBackCircleOutline } from 'react-icons/io5';
+import { Link } from 'react-router';
 const Paymentpage = () => {
   const { mentorId } = useParams();
   const [detailMentor, setDetailMentor] = useState(null);
@@ -21,9 +24,19 @@ const Paymentpage = () => {
   }
   return (
     <Layouts>
-      <Grid templateColumns={'repeat(3, 1fr)'} justifyContent={'center'} h="80vh" mt={10}>
+      <Link to={`/mentors/${mentorId}`}>
+        <Flex mt={3} mb={4} gap={3} alignItems={'center'}>
+          <IconColor>
+            <IoArrowBackCircleOutline />
+          </IconColor>
+          <Text fontSize={'xl'} fontWeight={'semibold'} color={'textGreen'}>
+            Previous
+          </Text>
+        </Flex>
+      </Link>
+      <Grid templateColumns={'repeat(3, 1fr)'} justifyContent={'center'} h="80vh">
         <GridItem colSpan={2}>
-          <Box color={'textGreen'} w={500} backgroundColor={'teal'} p={2} rounded={'md'} m="auto">
+          <Box color={'textGreen'} w={500} backgroundColor={'teal'} p={1} rounded={'md'}>
             <CardHorizontal type={'image'} image={detailMentor.image}>
               <CardHorizontal.Header name={detailMentor.name} title={detailMentor.role} />
               {paymentMentor.schedules.map((schedule, index) => (
