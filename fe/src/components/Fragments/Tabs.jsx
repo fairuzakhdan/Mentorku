@@ -1,4 +1,6 @@
 import { Tabs } from '@chakra-ui/react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 const TabsLink = ({ plans, sessions }) => {
   return (
@@ -41,6 +43,10 @@ const TabsLink = ({ plans, sessions }) => {
       </Tabs.Content>
     </Tabs.Root>
   );
+};
+TabsLink.propTypes = {
+  plans: PropTypes.node,
+  sessions: PropTypes.node,
 };
 
 export default TabsLink;
