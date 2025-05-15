@@ -2,7 +2,7 @@ import { Button, Field, Fieldset, Input, Stack, Flex, Text } from '@chakra-ui/re
 
 const FieldGroup = ({ price, totalPrice }) => {
   return (
-    <Fieldset.Root size="lg" maxW="md" border="1px solid #b0acac" p={5}>
+    <Fieldset.Root size="lg" maxW="md" border="1px solid #b0acac" p={5} rounded={'lg'}>
       <Stack>
         <Fieldset.Legend color="textBlue" fontWeight="medium" fontSize="lg">
           <Flex justifyContent="space-between" borderBottom={'1px solid #ccc'} pb={2}>

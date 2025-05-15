@@ -64,7 +64,7 @@ const Paymentpage = () => {
         </GridItem>
         <GridItem colSpan={1} w={350}>
           <FieldGroup price={detailMentor.price} totalPrice={paymentMentor.totalPrice} />
-          <Box border={'1px solid #b0acac'} mt={4} color={'gray.700'} p={2}>
+          <Box border={'1px solid #b0acac'} mt={4} color={'gray.700'} p={2} rounded={'lg'}>
             <Text fontWeight="semibold" fontSize="md" mb="2">
               Supported Payment Methods
             </Text>
