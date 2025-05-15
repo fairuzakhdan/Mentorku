@@ -47,7 +47,7 @@ const Selected = ({ addDays }) => {
     if (Object.keys(selectedDays).length > 0) {
       addDays(selectedDays);
     }
-  }, [selectedDays, addDays]); // Runs when selectedDays changes
+  }, [selectedDays, addDays]); //Runs when selectedDays changes
 
   return (
     <Box width="100%" maxW="500px" mt={5}>
