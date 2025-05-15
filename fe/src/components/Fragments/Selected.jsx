@@ -43,7 +43,7 @@ const Selected = ({ addDays }) => {
   };
 
   useEffect(() => {
-    // UseEffect to call addDays only after the state is updated
+    //UseEffect to call addDays only after the state is updated
     if (Object.keys(selectedDays).length > 0) {
       addDays(selectedDays);
     }
