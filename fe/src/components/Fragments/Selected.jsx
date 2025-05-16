@@ -28,7 +28,7 @@ const frameworks = [
 ];
 
 const Selected = ({ addDays }) => {
-  const [selectedDays, setSelectedDays] = useState({}); //contoh: { Senin: '08:00-10:00' }
+  const [selectedDays, setSelectedDays] = useState({}); //contoh:{ Senin: '08:00-10:00' }
 
   const handleSelect = (day, value) => {
     setSelectedDays((prev) => {
