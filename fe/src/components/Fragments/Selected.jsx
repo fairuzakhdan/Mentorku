@@ -36,7 +36,7 @@ const Selected = ({ addDays }) => {
       // Batasi maksimal 2 pilihan hari
       const dayKeys = Object.keys(updated);
       if (dayKeys.length > 2) {
-        delete updated[dayKeys[0]]; // hapus yang paling awal dipilih
+        delete updated[dayKeys[0]]; //hapus yang paling awal dipilih
       }
       return updated;
     });
