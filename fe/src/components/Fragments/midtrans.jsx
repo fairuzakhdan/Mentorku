@@ -12,7 +12,6 @@
 //         email: 'john@example.com',
 //       }),
 //     });
-
 //     const text = await response.text(); // ambil responsenya sebagai string dulu
 //     console.log('Raw response:', text);
 
