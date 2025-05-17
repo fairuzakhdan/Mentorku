@@ -9,7 +9,6 @@
   flex: 0 0 auto;
   margin-bottom: 16px;
 }
-
 @keyframes scroll-up {
   0% {
     transform: translateY(0%);
