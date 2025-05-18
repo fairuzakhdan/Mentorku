@@ -7,6 +7,7 @@ import { Routes, Route } from 'react-router';
 import Footer from './components/Layouts/Footer';
 import DetailMentorpage from './pages/DetailMentorpage';
 import Paymentpage from './pages/Paymentpage';
+import Activitypage from './pages/activitypage';
 
 const App = () => {
   return (
@@ -20,7 +21,7 @@ const App = () => {
           zIndex: 2,
         }}
       >
-        <Navigation />
+        <Navigation type="navbar" />
       </header>
       <main>
         <Routes>
@@ -28,6 +29,7 @@ const App = () => {
           <Route element={<Mentorpage />} path="/mentors" />
           <Route element={<DetailMentorpage />} path="/mentors/:mentorId" />
           <Route element={<Paymentpage />} path="/mentors/:mentorId/payment" />
+          <Route element={<Activitypage />} path="/mentors/activity" />
         </Routes>
       </main>
       <footer>

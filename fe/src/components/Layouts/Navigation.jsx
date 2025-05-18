@@ -6,8 +6,9 @@ import Logo from '../Elements/Logo';
 import CatalogMenu from '../Elements/KatalogMenu';
 import Layouts from '../Layouts/Layouts';
 import { Link } from 'react-router';
+import PropTypes from 'prop-types';
 
-const Navigation = () => {
+const Navigation = ({ type }) => {
   const links = [
     {
       title: 'Benefits',
@@ -24,38 +25,58 @@ const Navigation = () => {
   ];
   return (
     <Layouts>
-      <Box display="flex" justifyContent={'space-between'} alignItems={'center'}>
-        <Box display="flex" alignItems={'center'} columnGap={5}>
-          <Logo navigate="/" />
-          <CatalogMenu links={links} />
-          <Link to="/mentors" size="sm" variant="solid" outline="none" color="black" fontSize="md">
-            Mentor On Demand
-          </Link>
-          <Link to="/service" size="sm" variant="solid" outline="none" color="black" fontSize="md">
-            Service
-          </Link>
-          <Link to="/blog" size="sm" variant="solid" outline="none" color="black" fontSize="md">
-            Blog
-          </Link>
-          <Link size="sm" variant="solid" outline="none" color="black" fontSize="md">
-            Join Us
-          </Link>
+      {type === 'navbar' && (
+        <Box display="flex" justifyContent={'space-between'} alignItems={'center'}>
+          <Box display="flex" alignItems={'center'} columnGap={5}>
+            <Logo navigate="/" />
+            <CatalogMenu links={links} />
+            <Link
+              to="/mentors"
+              size="sm"
+              variant="solid"
+              outline="none"
+              color="black"
+              fontSize="md"
+            >
+              Mentor On Demand
+            </Link>
+            <Link
+              to="/service"
+              size="sm"
+              variant="solid"
+              outline="none"
+              color="black"
+              fontSize="md"
+            >
+              Service
+            </Link>
+            <Link to="/blog" size="sm" variant="solid" outline="none" color="black" fontSize="md">
+              Blog
+            </Link>
+            <Link size="sm" variant="solid" outline="none" color="black" fontSize="md">
+              Join Us
+            </Link>
+          </Box>
+          <HStack>
+            <Button colorPalette="teal" variant="solid">
+              <FaChalkboardTeacher /> Activity
+            </Button>
+            <Button
+              variant="solid"
+              color={'teal'}
+              outline="1px solid teal"
+              _hover={{ bg: 'gray.500', color: 'white' }}
+            >
+              <BiLogIn /> Login
+            </Button>
+          </HStack>
         </Box>
-        <HStack>
-          <Button colorPalette="teal" variant="solid">
-            <FaChalkboardTeacher /> Activity
-          </Button>
-          <Button
-            variant="solid"
-            color={'teal'}
-            outline="1px solid teal"
-            _hover={{ bg: 'gray.500', color: 'white' }}
-          >
-            <BiLogIn /> Login
-          </Button>
-        </HStack>
-      </Box>
+      )}
+      {type === 'sidebar' && <Text>Sidebar</Text>}
     </Layouts>
   );
+};
+Navigation.propTypes = {
+  type: PropTypes.string,
 };
 export default Navigation;

@@ -1,6 +1,6 @@
 import { Button, Field, Fieldset, Input, Stack, Flex, Text } from '@chakra-ui/react';
 
-const FieldGroup = ({ price, totalPrice }) => {
+const FieldGroup = ({ price, totalPrice, onClick = () => {} }) => {
   return (
     <Fieldset.Root size="lg" maxW="md" border="1px solid #b0acac" p={5} rounded={'lg'}>
       <Stack>
@@ -43,7 +43,7 @@ const FieldGroup = ({ price, totalPrice }) => {
         </Flex>
       </Fieldset.Content>
 
-      <Button type="submit" alignSelf="flex-start" colorPalette="red" w="full">
+      <Button type="submit" alignSelf="flex-start" colorPalette="red" w="full" onClick={onClick}>
         Pay Now
       </Button>
     </Fieldset.Root>
