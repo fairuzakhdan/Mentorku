@@ -6,7 +6,9 @@ import Layouts from '../components/Layouts/Layouts';
 const Activitypage = () => {
   return (
     <Navigation type="sidebar">
-      <Text border={'1px solid red'}>Activity</Text>
+      <Text border={'1px solid red'} marginInline={5}>
+        Activity
+      </Text>
     </Navigation>
   );
 };
