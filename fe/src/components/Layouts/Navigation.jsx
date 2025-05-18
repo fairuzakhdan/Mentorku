@@ -1,11 +1,12 @@
 import React from 'react';
-import { Box, Button, Container, HStack } from '@chakra-ui/react';
+import { Box, Button, Container, HStack, Text, Stack, Group, Flex } from '@chakra-ui/react';
 import { BiLogIn } from 'react-icons/bi';
 import { FaChalkboardTeacher } from 'react-icons/fa';
 import Logo from '../Elements/Logo';
 import CatalogMenu from '../Elements/KatalogMenu';
 import Layouts from '../Layouts/Layouts';
 import { Link } from 'react-router';
+import { IoHome } from 'react-icons/io5';
 import PropTypes from 'prop-types';
 
 const Navigation = ({ type }) => {
@@ -72,7 +73,16 @@ const Navigation = ({ type }) => {
           </HStack>
         </Box>
       )}
-      {type === 'sidebar' && <Text>Sidebar</Text>}
+      {type === 'sidebar' && (
+        <Stack>
+          <Link to="/mentors/activity/dashboard">
+            <Group>
+              <IoHome />
+              <Text>Dashboard</Text>
+            </Group>
+          </Link>
+        </Stack>
+      )}
     </Layouts>
   );
 };

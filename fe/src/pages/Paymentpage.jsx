@@ -8,7 +8,9 @@ import FieldGroup from '../components/Fragments/Fieldset';
 import IconColor from '../components/Elements/IconButton';
 import { IoArrowBackCircleOutline } from 'react-icons/io5';
 import { Link } from 'react-router';
+import { useNavigate } from 'react-router';
 const Paymentpage = () => {
+  const navigate = useNavigate();
   const { mentorId } = useParams();
   const [detailMentor, setDetailMentor] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -22,6 +24,9 @@ const Paymentpage = () => {
   if (isLoading) {
     return <div>Loading...</div>;
   }
+  const addPayment = () => {
+    navigate('/mentors/activity');
+  };
   return (
     <Layouts>
       <Link to={`/mentors/${mentorId}`}>
@@ -63,7 +68,11 @@ const Paymentpage = () => {
           </Box>
         </GridItem>
         <GridItem colSpan={1} w={350}>
-          <FieldGroup price={detailMentor.price} totalPrice={paymentMentor.totalPrice} />
+          <FieldGroup
+            price={detailMentor.price}
+            totalPrice={paymentMentor.totalPrice}
+            onClick={addPayment}
+          />
           <Box border={'1px solid #b0acac'} mt={4} color={'gray.700'} p={2} rounded={'lg'}>
             <Text fontWeight="semibold" fontSize="md" mb="2">
               Supported Payment Methods
