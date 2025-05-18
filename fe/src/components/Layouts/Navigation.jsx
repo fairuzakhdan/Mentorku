@@ -1,5 +1,16 @@
 import React from 'react';
-import { Box, Button, Container, HStack, Text, Stack, Group, Flex } from '@chakra-ui/react';
+import {
+  Box,
+  Button,
+  Container,
+  HStack,
+  Text,
+  Stack,
+  Group,
+  Flex,
+  Grid,
+  GridItem,
+} from '@chakra-ui/react';
 import { BiLogIn } from 'react-icons/bi';
 import { FaChalkboardTeacher } from 'react-icons/fa';
 import Logo from '../Elements/Logo';
@@ -9,7 +20,7 @@ import { Link } from 'react-router';
 import { IoHome } from 'react-icons/io5';
 import PropTypes from 'prop-types';
 
-const Navigation = ({ type }) => {
+const Navigation = ({ type, children }) => {
   const links = [
     {
       title: 'Benefits',
@@ -74,14 +85,19 @@ const Navigation = ({ type }) => {
         </Box>
       )}
       {type === 'sidebar' && (
-        <Stack>
-          <Link to="/mentors/activity/dashboard">
-            <Group>
-              <IoHome />
-              <Text>Dashboard</Text>
-            </Group>
-          </Link>
-        </Stack>
+        <Grid templateColumns={'repeat(6, 1fr)'} mt={5}>
+          <GridItem colSpan={1}>
+            <Stack shadow="md">
+              <Link to="/mentors/activity">
+                <Group color={'gray.700'}>
+                  <IoHome />
+                  <Text>Dashboard</Text>
+                </Group>
+              </Link>
+            </Stack>
+          </GridItem>
+          <GridItem colSpan={5}>{children}</GridItem>
+        </Grid>
       )}
     </Layouts>
   );
