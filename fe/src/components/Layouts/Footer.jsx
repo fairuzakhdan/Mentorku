@@ -19,7 +19,7 @@ const Footer = () => {
           rounded={'xl'}
           templateColumns={'repeat(5, 1fr)'}
           columnGap={5}
-          // mt={10}
+          mt={10}
           color="white"
           padding={4}
         >
