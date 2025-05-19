@@ -7,6 +7,7 @@ import {
   Text,
   Stack,
   Group,
+  Image,
   Flex,
   Grid,
   GridItem,
@@ -23,7 +24,10 @@ import { GrBook } from 'react-icons/gr';
 import { FaMoneyCheck } from 'react-icons/fa';
 import { SiGoogletasks } from 'react-icons/si';
 import { SiGooglemeet } from 'react-icons/si';
+import { useLocation } from 'react-router';
+import AvatarCard from '../Elements/Avatar';
 const Navigation = ({ type, children }) => {
+  const location = useLocation();
   const links = [
     {
       title: 'Benefits',
@@ -136,23 +140,40 @@ const Navigation = ({ type, children }) => {
               alignItems="flex-start"
               rowGap={7}
             >
-              {activitys.map((activity) => (
-                <Link to={activity.href} key={activity.href} style={{ width: '100%' }}>
-                  <Group
-                    color={'gray.600'}
-                    columnGap={3}
-                    width={'90%'}
-                    p={2}
-                    _hover={{ color: 'teal', backgroundColor: '#ccc', rounded: 'md' }}
-                  >
-                    <activity.icon size={20} />
-                    <Text>{activity.title}</Text>
-                  </Group>
-                </Link>
-              ))}
+              <Stack color={'gray.700'} alignItems={'center'} m="auto" rowGap={5}>
+                <Image
+                  src="https://images.unsplash.com/photo-1623366302587-b38b1ddaefd9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTF8fGVudGVwcmVuZXVyfGVufDB8fDB8fHww"
+                  width={100}
+                  height={100}
+                  objectFit={'cover'}
+                  rounded={'full'}
+                />
+                <Text fontSize={'lg'} fontWeight={'semibold'}>
+                  Fairuz Akhdan
+                </Text>
+              </Stack>
+              {activitys.map((activity) => {
+                const isActive = location.pathname === activity.href;
+                return (
+                  <Link to={activity.href} key={activity.href} style={{ width: '100%' }}>
+                    <Group
+                      color={isActive ? 'teal' : 'gray.600'}
+                      columnGap={3}
+                      width={'90%'}
+                      p={2}
+                      rounded={'lg'}
+                      backgroundColor={isActive ? '#ccc' : 'transparent'}
+                      _hover={{ color: 'teal', backgroundColor: '#ccc' }}
+                    >
+                      <activity.icon size={20} />
+                      <Text>{activity.title}</Text>
+                    </Group>
+                  </Link>
+                );
+              })}
             </Stack>
           </GridItem>
-          <GridItem colSpan={5}>{children}</GridItem>
+          <GridItem colSpan={5} >{children}</GridItem>
         </Grid>
       )}
     </>
