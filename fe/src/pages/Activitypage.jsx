@@ -2,7 +2,8 @@ import React from 'react';
 import Navigation from '../components/Layouts/Navigation';
 import { Text, Grid, GridItem, Box, Flex, Group, Span, Stack } from '@chakra-ui/react';
 import Layouts from '../components/Layouts/Layouts';
-import { TbStars } from "react-icons/tb";
+import { LuFileBadge2 } from 'react-icons/lu';
+import { MdOutlineStar } from 'react-icons/md';
 
 const Activitypage = () => {
   return (
@@ -71,16 +72,36 @@ const Activitypage = () => {
           <Text fontSize={'xl'} mt={3}>
             Mulai Belajar lagi, Kumpulkan SkillPoin dan Skillbadge dari Mentorku
           </Text>
-          <Flex rounded={'lg'} backgroundColor={'white'} color={'gray.600'} p={5} mt={5}>
-            <Stack rowGap={3}>
-              <Flex>
+          <Flex
+            rounded={'lg'}
+            backgroundColor={'white'}
+            color={'gray.600'}
+            p={5}
+            mt={5}
+            justifyContent={'space-between'}
+          >
+            <Stack rowGap={3} flex={1} mx={5}>
+              <Flex alignItems={'center'} justifyContent={'space-between'}>
                 <Text fontSize={'lg'}>Total SkillPoin</Text>
+                <MdOutlineStar size={25} color="#FFC107" />
               </Flex>
-              <Text fontSize={'md'}>
+              <Text fontSize={'md'} borderTop={'1px solid gray'}>
                 <Span fontSize={'3xl'} fontWeight={'bold'} color={'textGreen'}>
                   75
                 </Span>{' '}
                 SkillPoin
+              </Text>
+            </Stack>
+            <Stack rowGap={3} flex={1} mx={5}>
+              <Flex alignItems={'center'} justifyContent={'space-between'}>
+                <Text fontSize={'lg'}>SkillBadge</Text>
+                <LuFileBadge2 size={25} color="#FFC107" />
+              </Flex>
+              <Text fontSize={'md'} borderTop={'1px solid gray'}>
+                <Span fontSize={'3xl'} fontWeight={'bold'} color={'textGreen'}>
+                  1
+                </Span>{' '}
+                SkillBadge
               </Text>
             </Stack>
           </Flex>
