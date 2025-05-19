@@ -4,6 +4,7 @@ import { Text, Grid, GridItem, Box, Flex, Group, Span, Stack } from '@chakra-ui/
 import Layouts from '../components/Layouts/Layouts';
 import { LuFileBadge2 } from 'react-icons/lu';
 import { MdOutlineStar } from 'react-icons/md';
+import Progress from '../components/Fragments/ProgressCircle';
 
 const Activitypage = () => {
   return (
@@ -104,6 +105,14 @@ const Activitypage = () => {
                 SkillBadge
               </Text>
             </Stack>
+          </Flex>
+        </Box>
+        <Box color={'gray.600'} mt={7}>
+          <Text>Pemberitahuan</Text>
+          <Flex>
+            <Box>
+              <Progress value={10} />
+            </Box>
           </Flex>
         </Box>
       </Box>
