@@ -142,7 +142,7 @@ const Navigation = ({ type, children }) => {
             >
               <Stack color={'gray.700'} alignItems={'center'} m="auto" rowGap={5}>
                 <Image
-                  src="https://images.unsplash.com/photo-1623366302587-b38b1ddaefd9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTF8fGVudGVwcmVuZXVyfGVufDB8fDB8fHww"
+                  src="https://img.freepik.com/premium-vector/person-with-blue-shirt-that-says-name-person_1029948-7040.jpg?semt=ais_hybrid&w=740"
                   width={100}
                   height={100}
                   objectFit={'cover'}
