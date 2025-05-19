@@ -1,7 +1,8 @@
 import React from 'react';
 import { ProgressCircle } from '@chakra-ui/react';
 
-const Progress = () => {
+
+const Progress = ({value}) => {
   return (
     <ProgressCircle.Root value={75}>
       <ProgressCircle.Circle>
