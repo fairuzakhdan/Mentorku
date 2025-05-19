@@ -131,15 +131,8 @@ const Navigation = ({ type, children }) => {
       </Layouts>
       {type === 'sidebar' && (
         <Grid templateColumns={'repeat(6, 1fr)'}>
-          <GridItem colSpan={1}>
-            <Stack
-              borderRight={'1px solid #ccc'}
-              borderBottom={'1px solid #ccc'}
-              paddingLeft={5}
-              paddingBlock={5}
-              alignItems="flex-start"
-              rowGap={7}
-            >
+          <GridItem colSpan={1} borderRight={'1px solid #ccc'} borderBottom={'1px solid #ccc'}>
+            <Stack paddingLeft={5} paddingBlock={5} alignItems="flex-start" rowGap={7}>
               <Stack color={'gray.700'} alignItems={'center'} m="auto" rowGap={5}>
                 <Image
                   src="https://img.freepik.com/premium-vector/person-with-blue-shirt-that-says-name-person_1029948-7040.jpg?semt=ais_hybrid&w=740"
@@ -173,7 +166,7 @@ const Navigation = ({ type, children }) => {
               })}
             </Stack>
           </GridItem>
-          <GridItem colSpan={5}>{children}</GridItem>
+          <GridItem colSpan={5} mb={5}>{children}</GridItem>
         </Grid>
       )}
     </>
