@@ -2,6 +2,7 @@ import React from 'react';
 import Navigation from '../components/Layouts/Navigation';
 import { Text, Grid, GridItem, Box, Flex, Group, Span, Stack } from '@chakra-ui/react';
 import Layouts from '../components/Layouts/Layouts';
+import { TbStars } from "react-icons/tb";
 
 const Activitypage = () => {
   return (
@@ -72,9 +73,14 @@ const Activitypage = () => {
           </Text>
           <Flex rounded={'lg'} backgroundColor={'white'} color={'gray.600'} p={5} mt={5}>
             <Stack rowGap={3}>
-              <Text fontSize={'lg'}>Total SkillPoin</Text>
+              <Flex>
+                <Text fontSize={'lg'}>Total SkillPoin</Text>
+              </Flex>
               <Text fontSize={'md'}>
-                <Span fontSize={'3xl'}>75</Span> SkillPoin
+                <Span fontSize={'3xl'} fontWeight={'bold'} color={'textGreen'}>
+                  75
+                </Span>{' '}
+                SkillPoin
               </Text>
             </Stack>
           </Flex>
