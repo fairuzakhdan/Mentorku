@@ -40,7 +40,7 @@ const DetailClasspage = () => {
     <>
       <Navigation type="sidebar">
         <Box marginLeft="10" marginRight="16" color="textBlue" mt={5}>
-          <BreadcrumbLink links={links} color="textBlue" size="md" />
+          <BreadcrumbLink links={links} color="textGreen" size="md" />
           <Grid templateColumns="repeat(5, 1fr)" mt={4}>
             <GridItem colSpan={4}>
               {modul.slice(0, 1).map((item) => (
