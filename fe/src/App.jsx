@@ -8,6 +8,7 @@ import Footer from './components/Layouts/Footer';
 import DetailMentorpage from './pages/DetailMentorpage';
 import Paymentpage from './pages/Paymentpage';
 import Activitypage from './pages/activitypage';
+import Classpage from './pages/classpage';
 
 const App = () => {
   return (
@@ -30,6 +31,7 @@ const App = () => {
           <Route element={<DetailMentorpage />} path="/mentors/:mentorId" />
           <Route element={<Paymentpage />} path="/mentors/:mentorId/payment" />
           <Route element={<Activitypage />} path="/mentors/activity" />
+          <Route element={<Classpage />} path="/mentors/class" />
         </Routes>
       </main>
       <footer>

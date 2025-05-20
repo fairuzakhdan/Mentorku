@@ -11,8 +11,8 @@ const Activitypage = () => {
   const value = 50;
   return (
     <Navigation type="sidebar">
-      <Box marginLeft="10" marginRight="16">
-        <Flex mt={5} color={'white'} columnGap="16" justifyContent={'space-between'}>
+      <Box marginLeft="10" marginRight="16" mt={5}>
+        <Flex color={'white'} columnGap="16" justifyContent={'space-between'}>
           <Group
             backgroundColor={'textGreen'}
             w={200}

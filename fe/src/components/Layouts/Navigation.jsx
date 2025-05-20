@@ -130,7 +130,7 @@ const Navigation = ({ type, children }) => {
         )}
       </Layouts>
       {type === 'sidebar' && (
-        <Grid templateColumns={'repeat(6, 1fr)'} mb="-10">
+        <Grid templateColumns={'repeat(6, 1fr)'} mb="-10" height={'90vh'}>
           <GridItem colSpan={1} borderRight={'1px solid #ccc'}>
             <Stack paddingLeft={5} paddingBlock={5} alignItems="flex-start" rowGap={7}>
               <Stack color={'gray.700'} alignItems={'center'} m="auto" rowGap={5}>
