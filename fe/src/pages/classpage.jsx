@@ -20,6 +20,7 @@ import { getCurrentDateTime } from '../utils/date';
 import BreadcrumbLink from '../components/Fragments/Breadcrumb';
 import { VscFolderLibrary } from 'react-icons/vsc';
 import { PiBooksBold } from 'react-icons/pi';
+import { Link as LinkRouter } from 'react-router';
 
 const Classpage = () => {
   const [mentors, setMentors] = useState([]);
@@ -130,20 +131,22 @@ const Classpage = () => {
                     {'Join Meet'}
                     <SiGooglemeet size={20} />
                   </Link>
-                  <Link
-                    display={'flex'}
-                    px={5}
-                    py={2}
-                    rounded={'md'}
-                    justifyContent={'space-between'}
-                    color={'textGreen'}
-                    variant={'outline'}
-                    backgroundColor={'white'}
-                    fontSize={'md'}
-                    _hover={{ backgroundColor: 'gray.200' }}
-                  >
-                    Koridor Kelas <GiRead color="teal" size={20} />
-                  </Link>
+                  <LinkRouter to={`/mentors/class/${mentor.id}`}>
+                    <Text
+                      display={'flex'}
+                      px={5}
+                      py={2}
+                      rounded={'md'}
+                      justifyContent={'space-between'}
+                      color={'textGreen'}
+                      variant={'outline'}
+                      backgroundColor={'white'}
+                      fontSize={'md'}
+                      _hover={{ backgroundColor: 'gray.200' }}
+                    >
+                      Koridor Kelas <GiRead color="teal" size={20} />
+                    </Text>
+                  </LinkRouter>
                 </Stack>
               </GridItem>
             </Grid>
