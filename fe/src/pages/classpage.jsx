@@ -60,7 +60,6 @@ const Classpage = () => {
       title: 'Kelas Saya',
       icon: VscFolderLibrary,
     },
-
   ];
   useEffect(() => {
     setMentors(data);
