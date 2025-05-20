@@ -17,7 +17,7 @@ import { Link } from '@chakra-ui/react';
 import { SiGooglemeet } from 'react-icons/si';
 import { GiRead } from 'react-icons/gi';
 import { getCurrentDateTime } from '../utils/date';
-import { FcExpired } from "react-icons/fc";
+import { FcExpired } from 'react-icons/fc';
 
 const Classpage = () => {
   const [mentors, setMentors] = useState([]);
