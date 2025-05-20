@@ -5,9 +5,11 @@ import { useEffect, useState } from 'react';
 import { Link } from '@chakra-ui/react';
 import { SiGooglemeet } from 'react-icons/si';
 import { GiRead } from 'react-icons/gi';
+import { getCurrentDateTime } from '../utils/date';
 
 const Classpage = () => {
   const [mentors, setMentors] = useState([]);
+  const date = getCurrentDateTime(new Date());
 
   const data = [
     {
@@ -21,6 +23,7 @@ const Classpage = () => {
         { days: 'Senin', time: '08.00 - 10.00' },
         { days: 'Rabu', time: '20.00 - 10.00' },
       ],
+      date,
     },
     {
       id: '1',
@@ -34,6 +37,7 @@ const Classpage = () => {
         { days: 'Rabu', time: '20.00 - 10.00' },
         { days: 'Rabu', time: '20.00 - 10.00' },
       ],
+      date,
     },
   ];
   useEffect(() => {
