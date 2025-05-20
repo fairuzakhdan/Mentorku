@@ -1,11 +1,11 @@
-import Navigation from "../components/Layouts/Navigation";
+import Navigation from '../components/Layouts/Navigation';
 
 const DetailClasspage = () => {
-    return (
-        <>
-            <Navigation type="navbar" />
-        </>
-    );
+  return (
+    <>
+      <Navigation type="navbar" />
+    </>
+  );
 };
 
 export default DetailClasspage;
