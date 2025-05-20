@@ -8,7 +8,7 @@ import { GiRead } from 'react-icons/gi';
 
 const Classpage = () => {
   const [mentors, setMentors] = useState([]);
-  
+
   const data = [
     {
       id: '1',
@@ -38,6 +38,7 @@ const Classpage = () => {
   ];
   useEffect(() => {
     setMentors(data);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <Navigation type="sidebar">
