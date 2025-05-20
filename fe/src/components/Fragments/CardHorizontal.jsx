@@ -4,7 +4,15 @@ import PropTypes from 'prop-types';
 import AvatarCard from '../Elements/Avatar';
 import CircleBadge from '../Elements/Badge';
 
-export const CardHorizontal = ({ children, gapCard, className, image, shadow, type }) => (
+export const CardHorizontal = ({
+  children,
+  gapCard,
+  className,
+  image,
+  shadow,
+  type,
+  height = 'full',
+}) => (
   <Card.Root
     shadow={shadow}
     flexDirection="row"
@@ -17,7 +25,7 @@ export const CardHorizontal = ({ children, gapCard, className, image, shadow, ty
   >
     <Flex padding="3" gap={3}>
       {type === 'image' ? (
-        <Image src={image} alt="card-mentor" width={150} rounded={'md'} height="full" />
+        <Image src={image} alt="card-mentor" width={150} rounded={'md'} height={height} />
       ) : (
         <AvatarCard image={image} />
       )}
