@@ -22,6 +22,7 @@ import TimelineFlow from '../components/Fragments/Timeline';
 import Selected from '../components/Fragments/Selected';
 import TabsLink from '../components/Fragments/Tabs';
 import { useNavigate } from 'react-router';
+import { LuHouse, LuUserRoundSearch } from 'react-icons/lu';
 
 const DetailMentorpage = () => {
   const navigate = useNavigate();
@@ -52,6 +53,18 @@ const DetailMentorpage = () => {
       navigate(`/mentors/${mentorId}/payment`);
     }
   };
+  const links = [
+    {
+      href: '/',
+      title: 'Home',
+      icon: LuHouse,
+    },
+    {
+      href: '/mentors',
+      title: 'Find a Mentor',
+      icon: LuUserRoundSearch,
+    },
+  ];
 
   return (
     <>
@@ -59,7 +72,7 @@ const DetailMentorpage = () => {
         <Layouts>
           <Grid templateColumns={'repeat(3, 1fr)'}>
             <GridItem colSpan={2} position={'relative'} pt="10">
-              <BreadcrumbLink mentorName={detailMentor.name} />
+              <BreadcrumbLink mentorName={detailMentor.name} links={links} />
               <Flex
                 position="relative"
                 top="12"

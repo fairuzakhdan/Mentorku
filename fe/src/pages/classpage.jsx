@@ -17,7 +17,9 @@ import { Link } from '@chakra-ui/react';
 import { SiGooglemeet } from 'react-icons/si';
 import { GiRead } from 'react-icons/gi';
 import { getCurrentDateTime } from '../utils/date';
-import { FcExpired } from 'react-icons/fc';
+import BreadcrumbLink from '../components/Fragments/Breadcrumb';
+import { VscFolderLibrary } from 'react-icons/vsc';
+import { PiBooksBold } from 'react-icons/pi';
 
 const Classpage = () => {
   const [mentors, setMentors] = useState([]);
@@ -52,100 +54,102 @@ const Classpage = () => {
       date,
     },
   ];
+  const links = [
+    {
+      href: '/mentors/class',
+      title: 'Kelas Saya',
+      icon: VscFolderLibrary,
+    },
+
+  ];
   useEffect(() => {
     setMentors(data);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <Navigation type="sidebar">
-      <Box
-        marginLeft="10"
-        marginRight="16"
-        color="textBlue"
-        mt={5}
-        backgroundColor="textGreen"
-        rounded={'lg'}
-        py={1}
-        px={4}
-      >
-        {mentors.map((mentor, index) => (
-          <Grid templateColumns="repeat(4, 1fr)" gap={2} my={4} key={index}>
-            <GridItem colSpan={3}>
-              <CardHorizontal type="image" image={mentor.image} shadow={'sm'} height={120}>
-                <CardHorizontal.Header name={mentor.name} role={mentor.role} />
-                <Flex columnGap={3}>
-                  {mentor.schedules.map((schedule, index) => (
-                    <Group
-                      key={index}
-                      p={2}
-                      mt={5}
-                      fontSize={'md'}
-                      border={'2px solid teal'}
-                      backgroundColor={'textGreen'}
-                      rounded={'md'}
-                      color={'white'}
-                    >
-                      <Text>{schedule.days}</Text>
-                      <Text>{schedule.time}</Text>
-                    </Group>
-                  ))}
-                </Flex>
-              </CardHorizontal>
-            </GridItem>
-            <GridItem colSpan={1} rounded={'md'}>
-              <Stack border={'1px solid white'} p={1} rounded={'md'}>
-                <Text
-                  display={'flex'}
-                  justifyContent={'space-between'}
-                  py={2}
-                  px={5}
-                  alignItems={'center'}
-                  href={mentor.linkMeet}
-                  rounded={'md'}
-                  backgroundColor="red.500"
-                  w={'full'}
-                  _hover={{ backgroundColor: 'red.600' }}
-                  variant={'outline'}
-                  fontSize={'md'}
-                  color={'white'}
-                >
-                  {mentor.date} <Span>End</Span>
-                </Text>
-                <Link
-                  display={'flex'}
-                  justifyContent={'space-between'}
-                  href={mentor.linkMeet}
-                  px={5}
-                  py={2}
-                  rounded={'md'}
-                  backgroundColor="#FFC107"
-                  w={'full'}
-                  _hover={{ backgroundColor: 'yellow.500' }}
-                  variant={'outline'}
-                  fontSize={'md'}
-                  color={'white'}
-                >
-                  {'Join Meet'}
-                  <SiGooglemeet size={20} />
-                </Link>
-                <Link
-                  display={'flex'}
-                  px={5}
-                  py={2}
-                  rounded={'md'}
-                  justifyContent={'space-between'}
-                  color={'textGreen'}
-                  variant={'outline'}
-                  backgroundColor={'white'}
-                  fontSize={'md'}
-                  _hover={{ backgroundColor: 'gray.200' }}
-                >
-                  Koridor Kelas <GiRead color="teal" size={20} />
-                </Link>
-              </Stack>
-            </GridItem>
-          </Grid>
-        ))}
+      <Box marginLeft="10" marginRight="16" color="textBlue" mt={5}>
+        <BreadcrumbLink links={links} color="textBlue" size="md" />
+        <Box backgroundColor="textGreen" rounded={'lg'} py={1} px={4} mt={4}>
+          {mentors.map((mentor, index) => (
+            <Grid templateColumns="repeat(4, 1fr)" gap={2} my={4} key={index}>
+              <GridItem colSpan={3}>
+                <CardHorizontal type="image" image={mentor.image} shadow={'sm'} height={120}>
+                  <CardHorizontal.Header name={mentor.name} role={mentor.role} />
+                  <Flex columnGap={3} flexWrap="wrap">
+                    {mentor.schedules.map((schedule, index) => (
+                      <Group
+                        key={index}
+                        p={2}
+                        mt={5}
+                        fontSize={'md'}
+                        border={'2px solid teal'}
+                        backgroundColor={'textGreen'}
+                        rounded={'md'}
+                        color={'white'}
+                      >
+                        <Text>{schedule.days}</Text>
+                        <Text>{schedule.time}</Text>
+                      </Group>
+                    ))}
+                  </Flex>
+                </CardHorizontal>
+              </GridItem>
+              <GridItem colSpan={1} rounded={'md'}>
+                <Stack border={'1px solid white'} p={1} rounded={'md'}>
+                  <Text
+                    display={'flex'}
+                    justifyContent={'space-between'}
+                    py={2}
+                    px={5}
+                    alignItems={'center'}
+                    href={mentor.linkMeet}
+                    rounded={'md'}
+                    backgroundColor="red.500"
+                    w={'full'}
+                    _hover={{ backgroundColor: 'red.600' }}
+                    variant={'outline'}
+                    fontSize={'md'}
+                    color={'white'}
+                  >
+                    {mentor.date} <Span>End</Span>
+                  </Text>
+                  <Link
+                    display={'flex'}
+                    justifyContent={'space-between'}
+                    href={mentor.linkMeet}
+                    px={5}
+                    py={2}
+                    rounded={'md'}
+                    backgroundColor="#FFC107"
+                    w={'full'}
+                    _hover={{ backgroundColor: 'yellow.500' }}
+                    variant={'outline'}
+                    fontSize={'md'}
+                    color={'white'}
+                  >
+                    {'Join Meet'}
+                    <SiGooglemeet size={20} />
+                  </Link>
+                  <Link
+                    display={'flex'}
+                    px={5}
+                    py={2}
+                    rounded={'md'}
+                    justifyContent={'space-between'}
+                    color={'textGreen'}
+                    variant={'outline'}
+                    backgroundColor={'white'}
+                    fontSize={'md'}
+                    _hover={{ backgroundColor: 'gray.200' }}
+                  >
+                    Koridor Kelas <GiRead color="teal" size={20} />
+                  </Link>
+                </Stack>
+              </GridItem>
+            </Grid>
+          ))}
+        </Box>
       </Box>
     </Navigation>
   );
