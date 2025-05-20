@@ -1,11 +1,23 @@
 import Navigation from '../components/Layouts/Navigation';
-import { Box, Grid, GridItem, Image, Flex, Text, Group, Button, Stack } from '@chakra-ui/react';
+import {
+  Box,
+  Grid,
+  GridItem,
+  Image,
+  Flex,
+  Text,
+  Group,
+  Button,
+  Stack,
+  Span,
+} from '@chakra-ui/react';
 import CardHorizontal from '../components/Fragments/CardHorizontal';
 import { useEffect, useState } from 'react';
 import { Link } from '@chakra-ui/react';
 import { SiGooglemeet } from 'react-icons/si';
 import { GiRead } from 'react-icons/gi';
 import { getCurrentDateTime } from '../utils/date';
+import { FcExpired } from "react-icons/fc";
 
 const Classpage = () => {
   const [mentors, setMentors] = useState([]);
@@ -56,9 +68,9 @@ const Classpage = () => {
         py={1}
         px={4}
       >
-        {mentors.map((mentor) => (
-          <Grid templateColumns="repeat(4, 1fr)" gap={2} my={4}>
-            <GridItem colSpan={3} key={mentor.id}>
+        {mentors.map((mentor, index) => (
+          <Grid templateColumns="repeat(4, 1fr)" gap={2} my={4} key={index}>
+            <GridItem colSpan={3}>
               <CardHorizontal type="image" image={mentor.image} shadow={'sm'} height={120}>
                 <CardHorizontal.Header name={mentor.name} role={mentor.role} />
                 <Flex columnGap={3}>
@@ -81,35 +93,54 @@ const Classpage = () => {
               </CardHorizontal>
             </GridItem>
             <GridItem colSpan={1} rounded={'md'}>
-              <Stack>
+              <Stack border={'1px solid white'} p={1} rounded={'md'}>
+                <Text
+                  display={'flex'}
+                  justifyContent={'space-between'}
+                  py={2}
+                  px={5}
+                  alignItems={'center'}
+                  href={mentor.linkMeet}
+                  rounded={'md'}
+                  backgroundColor="red.500"
+                  w={'full'}
+                  _hover={{ backgroundColor: 'red.600' }}
+                  variant={'outline'}
+                  fontSize={'md'}
+                  color={'white'}
+                >
+                  {mentor.date} <Span>End</Span>
+                </Text>
                 <Link
                   display={'flex'}
-                  justifyContent={'space-around'}
+                  justifyContent={'space-between'}
                   href={mentor.linkMeet}
-                  p={2}
+                  px={5}
+                  py={2}
                   rounded={'md'}
                   backgroundColor="#FFC107"
                   w={'full'}
                   _hover={{ backgroundColor: 'yellow.500' }}
                   variant={'outline'}
-                  fontSize={'lg'}
-                  color={'gray.700'}
+                  fontSize={'md'}
+                  color={'white'}
                 >
                   {'Join Meet'}
-                  <SiGooglemeet size={30} />
+                  <SiGooglemeet size={20} />
                 </Link>
                 <Link
                   display={'flex'}
-                  p={2}
+                  px={5}
+                  py={2}
                   rounded={'md'}
-                  justifyContent={'space-around'}
+                  justifyContent={'space-between'}
                   color={'textGreen'}
                   variant={'outline'}
                   backgroundColor={'white'}
-                  fontSize={'lg'}
+                  fontSize={'md'}
                   _hover={{ backgroundColor: 'gray.200' }}
                 >
-                  Koridor Kelas <GiRead color="teal" size={30} />
+                  Koridor Kelas <GiRead color="teal" size={20} />
                 </Link>
               </Stack>
             </GridItem>
