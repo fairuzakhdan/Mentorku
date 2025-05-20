@@ -7,3 +7,5 @@ const DetailClasspage = () => {
         </>
     );
 };
+
+export default DetailClasspage;
