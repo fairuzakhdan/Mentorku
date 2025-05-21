@@ -101,7 +101,7 @@ const DetailClasspage = () => {
                   content: (
                     <>
                       {articles.map((article) => (
-                        <Stack overflowY="auto" maxHeight="450px" p={5}>
+                        <Stack overflowY="auto" maxHeight={500} p={5}>
                           <Text fontSize="xl" fontWeight="bold" color="textGreen">
                             {article.header}
                           </Text>
