@@ -8,6 +8,7 @@ const TabsLink = ({ tabs }) => {
       <Tabs.List borderBottom="1px solid #ccc" display="flex" justifyContent="space-around">
         {tabs.map((tab) => (
           <Tabs.Trigger
+            key={tab.value}
             value={tab.value}
             width={'100%'}
             p={5}
@@ -24,7 +25,7 @@ const TabsLink = ({ tabs }) => {
         ))}
       </Tabs.List>
       {tabs.map((tab) => (
-        <Tabs.Content value={tab.value} p={0}>
+        <Tabs.Content value={tab.value} p={0} key={tab.value}>
           {tab.content}
         </Tabs.Content>
       ))}

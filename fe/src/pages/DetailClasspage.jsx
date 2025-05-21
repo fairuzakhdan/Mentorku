@@ -7,7 +7,6 @@ import { useParams } from 'react-router';
 import Ratio from '../components/Elements/Ratio';
 import TabsLink from '../components/Fragments/Tabs';
 import { useEffect, useState } from 'react';
-
 const DetailClasspage = () => {
   const { classId } = useParams();
   const [activeVideo, setActiveVideo] = useState([]);
@@ -60,18 +59,18 @@ const DetailClasspage = () => {
         <Box marginLeft="10" marginRight="16" color="textBlue" mt={5}>
           <BreadcrumbLink links={links} color="textBlue" size="md" />
 
-          <Box mt={3} rounded="lg" border={'1px solid #ccc'}>
+          <Box mt={3} rounded="lg">
             <TabsLink
               tabs={[
                 {
                   label: 'Video Lessons',
                   value: 'video',
                   content: (
-                    <Grid templateColumns="repeat(5, 1fr)">
+                    <Grid templateColumns="repeat(5, 1fr)" border={'1px solid #ccc'}>
                       <GridItem colSpan={4}>
                         <Ratio link={activeVideo.link} title={activeVideo.title} />
                       </GridItem>
-                      <GridItem colSpan={1} padding={4} overflowY="auto" maxHeight="500px">
+                      <GridItem colSpan={1} padding={4} overflowY="auto" maxHeight={500}>
                         {modul.map((item) => (
                           <Box
                             key={item.id}
@@ -99,9 +98,15 @@ const DetailClasspage = () => {
                   label: 'Articles',
                   value: 'articles',
                   content: (
-                    <>
+                    <Box display={'flex'} flexDirection={'column'} alignItems={'center'}>
                       {articles.map((article) => (
-                        <Stack overflowY="auto" maxHeight={500} p={5}>
+                        <Stack
+                          overflowY="auto"
+                          maxHeight={400}
+                          p={5}
+                          border={'1px solid #ccc'}
+                          mb={3}
+                        >
                           <Text fontSize="xl" fontWeight="bold" color="textGreen">
                             {article.header}
                           </Text>
@@ -113,7 +118,7 @@ const DetailClasspage = () => {
                           </Text>
                         </Stack>
                       ))}
-                    </>
+                    </Box>
                   ),
                 },
               ]}
