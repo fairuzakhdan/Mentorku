@@ -69,7 +69,7 @@ const Classpage = () => {
   return (
     <Navigation type="sidebar">
       <Box marginLeft="10" marginRight="16" color="textBlue" mt={5}>
-        <BreadcrumbLink links={links} color="textGreen" size="md" />
+        <BreadcrumbLink links={links} color="textBlue" size="md" />
         <Box backgroundColor="textGreen" rounded={'lg'} py={1} px={4} mt={4}>
           {mentors.map((mentor, index) => (
             <Grid templateColumns="repeat(4, 1fr)" gap={2} my={4} key={index}>

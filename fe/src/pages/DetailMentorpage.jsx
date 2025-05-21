@@ -110,37 +110,47 @@ const DetailMentorpage = () => {
                   }}
                 >
                   <TabsLink
-                    plans={
-                      <>
-                        <CardBox.Body
-                          color="textBlue"
-                          price={detailMentor.price}
-                          fontSize="xl"
-                          summary="Cocok untuk mereka yang ingin melakukan perubahan karier, mendapatkan promosi, atau membutuhkan bimbingan/arahan karier"
-                        />
-                        <Box p={3}>
-                          <Flex columnGap={3} alignItems={'center'}>
-                            <IconColor color="white" cursor="auto">
-                              <BsFillTelephoneFill color="teal" />
-                            </IconColor>
-                            <Text fontSize="sm">Regular calls, per agreement</Text>
-                          </Flex>
-                          <Flex columnGap={3} alignItems={'center'}>
-                            <IconColor color="white" cursor="auto">
-                              <IoChatbubbleEllipsesSharp color="teal" />
-                            </IconColor>
-                            <Text fontSize="sm">Unlimited Q&A via chat</Text>
-                          </Flex>
-                          <Flex columnGap={3} alignItems={'center'}>
-                            <IconColor color="white" cursor="auto">
-                              <MdOutlineAccessTimeFilled color="teal" />
-                            </IconColor>
-                            <Text fontSize="sm">Expect responses in 3-4 days</Text>
-                          </Flex>
-                        </Box>
-                      </>
-                    }
-                    sessions={<Selected addDays={addDays} />}
+                    tabs={[
+                      {
+                        value: 'plans',
+                        label: 'Mentorship plans',
+                        content: (
+                          <>
+                            <CardBox.Body
+                              color="textBlue"
+                              price={detailMentor.price}
+                              fontSize="xl"
+                              summary="Cocok untuk mereka yang ingin melakukan perubahan karier, mendapatkan promosi, atau membutuhkan bimbingan/arahan karier"
+                            />
+                            <Box p={3}>
+                              <Flex columnGap={3} alignItems={'center'}>
+                                <IconColor color="white" cursor="auto">
+                                  <BsFillTelephoneFill color="teal" />
+                                </IconColor>
+                                <Text fontSize="sm">Regular calls, per agreement</Text>
+                              </Flex>
+                              <Flex columnGap={3} alignItems={'center'}>
+                                <IconColor color="white" cursor="auto">
+                                  <IoChatbubbleEllipsesSharp color="teal" />
+                                </IconColor>
+                                <Text fontSize="sm">Unlimited Q&A via chat</Text>
+                              </Flex>
+                              <Flex columnGap={3} alignItems={'center'}>
+                                <IconColor color="white" cursor="auto">
+                                  <MdOutlineAccessTimeFilled color="teal" />
+                                </IconColor>
+                                <Text fontSize="sm">Expect responses in 3-4 days</Text>
+                              </Flex>
+                            </Box>
+                          </>
+                        ),
+                      },
+                      {
+                        value: 'sessions',
+                        label: 'Sessions',
+                        content: <Selected addDays={addDays} />,
+                      },
+                    ]}
                   />
                   <Box w="100%" p={3}>
                     <Button

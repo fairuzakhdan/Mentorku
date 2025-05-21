@@ -2,45 +2,32 @@ import React from 'react';
 import { Tabs } from '@chakra-ui/react';
 import PropTypes from 'prop-types';
 
-const TabsLink = ({ plans, sessions }) => {
+const TabsLink = ({ tabs }) => {
   return (
-    <Tabs.Root defaultValue="plans">
+    <Tabs.Root defaultValue={tabs[0].value}>
       <Tabs.List borderBottom="1px solid #ccc" display="flex" justifyContent="space-around">
-        <Tabs.Trigger
-          value="plans"
-          w="full"
-          p={5}
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
-          _selected={{
-            borderBottom: '2px solid teal',
-            color: 'teal',
-          }}
-        >
-          Mentorship plans
-        </Tabs.Trigger>
-        <Tabs.Trigger
-          value="sessions"
-          w="full"
-          p={5}
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
-          _selected={{
-            borderBottom: '2px solid teal',
-            color: 'teal',
-          }}
-        >
-          Sessions
-        </Tabs.Trigger>
+        {tabs.map((tab) => (
+          <Tabs.Trigger
+            value={tab.value}
+            width={'100%'}
+            p={5}
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+            _selected={{
+              borderBottom: '2px solid teal',
+              color: 'teal',
+            }}
+          >
+            {tab.label}
+          </Tabs.Trigger>
+        ))}
       </Tabs.List>
-      <Tabs.Content value="plans" p={0}>
-        {plans}
-      </Tabs.Content>
-      <Tabs.Content value="sessions" p={0}>
-        {sessions}
-      </Tabs.Content>
+      {tabs.map((tab) => (
+        <Tabs.Content value={tab.value} p={0}>
+          {tab.content}
+        </Tabs.Content>
+      ))}
     </Tabs.Root>
   );
 };
