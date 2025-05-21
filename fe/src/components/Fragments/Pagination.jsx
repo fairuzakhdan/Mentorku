@@ -1,7 +1,7 @@
 import { ButtonGroup, IconButton, Pagination } from "@chakra-ui/react"
 import { LuChevronLeft, LuChevronRight } from "react-icons/lu"
 
-const Demo = () => {
+const PaginationPage = () => {
   return (
     <Pagination.Root count={20} pageSize={2} defaultPage={1}>
       <ButtonGroup variant="ghost" size="sm">
@@ -28,3 +28,4 @@ const Demo = () => {
     </Pagination.Root>
   )
 }
+export default PaginationPage
