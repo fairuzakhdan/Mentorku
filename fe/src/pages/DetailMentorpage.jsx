@@ -41,7 +41,7 @@ const DetailMentorpage = () => {
 
     setDetailMentor(mentor);
     setIsLoading(false);
-  }, [mentorId]);
+  }, [mentorId, navigate]);
   if (isLoading) {
     return <div>Loading...</div>;
   }
