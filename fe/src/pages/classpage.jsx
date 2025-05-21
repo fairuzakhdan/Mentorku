@@ -70,7 +70,7 @@ const Classpage = () => {
     <Navigation type="sidebar">
       <Box marginLeft="10" marginRight="16" color="textBlue" mt={5}>
         <BreadcrumbLink links={links} color="textBlue" size="md" />
-        <Box backgroundColor="textGreen" rounded={'lg'} py={1} px={4} mt={4}>
+        <Box backgroundColor="gray.300" rounded={'lg'} py={1} px={4} mt={4}>
           {mentors.map((mentor, index) => (
             <Grid templateColumns="repeat(4, 1fr)" gap={2} my={4} key={index}>
               <GridItem colSpan={3}>
@@ -80,8 +80,8 @@ const Classpage = () => {
                     {mentor.schedules.map((schedule, index) => (
                       <Group
                         key={index}
-                        p={2}
-                        mt={5}
+                        p={1}
+                        mt={7}
                         fontSize={'md'}
                         border={'2px solid teal'}
                         backgroundColor={'textGreen'}
@@ -96,7 +96,7 @@ const Classpage = () => {
                 </CardHorizontal>
               </GridItem>
               <GridItem colSpan={1} rounded={'md'}>
-                <Stack border={'1px solid white'} p={1} rounded={'md'}>
+                <Stack bgColor={'white'} p={1} rounded={'md'}>
                   <Text
                     display={'flex'}
                     justifyContent={'space-between'}
@@ -138,9 +138,9 @@ const Classpage = () => {
                       py={2}
                       rounded={'md'}
                       justifyContent={'space-between'}
-                      color={'textGreen'}
+                      color={'textBlue'}
                       variant={'outline'}
-                      backgroundColor={'white'}
+                      backgroundColor={'gray.300'}
                       fontSize={'md'}
                       _hover={{ backgroundColor: 'gray.200' }}
                     >

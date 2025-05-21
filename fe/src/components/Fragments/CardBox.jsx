@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { RiArrowRightLine } from 'react-icons/ri';
 
 const CardBox = ({
+  width = 'full',
   children,
   hover = {
     transform: 'scale(1.02)',
@@ -16,7 +17,7 @@ const CardBox = ({
 }) => {
   return (
     <Card.Root
-      width="full"
+      width={width}
       backgroundColor={backgroundColor}
       color="textBlue"
       border="none"

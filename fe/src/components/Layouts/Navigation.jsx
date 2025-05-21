@@ -49,7 +49,7 @@ const Navigation = ({ type, children }) => {
       icon: IoHome,
     },
     {
-      title: 'Kelas Saya',
+      title: 'My Class',
       href: '/mentors/class',
       icon: GrBook,
     },

@@ -10,6 +10,7 @@ import Paymentpage from './pages/Paymentpage';
 import Activitypage from './pages/activitypage';
 import Classpage from './pages/Classpage';
 import DetailClasspage from './pages/DetailClasspage';
+import Errorpage from './pages/404';
 
 const App = () => {
   return (
@@ -28,12 +29,13 @@ const App = () => {
       <main>
         <Routes>
           <Route element={<Homepage />} path="/" />
-          <Route element={<Mentorpage />} path="/mentors" />
-          <Route element={<DetailMentorpage />} path="/mentors/:mentorId" />
-          <Route element={<Paymentpage />} path="/mentors/:mentorId/payment" />
           <Route element={<Activitypage />} path="/mentors/activity" />
           <Route element={<Classpage />} path="/mentors/class" />
           <Route element={<DetailClasspage />} path="/mentors/class/:classId" />
+          <Route element={<Paymentpage />} path="/mentors/:mentorId/payment" />
+          <Route element={<DetailMentorpage />} path="/mentors/:mentorId" />
+          <Route element={<Mentorpage />} path="/mentors" />
+          <Route element={<Errorpage />} path={'*'} />
         </Routes>
       </main>
       <footer>

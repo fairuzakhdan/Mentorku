@@ -50,6 +50,20 @@ const DetailClasspage = () => {
     {
       id: '2',
       category: 'Computational Thinking',
+      title: 'Buatlah Studi Kasus Penerapan Computational Thinking dalam Kehidupan Sehari-hari',
+      description:
+        'Mahasiswa diminta untuk membuat contoh kasus nyata dari kehidupan sehari-hari (misalnya: memesan makanan online, menyusun jadwal belajar, atau mengatur keuangan), lalu menerapkannya dengan empat tahapan Computational Thinking (Decomposition, Pattern Recognition, Abstraction, Algorithm Design)',
+    },
+    {
+      id: '3',
+      category: 'Computational Thinking',
+      title: 'Kembangkan Sebuah Proyek Mini yang Menerapkan Konsep Computational Thinking',
+      description:
+        'Tugas ini mengajak mahasiswa untuk merancang dan menjelaskan proyek mini berbasis teknologi atau non-teknologi yang menunjukkan pemahaman terhadap konsep CT. Gunakan tahapan decomposition, abstraction, pattern recognition, dan algorithm.',
+    },
+    {
+      id: '4',
+      category: 'Computational Thinking',
       title: 'Kembangkan Sebuah Proyek Mini yang Menerapkan Konsep Computational Thinking',
       description:
         'Tugas ini mengajak mahasiswa untuk merancang dan menjelaskan proyek mini berbasis teknologi atau non-teknologi yang menunjukkan pemahaman terhadap konsep CT. Gunakan tahapan decomposition, abstraction, pattern recognition, dan algorithm.',
@@ -144,10 +158,11 @@ const DetailClasspage = () => {
                   label: 'Task',
                   value: 'task',
                   content: (
-                    <Group p={3} gap={5}>
+                    <Group p={3} gap={5} flexWrap="wrap" justifyContent={'space-between'}>
                       {task.map((task) => (
                         <>
                           <CardBox
+                            width={300}
                             shadow="none"
                             key={task.id}
                             hover={{ transform: 'scale(1)', backgroundColor: 'gray' }}

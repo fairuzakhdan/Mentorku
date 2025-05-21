@@ -34,6 +34,10 @@ const DetailMentorpage = () => {
   useEffect(() => {
     setIsLoading(true);
     const mentor = mentors.find((mentor) => mentor.id === mentorId);
+    if (!mentor) {
+      navigate('/mentors');
+      return;
+    }
 
     setDetailMentor(mentor);
     setIsLoading(false);
