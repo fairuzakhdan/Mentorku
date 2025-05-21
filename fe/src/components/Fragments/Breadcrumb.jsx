@@ -1,5 +1,5 @@
 import React from 'react';
-import { Breadcrumb, Flex, Box } from '@chakra-ui/react';
+import { Breadcrumb, Flex } from '@chakra-ui/react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router';
 
