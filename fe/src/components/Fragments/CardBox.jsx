@@ -9,8 +9,10 @@ const CardBox = ({
     transform: 'scale(1.02)',
     transition: 'all 0.3s ease-in-out',
     opacity: 0.9,
+    backgroundColor: 'white',
   },
   backgroundColor = '#fff',
+  shadow = 'md',
 }) => {
   return (
     <Card.Root
@@ -19,7 +21,7 @@ const CardBox = ({
       color="textBlue"
       border="none"
       rounded={'xl'}
-      shadow={'md'}
+      shadow={shadow}
       transition={'all 0.3s ease-in-out'}
       _hover={hover}
     >
@@ -40,10 +42,10 @@ const CardImage = ({ image }) => {
     />
   );
 };
-const Header = ({ name, role }) => {
+const Header = ({ name, role, fontSize = 'lg' }) => {
   return (
     <Card.Header color={'white'} width="64" ml={5} p={0} borderBottom={'1px solid #ccc'}>
-      <Card.Title>{name}</Card.Title>
+      <Card.Title fontSize={fontSize}>{name}</Card.Title>
       <Card.Description color={'white'}>{role}</Card.Description>
     </Card.Header>
   );
@@ -105,6 +107,7 @@ Footer.propTypes = {
   time: PropTypes.string,
 };
 CardBox.propTypes = {
+  shadow: PropTypes.string,
   children: PropTypes.node,
   hover: PropTypes.object,
   backgroundColor: PropTypes.string,
