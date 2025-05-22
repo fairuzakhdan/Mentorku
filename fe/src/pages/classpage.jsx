@@ -40,20 +40,6 @@ const Classpage = () => {
       ],
       date,
     },
-    {
-      id: '1',
-      name: 'John Doe',
-      role: 'Frontend Developer',
-      image:
-        'https://images.unsplash.com/photo-1742119971773-57e0131095b0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NjZ8fGVudGVwcmVuZXVyfGVufDB8fDB8fHww',
-      linkMeet: 'https://meet.google.com/pre-ztbc-ohe',
-      schedules: [
-        { days: 'Senin', time: '08.00 - 10.00' },
-        { days: 'Rabu', time: '20.00 - 10.00' },
-        { days: 'Rabu', time: '20.00 - 10.00' },
-      ],
-      date,
-    },
   ];
   const links = [
     {
@@ -70,18 +56,21 @@ const Classpage = () => {
     <Navigation type="sidebar">
       <Box marginLeft="10" marginRight="16" color="textBlue" mt={5}>
         <BreadcrumbLink links={links} color="textBlue" size="md" />
-        <Box backgroundColor="gray.300" rounded={'lg'} py={1} px={4} mt={4}>
+        <Box backgroundColor="textGreen" rounded={'lg'} py={1} px={4} mt={4}>
           {mentors.map((mentor, index) => (
             <Grid templateColumns="repeat(4, 1fr)" gap={2} my={4} key={index}>
               <GridItem colSpan={3}>
                 <CardHorizontal type="image" image={mentor.image} shadow={'sm'} height={120}>
+                  <Text fontSize={'lg'} fontWeight={'bold'} color={'textGreen'}>
+                    Mentor On Demand
+                  </Text>
                   <CardHorizontal.Header name={mentor.name} role={mentor.role} />
                   <Flex columnGap={3} flexWrap="wrap">
                     {mentor.schedules.map((schedule, index) => (
                       <Group
                         key={index}
                         p={1}
-                        mt={7}
+                        mt={0}
                         fontSize={'md'}
                         border={'2px solid teal'}
                         backgroundColor={'textGreen'}

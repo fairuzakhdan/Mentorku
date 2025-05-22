@@ -54,11 +54,6 @@ const Navigation = ({ type, children }) => {
       icon: GrBook,
     },
     {
-      title: 'Challenge',
-      href: '/mentors/challenge',
-      icon: SiGoogletasks,
-    },
-    {
       title: 'Transaction',
       href: '/mentors/transaction',
       icon: FaMoneyCheck,
