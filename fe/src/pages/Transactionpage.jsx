@@ -1,5 +1,5 @@
 import Navigation from '../components/Layouts/Navigation';
-import { Box, Text, Flex, Grid, GridItem, Button } from '@chakra-ui/react';
+import { Box, Text, Flex, Grid, GridItem, Button, Stack } from '@chakra-ui/react';
 import CardHorizontal from '../components/Fragments/CardHorizontal';
 const Transactionpage = () => {
   const mentors = [
@@ -15,6 +15,19 @@ const Transactionpage = () => {
         { days: 'Rabu', time: '20.00 - 10.00' },
       ],
     },
+    {
+      id: '2',
+      name: 'John Doe',
+      role: 'UI/UX Designer',
+      image:
+        'https://images.unsplash.com/photo-1742119971773-57e0131095b0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NjZ8fGVudGVwcmVuZXVyfGVufDB8fDB8fHww',
+      price: 75000,
+      schedules: [
+        { days: 'Senin', time: '08.00 - 10.00' },
+        { days: 'Rabu', time: '20.00 - 10.00' },
+        { days: 'Rabu', time: '20.00 - 10.00' },
+      ],
+    },
   ];
   return (
     <>
@@ -24,22 +37,45 @@ const Transactionpage = () => {
             Transaction
           </Text>
 
-          <Box mt={3} flex={5}>
+          <Stack mt={3} rowGap={3}>
             {mentors.map((mentor) => (
               <CardHorizontal
                 type="image"
                 image={mentor.image}
                 key={mentor.id}
                 border="none"
-                backgroundColor="gray.200"
+                height={120}
+                shadow={'sm'}
+                // backgroundColor="gray.200"
               >
                 <Flex w={'60vw'}>
                   <Box flex={5}>
                     <CardHorizontal.Header name={mentor.name} title={mentor.role} />
+                    <Flex gap={3}>
+                      {mentor.schedules.map((schedule, index) => (
+                        <Text
+                          key={index}
+                          fontWeight={'semibold'}
+                          color="gray.700"
+                          backgroundColor={'gray.200'}
+                          p={1}
+                          rounded={'md'}
+                        >
+                          {schedule.days} {schedule.time}
+                        </Text>
+                      ))}
+                    </Flex>
+                    <Text fontSize={'lg'} color="red" fontWeight={'bold'}>
+                      {mentor.price.toLocaleString('id-ID', {
+                        style: 'currency',
+                        currency: 'IDR',
+                        minimumFractionDigits: 0,
+                      })}
+                    </Text>
                   </Box>
                   <Box flex={1}>
                     <Text
-                      p={2}
+                      p={1}
                       color="white"
                       fontSize={'lg'}
                       backgroundColor="green.500"
@@ -52,7 +88,7 @@ const Transactionpage = () => {
                 </Flex>
               </CardHorizontal>
             ))}
-          </Box>
+          </Stack>
         </Box>
       </Navigation>
     </>

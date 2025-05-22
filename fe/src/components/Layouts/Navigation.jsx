@@ -161,7 +161,7 @@ const Navigation = ({ type, children }) => {
               })}
             </Stack>
           </GridItem>
-          <GridItem colSpan={5} mb={5}>
+          <GridItem colSpan={5}  backgroundColor={'gray.200'}>
             {children}
           </GridItem>
         </Grid>
