@@ -2,7 +2,6 @@ import React from 'react';
 import Navigation from '../components/Layouts/Navigation';
 import { Text, Grid, GridItem, Box, Flex, Group, Span, Stack, Image } from '@chakra-ui/react';
 import Layouts from '../components/Layouts/Layouts';
-
 import { LuFileBadge2 } from 'react-icons/lu';
 import { MdOutlineStar } from 'react-icons/md';
 import Progress from '../components/Fragments/ProgressCircle';
