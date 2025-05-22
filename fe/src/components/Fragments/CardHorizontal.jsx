@@ -12,14 +12,16 @@ export const CardHorizontal = ({
   shadow,
   type,
   height = 'full',
+  border = '1px solid #b0acac',
+  backgroundColor = '#fff',
 }) => (
   <Card.Root
     shadow={shadow}
     flexDirection="row"
     overflow="hidden"
-    bg={'white'}
+    bg={backgroundColor}
     color="black"
-    border={'1px solid #b0acac'}
+    border={border}
     marginBlock={gapCard}
     className={className}
   >

@@ -11,6 +11,7 @@ import Activitypage from './pages/activitypage';
 import Classpage from './pages/Classpage';
 import DetailClasspage from './pages/DetailClasspage';
 import Errorpage from './pages/404';
+import Transactionpage from './pages/Transactionpage';
 
 const App = () => {
   return (
@@ -31,6 +32,7 @@ const App = () => {
           <Route element={<Homepage />} path="/" />
           <Route element={<Activitypage />} path="/mentors/activity" />
           <Route element={<Classpage />} path="/mentors/class" />
+          <Route element={<Transactionpage />} path="/mentors/transaction" />
           <Route element={<DetailClasspage />} path="/mentors/class/:classId" />
           <Route element={<Paymentpage />} path="/mentors/:mentorId/payment" />
           <Route element={<DetailMentorpage />} path="/mentors/:mentorId" />
