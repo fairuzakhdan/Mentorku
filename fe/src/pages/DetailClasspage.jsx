@@ -92,7 +92,7 @@ const DetailClasspage = () => {
       <Navigation type="sidebar">
         <Box marginLeft="10" marginRight="16" color="textBlue" mt={5}>
           <BreadcrumbLink links={links} color="textBlue" size="md" />
-          <Box mt={3} rounded="lg" border={'1px solid teal'}>
+          <Box mt={3} rounded="lg" border={'1px solid gray'}>
             <TabsLink
               tabs={[
                 {
