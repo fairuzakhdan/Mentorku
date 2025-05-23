@@ -2,6 +2,7 @@ import Navigation from '../components/Layouts/Navigation';
 import { Box, Text, Flex, Grid, GridItem, Button, Stack } from '@chakra-ui/react';
 import CardHorizontal from '../components/Fragments/CardHorizontal';
 import BreadcrumbLink from '../components/Fragments/Breadcrumb';
+import { VscFolderLibrary } from 'react-icons/vsc';
 const Transactionpage = () => {
   const mentors = [
     {
@@ -30,13 +31,18 @@ const Transactionpage = () => {
       ],
     },
   ];
+  const links = [
+    {
+      title: 'Transaction',
+      href: '/mentors/transaction',
+      icon: VscFolderLibrary,
+    },
+  ];
   return (
     <>
       <Navigation type="sidebar">
         <Box marginLeft="10" marginRight="16" color="textBlue" mt={5}>
-          <Text fontSize={'2xl'} fontWeight={'medium'}>
-            Transaction
-          </Text>
+          <BreadcrumbLink links={links} color="textBlue" size="md" />
 
           <Stack mt={3} rowGap={3}>
             {mentors.map((mentor) => (
@@ -58,7 +64,7 @@ const Transactionpage = () => {
                           key={index}
                           fontWeight={'semibold'}
                           color="gray.700"
-                          backgroundColor={'gray.200'}
+                          border={'1px solid teal'}
                           p={1}
                           rounded={'md'}
                         >

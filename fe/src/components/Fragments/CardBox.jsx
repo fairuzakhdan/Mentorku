@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { RiArrowRightLine } from 'react-icons/ri';
 
 const CardBox = ({
+  height = 'full',
   width = 'full',
   children,
   hover = {
@@ -14,13 +15,17 @@ const CardBox = ({
   },
   backgroundColor = '#fff',
   shadow = 'md',
+  border = 'none',
+  borderLeft = 'none',
 }) => {
   return (
     <Card.Root
       width={width}
+      border={border}
+      borderLeft={borderLeft}
+      height={height}
       backgroundColor={backgroundColor}
       color="textBlue"
-      border="none"
       rounded={'xl'}
       shadow={shadow}
       transition={'all 0.3s ease-in-out'}
@@ -45,7 +50,7 @@ const CardImage = ({ image }) => {
 };
 const Header = ({ name, role, fontSize = 'lg' }) => {
   return (
-    <Card.Header color={'white'} width="64" ml={5} p={0} borderBottom={'1px solid #ccc'}>
+    <Card.Header color={'white'} ml={5} p={0} borderBottom={'1px solid #ccc'}>
       <Card.Title fontSize={fontSize}>{name}</Card.Title>
       <Card.Description color={'white'}>{role}</Card.Description>
     </Card.Header>
