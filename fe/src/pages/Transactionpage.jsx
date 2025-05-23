@@ -53,7 +53,6 @@ const Transactionpage = () => {
                 border="none"
                 height={120}
                 shadow={'sm'}
-                // backgroundColor="gray.200"
               >
                 <Flex w={'60vw'}>
                   <Box flex={5}>
