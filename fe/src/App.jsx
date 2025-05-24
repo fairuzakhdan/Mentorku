@@ -15,6 +15,7 @@ import Transactionpage from './pages/Transactionpage';
 import Webinarpage from './pages/Webinarpage';
 import Blogpage from './pages/Blog';
 import DetailBlogpage from './pages/DetailBlogpage';
+import JoinUspage from './pages/JoinUspage';
 
 const App = () => {
   return (
@@ -40,9 +41,10 @@ const App = () => {
           <Route element={<DetailClasspage />} path="/mentors/class/:classId" />
           <Route element={<Paymentpage />} path="/mentors/:mentorId/payment" />
           <Route element={<DetailMentorpage />} path="/mentors/:mentorId" />
-          <Route element={<Mentorpage />} path="/mentors" />
           <Route element={<Blogpage />} path="/blog" />
           <Route element={<DetailBlogpage />} path="/blog/:blogId" />
+          <Route element={<JoinUspage />} path="/joinus" />
+          <Route element={<Mentorpage />} path="/mentors" />
           <Route element={<Errorpage />} path={'*'} />
         </Routes>
       </main>

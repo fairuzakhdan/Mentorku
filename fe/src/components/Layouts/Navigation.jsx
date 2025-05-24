@@ -85,7 +85,14 @@ const Navigation = ({ type, children }) => {
               <Link to="/blog" size="sm" variant="solid" outline="none" color="black" fontSize="md">
                 Blog
               </Link>
-              <Link size="sm" variant="solid" outline="none" color="black" fontSize="md">
+              <Link
+                to="/joinus"
+                size="sm"
+                variant="solid"
+                outline="none"
+                color="black"
+                fontSize="md"
+              >
                 Join Us
               </Link>
             </Box>
