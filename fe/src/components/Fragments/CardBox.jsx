@@ -17,6 +17,7 @@ const CardBox = ({
   shadow = 'md',
   border = 'none',
   borderLeft = 'none',
+  color = 'textBlue',
 }) => {
   return (
     <Card.Root
@@ -25,7 +26,7 @@ const CardBox = ({
       borderLeft={borderLeft}
       height={height}
       backgroundColor={backgroundColor}
-      color="textBlue"
+      color={color}
       rounded={'xl'}
       shadow={shadow}
       transition={'all 0.3s ease-in-out'}
@@ -35,23 +36,25 @@ const CardBox = ({
     </Card.Root>
   );
 };
-const CardImage = ({ image }) => {
+const CardImage = ({ image, height = 350, width = 'full' }) => {
   return (
     <Image
       src={image}
       alt="card-mentor"
-      width="full"
-      height={350}
+      width={width}
+      height={height}
       objectFit="cover"
       objectPosition={'center'}
       rounded={'xl'}
     />
   );
 };
-const Header = ({ name, role, fontSize = 'lg' }) => {
+const Header = ({ name, role, fontSize = 'lg', color = 'white' }) => {
   return (
     <Card.Header color={'white'} ml={5} p={0} borderBottom={'1px solid #ccc'}>
-      <Card.Title fontSize={fontSize}>{name}</Card.Title>
+      <Card.Title fontSize={fontSize} color={color}>
+        {name}
+      </Card.Title>
       <Card.Description color={'white'}>{role}</Card.Description>
     </Card.Header>
   );
@@ -59,7 +62,9 @@ const Header = ({ name, role, fontSize = 'lg' }) => {
 const Body = ({ title, summary, price, color = 'white', fontSize = 'md' }) => {
   return (
     <Card.Body pt="3" pb="0">
-      <Card.Title mt="2">{title}</Card.Title>
+      <Card.Title mt="2" color={color}>
+        {title}
+      </Card.Title>
       <Card.Title color={color} fontSize={fontSize} pb="4">
         {typeof price === 'number'
           ? `${price.toLocaleString('id-ID', {

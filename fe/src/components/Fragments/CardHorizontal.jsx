@@ -14,7 +14,7 @@ export const CardHorizontal = ({
   height = 'full',
   backgroundColor = '#fff',
   border = '1px solid #b0acac',
-  borderLeft = 'none',
+  borderLeft = '1px solid #b0acac',
 }) => (
   <Card.Root
     shadow={shadow}

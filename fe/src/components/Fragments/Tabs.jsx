@@ -32,9 +32,5 @@ const TabsLink = ({ tabs }) => {
     </Tabs.Root>
   );
 };
-TabsLink.propTypes = {
-  plans: PropTypes.node,
-  sessions: PropTypes.node,
-};
 
 export default TabsLink;
