@@ -50,6 +50,7 @@ const Transactionpage = () => {
                 type="image"
                 image={mentor.image}
                 key={mentor.id}
+                borderLeft="7px solid teal"
                 border="none"
                 height={120}
                 shadow={'sm'}
