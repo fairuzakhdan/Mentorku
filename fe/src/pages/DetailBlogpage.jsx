@@ -60,7 +60,7 @@ const DetailBlogpage = () => {
               <Group mt={5} color={'gray.500'}>
                 <Text>Publisher :</Text>
                 <Text>{blog.user.name}</Text>
-                <AvatarCard image={blog.user.image} size="xs" />
+                <AvatarCard image={blog.user.image} size="xs" rounded="full" />
               </Group>
             </Stack>
           </GridItem>
