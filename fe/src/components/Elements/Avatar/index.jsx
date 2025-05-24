@@ -1,11 +1,11 @@
 import React from 'react';
 import { Avatar } from '@chakra-ui/react';
 import PropTypes from 'prop-types';
-const AvatarCard = ({ image }) => {
+const AvatarCard = ({ image, size = 'xl', rounded = 'full' }) => {
   return (
-    <Avatar.Root shape="rounded" size="xl" backgroundColor="transparent" border="none">
+    <Avatar.Root shape="rounded" size={size} backgroundColor="transparent" border="none">
       <Avatar.Fallback name="Segun Adebayo" />
-      <Avatar.Image src={image} border="none" objectPosition={'top'} />
+      <Avatar.Image src={image} border="none" objectPosition={'top'} rounded={rounded} />
     </Avatar.Root>
   );
 };

@@ -82,16 +82,6 @@ const Navigation = ({ type, children }) => {
               >
                 Mentor On Demand
               </Link>
-              <Link
-                to="/service"
-                size="sm"
-                variant="solid"
-                outline="none"
-                color="black"
-                fontSize="md"
-              >
-                Service
-              </Link>
               <Link to="/blog" size="sm" variant="solid" outline="none" color="black" fontSize="md">
                 Blog
               </Link>

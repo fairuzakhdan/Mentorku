@@ -4,28 +4,31 @@ import TabsLink from '../components/Fragments/Tabs';
 import CardBox from '../components/Fragments/CardBox';
 import React from 'react';
 import { useState, useEffect } from 'react';
+import { data } from '../utils/blogs';
+import { Link } from 'react-router';
 
-const ContentBlog = ({ image, createdAt, title, category }) => {
+const ContentBlog = ({ image, createdAt, title, category, id }) => {
   return (
-    <CardBox p={10} width={285} height={330} border="1px solid gray">
-      <CardBox.Image image={image} height={200} width={300} />
-      <Flex alignItems={'center'} justifyContent={'center'}>
-        <CardBox.Body title={category} color="textGreen" />
-        <Span fontSize={'sm'} pr={7} color="gray">
-          {createdAt}
-        </Span>
-      </Flex>
-      <CardBox.Header name={`${title.substring(0, 45)}...`} color="textBlue" />
-    </CardBox>
+    <Link to={`/blog/${id}`}>
+      <CardBox p={10} width={285} height={330} border="1px solid gray">
+        <CardBox.Image image={image} height={200} width={300} />
+        <Flex alignItems={'center'} justifyContent={'center'}>
+          <CardBox.Body title={category} color="textGreen" />
+          <Span fontSize={'sm'} pr={7} color="gray">
+            {createdAt}
+          </Span>
+        </Flex>
+        <CardBox.Header name={`${title.substring(0, 45)}...`} color="textBlue" />
+      </CardBox>
+    </Link>
   );
 };
 
 const Blogpage = () => {
   const [blogs, setBlogs] = useState([]);
- 
+
   useEffect(() => {
     setBlogs(data);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <Layouts>
@@ -39,6 +42,7 @@ const Blogpage = () => {
                 <Flex gap={5} flexWrap={'wrap'} justifyContent={'space-between'} mt={5}>
                   {blogs.map((blog, index) => (
                     <ContentBlog
+                      id={blog.id}
                       key={index}
                       title={blog.title}
                       createdAt={blog.createdAt}
@@ -58,6 +62,7 @@ const Blogpage = () => {
                     .filter((blog) => blog.category === 'Web Dev')
                     .map((blog, index) => (
                       <ContentBlog
+                        id={blog.id}
                         key={index}
                         title={blog.title}
                         createdAt={blog.createdAt}
@@ -77,6 +82,7 @@ const Blogpage = () => {
                     .filter((blog) => blog.category === 'Mobile Dev')
                     .map((blog, index) => (
                       <ContentBlog
+                        id={blog.id}
                         key={index}
                         title={blog.title}
                         createdAt={blog.createdAt}
