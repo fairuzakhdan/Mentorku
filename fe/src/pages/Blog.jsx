@@ -2,6 +2,8 @@ import { Box, GridItem, Grid, Text, Flex, Button, Stack, Span } from '@chakra-ui
 import Layouts from '../components/Layouts/Layouts';
 import TabsLink from '../components/Fragments/Tabs';
 import CardBox from '../components/Fragments/CardBox';
+import React from 'react';
+import { useState, useEffect } from 'react';
 
 const ContentBlog = ({ image, createdAt, title, category }) => {
   return (
@@ -19,7 +21,8 @@ const ContentBlog = ({ image, createdAt, title, category }) => {
 };
 
 const Blogpage = () => {
-  const blogs = [
+  const [blogs, setBlogs] = useState([]);
+  const data = [
     {
       id: '1',
       title: 'Software Rekomendasi Pembuat Aplikasi Android Terbaik',
@@ -58,9 +61,13 @@ const Blogpage = () => {
       category: 'Tips & Trick',
       createdAt: '05 May 2025',
       image:
-        'https://plus.unsplash.com/premium_photo-1664301973841-fe2da7427d6c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTU0fHxwcm9ncmFtbWVyfGVufDB8fDB8fHww',
+        'https://images.unsplash.com/photo-1513258496099-48168024aec0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjJ8fHByb2dyYW1tZXJ8ZW58MHx8MHx8fDA%3D',
     },
   ];
+  useEffect(() => {
+    setBlogs(data);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   return (
     <Layouts>
       <Box mt={3}>
