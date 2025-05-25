@@ -1,3 +1,4 @@
+'use client';
 import Layouts from '../components/Layouts/Layouts';
 import {
   Box,
@@ -14,6 +15,9 @@ import {
 import StepsProcess from '../components/Fragments/Steps';
 import IconColor from '../components/Elements/IconButton';
 import { BsInfoCircleFill } from 'react-icons/bs';
+import FormInput from '../components/Elements/FormInput';
+import { FormSelect } from '../components/Elements/FormInput';
+import { PasswordInput } from '@/components/ui/password-input';
 
 const AddContent = () => {
   return (
@@ -65,11 +69,11 @@ const AddMentorpage = () => {
   ];
   return (
     <Layouts>
-      <Box color={'gray.600'}>
+      <Box color={'gray.600'} mt={5}>
         <Text fontSize={'3xl'} fontWeight={'semibold'}>
           Apply as a Mentor
         </Text>
-        <Box>
+        <Box mt={5}>
           <StepsProcess steps={steps} />
         </Box>
       </Box>
