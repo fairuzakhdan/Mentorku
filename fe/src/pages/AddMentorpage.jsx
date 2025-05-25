@@ -18,8 +18,22 @@ import { BsInfoCircleFill } from 'react-icons/bs';
 import FormInput from '../components/Elements/FormInput';
 import { FormSelect } from '../components/Elements/FormInput';
 import { PasswordInput } from '@/components/ui/password-input';
+import FormAddMentor from '../components/Fragments/FormAddMentor';
+import useInput from '../hooks/useInput';
 
-const AddContent = () => {
+const AddContent = ({ formState }) => {
+  const {
+    name,
+    onChangeName,
+    email,
+    onChangeEmail,
+    password,
+    onChangePassword,
+    date,
+    onChangeDate,
+    nationality,
+    onChangeNationality,
+  } = formState;
   return (
     <Box>
       <Group
@@ -45,16 +59,47 @@ const AddContent = () => {
           </Text>
         </Box>
       </Group>
+      <FormAddMentor
+        name={name}
+        onChangeName={onChangeName}
+        email={email}
+        onChangeEmail={onChangeEmail}
+        password={password}
+        onChangePassword={onChangePassword}
+        date={date}
+        onChangeDate={onChangeDate}
+        nationality={nationality}
+        onChangeNationality={onChangeNationality}
+      />
     </Box>
   );
 };
 
 const AddMentorpage = () => {
+  const [name, onChangeName] = useInput('');
+  const [email, onChangeEmail] = useInput('');
+  const [password, onChangePassword] = useInput('');
+  const [date, onChangeDate] = useInput('');
+  const [nationality, onChangeNationality] = useInput('');
+
+  const formState = {
+    name,
+    onChangeName,
+    email,
+    onChangeEmail,
+    password,
+    onChangePassword,
+    date,
+    onChangeDate,
+    nationality,
+    onChangeNationality,
+  };
+  console.log(formState);
   const steps = [
     {
       title: 'Profil',
       description: 'Kenali siapa dirimu, Lengkapi informasi dasar seperti nama, email dan password',
-      content: <AddContent />,
+      content: <AddContent formState={formState} />,
     },
     {
       title: 'Tentang Kamu',

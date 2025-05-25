@@ -1,9 +1,10 @@
-const useInput = (initialValue, onChange) => {
+import { useState } from 'react';
+const useInput = (initialValue = '') => {
   const [value, setValue] = useState(initialValue);
-
-  useEffect(() => {
-    onChange(value);
-  }, [value]);
-
-  return [value, setValue, onChange];
+  const handleChangeValue = (event) => {
+    setValue(event.target.value);
+  };
+  return [value, handleChangeValue];
 };
+
+export default useInput;

@@ -1,13 +1,28 @@
 import { Field, Input, NativeSelect, Textarea, Stack } from '@chakra-ui/react';
 import { PasswordInput, PasswordStrengthMeter } from '@/components/ui/password-input';
 
-const FormInput = ({ label, placeholder, required = false, type = 'text', name }) => {
+const FormInput = ({
+  label,
+  placeholder,
+  required = false,
+  type = 'text',
+  name,
+  onChange = () => {},
+  value,
+}) => {
   return (
     <Field.Root required={required}>
       <Field.Label>
         {label} <Field.RequiredIndicator />
       </Field.Label>
-      <Input type={type} id={name} name={name} placeholder={placeholder} />
+      <Input
+        type={type}
+        id={name}
+        name={name}
+        placeholder={placeholder}
+        onChange={onChange}
+        value={value}
+      />
     </Field.Root>
   );
 };
@@ -30,12 +45,12 @@ export const FormTextArea = ({ label, placeholder }) => {
   );
 };
 
-export const FormSelect = ({ label, values }) => {
+export const FormSelect = ({ label, values, onChange = () => {}, value }) => {
   return (
     <Field.Root>
       <Field.Label>{label}</Field.Label>
       <NativeSelect.Root>
-        <NativeSelect.Field>
+        <NativeSelect.Field onChange={onChange} value={value}>
           {values.map((v, index) => (
             <option key={index} value={v.value} style={{ backgroundColor: 'white' }}>
               {v.value}
