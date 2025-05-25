@@ -121,9 +121,47 @@ const JoinUspage = () => {
             </Flex>
           </Group>
         </Stack>
+      </Layouts>
+      <Box mt={10} backgroundColor={'textGreen'}>
+        <Layouts>
+          <Stack textAlign={'center'} rowGap={5} color={'white'} py={14}>
+            <Text fontSize={'3xl'} fontWeight={'semibold'}>
+              Dipercaya oleh Mentee di seluruh dunia
+            </Text>
+            <Text fontSize={'lg'}>
+              Mentor On Demand menarik para Mentee yang bersemangat dan sangat ambisius yang ingin{' '}
+              <br />
+              tumbuh dalam karir, bisnis, dan pembelajaran mereka
+            </Text>
+            <Group justifyContent={'center'} columnGap={14}>
+              <Box>
+                <Text fontSize={'6xl'} fontWeight={'bold'}>
+                  97%
+                </Text>
+                <Text fontSize={'xl'}>Kepuasan</Text>
+              </Box>
+              <Box>
+                <Text fontSize={'6xl'} fontWeight={'bold'}>
+                  10,000+
+                </Text>
+                <Text fontSize={'xl'}>Mentee</Text>
+              </Box>
+              <Box>
+                <Text fontSize={'6xl'} fontWeight={'bold'}>
+                  +-$1M
+                </Text>
+                <Text fontSize={'xl'}>Dibayarkan ke Mentor</Text>
+              </Box>
+            </Group>
+          </Stack>
+        </Layouts>
+      </Box>
+      <Layouts>
         <Box mt={14}>
           <Stack rowGap={3} textAlign={'center'}>
-            <Text fontSize={'xl'}>Mentor On Demand</Text>
+            <Text fontSize={'xl'} color={'textGreen'}>
+              Mentor On Demand
+            </Text>
             <Text fontSize={'3xl'} fontWeight={'semibold'}>
               Mari Mulai bersama, kita disini untuk mendukung anda
             </Text>
