@@ -208,7 +208,20 @@ const AddMentorpage = () => {
       description:
         'Bagikan pengalaman kerja, posisi pekerjaan, atau kegiatan relevan yang menunjukkan kemampuan dan kontribusimu.',
       content: (
-        <AddExperienceContent addEducation={educationHandler} addExperience={experienceHandler} />
+        <AddExperienceContent
+          addEducation={educationHandler}
+          addExperience={experienceHandler}
+          valueCv={valueCv}
+          onChangecV={onChangecV}
+          valuePortfolio={valuePortfolio}
+          onChangePortfolio={onChangePortfolio}
+          valueExpertise={valueExpertise}
+          onExpertiseChange={onExpertiseChange}
+          valueCurrentPosition={valueCurrentPosition}
+          onChangeCurrentPosition={onChangeCurrentPosition}
+          valuePriceSalary={valuePriceSalary}
+          onChangePriceSalary={onChangePriceSalary}
+        />
       ),
     },
   ];
