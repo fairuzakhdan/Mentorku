@@ -38,6 +38,8 @@ const mentors = [
       },
     ],
     expertise: ['Web', 'Mobile', 'Blockchain', 'IOS'],
+    portofolio: 'https://www.google.com',
+    cvResume: 'https://www.google.com',
     summary:
       'Saya adalah seorang software engineer dengan pengalaman lebih dari 7 tahun. Saya memiliki kemampuan dalam membangun aplikasi web dan mobile. Saya juga memiliki kemampuan dalam membangun aplikasi web dan mobile.',
   },

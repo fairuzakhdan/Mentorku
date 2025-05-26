@@ -22,10 +22,9 @@ const FormAddProfileMentor = ({
   onChangePassword,
   date,
   onChangeDate,
-  nationality,
-  onChangeNationality,
+  location,
+  onChangeLocation,
 }) => {
-  const values = [{ value: 'Indonesia' }, { value: 'Singapore' }, { value: 'Malaysia' }];
   return (
     <Flex columnGap={5} mt={5}>
       <Stack rowGap={5} flex={1}>
@@ -47,12 +46,7 @@ const FormAddProfileMentor = ({
           value={date}
           onChange={onChangeDate}
         />
-        <FormSelect
-          label={'Kebangsaan'}
-          values={values}
-          onChange={onChangeNationality}
-          value={nationality}
-        />
+        <FormInput label={'Location'} onChange={onChangeLocation} value={location} required />
       </Stack>
       <Stack rowGap={5} flex={1}>
         <FormInput
@@ -63,7 +57,7 @@ const FormAddProfileMentor = ({
           name="email"
           value={email}
           onChange={onChangeEmail}
-        />{' '}
+        />
         <FormInput
           required
           label={'Password'}

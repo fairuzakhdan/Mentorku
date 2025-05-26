@@ -20,6 +20,7 @@ import { FormSelect } from '../components/Elements/FormInput';
 import { PasswordInput } from '@/components/ui/password-input';
 import FormAddProfileMentor from '../components/Fragments/FormAddProfile';
 import FormAddAboutMentor from '../components/Fragments/FormAddAbout';
+import FormAddExperienceMentor from '../components/Fragments/FormAddExperience';
 import useInput from '../hooks/useInput';
 import { useState } from 'react';
 
@@ -33,8 +34,8 @@ const AddProfileContent = ({ formState }) => {
     onChangePassword,
     date,
     onChangeDate,
-    nationality,
-    onChangeNationality,
+    location,
+    onChangeLocation,
   } = formState;
   return (
     <Box>
@@ -70,8 +71,8 @@ const AddProfileContent = ({ formState }) => {
         onChangePassword={onChangePassword}
         date={date}
         onChangeDate={onChangeDate}
-        nationality={nationality}
-        onChangeNationality={onChangeNationality}
+        location={location}
+        onChangeLocation={onChangeLocation}
       />
     </Box>
   );
@@ -106,12 +107,20 @@ const AddAboutContent = ({
   );
 };
 
+const AddExperienceContent = () => {
+  return (
+    <Box>
+      <FormAddExperienceMentor />
+    </Box>
+  );
+};
+
 const AddMentorpage = () => {
   const [name, onChangeName] = useInput('');
   const [email, onChangeEmail] = useInput('');
   const [password, onChangePassword] = useInput('');
   const [date, onChangeDate] = useInput('');
-  const [nationality, onChangeNationality] = useInput('');
+  const [location, onChangeLocation] = useInput('');
   const [summary, onChangeSummary] = useInput('');
   const [linkedIn, onChangeLinkedIn] = useInput('');
   const [language, setLanguage] = useState([]);
@@ -127,8 +136,8 @@ const AddMentorpage = () => {
     onChangePassword,
     date,
     onChangeDate,
-    nationality,
-    onChangeNationality,
+    location,
+    onChangeLocation,
   };
   const aboutValue = {
     valueLanguage: language,
@@ -157,6 +166,7 @@ const AddMentorpage = () => {
       title: 'Pengalaman',
       description:
         'Bagikan pengalaman kerja, posisi pekerjaan, atau kegiatan relevan yang menunjukkan kemampuan dan kontribusimu.',
+      content: <AddExperienceContent />,
     },
   ];
   return (
