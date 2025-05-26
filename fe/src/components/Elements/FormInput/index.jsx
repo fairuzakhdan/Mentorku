@@ -36,13 +36,19 @@ export const FormPasswordInput = ({ value }) => {
   );
 };
 
-export const FormTextArea = ({ label, placeholder, required = false }) => {
+export const FormTextArea = ({
+  label,
+  placeholder,
+  required = false,
+  value,
+  onChange = () => {},
+}) => {
   return (
     <Field.Root required={required}>
       <Field.Label>
         {label} <Field.RequiredIndicator />
       </Field.Label>
-      <Textarea placeholder={placeholder} />
+      <Textarea placeholder={placeholder} value={value} onChange={onChange} />
     </Field.Root>
   );
 };
