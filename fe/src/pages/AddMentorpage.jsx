@@ -107,10 +107,36 @@ const AddAboutContent = ({
   );
 };
 
-const AddExperienceContent = () => {
+const AddExperienceContent = ({
+  valueCv,
+  onChangecV,
+  valuePortfolio,
+  onChangePortfolio,
+  addEducation,
+  addExperience,
+  valueExpertise,
+  onExpertiseChange,
+  valueCurrentPosition,
+  onChangeCurrentPosition,
+  valuePriceSalary,
+  onChangePriceSalary,
+}) => {
   return (
     <Box>
-      <FormAddExperienceMentor />
+      <FormAddExperienceMentor
+        valueExpertise={valueExpertise}
+        onExpertiseChange={onExpertiseChange}
+        valueCv={valueCv}
+        onChangecV={onChangecV}
+        valuePortfolio={valuePortfolio}
+        onChangePortfolio={onChangePortfolio}
+        addEducation={addEducation}
+        addExperience={addExperience}
+        valueCurrentPosition={valueCurrentPosition}
+        onChangeCurrentPosition={onChangeCurrentPosition}
+        valuePriceSalary={valuePriceSalary}
+        onChangePriceSalary={onChangePriceSalary}
+      />
     </Box>
   );
 };
@@ -125,7 +151,22 @@ const AddMentorpage = () => {
   const [linkedIn, onChangeLinkedIn] = useInput('');
   const [language, setLanguage] = useState([]);
   const [skills, setSkills] = useState([]);
-  console.log(language);
+
+  const [valueCv, onChangecV] = useInput('');
+  const [valuePortfolio, onChangePortfolio] = useInput('');
+  const [valueExpertise, onExpertiseChange] = useInput('');
+  const [valueCurrentPosition, onChangeCurrentPosition] = useInput('');
+  const [valuePriceSalary, onChangePriceSalary] = useInput('');
+  const [education, setEducation] = useState([]);
+  const [experience, setExperience] = useState([]);
+  const educationHandler = (education) => {
+    setEducation(education);
+  };
+
+  const experienceHandler = (experience) => {
+    console.log(experience);
+    setExperience(experience);
+  };
 
   const formState = {
     name,
@@ -166,7 +207,9 @@ const AddMentorpage = () => {
       title: 'Pengalaman',
       description:
         'Bagikan pengalaman kerja, posisi pekerjaan, atau kegiatan relevan yang menunjukkan kemampuan dan kontribusimu.',
-      content: <AddExperienceContent />,
+      content: (
+        <AddExperienceContent addEducation={educationHandler} addExperience={experienceHandler} />
+      ),
     },
   ];
   return (
