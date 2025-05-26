@@ -2,14 +2,16 @@ import { Box, Flex, Stack, Group, Text } from '@chakra-ui/react';
 import { CheckBox } from '../Elements/FormInput';
 import FormInput from '../Elements/FormInput';
 import { FormTextArea } from '../Elements/FormInput';
-import { FormSelect } from '../Elements/FormInput';
-import { useState } from 'react';
-import useInput from '../../hooks/useInput';
-const FormAddAboutMentor = ({ onSkillsChange, valueSummary, valueLinkedIn, valueLanguage }) => {
-  const [selected, setSelected] = useState([]);
-  const [language, setLanguage] = useState([]);
-  const [summary, onChangeSummary] = useInput('');
-  const [linkedIn, onChangeLinkedIn] = useInput('');
+const FormAddAboutMentor = ({
+  onSkillsChange,
+  valueSummary,
+  valueLinkedIn,
+  valueLanguage,
+  setLanguage,
+  onChangeLinkedIn,
+  onChangeSummary,
+  skills,
+}) => {
   const labels = [
     { label: 'Javascript' },
     { label: 'Python' },
@@ -46,30 +48,24 @@ const FormAddAboutMentor = ({ onSkillsChange, valueSummary, valueLinkedIn, value
   ];
 
   const languages = [{ label: 'Indonesia' }, { label: 'English' }];
-  const handleChange = (label) => {
-    const updated = selected.includes(label)
-      ? selected.filter((item) => item !== label)
-      : [...selected, label];
+  const handleChangeSkills = (label) => {
+    const updated = skills.includes(label)
+      ? skills.filter((item) => item !== label)
+      : [...skills, label];
 
-    setSelected(updated);
     onSkillsChange?.(updated);
   };
   const handleChangeLanguage = (label) => {
-    const updated = language.includes(label)
-      ? language.filter((item) => item !== label)
-      : [...language, label];
-    setLanguage(updated);
-    valueLanguage?.(updated);
-  };
-  const handleInput = (value) => {
-    valueSummary?.(value);
-    valueLinkedIn?.(value);
+    const updated = valueLanguage.includes(label)
+      ? valueLanguage.filter((item) => item !== label)
+      : [...valueLanguage, label];
+    setLanguage?.(updated);
   };
   return (
     <Box>
       <Flex display={'flex'} flexWrap={'wrap'} gap={5}>
         {labels.map((i, index) => (
-          <CheckBox key={index} label={i.label} onChange={() => handleChange(i.label)} />
+          <CheckBox key={index} label={i.label} onChange={() => handleChangeSkills(i.label)} />
         ))}
       </Flex>
       <Flex mt={8} columnGap={5}>
@@ -79,11 +75,8 @@ const FormAddAboutMentor = ({ onSkillsChange, valueSummary, valueLinkedIn, value
             placeholder={
               'Ceritakan kepada kami sedikit tentang diri Anda. Bicaralah tentang diri anda sebenarnya.'
             }
-            value={summary}
-            onChange={(e) => {
-              onChangeSummary(e);
-              handleInput(e.target.value);
-            }}
+            value={valueSummary}
+            onChange={onChangeSummary}
             required
           />
           <Box>
@@ -103,11 +96,8 @@ const FormAddAboutMentor = ({ onSkillsChange, valueSummary, valueLinkedIn, value
           <FormInput
             label={'LinkedIn URL (optional)'}
             placeholder={'Masukkan LinkedIn URL'}
-            value={linkedIn}
-            onChange={(e) => {
-              onChangeLinkedIn(e);
-              handleInput(e.target.value);
-            }}
+            value={valueLinkedIn}
+            onChange={onChangeLinkedIn}
           />
         </Stack>
       </Flex>
