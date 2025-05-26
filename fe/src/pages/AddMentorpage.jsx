@@ -19,6 +19,7 @@ import FormInput from '../components/Elements/FormInput';
 import { FormSelect } from '../components/Elements/FormInput';
 import { PasswordInput } from '@/components/ui/password-input';
 import FormAddProfileMentor from '../components/Fragments/FormAddProfile';
+import FormAddAboutMentor from '../components/Fragments/FormAddAbout';
 import useInput from '../hooks/useInput';
 
 const AddProfileContent = ({ formState }) => {
@@ -78,10 +79,13 @@ const AddProfileContent = ({ formState }) => {
 const AddAboutContent = () => {
   return (
     <Box>
-
+      <Text fontSize={'sm'} my={3}>
+        Harap pastikan bahwa pengalaman Anda sesuai dengan keahlian yang Anda miliki.
+      </Text>
+      <FormAddAboutMentor />
     </Box>
-  )
-}
+  );
+};
 
 const AddMentorpage = () => {
   const [name, onChangeName] = useInput('');
@@ -102,7 +106,6 @@ const AddMentorpage = () => {
     nationality,
     onChangeNationality,
   };
-  console.log(formState);
   const steps = [
     {
       title: 'Profil',
@@ -113,6 +116,7 @@ const AddMentorpage = () => {
       title: 'Tentang Kamu',
       description:
         'Latar belakang pendidikan, keahlian, serta nilai-nilai yang membentuk dirimu saat ini.',
+      content: <AddAboutContent />,
     },
     {
       title: 'Pengalaman',

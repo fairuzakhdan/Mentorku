@@ -103,6 +103,7 @@ const Blogpage = () => {
                     .map((blog, index) => (
                       <ContentBlog
                         key={index}
+                        id={blog.id}
                         title={blog.title}
                         createdAt={blog.createdAt}
                         category={blog.category}
