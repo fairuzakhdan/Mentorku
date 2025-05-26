@@ -18,10 +18,10 @@ import { BsInfoCircleFill } from 'react-icons/bs';
 import FormInput from '../components/Elements/FormInput';
 import { FormSelect } from '../components/Elements/FormInput';
 import { PasswordInput } from '@/components/ui/password-input';
-import FormAddMentor from '../components/Fragments/FormAddMentor';
+import FormAddProfileMentor from '../components/Fragments/FormAddProfile';
 import useInput from '../hooks/useInput';
 
-const AddContent = ({ formState }) => {
+const AddProfileContent = ({ formState }) => {
   const {
     name,
     onChangeName,
@@ -59,7 +59,7 @@ const AddContent = ({ formState }) => {
           </Text>
         </Box>
       </Group>
-      <FormAddMentor
+      <FormAddProfileMentor
         name={name}
         onChangeName={onChangeName}
         email={email}
@@ -74,6 +74,14 @@ const AddContent = ({ formState }) => {
     </Box>
   );
 };
+
+const AddAboutContent = () => {
+  return (
+    <Box>
+
+    </Box>
+  )
+}
 
 const AddMentorpage = () => {
   const [name, onChangeName] = useInput('');
@@ -99,7 +107,7 @@ const AddMentorpage = () => {
     {
       title: 'Profil',
       description: 'Kenali siapa dirimu, Lengkapi informasi dasar seperti nama, email dan password',
-      content: <AddContent formState={formState} />,
+      content: <AddProfileContent formState={formState} />,
     },
     {
       title: 'Tentang Kamu',
