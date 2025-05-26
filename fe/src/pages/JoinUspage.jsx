@@ -83,7 +83,7 @@ const JoinUspage = () => {
                   width={'fit-content'}
                   px={3}
                   py={2}
-                  color={'black'}
+                  color={'gray.600'}
                   fontWeight={'semibold'}
                   mt={3}
                   rounded={'lg'}

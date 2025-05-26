@@ -1,6 +1,6 @@
-import { Button, ButtonGroup, Steps, Text } from '@chakra-ui/react';
+import { Button, ButtonGroup, Steps, Text, Box, Flex } from '@chakra-ui/react';
 
-const StepsProcess = ({ steps }) => {
+const StepsProcess = ({ steps, onClick }) => {
   return (
     <Steps.Root defaultStep={1} count={steps.length} colorPalette={'teal'}>
       <Steps.List>
@@ -21,7 +21,22 @@ const StepsProcess = ({ steps }) => {
           </>
         </Steps.Content>
       ))}
-      <Steps.CompletedContent>All steps are complete!</Steps.CompletedContent>
+      <Steps.CompletedContent>
+        <Flex
+          mt={5}
+          alignItems={'center'}
+          justifyContent={'center'}
+          flexDirection={'column'}
+          gap={5}
+        >
+          <Text border={'1px solid teal'} padding="2" rounded={'md'} w="full" textAlign={'center'}>
+            All steps are complete!
+          </Text>
+          <Button variant="solid" colorPalette="red" w="full" fontSize="md" onClick={onClick}>
+            Apply Now
+          </Button>
+        </Flex>
+      </Steps.CompletedContent>
 
       <ButtonGroup size="sm" variant="outline">
         <Steps.PrevTrigger asChild>

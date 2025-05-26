@@ -23,6 +23,7 @@ import FormAddAboutMentor from '../components/Fragments/FormAddAbout';
 import FormAddExperienceMentor from '../components/Fragments/FormAddExperience';
 import useInput from '../hooks/useInput';
 import { useState } from 'react';
+import { useNavigate } from 'react-router';
 
 const AddProfileContent = ({ formState }) => {
   const {
@@ -142,6 +143,7 @@ const AddExperienceContent = ({
 };
 
 const AddMentorpage = () => {
+  const navigate = useNavigate();
   const [name, onChangeName] = useInput('');
   const [email, onChangeEmail] = useInput('');
   const [password, onChangePassword] = useInput('');
@@ -225,6 +227,12 @@ const AddMentorpage = () => {
       ),
     },
   ];
+  const addMentorHandler = () => {
+    console.log('add mentor');
+    // dispatch Add Mentor
+    alert('Anda Berhasil Daftar Sebagai Mentor, tunggu informasi selanjutnya');
+    navigate('/');
+  };
   return (
     <Layouts>
       <Box color={'gray.600'} mt={5}>
@@ -232,7 +240,7 @@ const AddMentorpage = () => {
           Apply as a Mentor
         </Text>
         <Box mt={5}>
-          <StepsProcess steps={steps} />
+          <StepsProcess steps={steps} onClick={addMentorHandler} />
         </Box>
       </Box>
     </Layouts>
