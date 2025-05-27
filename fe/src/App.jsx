@@ -2,29 +2,34 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import '@fontsource/poppins/400.css';
 import Navigation from './components/Layouts/Navigation';
-import Homepage from './pages/Homepage';
-import Mentorpage from './pages/Mentorpage';
+import Homepage from '../src/user/pages/Homepage';
+import Mentorpage from '../src/user/pages/Mentorpage';
 import { Routes, Route } from 'react-router';
 import Footer from './components/Layouts/Footer';
-import DetailMentorpage from './pages/DetailMentorpage';
-import Paymentpage from './pages/Paymentpage';
-import Activitypage from './pages/activitypage';
-import Classpage from './pages/Classpage';
-import DetailClasspage from './pages/DetailClasspage';
-import Errorpage from './pages/404';
-import Transactionpage from './pages/Transactionpage';
-import Webinarpage from './pages/Webinarpage';
-import Blogpage from './pages/Blog';
-import DetailBlogpage from './pages/DetailBlogpage';
-import JoinUspage from './pages/JoinUspage';
-import AddMentorpage from './pages/AddMentorpage';
-import Registerpage from './pages/registerpage';
-import Loginpage from './pages/Loginpage';
+import DetailMentorpage from '../src/user/pages/DetailMentorpage';
+import Paymentpage from '../src/user/pages/Paymentpage';
+import Activitypage from '../src/user/pages/activitypage';
+import Classpage from '../src/user/pages/Classpage';
+import DetailClasspage from '../src/user/pages/DetailClasspage';
+import Errorpage from '../src/user/pages/404';
+import Transactionpage from '../src/user/pages/Transactionpage';
+import Webinarpage from '../src/user/pages/Webinarpage';
+import Blogpage from '../src/user/pages/Blog';
+import DetailBlogpage from '../src/user/pages/DetailBlogpage';
+import JoinUspage from '../src/user/pages/JoinUspage';
+import AddMentorpage from '../src/user/pages/AddMentorpage';
+import Registerpage from '../src/user/pages/registerpage';
+import Loginpage from '../src/user/pages/Loginpage';
 
 const App = () => {
   const [authUser, setAuthUser] = useState(null);
   const [initializing, setInitializing] = useState(true);
   useEffect(() => {
+    const name = {
+      name: 'user',
+      email: 'user@mail.com',
+    };
+    localStorage.setItem('authUser', JSON.stringify(name));
     const data = JSON.parse(localStorage.getItem('authUser'));
     setAuthUser(data);
     setInitializing(false);
