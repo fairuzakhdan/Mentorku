@@ -1,4 +1,12 @@
-import { Field, Input, NativeSelect, Textarea, Stack, CheckboxCard } from '@chakra-ui/react';
+import {
+  Field,
+  Input,
+  NativeSelect,
+  Textarea,
+  Stack,
+  CheckboxCard,
+  Checkbox,
+} from '@chakra-ui/react';
 import { PasswordInput, PasswordStrengthMeter } from '@/components/ui/password-input';
 
 const FormInput = ({
@@ -70,11 +78,20 @@ export const FormSelect = ({ label, values, onChange = () => {}, value }) => {
     </Field.Root>
   );
 };
-
-export const CheckBox = ({ label, onChange }) => {
+export const Check = ({ label, size = 'sm', checked }) => {
+  console.log(checked);
+  return (
+    <Checkbox.Root size={size} color={'gray.700'}>
+      <Checkbox.HiddenInput checked={checked} />
+      <Checkbox.Control />
+      <Checkbox.Label>{label}</Checkbox.Label>
+    </Checkbox.Root>
+  );
+};
+export const CheckBox = ({ label }) => {
   return (
     <CheckboxCard.Root maxW="240px">
-      <CheckboxCard.HiddenInput onChange={onChange} />
+      <CheckboxCard.HiddenInput />
       <CheckboxCard.Control>
         <CheckboxCard.Label>{label}</CheckboxCard.Label>
         <CheckboxCard.Indicator />

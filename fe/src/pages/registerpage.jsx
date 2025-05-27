@@ -1,9 +1,10 @@
 import AuthLayouts from '../components/Layouts/AuthLayouts';
-import { Text } from '@chakra-ui/react';
+import { Text, Box } from '@chakra-ui/react';
+import FormRegister from '../components/Fragments/FormRegister';
 const Registerpage = () => {
   return (
     <AuthLayouts type={'register'}>
-      <Text color={'black'}>Register</Text>
+      <FormRegister />
     </AuthLayouts>
   );
 };
