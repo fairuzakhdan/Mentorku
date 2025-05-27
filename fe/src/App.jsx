@@ -11,7 +11,7 @@ import Paymentpage from '../src/user/pages/Paymentpage';
 import Activitypage from '../src/user/pages/activitypage';
 import Classpage from '../src/user/pages/Classpage';
 import DetailClasspage from '../src/user/pages/DetailClasspage';
-import Errorpage from '../src/user/pages/404';
+import Errorpage from './shared/pages/404';
 import Transactionpage from '../src/user/pages/Transactionpage';
 import Webinarpage from '../src/user/pages/Webinarpage';
 import Blogpage from '../src/user/pages/Blog';
@@ -20,6 +20,7 @@ import JoinUspage from '../src/user/pages/JoinUspage';
 import AddMentorpage from '../src/user/pages/AddMentorpage';
 import Registerpage from '../src/user/pages/registerpage';
 import Loginpage from '../src/user/pages/Loginpage';
+import UsersAdminpage from './admin/pages/UsersAdminpage';
 
 const App = () => {
   const [authUser, setAuthUser] = useState(null);
@@ -28,6 +29,7 @@ const App = () => {
     const name = {
       name: 'user',
       email: 'user@mail.com',
+      role: 'admin',
     };
     localStorage.setItem('authUser', JSON.stringify(name));
     const data = JSON.parse(localStorage.getItem('authUser'));
@@ -35,12 +37,25 @@ const App = () => {
     setInitializing(false);
   }, []);
   if (initializing) return null;
+
   if (authUser === null) {
     return (
       <main>
         <Routes>
           <Route element={<Loginpage />} path="/" />
           <Route element={<Registerpage />} path="/register" />
+        </Routes>
+      </main>
+    );
+  }
+  if (authUser.role === 'admin') {
+    return (
+      <main>
+        <Routes>
+          <Route element={<UsersAdminpage />} path="/" />
+          <Route element={<UsersAdminpage />} path="/users" />
+          <Route element={<Registerpage />} path="/mentors" />
+          <Route element={<Errorpage />} path={'*'} />
         </Routes>
       </main>
     );
