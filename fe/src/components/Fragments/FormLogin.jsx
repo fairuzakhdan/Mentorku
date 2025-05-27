@@ -7,7 +7,7 @@ const FormLogin = () => {
   const [email, onChangeEmail] = useInput('');
   const [password, onChangePassword] = useInput('');
   return (
-    <Stack rowGap={5}>
+    <Stack rowGap={10} mt={8}>
       <FormInput
         type="email"
         label={'Email'}
@@ -24,6 +24,9 @@ const FormLogin = () => {
         onChange={onChangePassword}
         required
       />
+      <Button colorPalette={'teal'} mt={1}>
+        Login
+      </Button>
     </Stack>
   );
 };

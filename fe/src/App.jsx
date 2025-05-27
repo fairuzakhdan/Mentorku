@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import '@fontsource/poppins/400.css';
 import Navigation from './components/Layouts/Navigation';
 import Homepage from './pages/Homepage';
@@ -19,11 +19,26 @@ import DetailBlogpage from './pages/DetailBlogpage';
 import JoinUspage from './pages/JoinUspage';
 import AddMentorpage from './pages/AddMentorpage';
 import Registerpage from './pages/registerpage';
+import Loginpage from './pages/Loginpage';
 
 const App = () => {
   const [authUser, setAuthUser] = useState(null);
-  if (!authUser) {
-    return <Registerpage />;
+  const [initializing, setInitializing] = useState(true);
+  useEffect(() => {
+    const data = JSON.parse(localStorage.getItem('authUser'));
+    setAuthUser(data);
+    setInitializing(false);
+  }, []);
+  if (initializing) return null;
+  if (authUser === null) {
+    return (
+      <main>
+        <Routes>
+          <Route element={<Loginpage />} path="/" />
+          <Route element={<Registerpage />} path="/register" />
+        </Routes>
+      </main>
+    );
   }
   return (
     <>
