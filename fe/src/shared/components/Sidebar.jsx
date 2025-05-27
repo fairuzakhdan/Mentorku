@@ -12,47 +12,101 @@ import {
   GridItem,
 } from '@chakra-ui/react';
 import { Link } from 'react-router';
-import { IoHome } from 'react-icons/io5';
-import { GrBook } from 'react-icons/gr';
+import { ImUsers } from 'react-icons/im';
 import { useLocation } from 'react-router';
+import { FaUserGraduate } from 'react-icons/fa';
+import { MdCastForEducation } from 'react-icons/md';
+import { CgTimelapse } from 'react-icons/cg';
+import { SiGooglemeet } from 'react-icons/si';
+import { FaBookBookmark } from 'react-icons/fa6';
+import AvatarCard from '../../components/Elements/Avatar';
+import { FaBlog } from 'react-icons/fa';
 const Sidebar = ({ children, type }) => {
+  const user = {
+    name: 'John Doe',
+    image:
+      'https://images.unsplash.com/photo-1636368086488-bb2c04738214?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8ODA3fHx0ZWFjaGVyfGVufDB8fDB8fHww',
+  };
   const location = useLocation();
-  const activitys = [
+  const linkAdmin = [
     {
       title: 'Users',
       href: '/users',
-      icon: IoHome,
+      icon: ImUsers,
     },
     {
       title: 'Mentors',
       href: '/mentors',
-      icon: GrBook,
+      icon: FaUserGraduate,
+    },
+  ];
+  const linkMentor = [
+    {
+      title: 'Mentees',
+      href: '/mentees',
+      icon: ImUsers,
+    },
+    {
+      title: 'My Lessons',
+      href: '/mylessons',
+      icon: FaBookBookmark,
+    },
+    {
+      title: 'Session',
+      href: '/session',
+      icon: CgTimelapse,
+    },
+    {
+      title: 'Webinar',
+      href: '/webinar',
+      icon: SiGooglemeet,
+    },
+    {
+      title: 'Blog',
+      href: '/blog',
+      icon: FaBlog,
     },
   ];
   return (
     <Grid templateColumns={'repeat(6, 1fr)'} height={'100vh'}>
-      <GridItem colSpan={1} borderRight={'1px solid #ccc'}>
-        <Stack paddingBlock={3} alignItems="flex-start" rowGap={7}>
-          <Stack
-            color={'gray.700'}
-            alignItems={'center'}
-            m="auto"
-            rowGap={5}
-            backgroundColor={'white'}
-          >
-            <Image
-              src="src\assets\images\4k-logo-removebg-preview.png"
-              width={180}
-              objectFit={'cover'}
-              rounded={'full'}
-            />
+      <GridItem colSpan={1} shadow={'lg'} backgroundColor={'textGreen'}>
+        <Stack paddingBlock={3} alignItems="flex-start" paddingInline={6}>
+          <Image
+            src="src\assets\images\4k-logo-removebg-preview.png"
+            width={180}
+            objectFit={'cover'}
+            rounded={'xl'}
+            mt={2}
+            backgroundColor={'gray.200'}
+          />
+          <Stack width={'100%'} rowGap={7} mt={7}>
             {type === 'admin' &&
-              activitys.map((activity) => {
+              linkAdmin.map((activity) => {
                 const isActive = location.pathname === activity.href;
                 return (
                   <Link to={activity.href} key={activity.href} style={{ width: '100%' }}>
                     <Group
-                      color={isActive ? 'teal' : 'gray.600'}
+                      color={isActive ? 'teal' : 'white'}
+                      columnGap={5}
+                      width={'100%'}
+                      p={2}
+                      rounded={'lg'}
+                      backgroundColor={isActive ? '#ccc' : 'transparent'}
+                      _hover={{ color: 'teal', backgroundColor: '#ccc' }}
+                    >
+                      <activity.icon size={20} />
+                      <Text>{activity.title}</Text>
+                    </Group>
+                  </Link>
+                );
+              })}
+            {type === 'mentor' &&
+              linkMentor.map((activity) => {
+                const isActive = location.pathname === activity.href;
+                return (
+                  <Link to={activity.href} key={activity.href} style={{ width: '100%' }}>
+                    <Group
+                      color={isActive ? 'teal' : 'white'}
                       columnGap={5}
                       width={'100%'}
                       p={2}
@@ -70,7 +124,13 @@ const Sidebar = ({ children, type }) => {
         </Stack>
       </GridItem>
       <GridItem colSpan={5} backgroundColor={'gray.200'}>
-        {children}
+        <Flex backgroundColor={'gray.100'} justifyContent={'end'} shadow={'sm'}>
+          <Group my={3} mx={7}>
+            <Text color={'gray.600'}>{user.name}</Text>
+            <AvatarCard image={user.image} size="sm" rounded="full" />
+          </Group>
+        </Flex>
+        <Box m={7}>{children}</Box>
       </GridItem>
     </Grid>
   );

@@ -21,6 +21,7 @@ import AddMentorpage from '../src/user/pages/AddMentorpage';
 import Registerpage from '../src/user/pages/registerpage';
 import Loginpage from '../src/user/pages/Loginpage';
 import UsersAdminpage from './admin/pages/UsersAdminpage';
+import UsersMentorpage from './mentors/pages/UsersMentorpage';
 
 const App = () => {
   const [authUser, setAuthUser] = useState(null);
@@ -29,7 +30,7 @@ const App = () => {
     const name = {
       name: 'user',
       email: 'user@mail.com',
-      role: 'admin',
+      role: 'mentor',
     };
     localStorage.setItem('authUser', JSON.stringify(name));
     const data = JSON.parse(localStorage.getItem('authUser'));
@@ -55,6 +56,17 @@ const App = () => {
           <Route element={<UsersAdminpage />} path="/" />
           <Route element={<UsersAdminpage />} path="/users" />
           <Route element={<Registerpage />} path="/mentors" />
+          <Route element={<Errorpage />} path={'*'} />
+        </Routes>
+      </main>
+    );
+  }
+  if (authUser.role === 'mentor') {
+    return (
+      <main>
+        <Routes>
+          <Route element={<UsersMentorpage />} path="/" />
+          <Route element={<UsersMentorpage />} path="/users" />
           <Route element={<Errorpage />} path={'*'} />
         </Routes>
       </main>
