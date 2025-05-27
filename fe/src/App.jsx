@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState } from 'react';
 import '@fontsource/poppins/400.css';
 import Navigation from './components/Layouts/Navigation';
 import Homepage from './pages/Homepage';
@@ -17,8 +18,13 @@ import Blogpage from './pages/Blog';
 import DetailBlogpage from './pages/DetailBlogpage';
 import JoinUspage from './pages/JoinUspage';
 import AddMentorpage from './pages/AddMentorpage';
+import Registerpage from './pages/registerpage';
 
 const App = () => {
+  const [authUser, setAuthUser] = useState(null);
+  if (!authUser) {
+    return <Registerpage />;
+  }
   return (
     <>
       <header
