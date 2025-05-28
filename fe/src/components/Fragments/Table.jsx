@@ -1,26 +1,21 @@
-import { Table } from '@chakra-ui/react';
+import { Table, Button, Flex, Group } from '@chakra-ui/react';
+import { FaEdit } from 'react-icons/fa';
+import { MdOutlineDeleteOutline } from 'react-icons/md';
 
-const TableArea = ({ items }) => {
+const TableArea = ({ headers, children }) => {
   return (
-    <Table.ScrollArea borderWidth="1px" rounded="md" height="160px">
+    <Table.ScrollArea borderWidth="1px" rounded="md" height={500} mt={1}>
       <Table.Root size="sm" stickyHeader>
         <Table.Header>
-          <Table.Row bg="bg.subtle">
-            <Table.ColumnHeader>Product</Table.ColumnHeader>
-            <Table.ColumnHeader>Category</Table.ColumnHeader>
-            <Table.ColumnHeader textAlign="end">Price</Table.ColumnHeader>
+          <Table.Row backgroundColor={'textGreen'}>
+            <Table.ColumnHeader>No</Table.ColumnHeader>
+            {headers.map((header, index) => (
+              <Table.ColumnHeader key={index}>{header}</Table.ColumnHeader>
+            ))}
+            <Table.ColumnHeader textAlign={'center'}>Actions</Table.ColumnHeader>
           </Table.Row>
         </Table.Header>
-
-        <Table.Body>
-          {items.map((item) => (
-            <Table.Row key={item.id}>
-              <Table.Cell>{item.name}</Table.Cell>
-              <Table.Cell>{item.category}</Table.Cell>
-              <Table.Cell textAlign="end">{item.price}</Table.Cell>
-            </Table.Row>
-          ))}
-        </Table.Body>
+        <Table.Body>{children}</Table.Body>
       </Table.Root>
     </Table.ScrollArea>
   );

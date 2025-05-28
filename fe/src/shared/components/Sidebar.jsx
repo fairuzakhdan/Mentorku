@@ -130,7 +130,9 @@ const Sidebar = ({ children, type }) => {
             <AvatarCard image={user.image} size="sm" rounded="full" />
           </Group>
         </Flex>
-        <Box m={7}>{children}</Box>
+        <Box mx={7} my={4}>
+          {children}
+        </Box>
       </GridItem>
     </Grid>
   );
