@@ -1,6 +1,7 @@
 import { Table, Button, Flex, Group } from '@chakra-ui/react';
 import { FaEdit } from 'react-icons/fa';
 import { MdOutlineDeleteOutline } from 'react-icons/md';
+import { FormSelect } from '../../components/Elements/FormInput';
 const TableBodyLessons = ({ items, onEditById, onDeleteById }) => {
   return (
     <>
@@ -8,7 +9,9 @@ const TableBodyLessons = ({ items, onEditById, onDeleteById }) => {
         <Table.Row key={index} backgroundColor={'gray.200'}>
           <Table.Cell>{index + 1}</Table.Cell>
           <Table.Cell>{item.topic}</Table.Cell>
-          <Table.Cell>{item.videos[0].title}</Table.Cell>
+          <Table.Cell>
+            <FormSelect values={item.videos} />
+          </Table.Cell>
           <Table.Cell>{item.videos.length}</Table.Cell>
           <Table.Cell>{item.articles[0].header}</Table.Cell>
           <Table.Cell>{item.articles[0].title}</Table.Cell>

@@ -68,8 +68,8 @@ export const FormSelect = ({ label, values, onChange = () => {}, value }) => {
       <NativeSelect.Root>
         <NativeSelect.Field onChange={onChange} value={value}>
           {values.map((v, index) => (
-            <option key={index} value={v.value} style={{ backgroundColor: 'white' }}>
-              {v.value}
+            <option key={index} value={v.value || v.title} style={{ backgroundColor: 'white' }}>
+              {v.value || v.title}
             </option>
           ))}
         </NativeSelect.Field>

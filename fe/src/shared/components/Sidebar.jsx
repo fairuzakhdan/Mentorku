@@ -52,8 +52,8 @@ const Sidebar = ({ children, type }) => {
       icon: FaBookBookmark,
     },
     {
-      title: 'Session',
-      href: '/session',
+      title: 'Sessions',
+      href: '/sessions',
       icon: CgTimelapse,
     },
     {
