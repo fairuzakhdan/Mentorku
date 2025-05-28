@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 import { MdAssignmentAdd } from 'react-icons/md';
 const LessonsMentorpage = () => {
   const [lessons, setLessons] = useState([]);
-  const headers = ['Topic', 'Videos', 'Articles'];
+  const headers = ['Topic', 'Title Videos', 'Total Videos', 'Header Articles', 'Title Articles'];
   const items = [
     {
       id: '1',
