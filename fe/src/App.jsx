@@ -66,7 +66,7 @@ const App = () => {
       <main>
         <Routes>
           <Route element={<UsersMentorpage />} path="/" />
-          <Route element={<UsersMentorpage />} path="/users" />
+          <Route element={<UsersMentorpage />} path="/mentees" />
           <Route element={<Errorpage />} path={'*'} />
         </Routes>
       </main>
