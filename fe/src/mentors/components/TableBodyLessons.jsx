@@ -1,16 +1,15 @@
+import { Table, Button, Flex, Group } from '@chakra-ui/react';
+import { FaEdit } from 'react-icons/fa';
+import { MdOutlineDeleteOutline } from 'react-icons/md';
 const TableBodyLessons = ({ items, onEditById, onDeleteById }) => {
   return (
     <>
       {items.map((item, index) => (
         <Table.Row key={index} backgroundColor={'gray.200'}>
           <Table.Cell>{index + 1}</Table.Cell>
-          <Table.Cell>{item.email}</Table.Cell>
-          <Table.Cell>{item.fullName}</Table.Cell>
-          <Table.Cell>{item.institution}</Table.Cell>
-          <Table.Cell>{item.telephone}</Table.Cell>
-          <Table.Cell>
-            <AvatarCard image={item.image} size="2xs" rounded="full" />
-          </Table.Cell>
+          <Table.Cell>{item.topic}</Table.Cell>
+          <Table.Cell>{item.videos[0].title}</Table.Cell>
+          <Table.Cell>{item.articles[0].header}</Table.Cell>
           <Table.Cell textAlign={'center'} p={0}>
             <Button
               p={0}
