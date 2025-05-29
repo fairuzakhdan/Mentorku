@@ -9,8 +9,8 @@ const BlogMentorpage = () => {
     <Sidebar type={'mentor'}>
       <Box color={'textBlue'}>
         <Flex justifyContent="space-between" alignItems={'center'} mb={1}>
-          <Text fontSize={'xl'}>Blog</Text>
-          <AddButton label={'Tambah Blog'} />
+          <Text fontSize={'xl'}>Blogs</Text>
+          <AddButton label={'Add Blog'} />
         </Flex>
         <TableArea />
       </Box>

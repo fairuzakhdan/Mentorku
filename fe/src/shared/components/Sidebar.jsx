@@ -62,7 +62,7 @@ const Sidebar = ({ children, type }) => {
       icon: SiGooglemeet,
     },
     {
-      title: 'Blog',
+      title: 'Blogs',
       href: '/blog',
       icon: FaBlog,
     },
