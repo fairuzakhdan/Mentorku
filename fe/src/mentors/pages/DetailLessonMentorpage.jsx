@@ -2,6 +2,7 @@ import Sidebar from '../../shared/components/Sidebar';
 import { Box, Text, Flex, Group } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
+import FormLesson from '../components/FormLesson';
 const DetailLessonMentorpage = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [lesson, setLesson] = useState(null);
@@ -46,7 +47,7 @@ const DetailLessonMentorpage = () => {
     <Sidebar type="mentor">
       <Box>
         <Text>Detail</Text>
-        <Text>{lesson.topic}</Text>
+        <FormLesson />
       </Box>
     </Sidebar>
   );
