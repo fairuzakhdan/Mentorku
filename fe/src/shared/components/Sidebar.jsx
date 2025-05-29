@@ -63,7 +63,7 @@ const Sidebar = ({ children, type }) => {
     },
     {
       title: 'Blogs',
-      href: '/blog',
+      href: '/blogs',
       icon: FaBlog,
     },
   ];

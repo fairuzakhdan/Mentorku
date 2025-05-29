@@ -1,6 +1,7 @@
 import { Table, Button, Flex, Group, Text } from '@chakra-ui/react';
 import { FaEdit } from 'react-icons/fa';
 import { MdOutlineDeleteOutline } from 'react-icons/md';
+import AvatarCard from '../../components/Elements/Avatar';
 
 const TableBodyBlogs = ({ items, onEditById, onDeleteById }) => {
   return (
@@ -8,22 +9,15 @@ const TableBodyBlogs = ({ items, onEditById, onDeleteById }) => {
       {items.map((item, index) => (
         <Table.Row key={index} backgroundColor={'gray.200'}>
           <Table.Cell>{index + 1}</Table.Cell>
-          <Table.Cell>{item.title}</Table.Cell>
-          <Table.Cell>{item.subtitle}</Table.Cell>
+          <Table.Cell>{`${item.title.substring(0, 20)}...`}</Table.Cell>
+          <Table.Cell>{`${item.subtitle.substring(0, 20)}...`}</Table.Cell>
           <Table.Cell>{item.category}</Table.Cell>
-          <Table.Cell>{item.content}</Table.Cell>
-          <Table.Cell>{item.image}</Table.Cell>
-          <Table.Cell>{item.createdAt}</Table.Cell>
+          <Table.Cell>{`${item.content.substring(0, 10)}...`}</Table.Cell>
           <Table.Cell>
-            <Group>
-              {item.times.map((i, index) => (
-                <Text key={index} color={'red'}>
-                  {i.duration}
-                </Text>
-              ))}
-            </Group>
+            {' '}
+            <AvatarCard image={item.image} size="2xs" />
           </Table.Cell>
-          <Table.Cell>{item.session} Session/week</Table.Cell>
+          <Table.Cell>{item.createdAt}</Table.Cell>
           <Table.Cell textAlign={'center'} p={0}>
             <Button
               p={0}
