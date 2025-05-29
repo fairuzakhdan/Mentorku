@@ -1,20 +1,17 @@
+import { Table, Button, Flex, Group, Text } from '@chakra-ui/react';
+import { FaEdit } from 'react-icons/fa';
+import { MdOutlineDeleteOutline } from 'react-icons/md';
 const TableBodyWebinar = ({ items, onEditById, onDeleteById }) => {
   return (
     <>
       {items.map((item, index) => (
         <Table.Row key={index} backgroundColor={'gray.200'}>
           <Table.Cell>{index + 1}</Table.Cell>
-          <Table.Cell>{item.day}</Table.Cell>
-          <Table.Cell>
-            <Group>
-              {item.times.map((i, index) => (
-                <Text key={index} color={'red'}>
-                  {i.duration}
-                </Text>
-              ))}
-            </Group>
-          </Table.Cell>
-          <Table.Cell>{item.session} Session/week</Table.Cell>
+          <Table.Cell>{item.topic}</Table.Cell>
+          <Table.Cell>{`${item.linkWebinar.substring(0, 20)}...`}</Table.Cell>
+          <Table.Cell>{item.date}</Table.Cell>
+          <Table.Cell>{item.time}</Table.Cell>
+          <Table.Cell>{`${item.description.substring(0, 20)}...`}</Table.Cell>
           <Table.Cell textAlign={'center'} p={0}>
             <Button
               p={0}

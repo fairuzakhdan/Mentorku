@@ -24,6 +24,7 @@ import UsersAdminpage from './admin/pages/UsersAdminpage';
 import UsersMentorpage from './mentors/pages/UsersMentorpage';
 import LessonsMentorpage from './mentors/pages/LessonsMentorpage';
 import SessionMentorpage from './mentors/pages/SessionsMentorpage';
+import WebinarMentorpage from './mentors/pages/WebinarMentorpage';
 
 const App = () => {
   const [authUser, setAuthUser] = useState(null);
@@ -71,6 +72,7 @@ const App = () => {
           <Route element={<UsersMentorpage />} path="/mentees" />
           <Route element={<LessonsMentorpage />} path="/mylessons" />
           <Route element={<SessionMentorpage />} path="/sessions" />
+          <Route element={<WebinarMentorpage />} path="/webinar" />
           <Route element={<Errorpage />} path={'*'} />
         </Routes>
       </main>
