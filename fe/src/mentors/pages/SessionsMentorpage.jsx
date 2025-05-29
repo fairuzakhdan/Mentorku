@@ -22,7 +22,7 @@ const SessionMentorpage = () => {
       session: 2,
     },
     {
-      day: 'Senin',
+      day: 'Rabu',
       times: [
         {
           duration: '08:00-10:00',
@@ -37,7 +37,7 @@ const SessionMentorpage = () => {
       session: 2,
     },
     {
-      day: 'Senin',
+      day: 'Sabtu',
       times: [
         {
           duration: '08:00-10:00',

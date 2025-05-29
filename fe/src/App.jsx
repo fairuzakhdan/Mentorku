@@ -24,7 +24,7 @@ import UsersAdminpage from './admin/pages/UsersAdminpage';
 import UsersMentorpage from './mentors/pages/UsersMentorpage';
 import LessonsMentorpage from './mentors/pages/LessonsMentorpage';
 import SessionMentorpage from './mentors/pages/SessionsMentorpage';
-import WebinarMentorpage from './mentors/pages/WebinarMentorpage';
+import WebinarMentorpage from './mentors/pages/WebinarsMentorpage';
 
 const App = () => {
   const [authUser, setAuthUser] = useState(null);
