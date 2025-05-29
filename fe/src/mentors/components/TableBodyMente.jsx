@@ -1,4 +1,4 @@
-import { Table, Button, Flex, Group, Text, Box } from '@chakra-ui/react';
+import { Table, Button, Flex, Group, Text, Link } from '@chakra-ui/react';
 import { FaEdit } from 'react-icons/fa';
 import { MdOutlineDeleteOutline } from 'react-icons/md';
 import AvatarCard from '../../components/Elements/Avatar';
@@ -10,7 +10,7 @@ const TableBodyMentee = ({ items, onEditById, onDeleteById }) => {
           <Table.Cell>{index + 1}</Table.Cell>
           <Table.Cell>{item.email}</Table.Cell>
           <Table.Cell>{item.fullName}</Table.Cell>
-          <Table.Cell>{`${item.institution.substring(0, 22)}...`}</Table.Cell>
+          <Table.Cell>{item.telephone}</Table.Cell>
           <Table.Cell>
             <AvatarCard image={item.image} size="2xs" rounded="full" />
           </Table.Cell>
@@ -28,8 +28,21 @@ const TableBodyMentee = ({ items, onEditById, onDeleteById }) => {
             {item.linkMentoring.length < 1 ? (
               <Text color={'red'}>No Set</Text>
             ) : (
-              <Text color={'blue.700'}>{item.linkMentoring.substring(0, 20)}</Text>
+              <Link href={item.linkMentoring} color={'blue.700'}>
+                {item.linkMentoring.substring(0, 20)}
+              </Link>
             )}
+          </Table.Cell>
+          <Table.Cell p={0}>
+            <Text
+              backgroundColor={'green.500'}
+              textAlign={'center'}
+              color={'white'}
+              p={0}
+              rounded={'md'}
+            >
+              {item.payment}
+            </Text>
           </Table.Cell>
           <Table.Cell textAlign={'center'} p={0}>
             <Button

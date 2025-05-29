@@ -5,7 +5,15 @@ import TableBodyMentee from '../components/TableBodyMente';
 import { useEffect, useState } from 'react';
 const UsersMentorpage = () => {
   const [mentees, setMentees] = useState([]);
-  const headers = ['Email', 'Full Name', 'Institution', 'Image', 'Mentoring', 'Link-Mentoring'];
+  const headers = [
+    'Email',
+    'Full Name',
+    'Telephone',
+    'Image',
+    'Mentoring',
+    'Link-Mentoring',
+    'Payment',
+  ];
   const items = [
     {
       id: 1,
@@ -26,6 +34,7 @@ const UsersMentorpage = () => {
       linkMentoring: 'https://meet.google.com/pre-ztbc-ohe',
       image:
         'https://img.freepik.com/premium-vector/person-with-blue-shirt-that-says-name-person_1029948-7040.jpg?semt=ais_hybrid&w=740',
+      payment: 'Success',
     },
     {
       id: 2,
@@ -46,6 +55,7 @@ const UsersMentorpage = () => {
       linkMentoring: 'https://meet.google.com/pre-ztbc-ohe',
       image:
         'https://img.freepik.com/premium-vector/person-with-blue-shirt-that-says-name-person_1029948-7040.jpg?semt=ais_hybrid&w=740',
+      payment: 'Success',
     },
     {
       id: 3,
@@ -66,6 +76,7 @@ const UsersMentorpage = () => {
       linkMentoring: 'https://meet.google.com/pre-ztbc-ohe',
       image:
         'https://img.freepik.com/premium-vector/person-with-blue-shirt-that-says-name-person_1029948-7040.jpg?semt=ais_hybrid&w=740',
+      payment: 'Success',
     },
     {
       id: 4,
@@ -86,6 +97,7 @@ const UsersMentorpage = () => {
       linkMentoring: '',
       image:
         'https://img.freepik.com/premium-vector/person-with-blue-shirt-that-says-name-person_1029948-7040.jpg?semt=ais_hybrid&w=740',
+      payment: 'Success',
     },
     {
       id: 5,
@@ -106,6 +118,7 @@ const UsersMentorpage = () => {
       linkMentoring: 'https://meet.google.com/pre-ztbc-ohe',
       image:
         'https://img.freepik.com/premium-vector/person-with-blue-shirt-that-says-name-person_1029948-7040.jpg?semt=ais_hybrid&w=740',
+      payment: 'Success',
     },
     {
       id: 6,
@@ -126,6 +139,7 @@ const UsersMentorpage = () => {
       linkMentoring: '',
       image:
         'https://img.freepik.com/premium-vector/person-with-blue-shirt-that-says-name-person_1029948-7040.jpg?semt=ais_hybrid&w=740',
+      payment: 'Success',
     },
     {
       id: 7,
@@ -146,6 +160,7 @@ const UsersMentorpage = () => {
       linkMentoring: '',
       image:
         'https://img.freepik.com/premium-vector/person-with-blue-shirt-that-says-name-person_1029948-7040.jpg?semt=ais_hybrid&w=740',
+      payment: 'Success',
     },
     {
       id: 8,
@@ -166,6 +181,7 @@ const UsersMentorpage = () => {
       linkMentoring: 'https://meet.google.com/pre-ztbc-ohe',
       image:
         'https://img.freepik.com/premium-vector/person-with-blue-shirt-that-says-name-person_1029948-7040.jpg?semt=ais_hybrid&w=740',
+      payment: 'Success',
     },
     {
       id: 9,
@@ -186,6 +202,7 @@ const UsersMentorpage = () => {
       linkMentoring: 'https://meet.google.com/pre-ztbc-ohe',
       image:
         'https://img.freepik.com/premium-vector/person-with-blue-shirt-that-says-name-person_1029948-7040.jpg?semt=ais_hybrid&w=740',
+      payment: 'Success',
     },
   ];
   useEffect(() => {
