@@ -8,9 +8,9 @@ const TableBodyWebinar = ({ items, onEditById, onDeleteById }) => {
         <Table.Row key={index} backgroundColor={'gray.200'}>
           <Table.Cell>{index + 1}</Table.Cell>
           <Table.Cell>{item.topic}</Table.Cell>
-          <Table.Cell>{`${item.linkWebinar.substring(0, 20)}...`}</Table.Cell>
+          <Table.Cell color={'blue.700'}>{`${item.linkWebinar.substring(0, 20)}...`}</Table.Cell>
           <Table.Cell>{item.date}</Table.Cell>
-          <Table.Cell>{item.time}</Table.Cell>
+          <Table.Cell color={'red'}>{item.time}</Table.Cell>
           <Table.Cell>{`${item.description.substring(0, 20)}...`}</Table.Cell>
           <Table.Cell textAlign={'center'} p={0}>
             <Button
