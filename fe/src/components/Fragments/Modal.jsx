@@ -1,16 +1,21 @@
-import { Button, CloseButton, Dialog, Portal } from '@chakra-ui/react';
+import { Button, CloseButton, Dialog, Portal, Box } from '@chakra-ui/react';
 import { GrView } from 'react-icons/gr';
 import UploadFile from '../Elements/FileUpload';
 import HighlightText from '../Elements/Highlight';
 
-const Modal = ({ label, title, description }) => {
+const Modal = ({ label, title, description, type = 'materi', content, button }) => {
   return (
     <Dialog.Root size={'lg'}>
       <Dialog.Trigger asChild colorPalette={'teal'}>
-        <Button size="sm" variant="solid" roundedBottom={'lg'} fontSize="md">
-          <GrView />
-          {label}
-        </Button>
+        <Box>
+          {type === 'materi' && (
+            <Button size="sm" variant="solid" roundedBottom={'lg'} fontSize="md">
+              <GrView />
+              {label}
+            </Button>
+          )}
+          {type === 'menteeEdit' && <>{button}</>}
+        </Box>
       </Dialog.Trigger>
       <Portal>
         <Dialog.Backdrop />
@@ -23,8 +28,13 @@ const Modal = ({ label, title, description }) => {
               <p>{description}</p>
             </Dialog.Body>
             <Dialog.Body>
-              <UploadFile />
-              <HighlightText />
+              {type === 'materi' && (
+                <>
+                  <UploadFile />
+                  <HighlightText />
+                </>
+              )}
+              {type === 'menteeEdit' && <>{content}</>}
             </Dialog.Body>
             <Dialog.Footer>
               <Dialog.ActionTrigger asChild>

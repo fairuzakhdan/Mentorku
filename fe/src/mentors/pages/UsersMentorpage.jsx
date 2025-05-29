@@ -3,7 +3,9 @@ import { Text, Box } from '@chakra-ui/react';
 import TableArea from '../../components/Fragments/Table';
 import TableBodyMentee from '../components/TableBodyMente';
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router';
 const UsersMentorpage = () => {
+  const navigate = useNavigate();
   const [mentees, setMentees] = useState([]);
   const headers = [
     'Email',
@@ -209,12 +211,15 @@ const UsersMentorpage = () => {
     setMentees(items);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+  const onDetailById = (id) => {
+    navigate(`/mentees/${id}`);
+  };
   return (
     <Sidebar type={'mentor'}>
       <Box color={'textBlue'}>
         <Text fontSize={'xl'}>Mentees</Text>
         <TableArea headers={headers}>
-          <TableBodyMentee items={mentees} />
+          <TableBodyMentee items={mentees} toDetailById={onDetailById} />
         </TableArea>
       </Box>
     </Sidebar>

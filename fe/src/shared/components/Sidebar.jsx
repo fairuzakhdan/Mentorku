@@ -15,12 +15,12 @@ import { Link } from 'react-router';
 import { ImUsers } from 'react-icons/im';
 import { useLocation } from 'react-router';
 import { FaUserGraduate } from 'react-icons/fa';
-import { MdCastForEducation } from 'react-icons/md';
 import { CgTimelapse } from 'react-icons/cg';
 import { SiGooglemeet } from 'react-icons/si';
 import { FaBookBookmark } from 'react-icons/fa6';
 import AvatarCard from '../../components/Elements/Avatar';
 import { FaBlog } from 'react-icons/fa';
+import Logo from '../../assets/images/4k-logo-removebg-preview.png';
 const Sidebar = ({ children, type }) => {
   const user = {
     name: 'John Doe',
@@ -72,7 +72,7 @@ const Sidebar = ({ children, type }) => {
       <GridItem colSpan={1} shadow={'lg'} backgroundColor={'textGreen'}>
         <Stack paddingBlock={3} alignItems="flex-start" paddingInline={6}>
           <Image
-            src="src\assets\images\4k-logo-removebg-preview.png"
+            src={Logo}
             width={180}
             objectFit={'cover'}
             rounded={'xl'}
