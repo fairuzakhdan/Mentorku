@@ -7,12 +7,11 @@ import FormInput from '../../components/Elements/FormInput';
 import useInput from '../../hooks/useInput';
 import { useState } from 'react';
 
-const FormEditMentoring = ({ sessions, link }) => {
+const FormEditMentoring = ({ sessions, link, editMentoring }) => {
   const [linkMentoring, onChangeLinkMentoring] = useInput(link);
   const [sessionsMentoring, setSessionsMentoring] = useState(sessions);
   const handleChangeSession = (event, index, field) => {
     const updated = [...sessionsMentoring];
-    console.log(updated)
     updated[index] = {
       ...updated[index],
       [field]: event.target.value,
@@ -44,6 +43,13 @@ const FormEditMentoring = ({ sessions, link }) => {
           onChange={onChangeLinkMentoring}
         />
       </Box>
+      <Button
+        mt={3}
+        colorPalette={'teal'}
+        onClick={() => editMentoring({ linkMentoring, sessionsMentoring })}
+      >
+        Edit
+      </Button>
     </Box>
   );
 };
@@ -93,6 +99,7 @@ const TableBodyMentee = ({ items, onDeleteById }) => {
             <Flex>
               <Modal
                 type="menteeEdit"
+                title={'Edit Mentoring Session'}
                 button={
                   <Button
                     p={0}

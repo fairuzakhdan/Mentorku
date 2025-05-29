@@ -36,18 +36,20 @@ const Modal = ({ label, title, description, type = 'materi', content, button }) 
               )}
               {type === 'menteeEdit' && <>{content}</>}
             </Dialog.Body>
-            <Dialog.Footer>
-              <Dialog.ActionTrigger asChild>
-                <Button variant="outline" backgroundColor={'black'}>
-                  Cancel
+            {type === 'materi' ? (
+              <Dialog.Footer>
+                <Dialog.ActionTrigger asChild>
+                  <Button variant="outline" backgroundColor={'black'}>
+                    Cancel
+                  </Button>
+                </Dialog.ActionTrigger>
+                <Button backgroundColor={'teal'} variant={'outline'}>
+                  Save
                 </Button>
-              </Dialog.ActionTrigger>
-              <Button backgroundColor={'teal'} variant={'outline'}>
-                Save
-              </Button>
-            </Dialog.Footer>
+              </Dialog.Footer>
+            ) : null}
             <Dialog.CloseTrigger asChild>
-              <CloseButton size="sm" />
+              <CloseButton size="sm" color={'red'} backgroundColor={'white'} />
             </Dialog.CloseTrigger>
           </Dialog.Content>
         </Dialog.Positioner>

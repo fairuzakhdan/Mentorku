@@ -2,7 +2,12 @@ import { Table, Button, Flex, Group } from '@chakra-ui/react';
 import { FaEdit } from 'react-icons/fa';
 import { MdOutlineDeleteOutline } from 'react-icons/md';
 import { FormSelect } from '../../components/Elements/FormInput';
-const TableBodyLessons = ({ items, onEditById, onDeleteById }) => {
+import { useNavigate } from 'react-router';
+const TableBodyLessons = ({ items, onDeleteById }) => {
+  const navigate = useNavigate();
+  const toDetailById = (lessonId) => {
+    navigate(`/mylessons/${lessonId}`);
+  };
   return (
     <>
       {items.map((item, index) => (
@@ -21,7 +26,7 @@ const TableBodyLessons = ({ items, onEditById, onDeleteById }) => {
               backgroundColor={'transparent'}
               color={'textGreen'}
               _hover={{ color: 'gray.800' }}
-              onClick={() => onEditById(item.id)}
+              onClick={() => toDetailById(item.id)}
             >
               <FaEdit />
             </Button>
