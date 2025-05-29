@@ -45,8 +45,8 @@ const DetailLessonMentorpage = () => {
   }
   return (
     <Sidebar type="mentor">
+      <Text>{lesson.topic}</Text>
       <Box>
-        <Text>Detail</Text>
         <FormLesson />
       </Box>
     </Sidebar>
