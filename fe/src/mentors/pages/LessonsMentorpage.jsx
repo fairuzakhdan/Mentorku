@@ -72,7 +72,7 @@ const LessonsMentorpage = () => {
       <Box color={'textBlue'}>
         <Flex justifyContent={'space-between'} alignItems={'center'} mb={1}>
           <Text fontSize={'xl'}>My Lessons</Text>
-          <AddButton label={'Add Lessons'} />
+          <AddButton label={'Add Lessons'} toLink={'/mylessons/add'} />
         </Flex>
         <TableArea headers={headers}>
           <TableBodyLessons items={lessons} />

@@ -1,12 +1,7 @@
 import Sidebar from '../../shared/components/Sidebar';
-import { Box, Text, Flex, Group } from '@chakra-ui/react';
-import { useEffect, useState } from 'react';
-import { useParams } from 'react-router';
+import { Text, Box } from '@chakra-ui/react';
 import FormLesson from '../components/FormLesson';
 const DetailLessonMentorpage = () => {
-  const [isLoading, setIsLoading] = useState(true);
-  const [lesson, setLesson] = useState(null);
-  const { lessonId } = useParams();
   const data = {
     id: '1',
     topic: 'Menjadi Fullstack Developer',
@@ -34,20 +29,11 @@ const DetailLessonMentorpage = () => {
       },
     ],
   };
-  useEffect(() => {
-    setIsLoading(true);
-    setLesson(data);
-    setIsLoading(false);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [lessonId]);
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
   return (
-    <Sidebar type="mentor">
-      <Text>{lesson.topic}</Text>
-      <Box>
-        <FormLesson />
+    <Sidebar type={'mentor'}>
+      <Box color={'textBlue'}>
+        <Text>Detail Lesson</Text>
+        <FormLesson lessonData={data} />
       </Box>
     </Sidebar>
   );

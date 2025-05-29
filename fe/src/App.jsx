@@ -27,6 +27,7 @@ import SessionMentorpage from './mentors/pages/SessionsMentorpage';
 import WebinarMentorpage from './mentors/pages/WebinarsMentorpage';
 import BlogMentorpage from './mentors/pages/BlogMentorpage';
 import DetailUsersMentorpage from './mentors/pages/DetailUsersMentorpage.jsx';
+import AddLessonMentorpage from './mentors/pages/AddLessonMentorpage.jsx';
 import DetailLessonMentorpage from './mentors/pages/DetailLessonMentorpage.jsx';
 
 const App = () => {
@@ -76,6 +77,7 @@ const App = () => {
           <Route element={<UsersMentorpage />} path="/mentees" />
           <Route element={<DetailUsersMentorpage />} path="/mentees/:userId" />
           <Route element={<LessonsMentorpage />} path="/mylessons" />
+          <Route element={<AddLessonMentorpage />} path="/mylessons/add" />
           <Route element={<DetailLessonMentorpage />} path="/mylessons/:lessonId" />
           <Route element={<SessionMentorpage />} path="/sessions" />
           <Route element={<WebinarMentorpage />} path="/webinar" />

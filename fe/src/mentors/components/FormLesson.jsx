@@ -42,7 +42,6 @@ const FormLesson = ({ addLessons }) => {
     onChangeHeader({ target: { value: '' } });
     onChangeDescription({ target: { value: '' } });
   };
-  console.log({ topic, articles, videos });
   return (
     <>
       <Stack color={'textBlue'} rowGap={3}>
