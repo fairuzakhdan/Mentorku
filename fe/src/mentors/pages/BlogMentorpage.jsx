@@ -3,7 +3,7 @@ import { Box, Text, Button, Group, Flex } from '@chakra-ui/react';
 import TableArea from '../../components/Fragments/Table';
 import { useEffect, useState } from 'react';
 import AddButton from '../components/AddButon';
-import TableBodyBlogs from '../components/TableBodyBlogs';
+import TableBodyBlogs from '../components/TableBody/TableBodyBlogs';
 
 const BlogMentorpage = () => {
   const [blogs, setBlogs] = useState([]);

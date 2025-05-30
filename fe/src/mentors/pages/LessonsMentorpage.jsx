@@ -1,7 +1,7 @@
 import Sidebar from '../../shared/components/Sidebar';
 import { Box, Text, Button, Group, Flex } from '@chakra-ui/react';
 import TableArea from '../../components/Fragments/Table';
-import TableBodyLessons from '../components/TableBodyLessons';
+import TableBodyLessons from '../components/TableBody/TableBodyLessons';
 import { useEffect, useState } from 'react';
 import AddButton from '../components/AddButon';
 const LessonsMentorpage = () => {

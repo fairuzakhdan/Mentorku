@@ -2,7 +2,7 @@ import Sidebar from '../../shared/components/Sidebar';
 import TableArea from '../../components/Fragments/Table';
 import { Box, Text, Button, Flex } from '@chakra-ui/react';
 import AddButton from '../components/AddButon';
-import TableBodySessions from '../components/TableBodySessions';
+import TableBodySessions from '../components/TableBody/TableBodySessions';
 const SessionMentorpage = () => {
   const headers = ['Day', 'Duration', 'Session'];
   const items = [
