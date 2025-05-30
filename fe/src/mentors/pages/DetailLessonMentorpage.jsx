@@ -33,7 +33,7 @@ const DetailLessonMentorpage = () => {
     <Sidebar type={'mentor'}>
       <Box color={'textBlue'}>
         <Text>Detail Lesson</Text>
-        <FormLesson lessonData={data} />
+        <FormLesson lessonData={data} type={'edit'} />
       </Box>
     </Sidebar>
   );
