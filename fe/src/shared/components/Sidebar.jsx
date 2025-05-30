@@ -1,16 +1,4 @@
-import {
-  Box,
-  Button,
-  Container,
-  HStack,
-  Text,
-  Stack,
-  Group,
-  Image,
-  Flex,
-  Grid,
-  GridItem,
-} from '@chakra-ui/react';
+import { Box, Button, Text, Stack, Group, Image, Flex, Grid, GridItem } from '@chakra-ui/react';
 import { Link } from 'react-router';
 import { ImUsers } from 'react-icons/im';
 import { useLocation } from 'react-router';
@@ -20,6 +8,8 @@ import { SiGooglemeet } from 'react-icons/si';
 import { FaBookBookmark } from 'react-icons/fa6';
 import AvatarCard from '../../components/Elements/Avatar';
 import { FaBlog } from 'react-icons/fa';
+import SearchBar from '../../components/Fragments/SearchBar';
+import { RiLogoutBoxLine } from 'react-icons/ri';
 import Logo from '../../assets/images/4k-logo-removebg-preview.png';
 const Sidebar = ({ children, type }) => {
   const user = {
@@ -69,7 +59,7 @@ const Sidebar = ({ children, type }) => {
   ];
   return (
     <Grid templateColumns={'repeat(6, 1fr)'} height={'100vh'}>
-      <GridItem colSpan={1} shadow={'lg'} backgroundColor={'textGreen'}>
+      <GridItem colSpan={1} shadow={'lg'} backgroundColor={'textGreen'} position={'relative'}>
         <Stack paddingBlock={3} alignItems="flex-start" paddingInline={6}>
           <Image
             src={Logo}
@@ -120,16 +110,33 @@ const Sidebar = ({ children, type }) => {
                   </Link>
                 );
               })}
+            <Box position={'absolute'} bottom={10} width={'100%'}>
+              <Button backgroundColor={'gray.300'} width={'80%'} color={'teal'} fontSize={'md'}>
+                <RiLogoutBoxLine />
+                Logout
+              </Button>
+            </Box>
           </Stack>
         </Stack>
       </GridItem>
       <GridItem colSpan={5} backgroundColor={'gray.200'}>
-        <Flex backgroundColor={'gray.100'} justifyContent={'end'} shadow={'sm'}>
-          <Group my={3} mx={7}>
-            <Text color={'gray.600'}>{user.name}</Text>
-            <AvatarCard image={user.image} size="sm" rounded="full" />
-          </Group>
-        </Flex>
+        <Box backgroundColor={'gray.100'} shadow={'sm'}>
+          <Flex mx={7} py={3} justifyContent={'space-between'}>
+            <Box width={'35%'}>
+              <SearchBar
+                text={'Search'}
+                color={'teal'}
+                placeholder="Enter keyword"
+                size="sm"
+                padding="0"
+              />
+            </Box>
+            <Group>
+              <Text color={'gray.600'}>{user.name}</Text>
+              <AvatarCard image={user.image} size="sm" rounded="full" />
+            </Group>
+          </Flex>
+        </Box>
         <Box mx={7} my={4}>
           {children}
         </Box>
