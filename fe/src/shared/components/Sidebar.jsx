@@ -58,7 +58,7 @@ const Sidebar = ({ children, type }) => {
     },
     {
       title: 'Webinar',
-      href: '/webinar',
+      href: '/webinars',
       icon: SiGooglemeet,
     },
     {

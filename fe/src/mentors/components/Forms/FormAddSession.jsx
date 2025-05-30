@@ -23,7 +23,7 @@ const FormAddSession = () => {
   return (
     <>
       <Stack rowGap={5} color={'textBlue'}>
-        <Flex columnGap={5}>
+        <Flex columnGap={5} backgroundColor={'white'} p={5} rounded={'lg'}>
           <FormInput
             label={'Add Day'}
             required
@@ -41,7 +41,7 @@ const FormAddSession = () => {
             type="number"
           />
         </Flex>
-        <Flex columnGap={5} alignItems={'end'}>
+        <Flex columnGap={5} alignItems={'end'} backgroundColor={'white'} p={5} rounded={'lg'}>
           <Box width={'30%'}>
             <FormInput
               label={'Add Duration'}

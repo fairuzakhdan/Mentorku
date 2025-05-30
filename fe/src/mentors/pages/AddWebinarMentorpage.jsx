@@ -1,10 +1,10 @@
 import { Box, Flex, Group, Text, Button } from '@chakra-ui/react';
 import Sidebar from '../../shared/components/Sidebar';
-import FormAddWebinar from '../components/Forms/FormAddWebinar';
+import FormWebinar from '../components/Forms/FormWebinar';
 const AddWebinarMentorpage = () => {
   return (
     <Sidebar type={'mentor'}>
-      <FormAddWebinar />
+      <FormWebinar />
     </Sidebar>
   );
 };

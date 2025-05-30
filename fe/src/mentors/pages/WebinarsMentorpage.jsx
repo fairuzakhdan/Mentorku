@@ -34,7 +34,7 @@ const WebinarMentorpage = () => {
       <Box color={'textBlue'}>
         <Flex justifyContent="space-between" alignItems={'center'} mb={1}>
           <Text fontSize={'xl'}>Webinar</Text>
-          <AddButton label={'Add Webinar'} />
+          <AddButton label={'Add Webinar'} toLink={'/webinars/add'} />
         </Flex>
         <TableArea headers={headers}>
           <TableBodyWebinar items={webinars} />
