@@ -30,6 +30,7 @@ import DetailUsersMentorpage from './mentors/pages/DetailUsersMentorpage.jsx';
 import AddLessonMentorpage from './mentors/pages/AddLessonMentorpage.jsx';
 import EditLessonMentorpage from './mentors/pages/EditLessonMentorpage.jsx';
 import AddSessionMentorpage from './mentors/pages/AddSessionMentorpage.jsx';
+import EditSessionMentorpage from './mentors/pages/EditSessionMentorpage.jsx';
 
 const App = () => {
   const [authUser, setAuthUser] = useState(null);
@@ -82,6 +83,7 @@ const App = () => {
           <Route element={<EditLessonMentorpage />} path="/mylessons/:lessonId" />
           <Route element={<SessionMentorpage />} path="/sessions" />
           <Route element={<AddSessionMentorpage />} path="/sessions/add" />
+          <Route element={<EditSessionMentorpage />} path="/sessions/:sessionId" />
           <Route element={<WebinarMentorpage />} path="/webinar" />
           <Route element={<Errorpage />} path={'*'} />
         </Routes>

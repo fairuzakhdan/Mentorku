@@ -1,7 +1,12 @@
 import { Table, Button, Flex, Group, Text } from '@chakra-ui/react';
 import { FaEdit } from 'react-icons/fa';
 import { MdOutlineDeleteOutline } from 'react-icons/md';
-const TableBodySessions = ({ items, onEditById, onDeleteById }) => {
+import { useNavigate } from 'react-router';
+const TableBodySessions = ({ items, onDeleteById }) => {
+  const navigate = useNavigate();
+  const toDetailById = (sessionId) => {
+    navigate(`/sessions/${sessionId}`);
+  };
   return (
     <>
       {items.map((item, index) => (
@@ -24,7 +29,7 @@ const TableBodySessions = ({ items, onEditById, onDeleteById }) => {
               backgroundColor={'transparent'}
               color={'textGreen'}
               _hover={{ color: 'gray.800' }}
-              onClick={() => onEditById(item.id)}
+              onClick={() => toDetailById(item.id)}
             >
               <FaEdit />
             </Button>

@@ -7,6 +7,7 @@ const SessionMentorpage = () => {
   const headers = ['Day', 'Duration', 'Session'];
   const items = [
     {
+      id: '1',
       day: 'Senin',
       times: [
         {
@@ -22,6 +23,7 @@ const SessionMentorpage = () => {
       session: 2,
     },
     {
+      id: '2',
       day: 'Rabu',
       times: [
         {
