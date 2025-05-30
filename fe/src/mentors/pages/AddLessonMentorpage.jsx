@@ -47,7 +47,7 @@ const AddLessonMentorpage = () => {
     <Sidebar type="mentor">
       <Text>{lesson.topic}</Text>
       <Box>
-        <FormAddLesson type={'add'} />
+        <FormAddLesson />
       </Box>
     </Sidebar>
   );

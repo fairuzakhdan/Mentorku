@@ -6,7 +6,7 @@ import { CiEdit } from 'react-icons/ci';
 const FormEditSession = () => {
   return (
     <Stack rowGap={4}>
-      <FormInput label={'Edit Day'}/>
+      <FormInput label={'Edit Day'} />
     </Stack>
   );
 };

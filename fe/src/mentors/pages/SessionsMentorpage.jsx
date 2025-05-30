@@ -57,7 +57,7 @@ const SessionMentorpage = () => {
       <Box color={'textBlue'}>
         <Flex justifyContent="space-between" alignItems={'center'} mb={1}>
           <Text fontSize={'xl'}>Sessions</Text>
-          <AddButton label={'Add Session'} />
+          <AddButton label={'Add Session'} toLink={'/sessions/add'} />
         </Flex>
         <TableArea headers={headers}>
           <TableBodySessions items={items} />
