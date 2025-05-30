@@ -4,30 +4,12 @@ import TableBodyWebinar from '../components/TableBody/TableBodyWebinar';
 import { Text, Box, Flex } from '@chakra-ui/react';
 import AddButton from '../components/AddButon';
 import { useState, useEffect } from 'react';
+import { itemWebinar } from '../utils/webinars';
 const WebinarMentorpage = () => {
   const [webinars, setWebinars] = useState([]);
   const headers = ['Topic', 'LinkWebinar', 'Date', 'Time', 'Description'];
-  const items = [
-    {
-      id: '1',
-      topic: 'Persiapan Karir Menjadi Talenta Digital',
-      linkWebinar: 'https://meet.google.com/pre-ztbc-ohe',
-      date: '2023-08-10',
-      time: '08:00-10:00',
-      description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, quod!',
-    },
-    {
-      id: '2',
-      topic: 'Persiapan Karir Menjadi Software Engineer',
-      linkWebinar: 'https://meet.google.com/pre-ztbc-ohe',
-      date: '2023-08-10',
-      time: '08:00-10:00',
-      description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, quod!',
-    },
-  ];
   useEffect(() => {
-    setWebinars(items);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    setWebinars(itemWebinar);
   }, []);
   return (
     <Sidebar type={'mentor'}>

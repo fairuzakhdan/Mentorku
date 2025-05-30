@@ -1,14 +1,20 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import FormInput from '../../../components/Elements/FormInput';
 import { FormTextArea } from '../../../components/Elements/FormInput';
 import useInput from '../../../hooks/useInput';
-import { IoIosAddCircle } from 'react-icons/io';
+import { useEffect } from 'react';
 import { Stack, Box, Flex, Text, Button } from '@chakra-ui/react';
 const FormWebinar = ({ initialData = {}, type = 'add', onSubmit }) => {
-  const [topic, onChangeTopic] = useInput(initialData.topic || '');
-  const [linkWebinar, onChangeLinkWebinar] = useInput(initialData.linkWebinar || '');
-  const [date, onChangeDate] = useInput(initialData.date || '');
-  const [time, onChangeTime] = useInput(initialData.time || '');
-  const [description, onChangeDescription] = useInput(initialData.description || '');
+  console.log(initialData.topic);
+  const [topic, onChangeTopic, setTopic] = useInput(initialData.topic || '');
+  const [linkWebinar, onChangeLinkWebinar, setLinkWebinar] = useInput(
+    initialData.linkWebinar || '',
+  );
+  const [date, onChangeDate, setDate] = useInput(initialData.date || '');
+  const [time, onChangeTime, setTime] = useInput(initialData.time || '');
+  const [description, onChangeDescription, setDescription] = useInput(
+    initialData.description || '',
+  );
 
   const handleSubmit = () => {
     onSubmit({
@@ -19,6 +25,15 @@ const FormWebinar = ({ initialData = {}, type = 'add', onSubmit }) => {
       description,
     });
   };
+  useEffect(() => {
+    if (type === 'edit') {
+      setTopic(initialData.topic);
+      setLinkWebinar(initialData.linkWebinar);
+      setDate(initialData.date);
+      setTime(initialData.time);
+      setDescription(initialData.description);
+    }
+  }, [initialData]);
   return (
     <Stack rowGap={7} color={'textBlue'}>
       <Flex columnGap={5}>
