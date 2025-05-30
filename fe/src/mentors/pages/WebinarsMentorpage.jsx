@@ -4,7 +4,7 @@ import TableBodyWebinar from '../components/TableBody/TableBodyWebinar';
 import { Text, Box, Flex } from '@chakra-ui/react';
 import AddButton from '../components/AddButon';
 import { useState, useEffect } from 'react';
-import { itemWebinar } from '../utils/webinars';
+import { itemWebinar } from '../utils/mentorrole';
 const WebinarMentorpage = () => {
   const [webinars, setWebinars] = useState([]);
   const headers = ['Topic', 'LinkWebinar', 'Date', 'Time', 'Description'];

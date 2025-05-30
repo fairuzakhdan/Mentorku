@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import Sidebar from '../../shared/components/Sidebar';
 import FormWebinar from '../components/Forms/FormWebinar';
-import { itemWebinar } from '../utils/webinars';
+import { itemWebinar } from '../utils/mentorrole';
 import { useParams } from 'react-router';
 const EditWebinarMentorpage = () => {
   const [webinar, setWebinar] = useState({});
