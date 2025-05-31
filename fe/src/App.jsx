@@ -40,11 +40,11 @@ const App = () => {
   const [authUser, setAuthUser] = useState(null);
   const [initializing, setInitializing] = useState(true);
   useEffect(() => {
-    // const name = {
-    //   name: 'user',
-    //   email: 'user@mail.com',
-    //   role: 'mentor',
-    // };
+    const name = {
+      name: 'user',
+      email: 'user@mail.com',
+      role: 'mentor',
+    };
     localStorage.setItem('authUser', JSON.stringify(name));
     const data = JSON.parse(localStorage.getItem('authUser'));
     setAuthUser(data);
