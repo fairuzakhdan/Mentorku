@@ -45,9 +45,9 @@ const App = () => {
     //   email: 'user@mail.com',
     //   role: 'mentor',
     // };
-    // localStorage.setItem('authUser', JSON.stringify(name));
-    // const data = JSON.parse(localStorage.getItem('authUser'));
-    // setAuthUser(data);
+    localStorage.setItem('authUser', JSON.stringify(name));
+    const data = JSON.parse(localStorage.getItem('authUser'));
+    setAuthUser(data);
     setInitializing(false);
   }, []);
   if (initializing) return null;
