@@ -59,8 +59,8 @@ const Sidebar = ({ children, type }) => {
   ];
   return (
     <Grid templateColumns={'repeat(6, 1fr)'} height={'100vh'}>
-      <GridItem colSpan={1} shadow={'lg'} backgroundColor={'textGreen'} position={'relative'}>
-        <Stack paddingBlock={3} alignItems="flex-start" paddingInline={6}>
+      <GridItem colSpan={1} shadow={'lg'} backgroundColor={'textGreen'}>
+        <Stack paddingBlock={3} alignItems="flex-start" paddingInline={6} position={'fixed'}>
           <Image
             src={Logo}
             width={180}
@@ -110,7 +110,7 @@ const Sidebar = ({ children, type }) => {
                   </Link>
                 );
               })}
-            <Box position={'absolute'} bottom={10} width={'100%'}>
+            <Box position={'absolute'} bottom={-24} width={'100%'}>
               <Button backgroundColor={'gray.300'} width={'80%'} color={'teal'} fontSize={'md'}>
                 <RiLogoutBoxLine />
                 Logout

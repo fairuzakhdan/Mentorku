@@ -1,6 +1,6 @@
 import Sidebar from '../../shared/components/Sidebar';
 import { Box, Text, Flex, Group } from '@chakra-ui/react';
-import FormAddLesson from '../components/Forms/FormAddLesson';
+import FormLesson from '../components/Forms/FormLesson';
 // import { useEffect, useState } from 'react';
 // import { useParams } from 'react-router';
 const AddLessonMentorpage = () => {
@@ -46,7 +46,7 @@ const AddLessonMentorpage = () => {
   return (
     <Sidebar type="mentor">
       <Box>
-        <FormAddLesson type="add" />
+        <FormLesson type="add" onSubmitLesson={(data) => console.log(data)} />
       </Box>
     </Sidebar>
   );

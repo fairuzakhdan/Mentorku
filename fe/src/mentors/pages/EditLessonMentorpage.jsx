@@ -4,7 +4,7 @@ import FormEditLesson from '../components/Forms/FormEditLesson';
 import { useParams } from 'react-router';
 import { itemLesson } from '../utils/mentorrole';
 import { useEffect, useState } from 'react';
-import FormAddLesson from '../components/Forms/FormAddLesson';
+import FormLesson from '../components/Forms/FormLesson';
 const EditLessonMentorpage = () => {
   const { lessonId } = useParams();
   const [lesson, setLesson] = useState({});
@@ -14,7 +14,7 @@ const EditLessonMentorpage = () => {
   }, [lessonId]);
   return (
     <Sidebar type={'mentor'}>
-      <FormAddLesson type="edit" initialData={lesson} addLessons="" />
+      <FormLesson type="edit" initialData={lesson} onSubmitLesson={(data) => console.log(data)} />
     </Sidebar>
   );
 };
