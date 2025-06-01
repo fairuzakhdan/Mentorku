@@ -43,7 +43,7 @@ const App = () => {
     const name = {
       name: 'user',
       email: 'user@mail.com',
-      role: 'admin',
+      role: 'mentor',
     };
     localStorage.setItem('authUser', JSON.stringify(name));
     const data = JSON.parse(localStorage.getItem('authUser'));

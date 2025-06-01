@@ -110,7 +110,7 @@ const Sidebar = ({ children, type }) => {
                   </Link>
                 );
               })}
-            <Box position={'absolute'} bottom={-24} width={'100%'}>
+            <Box position={'absolute'} bottom={type === 'mentor' ? -24 : '-72'} width={'100%'}>
               <Button backgroundColor={'gray.300'} width={'80%'} color={'teal'} fontSize={'md'}>
                 <RiLogoutBoxLine />
                 Logout
