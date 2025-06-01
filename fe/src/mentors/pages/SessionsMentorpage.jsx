@@ -3,57 +3,14 @@ import TableArea from '../../components/Fragments/Table';
 import { Box, Text, Button, Flex } from '@chakra-ui/react';
 import AddButton from '../components/AddButon';
 import TableBodySessions from '../components/TableBody/TableBodySessions';
+import { itemSession } from '../utils/mentorrole';
+import { useEffect, useState } from 'react';
 const SessionMentorpage = () => {
   const headers = ['Day', 'Duration', 'Session'];
-  const items = [
-    {
-      id: '1',
-      day: 'Senin',
-      times: [
-        {
-          duration: '08:00-10:00',
-        },
-        {
-          duration: '14:00-16:00',
-        },
-        {
-          duration: '20:00-22:00',
-        },
-      ],
-      session: 2,
-    },
-    {
-      id: '2',
-      day: 'Rabu',
-      times: [
-        {
-          duration: '08:00-10:00',
-        },
-        {
-          duration: '14:00-16:00',
-        },
-        {
-          duration: '20:00-22:00',
-        },
-      ],
-      session: 2,
-    },
-    {
-      day: 'Sabtu',
-      times: [
-        {
-          duration: '08:00-10:00',
-        },
-        {
-          duration: '14:00-16:00',
-        },
-        {
-          duration: '20:00-22:00',
-        },
-      ],
-      session: 2,
-    },
-  ];
+  const [sessions, setSessions] = useState([]);
+  useEffect(() => {
+    setSessions(itemSession);
+  }, []);
   return (
     <Sidebar type={'mentor'}>
       <Box color={'textBlue'}>
@@ -62,7 +19,7 @@ const SessionMentorpage = () => {
           <AddButton label={'Add Session'} toLink={'/sessions/add'} />
         </Flex>
         <TableArea headers={headers}>
-          <TableBodySessions items={items} />
+          <TableBodySessions items={sessions} />
         </TableArea>
       </Box>
     </Sidebar>

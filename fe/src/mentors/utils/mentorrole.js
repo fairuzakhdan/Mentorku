@@ -55,6 +55,56 @@ export const itemLesson = [
   },
 ];
 
+export const itemSession = [
+  {
+    id: '1',
+    day: 'Senin',
+    times: [
+      {
+        duration: '08:00-10:00',
+      },
+      {
+        duration: '14:00-16:00',
+      },
+      {
+        duration: '20:00-22:00',
+      },
+    ],
+    session: 2,
+  },
+  {
+    id: '2',
+    day: 'Rabu',
+    times: [
+      {
+        duration: '08:00-10:00',
+      },
+      {
+        duration: '14:00-16:00',
+      },
+      {
+        duration: '20:00-22:00',
+      },
+    ],
+    session: 2,
+  },
+  {
+    day: 'Sabtu',
+    times: [
+      {
+        duration: '08:00-10:00',
+      },
+      {
+        duration: '14:00-16:00',
+      },
+      {
+        duration: '20:00-22:00',
+      },
+    ],
+    session: 2,
+  },
+];
+
 export const itemWebinar = [
   {
     id: '1',

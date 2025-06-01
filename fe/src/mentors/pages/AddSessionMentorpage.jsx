@@ -1,9 +1,9 @@
 import Sidebar from '../../shared/components/Sidebar';
-import FormAddSession from '../components/Forms/FormAddSession';
+import FormSession from '../components/Forms/FormSession';
 const AddSessionMentorpage = () => {
   return (
     <Sidebar type={'mentor'}>
-      <FormAddSession />
+      <FormSession type="add" onSubmitHanlder={(data) => console.log(data)} />
     </Sidebar>
   );
 };

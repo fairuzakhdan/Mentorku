@@ -1,6 +1,5 @@
 import Sidebar from '../../shared/components/Sidebar';
 import { Text, Box } from '@chakra-ui/react';
-import FormEditLesson from '../components/Forms/FormEditLesson';
 import { useParams } from 'react-router';
 import { itemLesson } from '../utils/mentorrole';
 import { useEffect, useState } from 'react';
