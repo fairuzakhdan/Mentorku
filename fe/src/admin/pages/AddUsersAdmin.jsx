@@ -1,7 +1,7 @@
 import Sidebar from '../../shared/components/Sidebar';
 import { Box, Text } from '@chakra-ui/react';
 import FormUsersAdmin from '../components/Forms/FormUsersAdmin';
-const AddUsersAdmin = () => {
+const AddUsersAdminpage = () => {
   return (
     <Sidebar type={'admin'}>
       <Box color={'textBlue'}>
@@ -11,4 +11,4 @@ const AddUsersAdmin = () => {
   );
 };
 
-export default AddUsersAdmin;
+export default AddUsersAdminpage;

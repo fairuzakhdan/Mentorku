@@ -35,7 +35,8 @@ import AddWebinarMentorpage from './mentors/pages/AddWebinarMentorpage.jsx';
 import EditWebinarMentorpage from './mentors/pages/EditWebinarMentorpage.jsx';
 import AddBlogMentorpage from './mentors/pages/AddBlogMentorpage.jsx';
 import EditBlogMentorpage from './mentors/pages/EditBlogMentorpage.jsx';
-import AddUsersAdmin from './admin/pages/AddUsersAdmin.jsx';
+import AddUsersAdminpage from './admin/pages/AddUsersAdmin.jsx';
+import EditUsersAdminpage from './admin/pages/EditusersAdmin.jsx';
 
 const App = () => {
   const [authUser, setAuthUser] = useState(null);
@@ -69,7 +70,8 @@ const App = () => {
         <Routes>
           <Route element={<UsersAdminpage />} path="/" />
           <Route element={<UsersAdminpage />} path="/users" />
-          <Route element={<AddUsersAdmin />} path="/users/add" />
+          <Route element={<AddUsersAdminpage />} path="/users/add" />
+          <Route element={<EditUsersAdminpage />} path="/users/:userId" />
           <Route element={<Registerpage />} path="/mentors" />
           <Route element={<Errorpage />} path={'*'} />
         </Routes>

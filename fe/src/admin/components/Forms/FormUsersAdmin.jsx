@@ -3,8 +3,6 @@ import { Box, Flex, Stack, Group, Button } from '@chakra-ui/react';
 import { useState, useEffect } from 'react';
 import useInput from '../../../hooks/useInput';
 import UploadFile from '../../../components/Elements/FileUpload';
-
-import { PasswordInput } from '@/components/ui/password-input';
 const FormUsersAdmin = ({ type = 'add', initialData = {}, onSubmit }) => {
   const [email, onChangeEmail, setEmail] = useInput('');
   const [password, onChangePassword, setPassword] = useInput('');
@@ -15,11 +13,11 @@ const FormUsersAdmin = ({ type = 'add', initialData = {}, onSubmit }) => {
 
   useEffect(() => {
     if (type === 'edit') {
-      setEmail(initialData.email);
-      setPassword(initialData.password);
-      setFullName(initialData.fullName);
-      setInstitution(initialData.institution);
-      setTelephone(initialData.telephone);
+      setEmail(initialData.email || '');
+      setPassword(initialData.password || '');
+      setFullName(initialData.fullName || '');
+      setInstitution(initialData.institution || '');
+      setTelephone(initialData.telephone || '');
       setImage(initialData.image);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
