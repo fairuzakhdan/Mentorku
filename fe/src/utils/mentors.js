@@ -3,6 +3,9 @@ import { SiPeakdesign } from 'react-icons/si';
 const mentors = [
   {
     id: '1',
+    email: 'example@gmail.com',
+    password: 'password123',
+    linkedIn: 'https://www.google.com',
     name: 'John Doe',
     image:
       'https://images.unsplash.com/photo-1623366302587-b38b1ddaefd9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTF8fGVudGVwcmVuZXVyfGVufDB8fDB8fHww',
@@ -38,13 +41,16 @@ const mentors = [
       },
     ],
     expertise: ['Web', 'Mobile', 'Blockchain', 'IOS'],
-    portofolio: 'https://www.google.com',
+    portofolio: 'https://www.google.com/sdaw',
     cvResume: 'https://www.google.com',
     summary:
       'Saya adalah seorang software engineer dengan pengalaman lebih dari 7 tahun. Saya memiliki kemampuan dalam membangun aplikasi web dan mobile. Saya juga memiliki kemampuan dalam membangun aplikasi web dan mobile.',
   },
   {
     id: '2',
+    email: 'example@gmail.com',
+    password: 'password123',
+    linkedIn: 'https://www.google.com',
     name: 'John Doe',
     image:
       'https://images.unsplash.com/photo-1636368086488-bb2c04738214?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8ODA3fHx0ZWFjaGVyfGVufDB8fDB8fHww',
@@ -80,11 +86,16 @@ const mentors = [
       },
     ],
     expertise: ['Web', 'Mobile', 'Blockchain', 'IOS'],
+    portofolio: 'https://www.google.com/sdaw',
+    cvResume: 'https://www.google.com',
     summary:
       'Saya adalah seorang software engineer dengan pengalaman lebih dari 7 tahun. Saya memiliki kemampuan dalam membangun aplikasi web dan mobile. Saya juga memiliki kemampuan dalam membangun aplikasi web dan mobile.',
   },
   {
     id: '3',
+    email: 'example@gmail.com',
+    password: 'password123',
+    linkedIn: 'https://www.google.com',
     name: 'John Doe',
     image:
       'https://images.unsplash.com/photo-1742119971773-57e0131095b0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NjZ8fGVudGVwcmVuZXVyfGVufDB8fDB8fHww',
@@ -120,11 +131,16 @@ const mentors = [
       },
     ],
     expertise: ['Web', 'Mobile', 'Blockchain', 'IOS'],
+    portofolio: 'https://www.google.com/sdaw',
+    cvResume: 'https://www.google.com',
     summary:
       'Saya adalah seorang software engineer dengan pengalaman lebih dari 7 tahun. Saya memiliki kemampuan dalam membangun aplikasi web dan mobile. Saya juga memiliki kemampuan dalam membangun aplikasi web dan mobile.',
   },
   {
     id: '4',
+    email: 'example@gmail.com',
+    password: 'password123',
+    linkedIn: 'https://www.google.com',
     name: 'John Doe',
     image:
       'https://plus.unsplash.com/premium_photo-1661594668193-3f105ef4ce8d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzQxfHxlbnRlcHJlbmV1cnxlbnwwfHwwfHx8MA%3D%3D',
@@ -160,11 +176,16 @@ const mentors = [
       },
     ],
     expertise: ['Web', 'Mobile', 'Blockchain', 'IOS'],
+    portofolio: 'https://www.google.com/sdaw',
+    cvResume: 'https://www.google.com',
     summary:
       'Saya adalah seorang software engineer dengan pengalaman lebih dari 7 tahun. Saya memiliki kemampuan dalam membangun aplikasi web dan mobile. Saya juga memiliki kemampuan dalam membangun aplikasi web dan mobile.',
   },
   {
     id: '5',
+    email: 'example@gmail.com',
+    password: 'password123',
+    linkedIn: 'https://www.google.com',
     name: 'John Doe',
     image:
       'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D',
@@ -200,11 +221,16 @@ const mentors = [
       },
     ],
     expertise: ['Web', 'Mobile', 'Blockchain', 'IOS'],
+    portofolio: 'https://www.google.com/sdaw',
+    cvResume: 'https://www.google.com',
     summary:
       'Saya adalah seorang software engineer dengan pengalaman lebih dari 7 tahun. Saya memiliki kemampuan dalam membangun aplikasi web dan mobile. Saya juga memiliki kemampuan dalam membangun aplikasi web dan mobile.',
   },
   {
     id: '6',
+    email: 'example@gmail.com',
+    password: 'password123',
+    linkedIn: 'https://www.google.com',
     name: 'John Doe',
     image:
       'https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cGVyc29ufGVufDB8fDB8fHww',
@@ -240,11 +266,16 @@ const mentors = [
       },
     ],
     expertise: ['Web', 'Mobile', 'Blockchain', 'IOS'],
+    portofolio: 'https://www.google.com/sdaw',
+    cvResume: 'https://www.google.com',
     summary:
       'Saya adalah seorang software engineer dengan pengalaman lebih dari 7 tahun. Saya memiliki kemampuan dalam membangun aplikasi web dan mobile. Saya juga memiliki kemampuan dalam membangun aplikasi web dan mobile.',
   },
   {
     id: '7',
+    email: 'example@gmail.com',
+    password: 'password123',
+    linkedIn: 'https://www.google.com',
     name: 'John Doe',
     image:
       'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cGVyc29ufGVufDB8fDB8fHww',
@@ -280,11 +311,16 @@ const mentors = [
       },
     ],
     expertise: ['Web', 'Mobile', 'Blockchain', 'IOS'],
+    portofolio: 'https://www.google.com/sdaw',
+    cvResume: 'https://www.google.com',
     summary:
       'Saya adalah seorang software engineer dengan pengalaman lebih dari 7 tahun. Saya memiliki kemampuan dalam membangun aplikasi web dan mobile. Saya juga memiliki kemampuan dalam membangun aplikasi web dan mobile.',
   },
   {
     id: '8',
+    email: 'example@gmail.com',
+    password: 'password123',
+    linkedIn: 'https://www.google.com',
     name: 'John Doe',
     image:
       'https://plus.unsplash.com/premium_photo-1664536392896-cd1743f9c02c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8cGVyc29ufGVufDB8fDB8fHww',
@@ -320,11 +356,16 @@ const mentors = [
       },
     ],
     expertise: ['Web', 'Mobile', 'Blockchain', 'IOS'],
+    portofolio: 'https://www.google.com/sdaw',
+    cvResume: 'https://www.google.com',
     summary:
       'Saya adalah seorang software engineer dengan pengalaman lebih dari 7 tahun. Saya memiliki kemampuan dalam membangun aplikasi web dan mobile. Saya juga memiliki kemampuan dalam membangun aplikasi web dan mobile.',
   },
   {
     id: '9',
+    email: 'example@gmail.com',
+    password: 'password123',
+    linkedIn: 'https://www.google.com',
     name: 'John Doe',
     image:
       'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzB8fHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D',
@@ -360,11 +401,16 @@ const mentors = [
       },
     ],
     expertise: ['Web', 'Mobile', 'Blockchain', 'IOS'],
+    portofolio: 'https://www.google.com/sdaw',
+    cvResume: 'https://www.google.com',
     summary:
       'Saya adalah seorang software engineer dengan pengalaman lebih dari 7 tahun. Saya memiliki kemampuan dalam membangun aplikasi web dan mobile. Saya juga memiliki kemampuan dalam membangun aplikasi web dan mobile.',
   },
   {
     id: '10',
+    email: 'example@gmail.com',
+    password: 'password123',
+    linkedIn: 'https://www.google.com',
     name: 'John Doe',
     image:
       'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzJ8fHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D',
@@ -400,6 +446,8 @@ const mentors = [
       },
     ],
     expertise: ['Web', 'Mobile', 'Blockchain', 'IOS'],
+    portofolio: 'https://www.google.com/sdaw',
+    cvResume: 'https://www.google.com',
     summary:
       'Saya adalah seorang software engineer dengan pengalaman lebih dari 7 tahun. Saya memiliki kemampuan dalam membangun aplikasi web dan mobile. Saya juga memiliki kemampuan dalam membangun aplikasi web dan mobile.',
   },

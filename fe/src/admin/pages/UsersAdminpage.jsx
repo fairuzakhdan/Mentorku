@@ -16,7 +16,7 @@ const UsersAdminpage = () => {
     <Sidebar type={'admin'}>
       <Box color={'textBlue'}>
         <Flex alignItems={'center'} justifyContent={'space-between'}>
-          <Text>Users</Text>
+          <Text fontSize={'xl'}>Users</Text>
           <AddButton toLink={'/users/add'} label={'Add User'} />
         </Flex>
         <TableArea headers={header}>
