@@ -1,9 +1,9 @@
 import Sidebar from '../../shared/components/Sidebar';
-
+import { Box, Text } from '@chakra-ui/react';
 const AddUsersAdmin = () => {
   return (
     <Sidebar type={'admin'}>
-      <h1>AddUsersAdmin</h1>
+      <Text>Add User</Text>
     </Sidebar>
   );
 };

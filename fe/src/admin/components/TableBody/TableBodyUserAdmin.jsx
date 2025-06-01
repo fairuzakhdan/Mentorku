@@ -8,12 +8,17 @@ const TableBodyUserAdmin = ({ items }) => {
   const toDetailById = (id) => {
     navigate(`/users/${id}`);
   };
+  const hidePassword = (password) => {
+    const hiddenPassword = password.replace(/./g, '*');
+    return hiddenPassword;
+  };
   return (
     <>
       {items.map((item, index) => (
         <Table.Row key={index} backgroundColor={'gray.200'}>
           <Table.Cell>{index + 1}</Table.Cell>
           <Table.Cell>{item.email}</Table.Cell>
+          <Table.Cell>{hidePassword(item.password)}</Table.Cell>
           <Table.Cell>{item.fullName}</Table.Cell>
           <Table.Cell>{item.telephone}</Table.Cell>
           <Table.Cell>{item.institution}</Table.Cell>

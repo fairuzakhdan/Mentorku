@@ -8,7 +8,7 @@ import { useState, useEffect } from 'react';
 import AddButton from '../../shared/components/AddButon';
 const UsersAdminpage = () => {
   const [users, setUsers] = useState([]);
-  const header = ['Email', 'Full Name', 'telephone', 'Institution', 'Image'];
+  const header = ['Email', 'Password', 'Full Name', 'telephone', 'Institution', 'Image'];
   useEffect(() => {
     setUsers(itemUser);
   }, []);
