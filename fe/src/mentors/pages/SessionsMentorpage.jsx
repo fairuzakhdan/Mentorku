@@ -1,7 +1,7 @@
 import Sidebar from '../../shared/components/Sidebar';
 import TableArea from '../../shared/components/Table';
 import { Box, Text, Button, Flex } from '@chakra-ui/react';
-import AddButton from '../components/AddButon';
+import AddButton from '../../shared/components/AddButon';
 import TableBodySessions from '../components/TableBody/TableBodySessions';
 import { itemSession } from '../utils/mentorrole';
 import { useEffect, useState } from 'react';

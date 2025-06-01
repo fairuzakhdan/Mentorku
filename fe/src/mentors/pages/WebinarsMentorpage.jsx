@@ -2,7 +2,7 @@ import Sidebar from '../../shared/components/Sidebar';
 import TableArea from '../../shared/components/Table';
 import TableBodyWebinar from '../components/TableBody/TableBodyWebinar';
 import { Text, Box, Flex } from '@chakra-ui/react';
-import AddButton from '../components/AddButon';
+import AddButton from '../../shared/components/AddButon';
 import { useState, useEffect } from 'react';
 import { itemWebinar } from '../utils/mentorrole';
 const WebinarMentorpage = () => {

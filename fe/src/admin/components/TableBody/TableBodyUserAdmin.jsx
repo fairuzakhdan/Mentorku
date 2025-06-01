@@ -1,7 +1,13 @@
 import { Box, Table, Button } from '@chakra-ui/react';
 import { MdOutlineDeleteOutline } from 'react-icons/md';
 import { FaEdit } from 'react-icons/fa';
+import AvatarCard from '../../../components/Elements/Avatar';
+import { useNavigate } from 'react-router';
 const TableBodyUserAdmin = ({ items }) => {
+  const navigate = useNavigate();
+  const toDetailById = (id) => {
+    navigate(`/users/${id}`);
+  };
   return (
     <>
       {items.map((item, index) => (
@@ -11,14 +17,16 @@ const TableBodyUserAdmin = ({ items }) => {
           <Table.Cell>{item.fullName}</Table.Cell>
           <Table.Cell>{item.telephone}</Table.Cell>
           <Table.Cell>{item.institution}</Table.Cell>
-          <Table.Cell>{item.image}</Table.Cell>
+          <Table.Cell>
+            <AvatarCard image={item.image} rounded="full" size="xs" />
+          </Table.Cell>
           <Table.Cell textAlign={'center'} p={0}>
             <Button
               p={0}
               backgroundColor={'transparent'}
               color={'textGreen'}
               _hover={{ color: 'gray.800' }}
-              //   onClick={() => toDetailById(item.id)}
+              onClick={() => toDetailById(item.id)}
             >
               <FaEdit />
             </Button>

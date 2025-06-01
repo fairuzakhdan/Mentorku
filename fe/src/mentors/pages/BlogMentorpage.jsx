@@ -2,7 +2,7 @@ import Sidebar from '../../shared/components/Sidebar';
 import { Box, Text, Button, Group, Flex } from '@chakra-ui/react';
 import TableArea from '../../shared/components/Table';
 import { useEffect, useState } from 'react';
-import AddButton from '../components/AddButon';
+import AddButton from '../../shared/components/AddButon';
 import TableBodyBlogs from '../components/TableBody/TableBodyBlogs';
 import { itemBlog } from '../utils/mentorrole';
 

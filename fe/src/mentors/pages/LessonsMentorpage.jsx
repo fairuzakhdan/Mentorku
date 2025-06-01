@@ -3,7 +3,7 @@ import { Box, Text, Button, Group, Flex } from '@chakra-ui/react';
 import TableArea from '../../shared/components/Table';
 import TableBodyLessons from '../components/TableBody/TableBodyLessons';
 import { useEffect, useState } from 'react';
-import AddButton from '../components/AddButon';
+import AddButton from '../../shared/components/AddButon';
 import { itemLesson } from '../utils/mentorrole';
 const LessonsMentorpage = () => {
   const [lessons, setLessons] = useState([]);
