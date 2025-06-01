@@ -14,7 +14,7 @@ const EditMentorAdminpage = () => {
   return (
     <Sidebar type={'admin'}>
       <Box color={'textBlue'}>
-        <FormMentorAdmin type="edit" initialData={mentor} />
+        <FormMentorAdmin type="edit" initialData={mentor} onSubmit={(data) => console.log(data)} />
       </Box>
     </Sidebar>
   );

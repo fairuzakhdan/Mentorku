@@ -17,7 +17,7 @@ const FormMentorAdmin = ({ type = 'add', initialData = {}, onSubmit }) => {
   const [educations, setEducations] = useState([]);
 
   useEffect(() => {
-    if (type === 'edit') {
+    if (type === 'edit' && initialData) {
       setEmail(initialData.email || '');
       setPassword(initialData.password || '');
       setName(initialData.name || '');
@@ -31,14 +31,14 @@ const FormMentorAdmin = ({ type = 'add', initialData = {}, onSubmit }) => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [initialData]);
-  const handleExpertise = (e, index, field) => {
+  const handleExpertise = (e, index) => {
     const updateExpertise = [...expertise];
-    updateExpertise[index][field] = e.target.value;
+    updateExpertise[index] = e.target.value;
     setExpertise(updateExpertise);
   };
-  const handleSkills = (e, index, field) => {
+  const handleSkills = (e, index) => {
     const updateSkills = [...skills];
-    updateSkills[index][field] = e.target.value;
+    updateSkills[index] = e.target.value;
     setSkills(updateSkills);
   };
   const handleExperience = (e, index, field) => {
@@ -145,8 +145,8 @@ const FormMentorAdmin = ({ type = 'add', initialData = {}, onSubmit }) => {
                     label={'Edit Expertise Mentor'}
                     placeholder={'Enter Expertise mentor '}
                     type="text"
-                    value={exp.expertise}
-                    onChange={(e) => handleExpertise(e, index, 'expertise')}
+                    value={exp}
+                    onChange={(e) => handleExpertise(e, index)}
                   />
                 </Group>
               ))}
@@ -167,8 +167,8 @@ const FormMentorAdmin = ({ type = 'add', initialData = {}, onSubmit }) => {
                       label={'Edit Skill Mentor'}
                       placeholder={'Enter Skill mentor'}
                       type="text"
-                      value={skill.skills}
-                      onChange={(e) => handleSkills(e, index, 'skills')}
+                      value={skill}
+                      onChange={(e) => handleSkills(e, index)}
                     />
                   </Group>
                 ))}
