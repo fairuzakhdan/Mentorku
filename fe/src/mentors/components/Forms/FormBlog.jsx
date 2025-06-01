@@ -45,7 +45,7 @@ const FormBlog = ({ initialData = {}, type = 'add', onSubmit }) => {
     <Stack color={'textBlue'} rowGap={8}>
       <Flex columnGap={5}>
         <FormInput
-          label={'Add Title Blog'}
+          label={type === 'add' ? 'Add Title Blog' : 'Edit Title Blog'}
           placeholder={'Enter title blog'}
           required
           type="text"
@@ -53,7 +53,7 @@ const FormBlog = ({ initialData = {}, type = 'add', onSubmit }) => {
           onChange={onChangeTitle}
         />
         <FormInput
-          label={'Add Category Blog'}
+          label={type === 'add' ? 'Add Category Blog' : 'Edit Category Blog'}
           placeholder={'Enter Category blog'}
           required
           type="text"
@@ -64,7 +64,7 @@ const FormBlog = ({ initialData = {}, type = 'add', onSubmit }) => {
       <Flex columnGap={5} alignItems={'flex-end'}>
         <Box flex={1}>
           <FormInput
-            label={'Add Subtitle Blog'}
+            label={type === 'add' ? 'Add Subtitle Blog' : 'Edit Subtitle Blog'}
             placeholder={'Enter subtitle blog'}
             required
             type="text"
@@ -77,7 +77,7 @@ const FormBlog = ({ initialData = {}, type = 'add', onSubmit }) => {
         </Box>
       </Flex>
       <FormTextArea
-        label={'Add Content Blog'}
+        label={type === 'add' ? 'Add Content Blog' : 'Edit Content Blog'}
         placeholder={'Enter content blog'}
         value={content}
         onChange={onChangeContent}

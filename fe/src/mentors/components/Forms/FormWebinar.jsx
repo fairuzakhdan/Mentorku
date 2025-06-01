@@ -38,7 +38,7 @@ const FormWebinar = ({ initialData = {}, type = 'add', onSubmit }) => {
     <Stack rowGap={7} color={'textBlue'}>
       <Flex columnGap={5}>
         <FormInput
-          label={'Add Topic Webinar'}
+          label={type === 'add' ? 'Add Topic Webinar' : 'Update Topic Webinar'}
           placeholder={'Enter topic webinar'}
           type="text"
           value={topic}
@@ -46,7 +46,7 @@ const FormWebinar = ({ initialData = {}, type = 'add', onSubmit }) => {
           required
         />
         <FormInput
-          label={'Add Link Webinar'}
+          label={type === 'add' ? 'Add Link Webinar' : 'Update Link Webinar'}
           placeholder={'Enter link webinar(https://meet.google.com/pre-ztbc-ohe)'}
           type="text"
           value={linkWebinar}
@@ -56,7 +56,7 @@ const FormWebinar = ({ initialData = {}, type = 'add', onSubmit }) => {
       </Flex>
       <Flex columnGap={5}>
         <FormInput
-          label={'Add Date Webinar'}
+          label={type === 'add' ? 'Add Date Webinar' : 'Update Date Webinar'}
           placeholder={'Enter date webinar(2023/08/10)'}
           type="date"
           value={date}
@@ -64,7 +64,7 @@ const FormWebinar = ({ initialData = {}, type = 'add', onSubmit }) => {
           required
         />
         <FormInput
-          label={'Add Time Webinar'}
+          label={type === 'add' ? 'Add Time Webinar' : 'Update Time Webinar'}
           placeholder={'Enter time webinar(08:00-10:00)'}
           type="text"
           value={time}
@@ -73,7 +73,7 @@ const FormWebinar = ({ initialData = {}, type = 'add', onSubmit }) => {
         />
       </Flex>
       <FormTextArea
-        label={'Add Description'}
+        label={type === 'add' ? 'Add Description' : 'Update Description'}
         placeholder={'Enter description webinar'}
         value={description}
         onChange={onChangeDescription}
