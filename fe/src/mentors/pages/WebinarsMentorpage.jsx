@@ -1,5 +1,5 @@
 import Sidebar from '../../shared/components/Sidebar';
-import TableArea from '../../components/Fragments/Table';
+import TableArea from '../../shared/components/Table';
 import TableBodyWebinar from '../components/TableBody/TableBodyWebinar';
 import { Text, Box, Flex } from '@chakra-ui/react';
 import AddButton from '../components/AddButon';

@@ -1,6 +1,6 @@
 import Sidebar from '../../shared/components/Sidebar';
 import { Text, Box } from '@chakra-ui/react';
-import TableArea from '../../components/Fragments/Table';
+import TableArea from '../../shared/components/Table';
 import TableBodyMentee from '../components/TableBody/TableBodyMente';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router';
