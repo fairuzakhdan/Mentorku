@@ -12,7 +12,7 @@ const EditUsersAdminpage = () => {
     const userData = itemUser.find((item) => item.id === userId);
     setUser(userData);
   }, [userId]);
-  //   console.log(user);
+  //   console.log(use
   return (
     <Sidebar type={'admin'}>
       <Box color={'textBlue'}>
