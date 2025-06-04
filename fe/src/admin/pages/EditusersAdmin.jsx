@@ -6,7 +6,6 @@ import { useState, useEffect } from 'react';
 import { Box } from '@chakra-ui/react';
 const EditUsersAdminpage = () => {
   const { userId } = useParams();
-
   const [user, setUser] = useState({});
   useEffect(() => {
     const userData = itemUser.find((item) => item.id === userId);
