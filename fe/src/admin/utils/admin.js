@@ -5,7 +5,7 @@ export const itemUser = [
     email: 'example@gmail.com',
     password: 'password123',
     institution: 'Institut Teknologi Bandung',
-    telephone: '08123456789',
+    telephone: '081234567890',
     image:
       'https://img.freepik.com/premium-vector/person-with-blue-shirt-that-says-name-person_1029948-7040.jpg?semt=ais_hybrid&w=740',
   },
