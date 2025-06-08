@@ -1,10 +1,11 @@
 import React from 'react';
 import Layouts from '../../components/Layouts/Layouts';
-import { Box, Image, Flex, Text, Grid, GridItem } from '@chakra-ui/react';
+import { Box, Image, Flex, Text, Grid, GridItem, Group } from '@chakra-ui/react';
 import SearchBar from '../../components/Fragments/SearchBar';
 import { mentors as data } from '../../utils/mentors';
 import { useState, useEffect } from 'react';
 import CardBox from '../../components/Fragments/CardBox';
+import ButtonGroup from '../../components/Fragments/ButtonGroup';
 import { Link } from 'react-router';
 const Mentorpage = () => {
   const [mentors, setMentors] = useState([]);
@@ -56,9 +57,13 @@ const Mentorpage = () => {
           />
         </Box>
       </Box>
-
       <Layouts>
-        <Grid templateColumns={'repeat(5, 1fr)'} my={10} gap={5}>
+        <Group justifyContent={'center'} w={'full'} my={5}>
+          <ButtonGroup />
+        </Group>
+      </Layouts>
+      <Layouts>
+        <Grid templateColumns={'repeat(5, 1fr)'} gap={5}>
           {mentors.map((mentor, index) => (
             <GridItem key={index} colSpan={1}>
               <Link to={`/mentors/${mentor.id}`}>
