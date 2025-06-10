@@ -23,7 +23,7 @@ const mentors = [
       },
     ],
     skills: ['Figma', 'Adobe XD', 'Sketch'],
-    price: 75000,
+    price: 85000,
     language: ['Indonesia', 'English'],
     location: 'Jakarta',
     education: [
