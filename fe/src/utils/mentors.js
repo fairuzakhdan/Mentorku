@@ -49,7 +49,7 @@ const mentors = [
   {
     id: '2',
     email: 'example@gmail.com',
-    password: 'password123',
+    password: 'password12',
     linkedIn: 'https://www.google.com',
     name: 'John Doe',
     image:
