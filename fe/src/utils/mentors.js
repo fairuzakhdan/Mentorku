@@ -89,7 +89,7 @@ const mentors = [
     portofolio: 'https://www.google.com/sdaw',
     cvResume: 'https://www.google.com',
     summary:
-      'Saya adalah seorang software engineer dengan pengalaman lebih dari 7 tahun. Saya memiliki kemampuan dalam membangun aplikasi web dan mobile. Saya juga memiliki kemampuan dalam membangun aplikasi web dan mobile.',
+      'Saya adalah seorang software engineer dengan pengalaman lebih dari 7tahun. Saya memiliki kemampuan dalam membangun aplikasi web dan mobile. Saya juga memiliki kemampuan dalam membangun aplikasi web dan mobile.',
   },
   {
     id: '3',
