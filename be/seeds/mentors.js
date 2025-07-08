@@ -612,13 +612,13 @@ async function seedMentor() {
       },
     },
     {
-      name: "Mukesh sablani",
-      email: "mukeshsablani@gmail.com",
+      name: "Souren Hazra",
+      email: "sourenhazra@gmail.com",
       phone: "082711212",
-      password: "mukesh123",
-      role: "Data Analyst",
-      expertise: ["Data Analyst"],
-      skills: ["SQL ","visualization Data", " Tableau"],
+      password: "souren123",
+      role: "Software Engineer",
+      expertise: ["Backend Developer","Website","Software Engineer"],
+      skills: ["Python ","APIs", " Django", "mySQL","System design", "REST"],
       experience: [
         {
           company: "Telkom Indonesia",
@@ -631,7 +631,163 @@ async function seedMentor() {
           years: 10,
         },
       ],
-      linkedin: "https://www.linkedin.com/in/mukesh-sablani-9a4596184/",
+      linkedin: "https://www.linkedin.com/in/souren-hazra-b0687895/",
+      language: ["Indonesia", "English", "Tagalog"],
+      location: "Bali",
+      price: 75000,
+      cvResume: "https://www.gogle.com",
+      portopolio: "https://www.gogle.com",
+      education: [
+        {
+          organization: "Institut Teknologi Bandung",
+          major: "S2 Computer Science",
+        },
+      ],
+      summary:
+        "Saya adalah Software Engineer dengan pengalaman dalam perancangan, pengembangan, dan optimasi sistem perangkat lunak. Saya berfokus pada solusi teknologi yang efisien dan skalabel.",
+      profilePicture: {
+        url: "public/images/user.jpg",
+        filename: "user.jpg",
+      },
+    },
+    {
+      name: "Piyush Khushlani",
+      email: "PiyushKhushlani@gmail.com",
+      phone: "082711212",
+      password: "Piyush123",
+      role: "Application Engineer ",
+      expertise: ["Backend Developer","Website"],
+      skills: ["Python ","Java", "Kafka", "APIs"],
+      experience: [
+        {
+          company: "Telkom Indonesia",
+          position: "Fullstack Developer",
+          years: 5,
+        },
+        {
+          company: "Indosat Ooredo",
+          position: "Software Developer",
+          years: 10,
+        },
+      ],
+      linkedin: "https://www.linkedin.com/in/piyush-khushlani/",
+      language: ["Indonesia", "English", "Tagalog"],
+      location: "Bali",
+      price: 75000,
+      cvResume: "https://www.gogle.com",
+      portopolio: "https://www.gogle.com",
+      education: [
+        {
+          organization: "Institut Teknologi Bandung",
+          major: "S2 Computer Science",
+        },
+      ],
+      summary:
+        "Saya adalah Software Engineer dengan pengalaman dalam perancangan, pengembangan, dan optimasi sistem perangkat lunak. Saya berfokus pada solusi teknologi yang efisien dan skalabel.",
+      profilePicture: {
+        url: "public/images/user.jpg",
+        filename: "user.jpg",
+      },
+    },
+    {
+      name: "Durgesh Yadav",
+      email: "durgeshyadav@gmail.com",
+      phone: "082711212",
+      password: "durgesh123",
+      role: "Data Analyst",
+      expertise: ["Data Analyst ","Data Science","Machine Learning"],
+      skills: ["SQL ","Data Visualization", "Cleansing", "Tableau", "Tensor Flow"],
+      experience: [
+        {
+          company: "Telkom Indonesia",
+          position: "Fullstack Developer",
+          years: 5,
+        },
+        {
+          company: "Indosat Ooredo",
+          position: "Software Developer",
+          years: 10,
+        },
+      ],
+      linkedin: "https://www.linkedin.com/in/durgeshyadavdatacity/",
+      language: ["Indonesia", "English", "Tagalog"],
+      location: "Bali",
+      price: 75000,
+      cvResume: "https://www.gogle.com",
+      portopolio: "https://www.gogle.com",
+      education: [
+        {
+          organization: "Institut Teknologi Bandung",
+          major: "S2 Computer Science",
+        },
+      ],
+      summary:
+        "Saya adalah Software Engineer dengan pengalaman dalam perancangan, pengembangan, dan optimasi sistem perangkat lunak. Saya berfokus pada solusi teknologi yang efisien dan skalabel.",
+      profilePicture: {
+        url: "public/images/user.jpg",
+        filename: "user.jpg",
+      },
+    },
+    {
+      name: "Rishi Agrawal",
+      email: "rishiagrawal@gmail.com",
+      phone: "082711212",
+      password: "rishi123",
+      role: "Fullstack Developer",
+      expertise: ["Fullstack Developer","Software Engineer"],
+      skills: ["C++ ","Python", "Javascript", "NodeJS", "HTML","CSS"],
+      experience: [
+        {
+          company: "Telkom Indonesia",
+          position: "Fullstack Developer",
+          years: 5,
+        },
+        {
+          company: "Indosat Ooredo",
+          position: "Software Developer",
+          years: 10,
+        },
+      ],
+      linkedin: "https://www.linkedin.com/in/rishi2907/",
+      language: ["Indonesia", "English", "Tagalog"],
+      location: "Bali",
+      price: 75000,
+      cvResume: "https://www.gogle.com",
+      portopolio: "https://www.gogle.com",
+      education: [
+        {
+          organization: "Institut Teknologi Bandung",
+          major: "S2 Computer Science",
+        },
+      ],
+      summary:
+        "Saya adalah Software Engineer dengan pengalaman dalam perancangan, pengembangan, dan optimasi sistem perangkat lunak. Saya berfokus pada solusi teknologi yang efisien dan skalabel.",
+      profilePicture: {
+        url: "public/images/user.jpg",
+        filename: "user.jpg",
+      },
+    },
+    {
+      name: "Krunalkumar Shah",
+      email: "krunalkumarshah@gmail.com",
+      phone: "082711212",
+      password: "krunalkumar123",
+      role: "Teaching Assistant",
+      expertise: ["Cyber security ","Penetration Testing"],
+      skills: ["Application Security ","NMap", "Cryptography"],
+      experience: [
+        {
+          company: "Telkom Indonesia",
+          position: "Fullstack Developer",
+          years: 5,
+        },
+        {
+          company: "Indosat Ooredo",
+          position: "Software Developer",
+          years: 10,
+        },
+      ],
+      linkedin: "https://www.linkedin.com/in/realkrunalkumar/",
       language: ["Indonesia", "English", "Tagalog"],
       location: "Bali",
       price: 75000,
