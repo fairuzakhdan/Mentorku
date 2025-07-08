@@ -106,8 +106,7 @@ const createMentors = async (req, res) => {
   };
 
   try {
-    const validatedData = mentorSchema.parse(mentorPost);
-    const newMentor = new Mentor(validatedData);
+    const newMentor = new Mentor(mentorPost);
     await newMentor.save();
 
     return res

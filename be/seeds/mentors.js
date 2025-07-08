@@ -15,7 +15,7 @@ async function seedMentor() {
   const mentors = [
     {
       name: "Rishi Gupta",
-      email: "rishigupita.com",
+      email: "rishigupita@gmail.com",
       phone: "082711212",
       password: "admin12",
       skills: ["java", "python", "NodeJS", "Redis", "REST"],
@@ -34,7 +34,7 @@ async function seedMentor() {
       role: "Tech Lead",
       linkedin: "https://www.linkedin.com/in/rishigupta95/",
       language: ["Indonesia", "English"],
-      location: ["Jakarta"],
+      location: "Jakarta",
       price: 150000,
       cvResume: "https://www.gogle.com",
       portopolio: "https://www.gogle.com",
@@ -77,7 +77,7 @@ async function seedMentor() {
       role: "Software Engineer",
       linkedin: "https://www.linkedin.com/in/shasank-pandey-367579102/",
       language: ["Indonesia", "English"],
-      location: ["Singapore"],
+      location: "Singapore",
       price: 100000,
       cvResume: "https://www.gogle.com",
       portopolio: "https://www.gogle.com",
@@ -120,7 +120,7 @@ async function seedMentor() {
       role: "Data Quality & Governance Engineer",
       linkedin: "https://www.linkedin.com/in/vineet-maheshwari-264b155b/",
       language: ["Indonesia", "English"],
-      location: ["Jakarta"],
+      location: "Jakarta",
       price: 120000,
       cvResume: "https://www.gogle.com",
       portopolio: "https://www.gogle.com",
@@ -164,11 +164,89 @@ async function seedMentor() {
       role: "Software Engineer",
       linkedin: "https://www.linkedin.com/in/grusiya/",
       language: ["Indonesia", "English"],
-      location: ["Jakarta"],
+      location: "Surabaya",
       price: 50000,
       cvResume: "https://www.gogle.com",
       portopolio: "https://www.gogle.com",
       expertise: ["Fullstack Developer", "Web Developer"],
+      education: [
+        {
+          organization: "Institut Teknologi Bandung",
+          major: "S2 Computer Science",
+        },
+      ],
+      summary:
+        "Saya adalah Software Engineer dengan pengalaman dalam perancangan, pengembangan, dan optimasi sistem perangkat lunak. Saya berfokus pada solusi teknologi yang efisien dan skalabel.",
+      profilePicture: {
+        url: "public/images/user.jpg",
+        filename: "user.jpg",
+      },
+    },
+    {
+      name: "Harshit Goyal",
+      email: "harshitgoyal@gmail.com",
+      phone: "082711212",
+      password: "harshit123",
+      skills: ["SQL", "python", "APIs","C++","Graphql"],
+      experience: [
+        {
+          company: "Telkom Indonesia",
+          position: "Fullstack Developer",
+          years: 5,
+        },
+        {
+          company: "Indosat Ooredo",
+          position: "Software Developer",
+          years: 10,
+        },
+      ],
+      role: "Senior Software Engineer",
+      linkedin: "https://www.linkedin.com/in/harshit-goyal1/",
+      language: ["Indonesia", "English"],
+      location: "Surabaya",
+      price: 50000,
+      cvResume: "https://www.gogle.com",
+      portopolio: "https://www.gogle.com",
+      expertise: ["Backend Developer"],
+      education: [
+        {
+          organization: "Institut Teknologi Bandung",
+          major: "S2 Computer Science",
+        },
+      ],
+      summary:
+        "Saya adalah Software Engineer dengan pengalaman dalam perancangan, pengembangan, dan optimasi sistem perangkat lunak. Saya berfokus pada solusi teknologi yang efisien dan skalabel.",
+      profilePicture: {
+        url: "public/images/user.jpg",
+        filename: "user.jpg",
+      },
+    },
+    {
+      name: "Vivek Parmar",
+      email: "vivekparmar@gmail.com",
+      phone: "082711212",
+      password: "vivek123",
+      role: "DevOps Engineer",
+      expertise: ["DevOps","Deployement","Cloud"],
+      skills: ["AWS DevOps", "Teamwork", "Docker"],
+      experience: [
+        {
+          company: "Telkom Indonesia",
+          position: "Fullstack Developer",
+          years: 5,
+        },
+        {
+          company: "Indosat Ooredo",
+          position: "Software Developer",
+          years: 10,
+        },
+      ],
+      linkedin: "https://www.linkedin.com/in/vivekparmardev/",
+      language: ["Indonesia", "English"],
+      location: "Surabaya",
+      price: 50000,
+      cvResume: "https://www.gogle.com",
+      portopolio: "https://www.gogle.com",
       education: [
         {
           organization: "Institut Teknologi Bandung",

@@ -45,8 +45,8 @@ const mentorSchema = new Schema({
       },
       major: {
         type: String,
-      }
-    }
+      },
+    },
   ],
   summary: {
     type: String,
