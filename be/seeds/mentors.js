@@ -611,6 +611,45 @@ async function seedMentor() {
         filename: "user.jpg",
       },
     },
+    {
+      name: "Mukesh sablani",
+      email: "mukeshsablani@gmail.com",
+      phone: "082711212",
+      password: "mukesh123",
+      role: "Data Analyst",
+      expertise: ["Data Analyst"],
+      skills: ["SQL ","visualization Data", " Tableau"],
+      experience: [
+        {
+          company: "Telkom Indonesia",
+          position: "Fullstack Developer",
+          years: 5,
+        },
+        {
+          company: "Indosat Ooredo",
+          position: "Software Developer",
+          years: 10,
+        },
+      ],
+      linkedin: "https://www.linkedin.com/in/mukesh-sablani-9a4596184/",
+      language: ["Indonesia", "English", "Tagalog"],
+      location: "Bali",
+      price: 75000,
+      cvResume: "https://www.gogle.com",
+      portopolio: "https://www.gogle.com",
+      education: [
+        {
+          organization: "Institut Teknologi Bandung",
+          major: "S2 Computer Science",
+        },
+      ],
+      summary:
+        "Saya adalah Software Engineer dengan pengalaman dalam perancangan, pengembangan, dan optimasi sistem perangkat lunak. Saya berfokus pada solusi teknologi yang efisien dan skalabel.",
+      profilePicture: {
+        url: "public/images/user.jpg",
+        filename: "user.jpg",
+      },
+    },
   ];
 
   Mentor.insertMany(mentors)
