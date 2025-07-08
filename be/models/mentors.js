@@ -38,9 +38,16 @@ const mentorSchema = new Schema({
   expertise: {
     type: [String],
   },
-  education: {
-    type: [String],
-  },
+  education: [
+    {
+      organization: {
+        type: String,
+      },
+      major: {
+        type: String,
+      }
+    }
+  ],
   summary: {
     type: String,
   },
