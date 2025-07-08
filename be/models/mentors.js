@@ -12,6 +12,13 @@ const mentorSchema = new Schema({
   email: { type: String},
   password: {type: String},
   phone: { type: String},
+  role: {type: String},
+  linkedin: {type: String},
+  language: {type: [String]},
+  location: {type: String},
+  price: {type: Number},
+  cvResume: {type: String},
+  portopolio: {type: String},
   skills: {
     type: [String]
   },
@@ -41,12 +48,6 @@ const mentorSchema = new Schema({
     url: {type:String, default: 'public/images/user.jpg'},
     filename: {type:String, default: 'user.jpg'},
   },
-  skills_certificate: [
-    {
-      url: { type: String, default: "public/images/expert.jpg" },
-      filename: { type: String, default: "expert.jpg" }
-    },
-  ],
   reviews: [{ type: String, ref: "Review" }],
   createdAt: {
     type: String,

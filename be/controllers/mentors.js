@@ -68,6 +68,7 @@ const findMentorByRecommendation = async (req, res) => {
         similarity: score.similarity.toFixed(2), // Menampilkan dua angka di belakang koma
         skills: score.mentor.skills,
         experience: score.mentor.experience,
+        price: score.mentor.price,
         profilePicture: score.mentor.profilePicture,
       }));
 
@@ -88,6 +89,13 @@ const createMentors = async (req, res) => {
     name: req.body.name,
     password: req.body.password,
     email: req.body.email,
+    role: req.body.role,
+    linkedin: req.body.linkedin,
+    language: req.body.language,
+    location: req.body.location,
+    price: req.body.price,
+    cvResume: req.body.cvResume,
+    portopolio: req.body.portopolio,
     phone: req.body.phone,
     skills: req.body.skills,
     experience: req.body.experience,
@@ -135,13 +143,13 @@ const getMentorById = async (req, res) => {
 };
 
 const updateMentorById = async (req, res) => {
-  const {mentorId} = req.params
+  const { mentorId } = req.params;
   const mentor = await Mentor.findById(mentorId);
   if (!mentor) {
     return res.status(404).json({
       status: false,
       message: "Mentor tidak ditemukan",
-    })
+    });
   }
 
   try {
@@ -158,28 +166,28 @@ const updateMentorById = async (req, res) => {
       error: "Internal Server Error",
     });
   }
-}
+};
 const deleteMentorById = async (req, res) => {
- try {
-  const {mentorId} = req.params;
-  const mentor = await Mentor.findById(mentorId);
-  if (!mentor) {
-    return res.status(404).json({
-      status: false,
-      message: "Mentor tidak ditemukan",
-    })
+  try {
+    const { mentorId } = req.params;
+    const mentor = await Mentor.findById(mentorId);
+    if (!mentor) {
+      return res.status(404).json({
+        status: false,
+        message: "Mentor tidak ditemukan",
+      });
+    }
+    await mentor.deleteOne();
+    res.status(200).json({
+      status: true,
+      message: "Mentor berhasil dihapus",
+    });
+  } catch (err) {
+    return res.status(500).json({
+      error: "Internal Server Error",
+    });
   }
-  await mentor.deleteOne();
-  res.status(200).json({
-    status: true,
-    message: "Mentor berhasil dihapus"
-  })
- }catch (err) {
-  return res.status(500).json({
-    error: "Internal Server Error",
-  });
- }
-}
+};
 
 module.exports = {
   getAllMentors,
@@ -187,5 +195,5 @@ module.exports = {
   findMentorByRecommendation,
   getMentorById,
   updateMentorById,
-  deleteMentorById
+  deleteMentorById,
 };
