@@ -260,6 +260,162 @@ async function seedMentor() {
         filename: "user.jpg",
       },
     },
+    {
+      name: "Ankit Raj",
+      email: "ankitraj@gmail.com",
+      phone: "082711212",
+      password: "ankit123",
+      role: "Quality Assurance",
+      expertise: ["Backend Developer","Automated Testing"],
+      skills: ["SQL", "Python", "Docker", "Javascript","ReactJS","NodeJS","Typescript"],
+      experience: [
+        {
+          company: "Telkom Indonesia",
+          position: "Fullstack Developer",
+          years: 5,
+        },
+        {
+          company: "Indosat Ooredo",
+          position: "Software Developer",
+          years: 10,
+        },
+      ],
+      linkedin: "https://www.linkedin.com/in/ank1traj/",
+      language: ["Indonesia", "English"],
+      location: "Surabaya",
+      price: 70000,
+      cvResume: "https://www.gogle.com",
+      portopolio: "https://www.gogle.com",
+      education: [
+        {
+          organization: "Institut Teknologi Bandung",
+          major: "S2 Computer Science",
+        },
+      ],
+      summary:
+        "Saya adalah Software Engineer dengan pengalaman dalam perancangan, pengembangan, dan optimasi sistem perangkat lunak. Saya berfokus pada solusi teknologi yang efisien dan skalabel.",
+      profilePicture: {
+        url: "public/images/user.jpg",
+        filename: "user.jpg",
+      },
+    },
+    {
+      name: "Shubham Gupta",
+      email: "shubhamgupta@gmail.com",
+      phone: "082711212",
+      password: "shubham123",
+      role: "Quantitative UX Researcher",
+      expertise: ["Data Science","Machine Learning","Deep Learning","Bussiness Analysis"],
+      skills: ["Python", "NLP", "SQL","Neural Network"],
+      experience: [
+        {
+          company: "Telkom Indonesia",
+          position: "Fullstack Developer",
+          years: 5,
+        },
+        {
+          company: "Indosat Ooredo",
+          position: "Software Developer",
+          years: 10,
+        },
+      ],
+      linkedin: "https://www.linkedin.com/in/shubham-gupta-a630394b/",
+      language: ["Indonesia", "English"],
+      location: "Surabaya",
+      price: 70000,
+      cvResume: "https://www.gogle.com",
+      portopolio: "https://www.gogle.com",
+      education: [
+        {
+          organization: "Institut Teknologi Bandung",
+          major: "S2 Computer Science",
+        },
+      ],
+      summary:
+        "Saya adalah Software Engineer dengan pengalaman dalam perancangan, pengembangan, dan optimasi sistem perangkat lunak. Saya berfokus pada solusi teknologi yang efisien dan skalabel.",
+      profilePicture: {
+        url: "public/images/user.jpg",
+        filename: "user.jpg",
+      },
+    },
+    {
+      name: "Jimit Doshi",
+      email: "jimitdoshi@gmail.com",
+      phone: "082711212",
+      password: "jimit123",
+      role: "Senior Member Of Technical",
+      expertise: ["Testing","API","Postman","AWS"],
+      skills: ["Python", "NLP", "SQL","Neural Network"],
+      experience: [
+        {
+          company: "Telkom Indonesia",
+          position: "Fullstack Developer",
+          years: 5,
+        },
+        {
+          company: "Indosat Ooredo",
+          position: "Software Developer",
+          years: 10,
+        },
+      ],
+      linkedin: "https://www.linkedin.com/in/jimit-doshi-1072a8a2/",
+      language: ["Indonesia", "English"],
+      location: "Bali",
+      price: 75000,
+      cvResume: "https://www.gogle.com",
+      portopolio: "https://www.gogle.com",
+      education: [
+        {
+          organization: "Institut Teknologi Bandung",
+          major: "S2 Computer Science",
+        },
+      ],
+      summary:
+        "Saya adalah Software Engineer dengan pengalaman dalam perancangan, pengembangan, dan optimasi sistem perangkat lunak. Saya berfokus pada solusi teknologi yang efisien dan skalabel.",
+      profilePicture: {
+        url: "public/images/user.jpg",
+        filename: "user.jpg",
+      },
+    },
+    {
+      name: "Jimit Doshi",
+      email: "jimitdoshi@gmail.com",
+      phone: "082711212",
+      password: "jimit123",
+      role: "Senior Member Of Technical",
+      expertise: ["Testing","API","Postman","AWS"],
+      skills: ["Python", "NLP", "SQL","Neural Network"],
+      experience: [
+        {
+          company: "Telkom Indonesia",
+          position: "Fullstack Developer",
+          years: 5,
+        },
+        {
+          company: "Indosat Ooredo",
+          position: "Software Developer",
+          years: 10,
+        },
+      ],
+      linkedin: "https://www.linkedin.com/in/jimit-doshi-1072a8a2/",
+      language: ["Indonesia", "English"],
+      location: "Bali",
+      price: 75000,
+      cvResume: "https://www.gogle.com",
+      portopolio: "https://www.gogle.com",
+      education: [
+        {
+          organization: "Institut Teknologi Bandung",
+          major: "S2 Computer Science",
+        },
+      ],
+      summary:
+        "Saya adalah Software Engineer dengan pengalaman dalam perancangan, pengembangan, dan optimasi sistem perangkat lunak. Saya berfokus pada solusi teknologi yang efisien dan skalabel.",
+      profilePicture: {
+        url: "public/images/user.jpg",
+        filename: "user.jpg",
+      },
+    },
   ];
 
   Mentor.insertMany(mentors)
