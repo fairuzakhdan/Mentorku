@@ -378,13 +378,13 @@ async function seedMentor() {
       },
     },
     {
-      name: "Jimit Doshi",
-      email: "jimitdoshi@gmail.com",
+      name: "Gourav Nagar",
+      email: "gouravnagar@gmail.com",
       phone: "082711212",
-      password: "jimit123",
-      role: "Senior Member Of Technical",
-      expertise: ["Testing","API","Postman","AWS"],
-      skills: ["Python", "NLP", "SQL","Neural Network"],
+      password: "gourav123",
+      role: "Big Data Engineer",
+      expertise: ["Data Engineer","Big Data"],
+      skills: ["SQL", "Hadop", "AWS"],
       experience: [
         {
           company: "Telkom Indonesia",
@@ -397,7 +397,46 @@ async function seedMentor() {
           years: 10,
         },
       ],
-      linkedin: "https://www.linkedin.com/in/jimit-doshi-1072a8a2/",
+      linkedin: "https://www.linkedin.com/in/gourav-nagar1/",
+      language: ["Indonesia", "English"],
+      location: "Bali",
+      price: 75000,
+      cvResume: "https://www.gogle.com",
+      portopolio: "https://www.gogle.com",
+      education: [
+        {
+          organization: "Institut Teknologi Bandung",
+          major: "S2 Computer Science",
+        },
+      ],
+      summary:
+        "Saya adalah Software Engineer dengan pengalaman dalam perancangan, pengembangan, dan optimasi sistem perangkat lunak. Saya berfokus pada solusi teknologi yang efisien dan skalabel.",
+      profilePicture: {
+        url: "public/images/user.jpg",
+        filename: "user.jpg",
+      },
+    },
+    {
+      name: "Pranav Shah",
+      email: "pranavshah@gmail.com",
+      phone: "082711212",
+      password: "pranav123",
+      role: "Big Data Engineer",
+      expertise: ["Data Engineer","Big Data"],
+      skills: ["SQL", "Hadop", "AWS"],
+      experience: [
+        {
+          company: "Telkom Indonesia",
+          position: "Fullstack Developer",
+          years: 5,
+        },
+        {
+          company: "Indosat Ooredo",
+          position: "Software Developer",
+          years: 10,
+        },
+      ],
+      linkedin: "https://www.linkedin.com/in/gourav-nagar1/",
       language: ["Indonesia", "English"],
       location: "Bali",
       price: 75000,
