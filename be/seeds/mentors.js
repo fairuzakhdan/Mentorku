@@ -187,7 +187,7 @@ async function seedMentor() {
       email: "harshitgoyal@gmail.com",
       phone: "082711212",
       password: "harshit123",
-      skills: ["SQL", "python", "APIs","C++","Graphql"],
+      skills: ["SQL", "python", "APIs", "C++", "Graphql"],
       experience: [
         {
           company: "Telkom Indonesia",
@@ -227,7 +227,7 @@ async function seedMentor() {
       phone: "082711212",
       password: "vivek123",
       role: "DevOps Engineer",
-      expertise: ["DevOps","Deployement","Cloud"],
+      expertise: ["DevOps", "Deployement", "Cloud"],
       skills: ["AWS DevOps", "Teamwork", "Docker"],
       experience: [
         {
@@ -266,8 +266,16 @@ async function seedMentor() {
       phone: "082711212",
       password: "ankit123",
       role: "Quality Assurance",
-      expertise: ["Backend Developer","Automated Testing"],
-      skills: ["SQL", "Python", "Docker", "Javascript","ReactJS","NodeJS","Typescript"],
+      expertise: ["Backend Developer", "Automated Testing"],
+      skills: [
+        "SQL",
+        "Python",
+        "Docker",
+        "Javascript",
+        "ReactJS",
+        "NodeJS",
+        "Typescript",
+      ],
       experience: [
         {
           company: "Telkom Indonesia",
@@ -305,8 +313,13 @@ async function seedMentor() {
       phone: "082711212",
       password: "shubham123",
       role: "Quantitative UX Researcher",
-      expertise: ["Data Science","Machine Learning","Deep Learning","Bussiness Analysis"],
-      skills: ["Python", "NLP", "SQL","Neural Network"],
+      expertise: [
+        "Data Science",
+        "Machine Learning",
+        "Deep Learning",
+        "Bussiness Analysis",
+      ],
+      skills: ["Python", "NLP", "SQL", "Neural Network"],
       experience: [
         {
           company: "Telkom Indonesia",
@@ -344,8 +357,8 @@ async function seedMentor() {
       phone: "082711212",
       password: "jimit123",
       role: "Senior Member Of Technical",
-      expertise: ["Testing","API","Postman","AWS"],
-      skills: ["Python", "NLP", "SQL","Neural Network"],
+      expertise: ["Testing", "API", "Postman", "AWS"],
+      skills: ["Python", "NLP", "SQL", "Neural Network"],
       experience: [
         {
           company: "Telkom Indonesia",
@@ -383,7 +396,7 @@ async function seedMentor() {
       phone: "082711212",
       password: "gourav123",
       role: "Big Data Engineer",
-      expertise: ["Data Engineer","Big Data"],
+      expertise: ["Data Engineer", "Big Data"],
       skills: ["SQL", "Hadop", "AWS"],
       experience: [
         {
@@ -422,8 +435,16 @@ async function seedMentor() {
       phone: "082711212",
       password: "pranav123",
       role: "Senior Software Engineer",
-      expertise: ["Frontend Developer","Website","Mobile"],
-      skills: ["Javascript", "ReactJS", "NodeJS","CI/CD","NextJS","mongoDB","Typescript"],
+      expertise: ["Frontend Developer", "Website", "Mobile"],
+      skills: [
+        "Javascript",
+        "ReactJS",
+        "NodeJS",
+        "CI/CD",
+        "NextJS",
+        "mongoDB",
+        "Typescript",
+      ],
       experience: [
         {
           company: "Telkom Indonesia",
@@ -461,8 +482,16 @@ async function seedMentor() {
       phone: "082711212",
       password: "saurabh123",
       role: "Software Developer",
-      expertise: ["Fullstack Developer","Website"],
-      skills: ["Java","Javascript", "ReactJS", "HTML","CSS","Angular","Microservice"],
+      expertise: ["Fullstack Developer", "Website"],
+      skills: [
+        "Java",
+        "Javascript",
+        "ReactJS",
+        "HTML",
+        "CSS",
+        "Angular",
+        "Microservice",
+      ],
       experience: [
         {
           company: "Telkom Indonesia",
@@ -500,8 +529,8 @@ async function seedMentor() {
       phone: "082711212",
       password: "twinkle123",
       role: "Software Developer",
-      expertise: ["Fullstack Developer","Website"],
-      skills: ["Java","API", "C++", "Springboot","REST","Microservice"],
+      expertise: ["Fullstack Developer", "Website"],
+      skills: ["Java", "API", "C++", "Springboot", "REST", "Microservice"],
       experience: [
         {
           company: "Telkom Indonesia",
@@ -539,8 +568,8 @@ async function seedMentor() {
       phone: "082711212",
       password: "vishal123",
       role: "Product Management",
-      expertise: ["Product Management","Design"],
-      skills: ["Teamwork ","Analysis Product", "Communication"],
+      expertise: ["Product Management", "Design"],
+      skills: ["Teamwork ", "Analysis Product", "Communication"],
       experience: [
         {
           company: "Telkom Indonesia",
@@ -579,7 +608,7 @@ async function seedMentor() {
       password: "mukesh123",
       role: "Data Analyst",
       expertise: ["Data Analyst"],
-      skills: ["SQL ","visualization Data", " Tableau"],
+      skills: ["SQL ", "visualization Data", " Tableau"],
       experience: [
         {
           company: "Telkom Indonesia",
@@ -617,8 +646,8 @@ async function seedMentor() {
       phone: "082711212",
       password: "souren123",
       role: "Software Engineer",
-      expertise: ["Backend Developer","Website","Software Engineer"],
-      skills: ["Python ","APIs", " Django", "mySQL","System design", "REST"],
+      expertise: ["Backend Developer", "Website", "Software Engineer"],
+      skills: ["Python ", "APIs", " Django", "mySQL", "System design", "REST"],
       experience: [
         {
           company: "Telkom Indonesia",
@@ -656,8 +685,8 @@ async function seedMentor() {
       phone: "082711212",
       password: "Piyush123",
       role: "Application Engineer ",
-      expertise: ["Backend Developer","Website"],
-      skills: ["Python ","Java", "Kafka", "APIs"],
+      expertise: ["Backend Developer", "Website"],
+      skills: ["Python ", "Java", "Kafka", "APIs"],
       experience: [
         {
           company: "Telkom Indonesia",
@@ -695,8 +724,14 @@ async function seedMentor() {
       phone: "082711212",
       password: "durgesh123",
       role: "Data Analyst",
-      expertise: ["Data Analyst ","Data Science","Machine Learning"],
-      skills: ["SQL ","Data Visualization", "Cleansing", "Tableau", "Tensor Flow"],
+      expertise: ["Data Analyst ", "Data Science", "Machine Learning"],
+      skills: [
+        "SQL ",
+        "Data Visualization",
+        "Cleansing",
+        "Tableau",
+        "Tensor Flow",
+      ],
       experience: [
         {
           company: "Telkom Indonesia",
@@ -734,8 +769,8 @@ async function seedMentor() {
       phone: "082711212",
       password: "rishi123",
       role: "Fullstack Developer",
-      expertise: ["Fullstack Developer","Software Engineer"],
-      skills: ["C++ ","Python", "Javascript", "NodeJS", "HTML","CSS"],
+      expertise: ["Fullstack Developer", "Software Engineer"],
+      skills: ["C++ ", "Python", "Javascript", "NodeJS", "HTML", "CSS"],
       experience: [
         {
           company: "Telkom Indonesia",
@@ -773,8 +808,8 @@ async function seedMentor() {
       phone: "082711212",
       password: "krunalkumar123",
       role: "Teaching Assistant",
-      expertise: ["Cyber security ","Penetration Testing"],
-      skills: ["Application Security ","NMap", "Cryptography"],
+      expertise: ["Cyber security ", "Penetration Testing"],
+      skills: ["Application Security ", "NMap", "Cryptography"],
       experience: [
         {
           company: "Telkom Indonesia",
