@@ -421,9 +421,9 @@ async function seedMentor() {
       email: "pranavshah@gmail.com",
       phone: "082711212",
       password: "pranav123",
-      role: "Big Data Engineer",
-      expertise: ["Data Engineer","Big Data"],
-      skills: ["SQL", "Hadop", "AWS"],
+      role: "Senior Software Engineer",
+      expertise: ["Frontend Developer","Website","Mobile"],
+      skills: ["Javascript", "ReactJS", "NodeJS","CI/CD","NextJS","mongoDB","Typescript"],
       experience: [
         {
           company: "Telkom Indonesia",
@@ -436,8 +436,164 @@ async function seedMentor() {
           years: 10,
         },
       ],
-      linkedin: "https://www.linkedin.com/in/gourav-nagar1/",
+      linkedin: "https://www.linkedin.com/in/shpranav/",
       language: ["Indonesia", "English"],
+      location: "Bali",
+      price: 75000,
+      cvResume: "https://www.gogle.com",
+      portopolio: "https://www.gogle.com",
+      education: [
+        {
+          organization: "Institut Teknologi Bandung",
+          major: "S2 Computer Science",
+        },
+      ],
+      summary:
+        "Saya adalah Software Engineer dengan pengalaman dalam perancangan, pengembangan, dan optimasi sistem perangkat lunak. Saya berfokus pada solusi teknologi yang efisien dan skalabel.",
+      profilePicture: {
+        url: "public/images/user.jpg",
+        filename: "user.jpg",
+      },
+    },
+    {
+      name: "Saurabh Singh",
+      email: "saurabhsingh@gmail.com",
+      phone: "082711212",
+      password: "saurabh123",
+      role: "Software Developer",
+      expertise: ["Fullstack Developer","Website"],
+      skills: ["Java","Javascript", "ReactJS", "HTML","CSS","Angular","Microservice"],
+      experience: [
+        {
+          company: "Telkom Indonesia",
+          position: "Fullstack Developer",
+          years: 5,
+        },
+        {
+          company: "Indosat Ooredo",
+          position: "Software Developer",
+          years: 10,
+        },
+      ],
+      linkedin: "https://www.linkedin.com/in/singhster/",
+      language: ["Indonesia", "English", "Mandarin"],
+      location: "Bali",
+      price: 75000,
+      cvResume: "https://www.gogle.com",
+      portopolio: "https://www.gogle.com",
+      education: [
+        {
+          organization: "Institut Teknologi Bandung",
+          major: "S2 Computer Science",
+        },
+      ],
+      summary:
+        "Saya adalah Software Engineer dengan pengalaman dalam perancangan, pengembangan, dan optimasi sistem perangkat lunak. Saya berfokus pada solusi teknologi yang efisien dan skalabel.",
+      profilePicture: {
+        url: "public/images/user.jpg",
+        filename: "user.jpg",
+      },
+    },
+    {
+      name: "Twinkle Bajaj",
+      email: "twinklebajaj@gmail.com",
+      phone: "082711212",
+      password: "twinkle123",
+      role: "Software Developer",
+      expertise: ["Fullstack Developer","Website"],
+      skills: ["Java","API", "C++", "Springboot","REST","Microservice"],
+      experience: [
+        {
+          company: "Telkom Indonesia",
+          position: "Fullstack Developer",
+          years: 5,
+        },
+        {
+          company: "Indosat Ooredo",
+          position: "Software Developer",
+          years: 10,
+        },
+      ],
+      linkedin: "https://www.linkedin.com/in/twinkle-bajaj-903480150/",
+      language: ["Indonesia", "English", "Tagalog"],
+      location: "Bali",
+      price: 75000,
+      cvResume: "https://www.gogle.com",
+      portopolio: "https://www.gogle.com",
+      education: [
+        {
+          organization: "Institut Teknologi Bandung",
+          major: "S2 Computer Science",
+        },
+      ],
+      summary:
+        "Saya adalah Software Engineer dengan pengalaman dalam perancangan, pengembangan, dan optimasi sistem perangkat lunak. Saya berfokus pada solusi teknologi yang efisien dan skalabel.",
+      profilePicture: {
+        url: "public/images/user.jpg",
+        filename: "user.jpg",
+      },
+    },
+    {
+      name: "Vishal Bagla",
+      email: "vishalbagla@gmail.com",
+      phone: "082711212",
+      password: "vishal123",
+      role: "Product Management",
+      expertise: ["Product Management","Design"],
+      skills: ["Teamwork ","Analysis Product", "Communication"],
+      experience: [
+        {
+          company: "Telkom Indonesia",
+          position: "Fullstack Developer",
+          years: 5,
+        },
+        {
+          company: "Indosat Ooredo",
+          position: "Software Developer",
+          years: 10,
+        },
+      ],
+      linkedin: "https://www.linkedin.com/in/vishal-bagla/",
+      language: ["Indonesia", "English", "Tagalog"],
+      location: "Bali",
+      price: 75000,
+      cvResume: "https://www.gogle.com",
+      portopolio: "https://www.gogle.com",
+      education: [
+        {
+          organization: "Institut Teknologi Bandung",
+          major: "S2 Computer Science",
+        },
+      ],
+      summary:
+        "Saya adalah Software Engineer dengan pengalaman dalam perancangan, pengembangan, dan optimasi sistem perangkat lunak. Saya berfokus pada solusi teknologi yang efisien dan skalabel.",
+      profilePicture: {
+        url: "public/images/user.jpg",
+        filename: "user.jpg",
+      },
+    },
+    {
+      name: "Mukesh sablani",
+      email: "mukeshsablani@gmail.com",
+      phone: "082711212",
+      password: "mukesh123",
+      role: "Data Analyst",
+      expertise: ["Data Analyst"],
+      skills: ["SQL ","visualization Data", " Tableau"],
+      experience: [
+        {
+          company: "Telkom Indonesia",
+          position: "Fullstack Developer",
+          years: 5,
+        },
+        {
+          company: "Indosat Ooredo",
+          position: "Software Developer",
+          years: 10,
+        },
+      ],
+      linkedin: "https://www.linkedin.com/in/mukesh-sablani-9a4596184/",
+      language: ["Indonesia", "English", "Tagalog"],
       location: "Bali",
       price: 75000,
       cvResume: "https://www.gogle.com",
