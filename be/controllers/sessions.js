@@ -53,12 +53,12 @@ const getSessionByMentorId = async (req, res) => {
 };
 
 const createSession = async (req, res) => {
-  const userMentor = req.user;
+//   const userMentor = req.user;
   const sessionPost = {
     day: req.body.day,
     session: req.body.session,
     meeting: req.body.meeting,
-    mentorId: userMentor,
+    // mentorId: userMentor,
   };
   try {
     const session = new Session(sessionPost);
