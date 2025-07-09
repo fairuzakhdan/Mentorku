@@ -81,7 +81,10 @@ const findMentorByRecommendation = async (req, res) => {
 
 const getAllMentors = async (req, res) => {
   const mentors = await Mentor.find();
-  return res.status(200).json(mentors);
+  return res.status(200).json({
+    status: 'success',
+    data: mentors
+  });
 };
 
 const createMentors = async (req, res) => {

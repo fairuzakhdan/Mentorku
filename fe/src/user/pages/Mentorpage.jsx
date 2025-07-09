@@ -7,13 +7,26 @@ import { useState, useEffect } from 'react';
 import CardBox from '../../components/Fragments/CardBox';
 import ButtonGroup from '../../components/Fragments/ButtonGroup';
 import { Link } from 'react-router';
+import { getAllMentor } from '../../utils/mentors';
 const Mentorpage = () => {
   const [mentors, setMentors] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     setIsLoading(true);
-    setMentors(data);
-    setIsLoading(false);
+    getAllMentor()
+      .then(({ data }) => {
+        console.log(data);
+        setMentors(data);
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
+    // console.log(data);
+    // setMentors(data);
+    // setIsLoading(false);
   }, []);
   if (isLoading) {
     return <div>Loading...</div>;
@@ -69,7 +82,7 @@ const Mentorpage = () => {
               <Link to={`/mentors/${mentor.id}`}>
                 <CardBox>
                   <Box position={'relative'}>
-                    <CardBox.Image {...mentor} />
+                    <CardBox.Image image={mentor.profilePicture.url} />
                     <Box
                       rounded={'xl'}
                       bgGradient="to-b"

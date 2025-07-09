@@ -1,5 +1,16 @@
 import { SiPeakdesign } from 'react-icons/si';
 
+const api = 'http://localhost:3000/api';
+
+export const getAllMentor = async () => {
+  const response = await fetch(`${api}/mentors`);
+  const responseJson = await response.json();
+  if (responseJson.status !== 'success') {
+    return { error: true, data: null };
+  }
+  return { error: false, data: responseJson.data };
+};
+
 const mentors = [
   {
     id: '1',
@@ -7,8 +18,7 @@ const mentors = [
     password: 'password123',
     linkedIn: 'https://www.google.com',
     name: 'John Doe',
-    image:
-      'https://images.unsplash.com/photo-1623366302587-b38b1ddaefd9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTF8fGVudGVwcmVuZXVyfGVufDB8fDB8fHww',
+    image: 'https://api.unsplash.com/photos/random',
     role: 'UI/UX Designer',
     experience: [
       {

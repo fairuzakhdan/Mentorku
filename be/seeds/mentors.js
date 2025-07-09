@@ -11,7 +11,16 @@ mongoose
     console.log("Database tidak Connect", err.message);
   });
 
+const fetchUnsplashImage = async () => {
+  const res = await fetch(
+    `https://api.unsplash.com/photos/random?query=person&client_id=aaRKHfrT3-l_7Jky4NYrLrS95uh9xKI8k7AcuppTtHE`
+  );
+  const data = await res.json();
+  return data.urls.regular;
+};
+
 async function seedMentor() {
+  const imageUrl = await fetchUnsplashImage();
   const mentors = [
     {
       name: "Rishi Gupta",
@@ -52,7 +61,7 @@ async function seedMentor() {
       summary:
         "Saya adalah seorang software engineer dengan pengalaman lebih dari 7 tahun.",
       profilePicture: {
-        url: "public/images",
+        url: "https://images.unsplash.com/photo-1623366302587-b38b1ddaefd9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTF8fGVudGVwcmVuZXVyfGVufDB8fDB8fHww",
         filename: "user.jpg",
       },
     },
@@ -95,11 +104,12 @@ async function seedMentor() {
       summary:
         "Saya adalah seorang Machine Learning engineer dengan pengalaman lebih dari 10 tahun.",
       profilePicture: {
-        url: "public/images",
+        url: "https://images.unsplash.com/photo-1636368086488-bb2c04738214?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8ODA3fHx0ZWFjaGVyfGVufDB8fDB8fHww",
         filename: "user.jpg",
       },
     },
     {
+      // 2
       name: "Vineet Maheshwari",
       email: "vineetmaheshwari@gmail.com",
       phone: "082711212",
@@ -139,7 +149,7 @@ async function seedMentor() {
       summary:
         "Saya adalah seorang Data engineer dengan pengalaman lebih dari 5 tahun.",
       profilePicture: {
-        url: "public/images",
+        url: "https://images.unsplash.com/photo-1742119971773-57e0131095b0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NjZ8fGVudGVwcmVuZXVyfGVufDB8fDB8fHww",
         filename: "user.jpg",
       },
     },
@@ -178,7 +188,7 @@ async function seedMentor() {
       summary:
         "Saya adalah Software Engineer dengan pengalaman dalam perancangan, pengembangan, dan optimasi sistem perangkat lunak. Saya berfokus pada solusi teknologi yang efisien dan skalabel.",
       profilePicture: {
-        url: "public/images/user.jpg",
+        url: "https://plus.unsplash.com/premium_photo-1661594668193-3f105ef4ce8d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzQxfHxlbnRlcHJlbmV1cnxlbnwwfHwwfHx8MA%3D%3D",
         filename: "user.jpg",
       },
     },
@@ -207,7 +217,7 @@ async function seedMentor() {
       price: 50000,
       cvResume: "https://www.gogle.com",
       portopolio: "https://www.gogle.com",
-      expertise: ["Backend Developer","Web Developer"],
+      expertise: ["Backend Developer", "Web Developer"],
       education: [
         {
           organization: "Institut Teknologi Bandung",
@@ -217,7 +227,7 @@ async function seedMentor() {
       summary:
         "Saya adalah Software Engineer dengan pengalaman dalam perancangan, pengembangan, dan optimasi sistem perangkat lunak. Saya berfokus pada solusi teknologi yang efisien dan skalabel.",
       profilePicture: {
-        url: "public/images/user.jpg",
+        url: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D',
         filename: "user.jpg",
       },
     },
@@ -227,7 +237,7 @@ async function seedMentor() {
       phone: "082711212",
       password: "vivek123",
       role: "DevOps Engineer",
-      expertise: ["DevOps", "Deployement", "Cloud","Backend Developer"],
+      expertise: ["DevOps", "Deployement", "Cloud", "Backend Developer"],
       skills: ["AWS DevOps", "Teamwork", "Docker"],
       experience: [
         {
@@ -256,7 +266,7 @@ async function seedMentor() {
       summary:
         "Saya adalah Software Engineer dengan pengalaman dalam perancangan, pengembangan, dan optimasi sistem perangkat lunak. Saya berfokus pada solusi teknologi yang efisien dan skalabel.",
       profilePicture: {
-        url: "public/images/user.jpg",
+        url: "https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cGVyc29ufGVufDB8fDB8fHww",
         filename: "user.jpg",
       },
     },
@@ -303,7 +313,7 @@ async function seedMentor() {
       summary:
         "Saya adalah Software Engineer dengan pengalaman dalam perancangan, pengembangan, dan optimasi sistem perangkat lunak. Saya berfokus pada solusi teknologi yang efisien dan skalabel.",
       profilePicture: {
-        url: "public/images/user.jpg",
+        url: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cGVyc29ufGVufDB8fDB8fHww',
         filename: "user.jpg",
       },
     },
@@ -347,7 +357,7 @@ async function seedMentor() {
       summary:
         "Saya adalah Software Engineer dengan pengalaman dalam perancangan, pengembangan, dan optimasi sistem perangkat lunak. Saya berfokus pada solusi teknologi yang efisien dan skalabel.",
       profilePicture: {
-        url: "public/images/user.jpg",
+        url: "https://plus.unsplash.com/premium_photo-1664536392896-cd1743f9c02c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8cGVyc29ufGVufDB8fDB8fHww",
         filename: "user.jpg",
       },
     },
@@ -386,7 +396,7 @@ async function seedMentor() {
       summary:
         "Saya adalah Software Engineer dengan pengalaman dalam perancangan, pengembangan, dan optimasi sistem perangkat lunak. Saya berfokus pada solusi teknologi yang efisien dan skalabel.",
       profilePicture: {
-        url: "public/images/user.jpg",
+        url: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzB8fHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D",
         filename: "user.jpg",
       },
     },
@@ -425,7 +435,7 @@ async function seedMentor() {
       summary:
         "Saya adalah Software Engineer dengan pengalaman dalam perancangan, pengembangan, dan optimasi sistem perangkat lunak. Saya berfokus pada solusi teknologi yang efisien dan skalabel.",
       profilePicture: {
-        url: "public/images/user.jpg",
+        url: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzJ8fHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D",
         filename: "user.jpg",
       },
     },
@@ -472,7 +482,7 @@ async function seedMentor() {
       summary:
         "Saya adalah Software Engineer dengan pengalaman dalam perancangan, pengembangan, dan optimasi sistem perangkat lunak. Saya berfokus pada solusi teknologi yang efisien dan skalabel.",
       profilePicture: {
-        url: "public/images/user.jpg",
+        url: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8cGVyc29ufGVufDB8fDB8fHww",
         filename: "user.jpg",
       },
     },
@@ -519,7 +529,7 @@ async function seedMentor() {
       summary:
         "Saya adalah Software Engineer dengan pengalaman dalam perancangan, pengembangan, dan optimasi sistem perangkat lunak. Saya berfokus pada solusi teknologi yang efisien dan skalabel.",
       profilePicture: {
-        url: "public/images/user.jpg",
+        url: "https://plus.unsplash.com/premium_photo-1671656349322-41de944d259b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D",
         filename: "user.jpg",
       },
     },
@@ -558,7 +568,7 @@ async function seedMentor() {
       summary:
         "Saya adalah Software Engineer dengan pengalaman dalam perancangan, pengembangan, dan optimasi sistem perangkat lunak. Saya berfokus pada solusi teknologi yang efisien dan skalabel.",
       profilePicture: {
-        url: "public/images/user.jpg",
+        url: "https://images.unsplash.com/photo-1554151228-14d9def656e4?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D",
         filename: "user.jpg",
       },
     },
@@ -597,7 +607,7 @@ async function seedMentor() {
       summary:
         "Saya adalah Software Engineer dengan pengalaman dalam perancangan, pengembangan, dan optimasi sistem perangkat lunak. Saya berfokus pada solusi teknologi yang efisien dan skalabel.",
       profilePicture: {
-        url: "public/images/user.jpg",
+        url: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjZ8fHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D",
         filename: "user.jpg",
       },
     },
@@ -636,7 +646,7 @@ async function seedMentor() {
       summary:
         "Saya adalah Software Engineer dengan pengalaman dalam perancangan, pengembangan, dan optimasi sistem perangkat lunak. Saya berfokus pada solusi teknologi yang efisien dan skalabel.",
       profilePicture: {
-        url: "public/images/user.jpg",
+        url: "https://images.unsplash.com/photo-1519713880332-91cfe19a59dd?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzJ8fHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D",
         filename: "user.jpg",
       },
     },
@@ -675,7 +685,7 @@ async function seedMentor() {
       summary:
         "Saya adalah Software Engineer dengan pengalaman dalam perancangan, pengembangan, dan optimasi sistem perangkat lunak. Saya berfokus pada solusi teknologi yang efisien dan skalabel.",
       profilePicture: {
-        url: "public/images/user.jpg",
+        url: "https://plus.unsplash.com/premium_photo-1689551670902-19b441a6afde?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDV8fHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D",
         filename: "user.jpg",
       },
     },
@@ -714,7 +724,7 @@ async function seedMentor() {
       summary:
         "Saya adalah Software Engineer dengan pengalaman dalam perancangan, pengembangan, dan optimasi sistem perangkat lunak. Saya berfokus pada solusi teknologi yang efisien dan skalabel.",
       profilePicture: {
-        url: "public/images/user.jpg",
+        url: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDh8fHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D",
         filename: "user.jpg",
       },
     },
@@ -759,7 +769,7 @@ async function seedMentor() {
       summary:
         "Saya adalah Software Engineer dengan pengalaman dalam perancangan, pengembangan, dan optimasi sistem perangkat lunak. Saya berfokus pada solusi teknologi yang efisien dan skalabel.",
       profilePicture: {
-        url: "public/images/user.jpg",
+        url: "https://images.unsplash.com/photo-1633332755192-727a05c4013d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTB8fHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D",
         filename: "user.jpg",
       },
     },
@@ -798,7 +808,7 @@ async function seedMentor() {
       summary:
         "Saya adalah Software Engineer dengan pengalaman dalam perancangan, pengembangan, dan optimasi sistem perangkat lunak. Saya berfokus pada solusi teknologi yang efisien dan skalabel.",
       profilePicture: {
-        url: "public/images/user.jpg",
+        url: "https://images.unsplash.com/photo-1544723795-3fb6469f5b39?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTV8fHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D",
         filename: "user.jpg",
       },
     },
@@ -837,7 +847,7 @@ async function seedMentor() {
       summary:
         "Saya adalah Software Engineer dengan pengalaman dalam perancangan, pengembangan, dan optimasi sistem perangkat lunak. Saya berfokus pada solusi teknologi yang efisien dan skalabel.",
       profilePicture: {
-        url: "public/images/user.jpg",
+        url: "https://plus.unsplash.com/premium_photo-1688572454849-4348982edf7d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTN8fHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D",
         filename: "user.jpg",
       },
     },
@@ -847,8 +857,14 @@ async function seedMentor() {
       phone: "082711212",
       password: "rogier123",
       role: "UI/UX Design",
-      expertise: ["UX Design", "UI Design","UI/UX Design","Design"],
-      skills: ["Design", "Figma", "Prototype","User Research","Visual Design"],
+      expertise: ["UX Design", "UI Design", "UI/UX Design", "Design"],
+      skills: [
+        "Design",
+        "Figma",
+        "Prototype",
+        "User Research",
+        "Visual Design",
+      ],
       experience: [
         {
           company: "Telkom Indonesia",
@@ -876,7 +892,7 @@ async function seedMentor() {
       summary:
         "Saya adalah Software Engineer dengan pengalaman dalam perancangan, pengembangan, dan optimasi sistem perangkat lunak. Saya berfokus pada solusi teknologi yang efisien dan skalabel.",
       profilePicture: {
-        url: "public/images/user.jpg",
+        url: "https://images.unsplash.com/photo-1557862921-37829c790f19?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NjB8fHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D",
         filename: "user.jpg",
       },
     },
@@ -886,8 +902,8 @@ async function seedMentor() {
       phone: "082711212",
       password: "jessica123",
       role: "UI/UX Design",
-      expertise: ["UX Design", "UI Design","UI/UX Design","Design","Design"],
-      skills: ["Design", "Figma","Visual Design"],
+      expertise: ["UX Design", "UI Design", "UI/UX Design", "Design", "Design"],
+      skills: ["Design", "Figma", "Visual Design"],
       experience: [
         {
           company: "Telkom Indonesia",
@@ -915,7 +931,7 @@ async function seedMentor() {
       summary:
         "Saya adalah Software Engineer dengan pengalaman dalam perancangan, pengembangan, dan optimasi sistem perangkat lunak. Saya berfokus pada solusi teknologi yang efisien dan skalabel.",
       profilePicture: {
-        url: "public/images/user.jpg",
+        url: "https://images.unsplash.com/photo-1614786269829-d24616faf56d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NjJ8fHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D",
         filename: "user.jpg",
       },
     },
@@ -925,8 +941,22 @@ async function seedMentor() {
       phone: "082711212",
       password: "john123",
       role: "Blockchain Developer",
-      expertise: ["Smart Contract", "Blockchain","Kriptografi","Web3","Crypto"],
-      skills: ["Solidity", "Rust","Ganache","Ether.js","Foundry","Hardhat","Web3.js"],
+      expertise: [
+        "Smart Contract",
+        "Blockchain",
+        "Kriptografi",
+        "Web3",
+        "Crypto",
+      ],
+      skills: [
+        "Solidity",
+        "Rust",
+        "Ganache",
+        "Ether.js",
+        "Foundry",
+        "Hardhat",
+        "Web3.js",
+      ],
       experience: [
         {
           company: "Telkom Indonesia",
@@ -954,7 +984,7 @@ async function seedMentor() {
       summary:
         "Saya adalah Software Engineer dengan pengalaman dalam perancangan, pengembangan, dan optimasi sistem perangkat lunak. Saya berfokus pada solusi teknologi yang efisien dan skalabel.",
       profilePicture: {
-        url: "public/images/user.jpg",
+        url: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Njd8fHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D",
         filename: "user.jpg",
       },
     },
@@ -964,8 +994,15 @@ async function seedMentor() {
       phone: "082711212",
       password: "anarghya123",
       role: "Machine Learning Engineer",
-      expertise: ["Machine Learning", "AI/ML","AI Engineer","Data Engineer"],
-      skills: ["Tableau", "Python","Tensorflow","Testing","Deep Learning","SQL"],
+      expertise: ["Machine Learning", "AI/ML", "AI Engineer", "Data Engineer"],
+      skills: [
+        "Tableau",
+        "Python",
+        "Tensorflow",
+        "Testing",
+        "Deep Learning",
+        "SQL",
+      ],
       experience: [
         {
           company: "Telkom Indonesia",
@@ -993,7 +1030,7 @@ async function seedMentor() {
       summary:
         "Saya adalah Software Engineer dengan pengalaman dalam perancangan, pengembangan, dan optimasi sistem perangkat lunak. Saya berfokus pada solusi teknologi yang efisien dan skalabel.",
       profilePicture: {
-        url: "public/images/user.jpg",
+        url: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NzB8fHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D",
         filename: "user.jpg",
       },
     },
@@ -1003,8 +1040,14 @@ async function seedMentor() {
       phone: "082711212",
       password: "subhahu123",
       role: "AI Engineer",
-      expertise: ["Machine Learning", "AI/ML","AI Engineer","Data Engineer","Computer Vision"],
-      skills: ["Python","Tensorflow","Testing","SQL"],
+      expertise: [
+        "Machine Learning",
+        "AI/ML",
+        "AI Engineer",
+        "Data Engineer",
+        "Computer Vision",
+      ],
+      skills: ["Python", "Tensorflow", "Testing", "SQL"],
       experience: [
         {
           company: "Telkom Indonesia",
@@ -1032,7 +1075,7 @@ async function seedMentor() {
       summary:
         "Saya adalah Software Engineer dengan pengalaman dalam perancangan, pengembangan, dan optimasi sistem perangkat lunak. Saya berfokus pada solusi teknologi yang efisien dan skalabel.",
       profilePicture: {
-        url: "public/images/user.jpg",
+        url: "https://images.unsplash.com/photo-1589571894960-20bbe2828d0a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NjZ8fHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D",
         filename: "user.jpg",
       },
     },
@@ -1042,8 +1085,13 @@ async function seedMentor() {
       phone: "082711212",
       password: "sumit123",
       role: "Security Analyst",
-      expertise: ["Kriptografi", "Cyber Security","Security Analyst","Penetration Testing"],
-      skills: ["Python","Java","Testing","Nmap","Linux","Ethical Hacking"],
+      expertise: [
+        "Kriptografi",
+        "Cyber Security",
+        "Security Analyst",
+        "Penetration Testing",
+      ],
+      skills: ["Python", "Java", "Testing", "Nmap", "Linux", "Ethical Hacking"],
       experience: [
         {
           company: "Telkom Indonesia",
@@ -1071,7 +1119,7 @@ async function seedMentor() {
       summary:
         "Saya adalah Software Engineer dengan pengalaman dalam perancangan, pengembangan, dan optimasi sistem perangkat lunak. Saya berfokus pada solusi teknologi yang efisien dan skalabel.",
       profilePicture: {
-        url: "public/images/user.jpg",
+        url: "https://plus.unsplash.com/premium_photo-1674777843203-da3ebb9fbca0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Njl8fHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D",
         filename: "user.jpg",
       },
     },
@@ -1081,8 +1129,8 @@ async function seedMentor() {
       phone: "082711212",
       password: "duc123",
       role: "UX Design",
-      expertise: ["UI/UX Design", "Design","UX Research","UI Desgin"],
-      skills: ["Figma","Prototype","Adobe Photoshop"],
+      expertise: ["UI/UX Design", "Design", "UX Research", "UI Desgin"],
+      skills: ["Figma", "Prototype", "Adobe Photoshop"],
       experience: [
         {
           company: "Telkom Indonesia",
@@ -1110,7 +1158,7 @@ async function seedMentor() {
       summary:
         "Saya adalah Software Engineer dengan pengalaman dalam perancangan, pengembangan, dan optimasi sistem perangkat lunak. Saya berfokus pada solusi teknologi yang efisien dan skalabel.",
       profilePicture: {
-        url: "public/images/user.jpg",
+        url: "https://plus.unsplash.com/premium_photo-1673287635678-8d812deb4fc2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nzd8fHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D",
         filename: "user.jpg",
       },
     },
@@ -1120,8 +1168,28 @@ async function seedMentor() {
       phone: "082711212",
       password: "rajha123",
       role: "Chief Technology Officer",
-      expertise: ["Software Engineer", "Software Developer","Quality Assurance","Frontend","Backend","Fullstack","Mobile","Web"],
-      skills: ["Javascript","Typescript","Java","Testing","ReactJS","Express","Mysql","Postgress","NextJS","Laravel"],
+      expertise: [
+        "Software Engineer",
+        "Software Developer",
+        "Quality Assurance",
+        "Frontend",
+        "Backend",
+        "Fullstack",
+        "Mobile",
+        "Web",
+      ],
+      skills: [
+        "Javascript",
+        "Typescript",
+        "Java",
+        "Testing",
+        "ReactJS",
+        "Express",
+        "Mysql",
+        "Postgress",
+        "NextJS",
+        "Laravel",
+      ],
       experience: [
         {
           company: "Telkom Indonesia",
@@ -1135,7 +1203,7 @@ async function seedMentor() {
         },
       ],
       linkedin: "https://www.linkedin.com/in/rajha/",
-      language: ["Indonesia", "English","Mandarin"],
+      language: ["Indonesia", "English", "Mandarin"],
       location: "Bali",
       price: 75000,
       cvResume: "https://www.gogle.com",
@@ -1149,7 +1217,7 @@ async function seedMentor() {
       summary:
         "Saya adalah Software Engineer dengan pengalaman dalam perancangan, pengembangan, dan optimasi sistem perangkat lunak. Saya berfokus pada solusi teknologi yang efisien dan skalabel.",
       profilePicture: {
-        url: "public/images/user.jpg",
+        url: "https://images.unsplash.com/photo-1540569014015-19a7be504e3a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NzZ8fHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D",
         filename: "user.jpg",
       },
     },
@@ -1159,8 +1227,13 @@ async function seedMentor() {
       phone: "082711212",
       password: "yuriy123",
       role: "Game Developer",
-      expertise: ["Game Designer","Game Artist","Game Developer","UX Researcher"],
-      skills: ["Unity Engine","Adobe Flash","Blender"],
+      expertise: [
+        "Game Designer",
+        "Game Artist",
+        "Game Developer",
+        "UX Researcher",
+      ],
+      skills: ["Unity Engine", "Adobe Flash", "Blender"],
       experience: [
         {
           company: "Telkom Indonesia",
@@ -1174,7 +1247,7 @@ async function seedMentor() {
         },
       ],
       linkedin: "https://www.linkedin.com/in/yuriy/",
-      language: ["Indonesia", "English","Mandarin"],
+      language: ["Indonesia", "English", "Mandarin"],
       location: "Bali",
       price: 75000,
       cvResume: "https://www.gogle.com",
@@ -1188,7 +1261,7 @@ async function seedMentor() {
       summary:
         "Saya adalah Software Engineer dengan pengalaman dalam perancangan, pengembangan, dan optimasi sistem perangkat lunak. Saya berfokus pada solusi teknologi yang efisien dan skalabel.",
       profilePicture: {
-        url: "public/images/user.jpg",
+        url: "https://images.unsplash.com/photo-1525134479668-1bee5c7c6845?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nzl8fHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D",
         filename: "user.jpg",
       },
     },
@@ -1198,8 +1271,15 @@ async function seedMentor() {
       phone: "082711212",
       password: "abdelfettah123",
       role: "Designer",
-      expertise: ["Game Designer","Game Artist","UX Researcher","Game Developer","UI/UX Designer","Design"],
-      skills: ["Unity Engine","Adobe Flash","Blender"],
+      expertise: [
+        "Game Designer",
+        "Game Artist",
+        "UX Researcher",
+        "Game Developer",
+        "UI/UX Designer",
+        "Design",
+      ],
+      skills: ["Unity Engine", "Adobe Flash", "Blender"],
       experience: [
         {
           company: "Telkom Indonesia",
@@ -1213,7 +1293,7 @@ async function seedMentor() {
         },
       ],
       linkedin: "https://www.linkedin.com/in/abdelfettah/",
-      language: ["Indonesia", "English","Mandarin"],
+      language: ["Indonesia", "English", "Mandarin"],
       location: "Bali",
       price: 75000,
       cvResume: "https://www.gogle.com",
@@ -1227,7 +1307,7 @@ async function seedMentor() {
       summary:
         "Saya adalah Software Engineer dengan pengalaman dalam perancangan, pengembangan, dan optimasi sistem perangkat lunak. Saya berfokus pada solusi teknologi yang efisien dan skalabel.",
       profilePicture: {
-        url: "public/images/user.jpg",
+        url: "https://images.unsplash.com/photo-1542206395-9feb3edaa68d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8ODB8fHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D",
         filename: "user.jpg",
       },
     },
@@ -1237,8 +1317,21 @@ async function seedMentor() {
       phone: "082711212",
       password: "najmul123",
       role: "Data Science",
-      expertise: ["Data Science","Data Analyst","Data Engineer","Machine Learning","AI/ML","Big Data"],
-      skills: ["Rapid Miner","Python","Google Collab","Tensorflow","Tableau"],
+      expertise: [
+        "Data Science",
+        "Data Analyst",
+        "Data Engineer",
+        "Machine Learning",
+        "AI/ML",
+        "Big Data",
+      ],
+      skills: [
+        "Rapid Miner",
+        "Python",
+        "Google Collab",
+        "Tensorflow",
+        "Tableau",
+      ],
       experience: [
         {
           company: "Telkom Indonesia",
@@ -1252,7 +1345,7 @@ async function seedMentor() {
         },
       ],
       linkedin: "https://www.linkedin.com/in/najmul/",
-      language: ["Indonesia", "English","Mandarin"],
+      language: ["Indonesia", "English", "Mandarin"],
       location: "Bali",
       price: 75000,
       cvResume: "https://www.gogle.com",
@@ -1266,7 +1359,7 @@ async function seedMentor() {
       summary:
         "Saya adalah Software Engineer dengan pengalaman dalam perancangan, pengembangan, dan optimasi sistem perangkat lunak. Saya berfokus pada solusi teknologi yang efisien dan skalabel.",
       profilePicture: {
-        url: "public/images/user.jpg",
+        url: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8ODd8fHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D",
         filename: "user.jpg",
       },
     },
