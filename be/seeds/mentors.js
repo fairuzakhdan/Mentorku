@@ -38,7 +38,7 @@ async function seedMentor() {
       price: 150000,
       cvResume: "https://www.gogle.com",
       portopolio: "https://www.gogle.com",
-      expertise: ["Web", "Mobile", "Backend Developer"],
+      expertise: ["Web Developer", "Mobile Developer", "Backend Developer"],
       education: [
         {
           organization: "Institut Teknologi Bandung",
@@ -113,7 +113,7 @@ async function seedMentor() {
         },
         {
           company: "Gojek",
-          position: "Data Analysis",
+          position: "Data Analyst",
           years: 2,
         },
       ],
@@ -125,7 +125,7 @@ async function seedMentor() {
       cvResume: "https://www.gogle.com",
       portopolio: "https://www.gogle.com",
       expertise: [
-        "Data Analysis",
+        "Data Analyst",
         "Big Data",
         "Data Integration",
         "Data Quality",
@@ -207,7 +207,7 @@ async function seedMentor() {
       price: 50000,
       cvResume: "https://www.gogle.com",
       portopolio: "https://www.gogle.com",
-      expertise: ["Backend Developer"],
+      expertise: ["Backend Developer","Web Developer"],
       education: [
         {
           organization: "Institut Teknologi Bandung",
@@ -227,7 +227,7 @@ async function seedMentor() {
       phone: "082711212",
       password: "vivek123",
       role: "DevOps Engineer",
-      expertise: ["DevOps", "Deployement", "Cloud"],
+      expertise: ["DevOps", "Deployement", "Cloud","Backend Developer"],
       skills: ["AWS DevOps", "Teamwork", "Docker"],
       experience: [
         {
@@ -317,7 +317,7 @@ async function seedMentor() {
         "Data Science",
         "Machine Learning",
         "Deep Learning",
-        "Bussiness Analysis",
+        "Bussiness Analyst",
       ],
       skills: ["Python", "NLP", "SQL", "Neural Network"],
       experience: [
@@ -569,7 +569,7 @@ async function seedMentor() {
       password: "vishal123",
       role: "Product Management",
       expertise: ["Product Management", "Design"],
-      skills: ["Teamwork ", "Analysis Product", "Communication"],
+      skills: ["Teamwork ", "Analyst Product", "Communication"],
       experience: [
         {
           company: "Telkom Indonesia",
@@ -724,7 +724,7 @@ async function seedMentor() {
       phone: "082711212",
       password: "durgesh123",
       role: "Data Analyst",
-      expertise: ["Data Analyst ", "Data Science", "Machine Learning"],
+      expertise: ["Data Analyst", "Data Science", "Machine Learning"],
       skills: [
         "SQL ",
         "Data Visualization",
@@ -809,7 +809,7 @@ async function seedMentor() {
       password: "krunalkumar123",
       role: "Teaching Assistant",
       expertise: ["Cyber security ", "Penetration Testing"],
-      skills: ["Application Security ", "NMap", "Cryptography"],
+      skills: ["Application Security ", "NMap", "Kriptografi"],
       experience: [
         {
           company: "Telkom Indonesia",
@@ -824,6 +824,435 @@ async function seedMentor() {
       ],
       linkedin: "https://www.linkedin.com/in/realkrunalkumar/",
       language: ["Indonesia", "English", "Tagalog"],
+      location: "Bali",
+      price: 75000,
+      cvResume: "https://www.gogle.com",
+      portopolio: "https://www.gogle.com",
+      education: [
+        {
+          organization: "Institut Teknologi Bandung",
+          major: "S2 Computer Science",
+        },
+      ],
+      summary:
+        "Saya adalah Software Engineer dengan pengalaman dalam perancangan, pengembangan, dan optimasi sistem perangkat lunak. Saya berfokus pada solusi teknologi yang efisien dan skalabel.",
+      profilePicture: {
+        url: "public/images/user.jpg",
+        filename: "user.jpg",
+      },
+    },
+    {
+      name: "Rogier van der Heide🇱🇮",
+      email: "rogiervanderheide🇱🇮@gmail.com",
+      phone: "082711212",
+      password: "rogier123",
+      role: "UI/UX Design",
+      expertise: ["UX Design", "UI Design","UI/UX Design","Design"],
+      skills: ["Design", "Figma", "Prototype","User Research","Visual Design"],
+      experience: [
+        {
+          company: "Telkom Indonesia",
+          position: "Fullstack Developer",
+          years: 5,
+        },
+        {
+          company: "Indosat Ooredo",
+          position: "Software Developer",
+          years: 10,
+        },
+      ],
+      linkedin: "https://www.linkedin.com/rogiervanderheide🇱🇮/",
+      language: ["Indonesia", "English", "Tagalog"],
+      location: "Bali",
+      price: 75000,
+      cvResume: "https://www.gogle.com",
+      portopolio: "https://www.gogle.com",
+      education: [
+        {
+          organization: "Institut Teknologi Bandung",
+          major: "S2 Computer Science",
+        },
+      ],
+      summary:
+        "Saya adalah Software Engineer dengan pengalaman dalam perancangan, pengembangan, dan optimasi sistem perangkat lunak. Saya berfokus pada solusi teknologi yang efisien dan skalabel.",
+      profilePicture: {
+        url: "public/images/user.jpg",
+        filename: "user.jpg",
+      },
+    },
+    {
+      name: "Jessica",
+      email: "jessica@gmail.com",
+      phone: "082711212",
+      password: "jessica123",
+      role: "UI/UX Design",
+      expertise: ["UX Design", "UI Design","UI/UX Design","Design","Design"],
+      skills: ["Design", "Figma","Visual Design"],
+      experience: [
+        {
+          company: "Telkom Indonesia",
+          position: "Fullstack Developer",
+          years: 5,
+        },
+        {
+          company: "Indosat Ooredo",
+          position: "Software Developer",
+          years: 10,
+        },
+      ],
+      linkedin: "https://www.linkedin.com/jessica/",
+      language: ["Indonesia", "English"],
+      location: "Bali",
+      price: 75000,
+      cvResume: "https://www.gogle.com",
+      portopolio: "https://www.gogle.com",
+      education: [
+        {
+          organization: "Institut Teknologi Bandung",
+          major: "S2 Computer Science",
+        },
+      ],
+      summary:
+        "Saya adalah Software Engineer dengan pengalaman dalam perancangan, pengembangan, dan optimasi sistem perangkat lunak. Saya berfokus pada solusi teknologi yang efisien dan skalabel.",
+      profilePicture: {
+        url: "public/images/user.jpg",
+        filename: "user.jpg",
+      },
+    },
+    {
+      name: "John Doe",
+      email: "john@gmail.com",
+      phone: "082711212",
+      password: "john123",
+      role: "Blockchain Developer",
+      expertise: ["Smart Contract", "Blockchain","Kriptografi","Web3","Crypto"],
+      skills: ["Solidity", "Rust","Ganache","Ether.js","Foundry","Hardhat","Web3.js"],
+      experience: [
+        {
+          company: "Telkom Indonesia",
+          position: "Fullstack Developer",
+          years: 5,
+        },
+        {
+          company: "Indosat Ooredo",
+          position: "Software Developer",
+          years: 10,
+        },
+      ],
+      linkedin: "https://www.linkedin.com/jessica/",
+      language: ["Indonesia", "English"],
+      location: "Bali",
+      price: 75000,
+      cvResume: "https://www.gogle.com",
+      portopolio: "https://www.gogle.com",
+      education: [
+        {
+          organization: "Institut Teknologi Bandung",
+          major: "S2 Computer Science",
+        },
+      ],
+      summary:
+        "Saya adalah Software Engineer dengan pengalaman dalam perancangan, pengembangan, dan optimasi sistem perangkat lunak. Saya berfokus pada solusi teknologi yang efisien dan skalabel.",
+      profilePicture: {
+        url: "public/images/user.jpg",
+        filename: "user.jpg",
+      },
+    },
+    {
+      name: "Anarghya Kini",
+      email: "anarghya@gmail.com",
+      phone: "082711212",
+      password: "anarghya123",
+      role: "Machine Learning Engineer",
+      expertise: ["Machine Learning", "AI/ML","AI Engineer","Data Engineer"],
+      skills: ["Tableau", "Python","Tensorflow","Testing","Deep Learning","SQL"],
+      experience: [
+        {
+          company: "Telkom Indonesia",
+          position: "Fullstack Developer",
+          years: 5,
+        },
+        {
+          company: "Indosat Ooredo",
+          position: "Software Developer",
+          years: 10,
+        },
+      ],
+      linkedin: "https://www.linkedin.com/anarghya/",
+      language: ["Indonesia", "English"],
+      location: "Bali",
+      price: 75000,
+      cvResume: "https://www.gogle.com",
+      portopolio: "https://www.gogle.com",
+      education: [
+        {
+          organization: "Institut Teknologi Bandung",
+          major: "S2 Computer Science",
+        },
+      ],
+      summary:
+        "Saya adalah Software Engineer dengan pengalaman dalam perancangan, pengembangan, dan optimasi sistem perangkat lunak. Saya berfokus pada solusi teknologi yang efisien dan skalabel.",
+      profilePicture: {
+        url: "public/images/user.jpg",
+        filename: "user.jpg",
+      },
+    },
+    {
+      name: "Subhahu Jain",
+      email: "subhahu@gmail.com",
+      phone: "082711212",
+      password: "subhahu123",
+      role: "AI Engineer",
+      expertise: ["Machine Learning", "AI/ML","AI Engineer","Data Engineer","Computer Vision"],
+      skills: ["Python","Tensorflow","Testing","SQL"],
+      experience: [
+        {
+          company: "Telkom Indonesia",
+          position: "Fullstack Developer",
+          years: 5,
+        },
+        {
+          company: "Indosat Ooredo",
+          position: "Software Developer",
+          years: 10,
+        },
+      ],
+      linkedin: "https://www.linkedin.com/subhahu/",
+      language: ["Indonesia", "English"],
+      location: "Bali",
+      price: 75000,
+      cvResume: "https://www.gogle.com",
+      portopolio: "https://www.gogle.com",
+      education: [
+        {
+          organization: "Institut Teknologi Bandung",
+          major: "S2 Computer Science",
+        },
+      ],
+      summary:
+        "Saya adalah Software Engineer dengan pengalaman dalam perancangan, pengembangan, dan optimasi sistem perangkat lunak. Saya berfokus pada solusi teknologi yang efisien dan skalabel.",
+      profilePicture: {
+        url: "public/images/user.jpg",
+        filename: "user.jpg",
+      },
+    },
+    {
+      name: "Sumit S",
+      email: "sumit@gmail.com",
+      phone: "082711212",
+      password: "sumit123",
+      role: "Security Analyst",
+      expertise: ["Kriptografi", "Cyber Security","Security Analyst","Penetration Testing"],
+      skills: ["Python","Java","Testing","Nmap","Linux","Ethical Hacking"],
+      experience: [
+        {
+          company: "Telkom Indonesia",
+          position: "Fullstack Developer",
+          years: 5,
+        },
+        {
+          company: "Indosat Ooredo",
+          position: "Software Developer",
+          years: 10,
+        },
+      ],
+      linkedin: "https://www.linkedin.com/in/sumits22/",
+      language: ["Indonesia", "English"],
+      location: "Bali",
+      price: 75000,
+      cvResume: "https://www.gogle.com",
+      portopolio: "https://www.gogle.com",
+      education: [
+        {
+          organization: "Institut Teknologi Bandung",
+          major: "S2 Computer Science",
+        },
+      ],
+      summary:
+        "Saya adalah Software Engineer dengan pengalaman dalam perancangan, pengembangan, dan optimasi sistem perangkat lunak. Saya berfokus pada solusi teknologi yang efisien dan skalabel.",
+      profilePicture: {
+        url: "public/images/user.jpg",
+        filename: "user.jpg",
+      },
+    },
+    {
+      name: "Duc Duy Bui",
+      email: "duc@gmail.com",
+      phone: "082711212",
+      password: "duc123",
+      role: "UX Design",
+      expertise: ["UI/UX Design", "Design","UX Research","UI Desgin"],
+      skills: ["Figma","Prototype","Adobe Photoshop"],
+      experience: [
+        {
+          company: "Telkom Indonesia",
+          position: "Fullstack Developer",
+          years: 5,
+        },
+        {
+          company: "Indosat Ooredo",
+          position: "Software Developer",
+          years: 10,
+        },
+      ],
+      linkedin: "https://www.linkedin.com/in/duc/",
+      language: ["Indonesia", "English"],
+      location: "Bali",
+      price: 75000,
+      cvResume: "https://www.gogle.com",
+      portopolio: "https://www.gogle.com",
+      education: [
+        {
+          organization: "Institut Teknologi Bandung",
+          major: "S2 Computer Science",
+        },
+      ],
+      summary:
+        "Saya adalah Software Engineer dengan pengalaman dalam perancangan, pengembangan, dan optimasi sistem perangkat lunak. Saya berfokus pada solusi teknologi yang efisien dan skalabel.",
+      profilePicture: {
+        url: "public/images/user.jpg",
+        filename: "user.jpg",
+      },
+    },
+    {
+      name: "Rajha Rajesuwari",
+      email: "rajha@gmail.com",
+      phone: "082711212",
+      password: "rajha123",
+      role: "Chief Technology Officer",
+      expertise: ["Software Engineer", "Software Developer","Quality Assurance","Frontend","Backend","Fullstack","Mobile","Web"],
+      skills: ["Javascript","Typescript","Java","Testing","ReactJS","Express","Mysql","Postgress","NextJS","Laravel"],
+      experience: [
+        {
+          company: "Telkom Indonesia",
+          position: "Fullstack Developer",
+          years: 5,
+        },
+        {
+          company: "Indosat Ooredo",
+          position: "Software Developer",
+          years: 10,
+        },
+      ],
+      linkedin: "https://www.linkedin.com/in/rajha/",
+      language: ["Indonesia", "English","Mandarin"],
+      location: "Bali",
+      price: 75000,
+      cvResume: "https://www.gogle.com",
+      portopolio: "https://www.gogle.com",
+      education: [
+        {
+          organization: "Institut Teknologi Bandung",
+          major: "S2 Computer Science",
+        },
+      ],
+      summary:
+        "Saya adalah Software Engineer dengan pengalaman dalam perancangan, pengembangan, dan optimasi sistem perangkat lunak. Saya berfokus pada solusi teknologi yang efisien dan skalabel.",
+      profilePicture: {
+        url: "public/images/user.jpg",
+        filename: "user.jpg",
+      },
+    },
+    {
+      name: "Yuriy Linnyk",
+      email: "yuriy@gmail.com",
+      phone: "082711212",
+      password: "yuriy123",
+      role: "Game Developer",
+      expertise: ["Game Designer","Game Artist","Game Developer","UX Researcher"],
+      skills: ["Unity Engine","Adobe Flash","Blender"],
+      experience: [
+        {
+          company: "Telkom Indonesia",
+          position: "Fullstack Developer",
+          years: 5,
+        },
+        {
+          company: "Indosat Ooredo",
+          position: "Software Developer",
+          years: 10,
+        },
+      ],
+      linkedin: "https://www.linkedin.com/in/yuriy/",
+      language: ["Indonesia", "English","Mandarin"],
+      location: "Bali",
+      price: 75000,
+      cvResume: "https://www.gogle.com",
+      portopolio: "https://www.gogle.com",
+      education: [
+        {
+          organization: "Institut Teknologi Bandung",
+          major: "S2 Computer Science",
+        },
+      ],
+      summary:
+        "Saya adalah Software Engineer dengan pengalaman dalam perancangan, pengembangan, dan optimasi sistem perangkat lunak. Saya berfokus pada solusi teknologi yang efisien dan skalabel.",
+      profilePicture: {
+        url: "public/images/user.jpg",
+        filename: "user.jpg",
+      },
+    },
+    {
+      name: "Abdelfettah Besbes",
+      email: "abdelfettah@gmail.com",
+      phone: "082711212",
+      password: "abdelfettah123",
+      role: "Designer",
+      expertise: ["Game Designer","Game Artist","UX Researcher","Game Developer","UI/UX Designer","Design"],
+      skills: ["Unity Engine","Adobe Flash","Blender"],
+      experience: [
+        {
+          company: "Telkom Indonesia",
+          position: "Fullstack Developer",
+          years: 5,
+        },
+        {
+          company: "Indosat Ooredo",
+          position: "Software Developer",
+          years: 10,
+        },
+      ],
+      linkedin: "https://www.linkedin.com/in/abdelfettah/",
+      language: ["Indonesia", "English","Mandarin"],
+      location: "Bali",
+      price: 75000,
+      cvResume: "https://www.gogle.com",
+      portopolio: "https://www.gogle.com",
+      education: [
+        {
+          organization: "Institut Teknologi Bandung",
+          major: "S2 Computer Science",
+        },
+      ],
+      summary:
+        "Saya adalah Software Engineer dengan pengalaman dalam perancangan, pengembangan, dan optimasi sistem perangkat lunak. Saya berfokus pada solusi teknologi yang efisien dan skalabel.",
+      profilePicture: {
+        url: "public/images/user.jpg",
+        filename: "user.jpg",
+      },
+    },
+    {
+      name: "Md. Najmul Hasan",
+      email: "najmul@gmail.com",
+      phone: "082711212",
+      password: "najmul123",
+      role: "Data Science",
+      expertise: ["Data Science","Data Analyst","Data Engineer","Machine Learning","AI/ML","Big Data"],
+      skills: ["Rapid Miner","Python","Google Collab","Tensorflow","Tableau"],
+      experience: [
+        {
+          company: "Telkom Indonesia",
+          position: "Fullstack Developer",
+          years: 5,
+        },
+        {
+          company: "Indosat Ooredo",
+          position: "Software Developer",
+          years: 10,
+        },
+      ],
+      linkedin: "https://www.linkedin.com/in/najmul/",
+      language: ["Indonesia", "English","Mandarin"],
       location: "Bali",
       price: 75000,
       cvResume: "https://www.gogle.com",
