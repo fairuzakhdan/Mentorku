@@ -82,8 +82,8 @@ const findMentorByRecommendation = async (req, res) => {
 const getAllMentors = async (req, res) => {
   const mentors = await Mentor.find();
   return res.status(200).json({
-    status: 'success',
-    data: mentors
+    status: "success",
+    data: mentors,
   });
 };
 
@@ -112,9 +112,11 @@ const createMentors = async (req, res) => {
     const newMentor = new Mentor(mentorPost);
     await newMentor.save();
 
-    return res
-      .status(201)
-      .json({ message: "Mentor berhasil ditambahkan", data: newMentor });
+    return res.status(201).json({
+      status: "success",
+      message: "Mentor berhasil ditambahkan",
+      data: newMentor,
+    });
   } catch (err) {
     if (err instanceof z.ZodError) {
       return res.status(400).json({
@@ -132,13 +134,13 @@ const getMentorById = async (req, res) => {
     const mentor = await Mentor.findById(mentorId);
     if (!mentor) {
       return res.status(404).json({
-        status: 'failed',
+        status: "failed",
         message: "Mentor tidak ditemukan",
       });
     }
     return res.status(200).json({
-      status: 'success',
-      data: mentor
+      status: "success",
+      data: mentor,
     });
   } catch (err) {
     return res.status(500).json({
@@ -173,8 +175,8 @@ const updateMentorById = async (req, res) => {
   }
 };
 const deleteMentorById = async (req, res) => {
+  const { mentorId } = req.params;
   try {
-    const { mentorId } = req.params;
     const mentor = await Mentor.findById(mentorId);
     if (!mentor) {
       return res.status(404).json({
