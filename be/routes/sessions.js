@@ -9,5 +9,6 @@ router
   .put(sessions.updateSessionById)
   .delete(sessions.deleteSessionById);
 
-router.route("/:mentorId").get(sessions.getSessionByMentorId);
+router.route("/mentors/:mentorId").get(sessions.getSessionByMentorId);
+
 module.exports = router;

@@ -27,7 +27,7 @@ const getSessionById = async (req, res) => {
 
 const getSessionByMentorId = async (req, res) => {
   const { mentorId } = req.params;
-
+  console.log(mentorId)
   try {
     const sessions = await Session.find({ mentorId });
 
@@ -58,15 +58,16 @@ const createSession = async (req, res) => {
     day: req.body.day,
     session: req.body.session,
     meeting: req.body.meeting,
-    // mentorId: userMentor,
+    mentorId: req.body.mentorId,
   };
   try {
-    const session = new Session(sessionPost);
-    await session.save();
+    const newSession = new Session(sessionPost);
+    console.log(newSession);
+    await newSession.save();
     return res.status(201).json({
       status: "success",
       message: "Session berhasil ditambahkan",
-      data: newMentor,
+      data: newSession,
     });
   } catch (err) {
     if (err instanceof z.ZodError) {
