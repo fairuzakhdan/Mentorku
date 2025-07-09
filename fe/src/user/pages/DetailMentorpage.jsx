@@ -56,7 +56,6 @@ const DetailMentorpage = () => {
   }
 
   const addDays = (days) => {
-    console.log(days.length);
     setSelectedDays(days);
   };
   const addTimes = () => {
@@ -95,7 +94,7 @@ const DetailMentorpage = () => {
               >
                 <Group columnGap={7}>
                   <Image
-                    src={detailMentor.image}
+                    src={detailMentor.profilePicture.url}
                     alt="card-mentor"
                     height={200}
                     border={'4px solid #ffff'}
