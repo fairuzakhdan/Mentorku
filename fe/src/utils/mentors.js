@@ -11,6 +11,15 @@ export const getAllMentor = async () => {
   return { error: false, data: responseJson.data };
 };
 
+export const getMentorById = async (id) => {
+  const response = await fetch(`${api}/mentors/${id}`);
+  const responseJson = await response.json();
+  if (responseJson.status !== 'success') {
+    return { error: true, data: null };
+  }
+  return { error: false, data: responseJson.data };
+};
+
 const mentors = [
   {
     id: '1',

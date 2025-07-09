@@ -37,7 +37,6 @@ const CardBox = ({
   );
 };
 const CardImage = ({ image, height = 350, width = 'full' }) => {
-  console.log(image);
   return (
     <Image
       src={image}

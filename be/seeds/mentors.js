@@ -11,16 +11,7 @@ mongoose
     console.log("Database tidak Connect", err.message);
   });
 
-const fetchUnsplashImage = async () => {
-  const res = await fetch(
-    `https://api.unsplash.com/photos/random?query=person&client_id=aaRKHfrT3-l_7Jky4NYrLrS95uh9xKI8k7AcuppTtHE`
-  );
-  const data = await res.json();
-  return data.urls.regular;
-};
-
 async function seedMentor() {
-  const imageUrl = await fetchUnsplashImage();
   const mentors = [
     {
       name: "Rishi Gupta",

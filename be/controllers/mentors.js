@@ -132,11 +132,14 @@ const getMentorById = async (req, res) => {
     const mentor = await Mentor.findById(mentorId);
     if (!mentor) {
       return res.status(404).json({
-        status: false,
+        status: 'failed',
         message: "Mentor tidak ditemukan",
       });
     }
-    return res.status(200).json(mentor);
+    return res.status(200).json({
+      status: 'success',
+      data: mentor
+    });
   } catch (err) {
     return res.status(500).json({
       error: "Internal Server Error",

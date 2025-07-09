@@ -2,7 +2,7 @@ import React from 'react';
 import Layouts from '../../components/Layouts/Layouts';
 import { Box, Image, Flex, Text, Grid, GridItem, Group } from '@chakra-ui/react';
 import SearchBar from '../../components/Fragments/SearchBar';
-import { mentors as data } from '../../utils/mentors';
+// import { mentors as data } from '../../utils/mentors';
 import { useState, useEffect } from 'react';
 import CardBox from '../../components/Fragments/CardBox';
 import ButtonGroup from '../../components/Fragments/ButtonGroup';
@@ -15,7 +15,6 @@ const Mentorpage = () => {
     setIsLoading(true);
     getAllMentor()
       .then(({ data }) => {
-        console.log(data);
         setMentors(data);
       })
       .catch((err) => {
@@ -79,7 +78,7 @@ const Mentorpage = () => {
         <Grid templateColumns={'repeat(5, 1fr)'} gap={5}>
           {mentors.map((mentor, index) => (
             <GridItem key={index} colSpan={1}>
-              <Link to={`/mentors/${mentor.id}`}>
+              <Link to={`/mentors/${mentor._id}`}>
                 <CardBox>
                   <Box position={'relative'}>
                     <CardBox.Image image={mentor.profilePicture.url} />

@@ -23,6 +23,7 @@ import Selected from '../../components/Fragments/Selected';
 import TabsLink from '../../components/Fragments/Tabs';
 import { useNavigate } from 'react-router';
 import { LuHouse, LuUserRoundSearch } from 'react-icons/lu';
+import { getMentorById } from '../../utils/mentors';
 
 const DetailMentorpage = () => {
   const navigate = useNavigate();
@@ -33,14 +34,22 @@ const DetailMentorpage = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    const mentor = mentors.find((mentor) => mentor.id === mentorId);
-    if (!mentor) {
-      navigate('/mentors');
-      return;
-    }
+    // const mentor = mentors.find((mentor) => mentor.id === mentorId);
+    // if (!mentor) {
+    //   navigate('/mentors');
+    //   return;
+    // }
 
-    setDetailMentor(mentor);
-    setIsLoading(false);
+    getMentorById(mentorId)
+      .then(({ data }) => {
+        setDetailMentor(data);
+      })
+      .catch((err) => {
+        alert(err.message);
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
   }, [mentorId, navigate]);
   if (isLoading) {
     return <div>Loading...</div>;
