@@ -1,6 +1,8 @@
 import { SiPeakdesign } from 'react-icons/si';
 import { api } from './api';
 
+// const api = 'http://localhost:3000/api';
+
 export const getAllMentor = async () => {
   const response = await fetch(`${api}/mentors`);
   const responseJson = await response.json();

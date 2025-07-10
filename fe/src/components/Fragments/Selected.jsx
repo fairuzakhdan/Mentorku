@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Box, Flex, Text, Portal, Select, createListCollection } from '@chakra-ui/react';
 import PropTypes from 'prop-types';
+import { getAllSessionByMentorId } from '../../utils/sessions';
+import { useParams } from 'react-router';
 
 const frameworks = [
   {
@@ -28,6 +30,7 @@ const frameworks = [
 ];
 
 const Selected = ({ addDays }) => {
+  const { mentorId } = useParams();
   const [selectedDays, setSelectedDays] = useState({}); //contoh:{ Senin: '08:00-10:00' }
 
   const handleSelect = (day, value) => {
@@ -47,7 +50,16 @@ const Selected = ({ addDays }) => {
     if (Object.keys(selectedDays).length > 0) {
       addDays(selectedDays);
     }
-  }, [selectedDays, addDays]); //Runs when selectedDays changes
+    getAllSessionByMentorId(mentorId).then(({ data }) => {
+      const formatted = data.map((d) => ({
+        day: d.day,
+        times: d.session.map((s) => ({
+          value: s.times,
+          label: s.times,
+        })),
+      }));
+    });
+  }, [selectedDays, addDays, mentorId]); //Runs when selectedDays changes
 
   return (
     <Box width="100%" maxW="500px" mt={5}>
