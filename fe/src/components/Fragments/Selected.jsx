@@ -6,25 +6,28 @@ import { useParams } from 'react-router';
 
 const sessions = [
   {
+    id: '1',
     day: 'Senin',
     times: [
-      { value: '08:00-10:00', label: '08:00-10:00' },
-      { value: '14:00-16:00', label: '14:00-16:00' },
-      { value: '20:00-22:00', label: '20:00-22:00' },
+      { id: '11', value: '08:00-10:00', label: '08:00-10:00' },
+      { id: '12', value: '14:00-16:00', label: '14:00-16:00' },
+      { id: '13', value: '20:00-22:00', label: '20:00-22:00' },
     ],
   },
   {
+    id: '2',
     day: 'Rabu',
     times: [
-      { value: '09:00-11:00', label: '09:00-11:00' },
-      { value: '20:00-22:00', label: '20:00-22:00' },
+      { id: '14', value: '09:00-11:00', label: '09:00-11:00' },
+      { id: '15', value: '20:00-22:00', label: '20:00-22:00' },
     ],
   },
   {
+    id: '3',
     day: 'Jumat',
     times: [
-      { value: '08:00-10:00', label: '08:00-10:00' },
-      { value: '20:00-22:00', label: '20:00-22:00' },
+      { id: '21', value: '08:00-10:00', label: '08:00-10:00' },
+      { id: '24', value: '20:00-22:00', label: '20:00-22:00' },
     ],
   },
 ];
@@ -53,7 +56,21 @@ const Selected = ({ addDays }) => {
       addDays(selectedDays);
     }
     // setIsLoading(true);
-    if (formate)
+    getAllSessionByMentorId(mentorId).then(({ data }) => {
+      const formatted = data.map((d) => ({
+        id: d._id,
+        day: d.day,
+        times: d.session
+          .filter((s) => typeof s.times === 'string' && s.times.trim() !== '')
+          .map((s) => ({
+            id: `${d.day}-${s.times}`,
+            value: s.times,
+            label: s.times,
+          })),
+      }));
+      setFrameworks(formatted);
+      // setIsLoading(false);
+    });
     // setFrameworks(sessions);
     // console.log(sessions);
     // setIsLoading(false);
@@ -74,50 +91,54 @@ const Selected = ({ addDays }) => {
       </Flex>
       <Flex justifyContent="space-evenly" alignItems="center">
         <Box minW="80px" mr={4}>
-          {frameworks.map((f, index) => (
-            <Text key={f.id} mb={6}>
-              {f.day}
-            </Text>
-          ))}
+          {frameworks.length > 0 && frameworks
+            ? frameworks.map((f, index) => (
+                <Text key={f.id} mb={6}>
+                  {f.day}
+                </Text>
+              ))
+            : sessions}
         </Box>
 
         <Box width={150}>
-          {frameworks.map((f, index) => {
-            const isDisabled = !selectedDays[f.day] && Object.keys(selectedDays).length >= 2;
+          {frameworks.length > 0 && frameworks
+            ? frameworks.map((f, index) => {
+                const isDisabled = !selectedDays[f.day] && Object.keys(selectedDays).length >= 2;
 
-            const collection = isDisabled ? null : createListCollection({ items: f.times });
-            return (
-              <Box key={f.id} mb={4}>
-                <Select.Root
-                  collection={collection}
-                  onValueChange={(val) => handleSelect(f.day, val)}
-                  // disabled={isDisabled}
-                >
-                  <Select.HiddenSelect />
-                  <Select.Control>
-                    <Select.Trigger border="1px solid teal">
-                      <Select.ValueText placeholder="Pilih Waktu" color="teal" />
-                    </Select.Trigger>
-                    <Select.IndicatorGroup>
-                      <Select.Indicator />
-                    </Select.IndicatorGroup>
-                  </Select.Control>
-                  <Portal>
-                    <Select.Positioner>
-                      <Select.Content backgroundColor="teal" color="white">
-                        {f.times.map((time, index) => (
-                          <Select.Item key={time.id} item={time}>
-                            {time.label}
-                            <Select.ItemIndicator />
-                          </Select.Item>
-                        ))}
-                      </Select.Content>
-                    </Select.Positioner>
-                  </Portal>
-                </Select.Root>
-              </Box>
-            );
-          })}
+                const collection = isDisabled ? null : createListCollection({ items: f.times });
+                return (
+                  <Box key={f.id} mb={4}>
+                    <Select.Root
+                      collection={collection}
+                      onValueChange={(val) => handleSelect(f.day, val)}
+                      // disabled={isDisabled}
+                    >
+                      <Select.HiddenSelect />
+                      <Select.Control>
+                        <Select.Trigger border="1px solid teal">
+                          <Select.ValueText placeholder="Pilih Waktu" color="teal" />
+                        </Select.Trigger>
+                        <Select.IndicatorGroup>
+                          <Select.Indicator />
+                        </Select.IndicatorGroup>
+                      </Select.Control>
+                      <Portal>
+                        <Select.Positioner>
+                          <Select.Content backgroundColor="teal" color="white">
+                            {f.times.map((time, index) => (
+                              <Select.Item key={time.id} item={time}>
+                                {time.label}
+                                <Select.ItemIndicator />
+                              </Select.Item>
+                            ))}
+                          </Select.Content>
+                        </Select.Positioner>
+                      </Portal>
+                    </Select.Root>
+                  </Box>
+                );
+              })
+            : sessions}
         </Box>
       </Flex>
     </Box>
