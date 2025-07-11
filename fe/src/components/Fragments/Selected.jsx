@@ -34,7 +34,6 @@ const sessions = [
 
 const Selected = ({ addDays }) => {
   const { mentorId } = useParams();
-  const [isLoading, setIsLoading] = useState(true);
   const [frameworks, setFrameworks] = useState([]);
   const [fetched, setFetched] = useState(false);
   const [selectedDays, setSelectedDays] = useState({}); //contoh:{ Senin: '08:00-10:00' }
@@ -101,7 +100,7 @@ const Selected = ({ addDays }) => {
       </Flex>
       <Flex justifyContent="space-evenly" alignItems="center">
         <Box minW="80px" mr={4}>
-          {frameworks.map((f, index) => (
+          {frameworks.map((f) => (
             <Text key={f.id} mb={6}>
               {f.day}
             </Text>
@@ -109,7 +108,7 @@ const Selected = ({ addDays }) => {
         </Box>
 
         <Box width={150}>
-          {frameworks.map((f, index) => {
+          {frameworks.map((f) => {
             const isDisabled = !selectedDays[f.day] && Object.keys(selectedDays).length >= 2;
 
             const collection = isDisabled ? null : createListCollection({ items: f.times });
@@ -132,7 +131,7 @@ const Selected = ({ addDays }) => {
                   <Portal>
                     <Select.Positioner>
                       <Select.Content backgroundColor="teal" color="white">
-                        {f.times.map((time, index) => (
+                        {f.times.map((time) => (
                           <Select.Item key={time.id} item={time}>
                             {time.label}
                             <Select.ItemIndicator />
