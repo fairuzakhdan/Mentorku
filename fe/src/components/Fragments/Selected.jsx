@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { getAllSessionByMentorId } from '../../utils/sessions';
 import { useParams } from 'react-router';
 
-const frameworks = [
+const sessions = [
   {
     day: 'Senin',
     times: [
@@ -31,6 +31,8 @@ const frameworks = [
 
 const Selected = ({ addDays }) => {
   const { mentorId } = useParams();
+  const [isLoading, setIsLoading] = useState(true);
+  const [frameworks, setFrameworks] = useState([]);
   const [selectedDays, setSelectedDays] = useState({}); //contoh:{ Senin: '08:00-10:00' }
 
   const handleSelect = (day, value) => {
@@ -50,17 +52,16 @@ const Selected = ({ addDays }) => {
     if (Object.keys(selectedDays).length > 0) {
       addDays(selectedDays);
     }
-    getAllSessionByMentorId(mentorId).then(({ data }) => {
-      const formatted = data.map((d) => ({
-        day: d.day,
-        times: d.session.map((s) => ({
-          value: s.times,
-          label: s.times,
-        })),
-      }));
-    });
+    // setIsLoading(true);
+    if (formate)
+    // setFrameworks(sessions);
+    // console.log(sessions);
+    // setIsLoading(false);
   }, [selectedDays, addDays, mentorId]); //Runs when selectedDays changes
 
+  // if (isLoading) {
+  //   return <div>Loading...</div>;
+  // }
   return (
     <Box width="100%" maxW="500px" mt={5}>
       <Flex justifyContent="space-between" mx="8">
@@ -73,20 +74,20 @@ const Selected = ({ addDays }) => {
       </Flex>
       <Flex justifyContent="space-evenly" alignItems="center">
         <Box minW="80px" mr={4}>
-          {frameworks.map((f) => (
-            <Text key={f.day} mb={6}>
+          {frameworks.map((f, index) => (
+            <Text key={f.id} mb={6}>
               {f.day}
             </Text>
           ))}
         </Box>
 
         <Box width={150}>
-          {frameworks.map((f) => {
+          {frameworks.map((f, index) => {
             const isDisabled = !selectedDays[f.day] && Object.keys(selectedDays).length >= 2;
 
             const collection = isDisabled ? null : createListCollection({ items: f.times });
             return (
-              <Box key={f.day} mb={4}>
+              <Box key={f.id} mb={4}>
                 <Select.Root
                   collection={collection}
                   onValueChange={(val) => handleSelect(f.day, val)}
@@ -104,8 +105,8 @@ const Selected = ({ addDays }) => {
                   <Portal>
                     <Select.Positioner>
                       <Select.Content backgroundColor="teal" color="white">
-                        {f.times.map((time) => (
-                          <Select.Item key={time.value} item={time}>
+                        {f.times.map((time, index) => (
+                          <Select.Item key={time.id} item={time}>
                             {time.label}
                             <Select.ItemIndicator />
                           </Select.Item>
