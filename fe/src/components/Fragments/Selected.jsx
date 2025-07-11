@@ -36,6 +36,7 @@ const Selected = ({ addDays }) => {
   const { mentorId } = useParams();
   const [isLoading, setIsLoading] = useState(true);
   const [frameworks, setFrameworks] = useState([]);
+  const [fetched, setFetched] = useState(false);
   const [selectedDays, setSelectedDays] = useState({}); //contoh:{ Senin: '08:00-10:00' }
 
   const handleSelect = (day, value) => {
@@ -56,21 +57,25 @@ const Selected = ({ addDays }) => {
       addDays(selectedDays);
     }
     // setIsLoading(true);
-    getAllSessionByMentorId(mentorId).then(({ data }) => {
-      const formatted = data.map((d) => ({
-        id: d._id,
-        day: d.day,
-        times: d.session
-          .filter((s) => typeof s.times === 'string' && s.times.trim() !== '')
-          .map((s) => ({
-            id: `${d.day}-${s.times}`,
-            value: s.times,
-            label: s.times,
-          })),
-      }));
-      setFrameworks(formatted);
-      // setIsLoading(false);
-    });
+    getAllSessionByMentorId(mentorId)
+      .then(({ data }) => {
+        const formatted = data.map((d) => ({
+          id: d._id,
+          day: d.day,
+          times: d.session
+            .filter((s) => typeof s.times === 'string' && s.times.trim() !== '')
+            .map((s) => ({
+              id: `${d.day}-${s.times}`,
+              value: s.times,
+              label: s.times,
+            })),
+        }));
+        setFrameworks(formatted);
+        // setIsLoading(false);
+      })
+      .catch((err) => {
+        setFrameworks(sessions);
+      });
     // setFrameworks(sessions);
     // console.log(sessions);
     // setIsLoading(false);
@@ -91,54 +96,50 @@ const Selected = ({ addDays }) => {
       </Flex>
       <Flex justifyContent="space-evenly" alignItems="center">
         <Box minW="80px" mr={4}>
-          {frameworks.length > 0 && frameworks
-            ? frameworks.map((f, index) => (
-                <Text key={f.id} mb={6}>
-                  {f.day}
-                </Text>
-              ))
-            : sessions}
+          {frameworks.map((f, index) => (
+            <Text key={f.id} mb={6}>
+              {f.day}
+            </Text>
+          ))}
         </Box>
 
         <Box width={150}>
-          {frameworks.length > 0 && frameworks
-            ? frameworks.map((f, index) => {
-                const isDisabled = !selectedDays[f.day] && Object.keys(selectedDays).length >= 2;
+          {frameworks.map((f, index) => {
+            const isDisabled = !selectedDays[f.day] && Object.keys(selectedDays).length >= 2;
 
-                const collection = isDisabled ? null : createListCollection({ items: f.times });
-                return (
-                  <Box key={f.id} mb={4}>
-                    <Select.Root
-                      collection={collection}
-                      onValueChange={(val) => handleSelect(f.day, val)}
-                      // disabled={isDisabled}
-                    >
-                      <Select.HiddenSelect />
-                      <Select.Control>
-                        <Select.Trigger border="1px solid teal">
-                          <Select.ValueText placeholder="Pilih Waktu" color="teal" />
-                        </Select.Trigger>
-                        <Select.IndicatorGroup>
-                          <Select.Indicator />
-                        </Select.IndicatorGroup>
-                      </Select.Control>
-                      <Portal>
-                        <Select.Positioner>
-                          <Select.Content backgroundColor="teal" color="white">
-                            {f.times.map((time, index) => (
-                              <Select.Item key={time.id} item={time}>
-                                {time.label}
-                                <Select.ItemIndicator />
-                              </Select.Item>
-                            ))}
-                          </Select.Content>
-                        </Select.Positioner>
-                      </Portal>
-                    </Select.Root>
-                  </Box>
-                );
-              })
-            : sessions}
+            const collection = isDisabled ? null : createListCollection({ items: f.times });
+            return (
+              <Box key={f.id} mb={4}>
+                <Select.Root
+                  collection={collection}
+                  onValueChange={(val) => handleSelect(f.day, val)}
+                  // disabled={isDisabled}
+                >
+                  <Select.HiddenSelect />
+                  <Select.Control>
+                    <Select.Trigger border="1px solid teal">
+                      <Select.ValueText placeholder="Pilih Waktu" color="teal" />
+                    </Select.Trigger>
+                    <Select.IndicatorGroup>
+                      <Select.Indicator />
+                    </Select.IndicatorGroup>
+                  </Select.Control>
+                  <Portal>
+                    <Select.Positioner>
+                      <Select.Content backgroundColor="teal" color="white">
+                        {f.times.map((time, index) => (
+                          <Select.Item key={time.id} item={time}>
+                            {time.label}
+                            <Select.ItemIndicator />
+                          </Select.Item>
+                        ))}
+                      </Select.Content>
+                    </Select.Positioner>
+                  </Portal>
+                </Select.Root>
+              </Box>
+            );
+          })}
         </Box>
       </Flex>
     </Box>
