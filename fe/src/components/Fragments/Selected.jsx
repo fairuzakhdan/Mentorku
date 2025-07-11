@@ -57,29 +57,34 @@ const Selected = ({ addDays }) => {
       addDays(selectedDays);
     }
     // setIsLoading(true);
-    getAllSessionByMentorId(mentorId)
-      .then(({ data }) => {
-        const formatted = data.map((d) => ({
-          id: d._id,
-          day: d.day,
-          times: d.session
-            .filter((s) => typeof s.times === 'string' && s.times.trim() !== '')
-            .map((s) => ({
-              id: `${d.day}-${s.times}`,
-              value: s.times,
-              label: s.times,
-            })),
-        }));
-        setFrameworks(formatted);
+    if (fetched) {
+      getAllSessionByMentorId(mentorId).then(({ data }) => {
+        if (data) {
+          const formatted = data.map((d) => ({
+            id: d._id,
+            day: d.day,
+            times: d.session
+              .filter((s) => typeof s.times === 'string' && s.times.trim() !== '')
+              .map((s) => ({
+                id: `${d.day}-${s.times}`,
+                value: s.times,
+                label: s.times,
+              })),
+          }));
+          setFrameworks(formatted);
+        }
         // setIsLoading(false);
-      })
-      .catch((err) => {
-        setFrameworks(sessions);
       });
+      setFetched(true);
+    } else {
+      setFrameworks(sessions);
+      setFetched(true);
+    }
+
     // setFrameworks(sessions);
     // console.log(sessions);
     // setIsLoading(false);
-  }, [selectedDays, addDays, mentorId]); //Runs when selectedDays changes
+  }, [selectedDays, addDays, mentorId, fetched]); //Runs when selectedDays changes
 
   // if (isLoading) {
   //   return <div>Loading...</div>;
