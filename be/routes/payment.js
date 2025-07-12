@@ -5,6 +5,6 @@ const payment = require("../controllers/payment");
 router
   .route("/:mentorId/payment")
   .post(payment.createPayment)
-  .get(payment.getPayment);
+//   .get(payment.getPayment);
 
 module.exports = router;

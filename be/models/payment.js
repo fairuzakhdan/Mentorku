@@ -19,12 +19,18 @@ const paymentSchema = new Schema({
   userId: {
     type: String,
     // ref: "User",
-    // required: true,
+    required: true,
   },
   schedules: [
     {
-      days: String,
-      time: String,
+      days: {
+        type: String,
+        required: true,
+      },
+      time: {
+        type: String,
+        required: true,
+      },
     },
   ],
   createdAt: {

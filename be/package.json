@@ -16,6 +16,7 @@
     "express": "~4.16.1",
     "http-errors": "~1.6.3",
     "jade": "~1.11.0",
+    "midtrans-client": "^1.4.3",
     "ml-distance": "^4.0.1",
     "moment-timezone": "^0.5.47",
     "mongoose": "^8.12.1",
