@@ -3,7 +3,17 @@ import Layouts from '../../components/Layouts/Layouts';
 import { useParams } from 'react-router';
 import { useState, useEffect } from 'react';
 // import { mentors } from '../../utils/mentors';
-import { Grid, GridItem, Box, Flex, Text, Button, Image, Group } from '@chakra-ui/react';
+import {
+  Grid,
+  GridItem,
+  Box,
+  Flex,
+  Text,
+  Button,
+  Image,
+  Group,
+  ToastTitle,
+} from '@chakra-ui/react';
 import CardBox from '../../components/Fragments/CardBox';
 import IconColor from '../../components/Elements/IconButton';
 import { BsFillTelephoneFill } from 'react-icons/bs';
@@ -56,13 +66,32 @@ const DetailMentorpage = () => {
   }
 
   const addDays = (days) => {
+    // console.log(days);
     setSelectedDays(days);
   };
   const addTimes = () => {
     if (Object.keys(selectedDays).length < 2) {
       alert('Please select at least two days before hiring a mentor.');
     } else {
-      navigate(`/mentors/${mentorId}/payment`);
+      const select = Object.entries(selectedDays).map(([day, timeObj]) => ({
+        days: day,
+        time: timeObj.value[0],
+      }));
+      navigate(`/mentors/${mentorId}/payment`, {
+        state: {
+          payment: {
+            mentorId: {
+              id: detailMentor._id,
+              name: detailMentor.name,
+              role: detailMentor.role,
+              image: detailMentor.profilePicture.url,
+              price: detailMentor.price,
+            },
+            schedules: select,
+            totalPrice: detailMentor.price,
+          },
+        },
+      });
     }
   };
   const links = [

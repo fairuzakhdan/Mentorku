@@ -8,25 +8,32 @@ import FieldGroup from '../../components/Fragments/Fieldset';
 import IconColor from '../../components/Elements/IconButton';
 import { IoArrowBackCircleOutline } from 'react-icons/io5';
 import { Link } from 'react-router';
+import { useLocation } from 'react-router';
 import { useNavigate } from 'react-router';
+
 const Paymentpage = () => {
+  const location = useLocation();
   const navigate = useNavigate();
   const { mentorId } = useParams();
   const [detailMentor, setDetailMentor] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const payment = location.state?.payment;
+  console.log(payment);
 
   useEffect(() => {
     setIsLoading(true);
     const mentor = paymentMentor.mentorId.find((mentor) => mentor.id === mentorId);
+    // console.log(mentor);
     setDetailMentor(mentor);
     setIsLoading(false);
-  }, [mentorId]);
+  }, [mentorId, payment]);
   if (isLoading) {
     return <div>Loading...</div>;
   }
   const addPayment = () => {
     navigate('/mentors/activity');
   };
+
   return (
     <Layouts>
       <Link to={`/mentors/${mentorId}`}>
@@ -42,9 +49,9 @@ const Paymentpage = () => {
       <Grid templateColumns={'repeat(3, 1fr)'} justifyContent={'center'} h="80vh">
         <GridItem colSpan={2}>
           <Box color={'textGreen'} w={500} backgroundColor={'teal'} p={1} rounded={'md'}>
-            <CardHorizontal type={'image'} image={detailMentor.image}>
-              <CardHorizontal.Header name={detailMentor.name} title={detailMentor.role} />
-              {paymentMentor.schedules.map((schedule, index) => (
+            <CardHorizontal type={'image'} image={payment.mentorId.image}>
+              <CardHorizontal.Header name={payment.name} title={payment.role} />
+              {payment.schedules.map((schedule, index) => (
                 <Flex
                   key={index}
                   mt={3}
@@ -58,7 +65,8 @@ const Paymentpage = () => {
                 </Flex>
               ))}
               <Text textAlign={'right'} mt={3} fontWeight={'bold'} fontSize={'xl'} color={'red'}>
-                {detailMentor.price.toLocaleString('id-ID', {
+                {/* {console.log(payment.price)} */}
+                {payment.totalPrice.toLocaleString('id-ID', {
                   style: 'currency',
                   currency: 'IDR',
                   minimumFractionDigits: 0,
@@ -69,8 +77,8 @@ const Paymentpage = () => {
         </GridItem>
         <GridItem colSpan={1} w={350}>
           <FieldGroup
-            price={detailMentor.price}
-            totalPrice={paymentMentor.totalPrice}
+            price={payment.totalPrice}
+            totalPrice={payment.totalPrice}
             onClick={addPayment}
           />
           <Box border={'1px solid #b0acac'} mt={4} color={'gray.700'} p={2} rounded={'lg'}>

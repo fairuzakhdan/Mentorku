@@ -62,7 +62,6 @@ const createSession = async (req, res) => {
   };
   try {
     const newSession = new Session(sessionPost);
-    console.log(newSession);
     await newSession.save();
     return res.status(201).json({
       status: "success",

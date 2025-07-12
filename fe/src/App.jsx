@@ -18,7 +18,7 @@ import Blogpage from '../src/user/pages/Blog';
 import DetailBlogpage from '../src/user/pages/DetailBlogpage';
 import JoinUspage from '../src/user/pages/JoinUspage';
 import AddMentorpage from '../src/user/pages/AddMentorpage';
-import Registerpage from '../src/user/pages/registerpage';
+import Registerpage from './user/pages/Registerpage.jsx';
 import Loginpage from '../src/user/pages/Loginpage';
 import UsersAdminpage from './admin/pages/UsersAdminpage';
 import UsersMentorpage from './mentors/pages/UsersMentorpage';
