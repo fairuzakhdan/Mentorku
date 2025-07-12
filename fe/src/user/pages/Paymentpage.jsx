@@ -66,7 +66,7 @@ const Paymentpage = () => {
               ))}
               <Text textAlign={'right'} mt={3} fontWeight={'bold'} fontSize={'xl'} color={'red'}>
                 {/* {console.log(payment.price)} */}
-                {payment.totalPrice.toLocaleString('id-ID', {
+                {payment.mentorId.price.toLocaleString('id-ID', {
                   style: 'currency',
                   currency: 'IDR',
                   minimumFractionDigits: 0,
@@ -77,7 +77,7 @@ const Paymentpage = () => {
         </GridItem>
         <GridItem colSpan={1} w={350}>
           <FieldGroup
-            price={payment.totalPrice}
+            price={payment.mentorId.price}
             totalPrice={payment.totalPrice}
             onClick={addPayment}
           />
