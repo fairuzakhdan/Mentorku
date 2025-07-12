@@ -15,16 +15,16 @@ const Paymentpage = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const { mentorId } = useParams();
-  const [detailMentor, setDetailMentor] = useState(null);
+  // const [detailMentor, setDetailMentor] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const payment = location.state?.payment;
   console.log(payment);
 
   useEffect(() => {
     setIsLoading(true);
-    const mentor = paymentMentor.mentorId.find((mentor) => mentor.id === mentorId);
-    // console.log(mentor);
-    setDetailMentor(mentor);
+    // const mentor = paymentMentor.mentorId.find((mentor) => mentor.id === mentorId);
+    // // console.log(mentor);
+    // setDetailMentor(mentor);
     setIsLoading(false);
   }, [mentorId, payment]);
   if (isLoading) {
@@ -49,8 +49,8 @@ const Paymentpage = () => {
       <Grid templateColumns={'repeat(3, 1fr)'} justifyContent={'center'} h="80vh">
         <GridItem colSpan={2}>
           <Box color={'textGreen'} w={500} backgroundColor={'teal'} p={1} rounded={'md'}>
-            <CardHorizontal type={'image'} image={payment.mentorId.image}>
-              <CardHorizontal.Header name={payment.name} title={payment.role} />
+            <CardHorizontal type={'image'} image={payment.mentorId.image} height={175}>
+              <CardHorizontal.Header name={payment.mentorId.name} title={payment.mentorId.role} />
               {payment.schedules.map((schedule, index) => (
                 <Flex
                   key={index}
