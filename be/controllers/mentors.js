@@ -96,6 +96,7 @@ const createMentors = async (req, res) => {
     role: req.body.role,
     linkedin: req.body.linkedin,
     language: req.body.language,
+    accessLevel: req.body.accessLevel,
     location: req.body.location,
     price: req.body.price,
     cvResume: req.body.cvResume,
