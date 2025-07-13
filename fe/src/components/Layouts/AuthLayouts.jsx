@@ -9,6 +9,7 @@ const AuthLayouts = ({ children, type }) => {
       height={'100vh'}
       display={'flex'}
       mt={-38}
+      mb={-10}
       backgroundColor={'#ccc'}
     >
       <Flex h={'70vh'} w={'70%'} margin={'auto'} rounded={'xl'} shadow={'sm'} position={'relative'}>
