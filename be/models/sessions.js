@@ -2,7 +2,6 @@ const mongoose = require("mongoose");
 const { Schema } = mongoose;
 const { v4: uuidv4 } = require("uuid");
 const moment = require("moment-timezone");
-const { type } = require("../../../../NojeJs-Project-Folder/NodeJS-Web-Travel/schemas/place");
 
 const sessionSchema = new Schema({
   _id: {

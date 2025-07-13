@@ -33,6 +33,11 @@ const paymentSchema = new Schema({
       },
     },
   ],
+  status: {
+    type: String,
+    enum: ["pending", "success", "failed"],
+    default: "pending",
+  },
   createdAt: {
     type: String,
     default: () => moment().tz("Asia/Jakarta").format("YYYY-MM-DD HH:mm:ss"),

@@ -3,36 +3,14 @@ import Layouts from '../../components/Layouts/Layouts';
 import CardHorizontal from '../../components/Fragments/CardHorizontal';
 import { useParams } from 'react-router';
 import { useEffect, useState } from 'react';
-import { methodPayments, paymentMentor } from '../../utils/mentors';
+import { methodPayments } from '../../utils/mentors';
 import FieldGroup from '../../components/Fragments/Fieldset';
 import IconColor from '../../components/Elements/IconButton';
 import { IoArrowBackCircleOutline } from 'react-icons/io5';
 import { Link } from 'react-router';
 import { useLocation } from 'react-router';
 import { useNavigate } from 'react-router';
-
-const handleSnapPayment = (token, navigate) => {
-  if (!token) {
-    alert('Token pembayaran tidak tersedia.');
-    return;
-  }
-
-  window.snap.pay(token, {
-    onSuccess: (result) => {
-      console.log('Payment success:', result);
-      navigate('/mentors/activity');
-    },
-    onPending: (result) => {
-      console.log('Payment pending:', result);
-    },
-    onError: (result) => {
-      console.error('Payment failed:', result);
-    },
-    onClose: () => {
-      console.log('Payment popup closed without finishing');
-    },
-  });
-};
+import { handleSnapPayment, requestSnapToken, loadMidtransScript } from '../../utils/payment';
 
 const Paymentpage = () => {
   const { mentorId } = useParams();
@@ -44,61 +22,31 @@ const Paymentpage = () => {
   const payment = location.state?.payment;
 
   useEffect(() => {
-    const script = document.createElement('script');
-    script.src = 'https://app.sandbox.midtrans.com/snap/snap.js';
-    script.setAttribute('data-client-key', 'SB-Mid-client-_eaCt439qoCFC2kU');
-    script.async = true;
-    script.onload = () => setSnapReady(true);
-    script.onerror = () => console.error('Failed to load snap.js');
+    loadMidtransScript()
+      .then(() => setSnapReady(true))
+      .catch((err) => console.error(err));
 
-    document.body.appendChild(script);
     setIsLoading(false);
-
-    return () => document.body.removeChild(script);
   }, []);
-
-  const handleSnapPayment = (token) => {
-    if (!token) {
-      alert('Token tidak tersedia.');
-      return;
-    }
-
-    window.snap.pay(token, {
-      onSuccess: (result) => {
-        console.log('Payment success:', result);
-        navigate('/mentors/activity');
-      },
-      onPending: (result) => console.log('Pending:', result),
-      onError: (result) => console.error('Error:', result),
-      onClose: () => console.warn('Popup closed'),
-    });
-  };
 
   const addPayment = async () => {
     try {
-      const res = await fetch(`http://localhost:3000/api/mentors/${mentorId}/payment`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          user: {
-            first_name: payment?.user?.first_name || 'User',
-            email: payment?.user?.email || 'user@example.com',
-          },
-          userId: payment?.userId,
-          totalPrice: payment?.totalPrice,
-          schedules: payment?.schedules,
-        }),
-      });
+      const paymentData = {
+        user: {
+          first_name: payment?.user?.first_name || 'User',
+          email: payment?.user?.email || 'user@example.com',
+        },
+        userId: payment?.userId,
+        totalPrice: payment?.totalPrice,
+        schedules: payment?.schedules,
+      };
 
-      const data = await res.json();
-
+      const data = await requestSnapToken(mentorId, paymentData);
       if (data?.token) {
-        handleSnapPayment(data.token);
-      } else {
-        console.error('Token tidak valid:', data);
+        handleSnapPayment(data.token, () => navigate('/mentors/activity'));
       }
-    } catch (error) {
-      console.error('Error in addPayment:', error);
+    } catch (err) {
+      console.error('Gagal memproses pembayaran:', err);
     }
   };
 

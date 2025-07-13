@@ -3,6 +3,7 @@ const mentorSchema = require("../schemas/mentor");
 const z = require("zod");
 const natural = require("natural");
 const cosineSimilarity = require("cosine-similarity");
+const bcrypt = require("bcrypt");
 
 const findMentorByRecommendation = async (req, res) => {
   try {
@@ -90,7 +91,7 @@ const getAllMentors = async (req, res) => {
 const createMentors = async (req, res) => {
   const mentorPost = {
     name: req.body.name,
-    password: req.body.password,
+    password: bcrypt.hashSync(req.body.password, 10),
     email: req.body.email,
     role: req.body.role,
     linkedin: req.body.linkedin,
