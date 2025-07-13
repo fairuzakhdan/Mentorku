@@ -17,7 +17,7 @@ const sessionSchema = new Schema({
     },
   ],
   meeting: {type: Number},
-  mentorId: {
+  emailMentor: {
     type: String,
     ref: "Mentor",
     required: true,

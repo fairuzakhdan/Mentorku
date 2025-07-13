@@ -10,8 +10,9 @@ const snap = new midtransClient.Snap({
 const createPayment = async (req, res) => {
   try {
     const { mentorId } = req.params;
-    const { user, totalPrice, schedules } = req.body;
-
+    const { totalPrice, schedules } = req.body;
+    const user = req.user;
+    console.log(user);
     if (!totalPrice || !mentorId || !user) {
       return res.status(400).json({ message: "Missing required data" });
     }
@@ -20,7 +21,7 @@ const createPayment = async (req, res) => {
 
     const paymentBody = {
       mentorId,
-      userId: req.body.userId || user.email,
+      userId: user.id,
       totalPrice,
       schedules,
     };
@@ -34,14 +35,13 @@ const createPayment = async (req, res) => {
         secure: true,
       },
       customer_details: {
-        first_name: user.first_name,
+        // first_name: user.email,
         email: user.email,
       },
     };
 
     const transaction = await snap.createTransaction(parameter);
 
-    // Simpan ke DB
     const payment = new Payment(paymentBody);
     await payment.save();
 

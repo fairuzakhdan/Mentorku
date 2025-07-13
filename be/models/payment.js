@@ -18,7 +18,7 @@ const paymentSchema = new Schema({
   },
   userId: {
     type: String,
-    // ref: "User",
+    ref: "User",
     required: true,
   },
   schedules: [

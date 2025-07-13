@@ -27,7 +27,7 @@ const getSessionById = async (req, res) => {
 
 const getSessionByMentorId = async (req, res) => {
   const { mentorId } = req.params;
-  console.log(mentorId)
+  console.log(mentorId);
   try {
     const sessions = await Session.find({ mentorId });
 
@@ -53,12 +53,11 @@ const getSessionByMentorId = async (req, res) => {
 };
 
 const createSession = async (req, res) => {
-//   const userMentor = req.user;
   const sessionPost = {
     day: req.body.day,
     session: req.body.session,
     meeting: req.body.meeting,
-    mentorId: req.body.mentorId,
+    emailMentor: req.user.email,
   };
   try {
     const newSession = new Session(sessionPost);
@@ -90,9 +89,13 @@ const updateSessionById = async (req, res) => {
     });
   }
   try {
-    const updateSession = await Session.findByIdAndUpdate(sessionId, req.body, {
-      new: true,
-    });
+    const updateSession = await Session.findByIdAndUpdate(
+      sessionId,
+      { ...req.body, emailMentor: req.user.email },
+      {
+        new: true,
+      }
+    );
     return res.status(200).json({
       status: "success",
       data: updateSession,
