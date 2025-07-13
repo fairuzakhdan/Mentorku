@@ -26,8 +26,11 @@ import { SiGoogletasks } from 'react-icons/si';
 import { SiGooglemeet } from 'react-icons/si';
 import { useLocation } from 'react-router';
 import AvatarCard from '../Elements/Avatar';
+import { useNavigate } from 'react-router';
+
 const Navigation = ({ type, children }) => {
   const location = useLocation();
+  const navigate = useNavigate();
   const links = [
     {
       title: 'Benefits',
@@ -64,6 +67,9 @@ const Navigation = ({ type, children }) => {
       icon: SiGooglemeet,
     },
   ];
+  const toLogin = () => {
+    navigate('/login');
+  };
   return (
     <>
       <Layouts>
@@ -110,6 +116,7 @@ const Navigation = ({ type, children }) => {
                 </Button>
               </Link>
               <Button
+                onClick={toLogin}
                 variant="solid"
                 color={'teal'}
                 outline="1px solid teal"

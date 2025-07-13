@@ -8,6 +8,7 @@ const AuthLayouts = ({ children, type }) => {
       maxW={'full'}
       height={'100vh'}
       display={'flex'}
+      mt={-38}
       backgroundColor={'#ccc'}
     >
       <Flex h={'70vh'} w={'70%'} margin={'auto'} rounded={'xl'} shadow={'sm'} position={'relative'}>

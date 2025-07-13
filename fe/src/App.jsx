@@ -1,4 +1,5 @@
 import React from 'react';
+import ProtectedRoute from './components/Fragments/protectedRoute.jsx';
 import { useState, useEffect } from 'react';
 import '@fontsource/poppins/400.css';
 import Navigation from './components/Layouts/Navigation';
@@ -39,34 +40,26 @@ import AddUsersAdminpage from './admin/pages/AddUsersAdmin.jsx';
 import EditUsersAdminpage from './admin/pages/EditusersAdmin.jsx';
 import MentorAdminpage from './admin/pages/MentorAdminpage.jsx';
 import AddMentorAdminpage from './admin/pages/AddMentorAdminpage.jsx';
+// import { useNavigate } from 'react-router';
 import EditMentorAdminpage from './admin/pages/EditMentorAdminpage.jsx';
 const App = () => {
   const [authUser, setAuthUser] = useState(null);
-  const [initializing, setInitializing] = useState(true);
-  useEffect(() => {
-    const name = {
-      name: 'user',
-      email: 'user@mail.com',
-      // role: 'mentor',
-    };
-    localStorage.setItem('authUser', JSON.stringify(name));
-    const data = JSON.parse(localStorage.getItem('authUser'));
-    setAuthUser(data);
-    setInitializing(false);
-  }, []);
-  if (initializing) return null;
+  // const [initializing, setInitializing] = useState(true);
 
-  if (authUser === null) {
-    return (
-      <main>
-        <Routes>
-          <Route element={<Loginpage />} path="/" />
-          <Route element={<Registerpage />} path="/register" />
-        </Routes>
-      </main>
-    );
-  }
-  if (authUser.role === 'admin') {
+  useEffect(() => {
+    // const name = {
+    //   email: 'ad@gmail.com',
+    //   role: 'user',
+    // };
+    // localStorage.setItem('authUser', JSON.stringify(name));
+    const storedUser = localStorage.getItem('authUser');
+    if (storedUser) {
+      setAuthUser(JSON.parse(storedUser));
+    }
+  }, []);
+  // if (initializing) return null;
+
+  if (authUser?.role === 'admin') {
     return (
       <main>
         <Routes>
@@ -82,7 +75,7 @@ const App = () => {
       </main>
     );
   }
-  if (authUser.role === 'mentor') {
+  if (authUser?.role === 'mentor') {
     return (
       <main>
         <Routes>
@@ -101,6 +94,7 @@ const App = () => {
           <Route element={<WebinarMentorpage />} path="/webinars" />
           <Route element={<AddWebinarMentorpage />} path="/webinars/add" />
           <Route element={<EditWebinarMentorpage />} path="/webinars/:webinarId" />
+
           <Route element={<Errorpage />} path={'*'} />
         </Routes>
       </main>
@@ -126,15 +120,64 @@ const App = () => {
           <Route element={<DetailBlogpage />} path="/blog/:blogId" />
           <Route element={<JoinUspage />} path="/joinus" />
           <Route element={<AddMentorpage />} path="/joinus/add" />
-          <Route element={<Activitypage />} path="/mentors/activity" />
+          {/* <Route element={<Activitypage />} path="/mentors/activity" />
           <Route element={<Classpage />} path="/mentors/class" />
           <Route element={<Transactionpage />} path="/mentors/transaction" />
           <Route element={<Webinarpage />} path="/mentors/webinar" />
-          <Route element={<DetailClasspage />} path="/mentors/class/:classId" />
-          <Route element={<Paymentpage />} path="/mentors/:mentorId/payment" />
+          <Route element={<DetailClasspage />} path="/mentors/class/:classId" /> */}
+          <Route path="/login" element={<Loginpage />} />
+          <Route path="/register" element={<Registerpage />} />
           <Route element={<DetailMentorpage />} path="/mentors/:mentorId" />
           <Route element={<Mentorpage />} path="/mentors" />
           <Route element={<Errorpage />} path={'*'} />
+          <Route
+            path="/mentors/:mentorId/payment"
+            element={
+              <ProtectedRoute>
+                <Paymentpage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/mentors/activity"
+            element={
+              <ProtectedRoute>
+                <Activitypage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/mentors/class"
+            element={
+              <ProtectedRoute>
+                <Classpage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/mentors/class/:classId"
+            element={
+              <ProtectedRoute>
+                <DetailClasspage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/mentors/transaction"
+            element={
+              <ProtectedRoute>
+                <Transactionpage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/mentors/webinar"
+            element={
+              <ProtectedRoute>
+                <Webinarpage />
+              </ProtectedRoute>
+            }
+          />
         </Routes>
       </main>
       <footer>
