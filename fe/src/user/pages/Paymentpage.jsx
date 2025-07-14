@@ -82,7 +82,7 @@ const Paymentpage = () => {
                 fontWeight={'bold'}
                 fontSize={'xl'}
                 textAlign={'right'}
-                color={'red.200'}
+                color={'red.500'}
               >
                 {payment.mentorId.price.toLocaleString('id-ID', {
                   style: 'currency',

@@ -1,11 +1,14 @@
 import { Stack, Field, Button } from '@chakra-ui/react';
 import FormInput from '../Elements/FormInput';
 import useInput from '../../hooks/useInput';
-import { PasswordInput } from '@/components/ui/password-input';
-import { Check } from '../Elements/FormInput';
-const FormLogin = () => {
+
+const FormLogin = ({ onLogin }) => {
   const [email, onChangeEmail] = useInput('');
   const [password, onChangePassword] = useInput('');
+
+  const onLoginHandler = () => {
+    onLogin({ email, password });
+  };
   return (
     <Stack rowGap={10} mt={8}>
       <FormInput
@@ -24,7 +27,7 @@ const FormLogin = () => {
         onChange={onChangePassword}
         required
       />
-      <Button colorPalette={'teal'} mt={1}>
+      <Button colorPalette={'teal'} mt={1} onClick={onLoginHandler}>
         Login
       </Button>
     </Stack>

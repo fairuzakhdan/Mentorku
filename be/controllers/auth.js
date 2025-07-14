@@ -35,14 +35,14 @@ const login = async (req, res) => {
     }
     if (!user) {
       return res.status(404).json({
-        status: "fail",
+        status: "failed",
         message: "User Not Found",
       });
     }
     const match = bcrypt.compareSync(password, user.password);
     if (!match) {
       return res.status(400).json({
-        status: "fail",
+        status: "failed",
         message: "Password Incorrect",
       });
     }
@@ -67,7 +67,25 @@ const login = async (req, res) => {
     });
   }
 };
+
+const getUserLogin = (req, res) => {
+  const user = req.user;
+
+  if (!user) {
+    return res.status(404).json({
+      status: "failed",
+      data: null,
+    });
+  }
+
+  res.status(200).json({
+    status: "success",
+    data: user,
+  });
+};
+
 module.exports = {
   register,
   login,
+  getUserLogin,
 };

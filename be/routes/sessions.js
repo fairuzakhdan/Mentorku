@@ -1,8 +1,9 @@
 const sessions = require("../controllers/sessions");
 const express = require("express");
 const router = express.Router();
+const verifyToken = require('../middlewares/verifyToken')
 
-router.route("/").get(sessions.getAllSession).post(sessions.createSession);
+router.route("/").get(sessions.getAllSession).post(verifyToken,sessions.createSession);
 router
   .route("/:sessionId")
   .get(sessions.getSessionById)

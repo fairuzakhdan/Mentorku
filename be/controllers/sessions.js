@@ -57,7 +57,7 @@ const createSession = async (req, res) => {
     day: req.body.day,
     session: req.body.session,
     meeting: req.body.meeting,
-    emailMentor: req.user.email,
+    mentorId: req.user.id,
   };
   try {
     const newSession = new Session(sessionPost);
