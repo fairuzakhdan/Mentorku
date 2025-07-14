@@ -38,7 +38,7 @@ const AuthLayouts = ({ children, type }) => {
           {type === 'register' ? (
             <Text fontSize={'sm'} mt={3}>
               Already have an account?{' '}
-              <Link to={'/'}>
+              <Link to={'/login'}>
                 <Span color={'textGreen'} fontWeight={'semibold'}>
                   Login
                 </Span>

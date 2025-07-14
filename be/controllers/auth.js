@@ -4,13 +4,23 @@ const jwt = require("jsonwebtoken");
 const Mentor = require("../models/mentors");
 
 const register = async (req, res) => {
-  const hashPassword = bcrypt.hashSync(req.body.password, 10);
-  const register = {
-    fullName: req.body.fullName,
-    email: req.body.email,
-    password: hashPassword,
-  };
+  const { fullName, email, password } = req.body;
+
   try {
+    const emailMatch = await User.findOne({ email });
+    if (emailMatch) {
+      return res.status(200).json({
+        status: "failed",
+        message: "Email already registered",
+      });
+    }
+    const hashPassword = bcrypt.hashSync(password, 10);
+    const register = {
+      fullName,
+      email,
+      password: hashPassword,
+    };
+
     const user = new User(register);
     await user.save();
     res.status(200).json({
