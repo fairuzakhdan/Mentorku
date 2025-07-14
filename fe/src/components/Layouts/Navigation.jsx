@@ -28,7 +28,7 @@ import { useLocation } from 'react-router';
 import AvatarCard from '../Elements/Avatar';
 import { useNavigate } from 'react-router';
 
-const Navigation = ({ type, children }) => {
+const Navigation = ({ type, children, authuser, onLogout }) => {
   const location = useLocation();
   const navigate = useNavigate();
   const links = [
@@ -70,6 +70,7 @@ const Navigation = ({ type, children }) => {
   const toLogin = () => {
     navigate('/login');
   };
+
   return (
     <>
       <Layouts>
@@ -115,15 +116,27 @@ const Navigation = ({ type, children }) => {
                   <FaChalkboardTeacher /> Activity
                 </Button>
               </Link>
-              <Button
-                onClick={toLogin}
-                variant="solid"
-                color={'teal'}
-                outline="1px solid teal"
-                _hover={{ bg: 'gray.500', color: 'white' }}
-              >
-                <BiLogIn /> Login
-              </Button>
+              {authuser ? (
+                <Button
+                  onClick={onLogout}
+                  variant="solid"
+                  color={'teal'}
+                  outline="1px solid teal"
+                  _hover={{ bg: 'gray.500', color: 'white' }}
+                >
+                  <BiLogIn /> {authuser.email}
+                </Button>
+              ) : (
+                <Button
+                  onClick={toLogin}
+                  variant="solid"
+                  color={'teal'}
+                  outline="1px solid teal"
+                  _hover={{ bg: 'gray.500', color: 'white' }}
+                >
+                  <BiLogIn /> Login
+                </Button>
+              )}
             </HStack>
           </Box>
         )}

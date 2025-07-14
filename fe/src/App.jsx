@@ -1,18 +1,27 @@
-import React from 'react';
-import ProtectedRoute from './components/Fragments/protectedRoute.jsx';
-import { useState, useEffect } from 'react';
+// App.jsx (Clean Code Version)
+import React, { useState, useEffect } from 'react';
+import { Routes, Route, useNavigate } from 'react-router';
 import '@fontsource/poppins/400.css';
+
+// Layouts
 import Navigation from './components/Layouts/Navigation';
+import Footer from './components/Layouts/Footer';
+
+// Auth
+import { putAccessToken } from './utils/api.js';
+import { getUserLogin } from './utils/auth.js';
+
+// Protected
+import ProtectedRoute from './components/Fragments/protectedRoute.jsx';
+
+// User Pages
 import Homepage from '../src/user/pages/Homepage';
 import Mentorpage from '../src/user/pages/Mentorpage';
-import { Routes, Route } from 'react-router';
-import Footer from './components/Layouts/Footer';
 import DetailMentorpage from '../src/user/pages/DetailMentorpage';
 import Paymentpage from '../src/user/pages/Paymentpage';
 import Activitypage from '../src/user/pages/activitypage';
 import Classpage from '../src/user/pages/Classpage';
 import DetailClasspage from '../src/user/pages/DetailClasspage';
-import Errorpage from './shared/pages/404';
 import Transactionpage from '../src/user/pages/Transactionpage';
 import Webinarpage from '../src/user/pages/Webinarpage';
 import Blogpage from '../src/user/pages/Blog';
@@ -21,7 +30,16 @@ import JoinUspage from '../src/user/pages/JoinUspage';
 import AddMentorpage from '../src/user/pages/AddMentorpage';
 import Registerpage from './user/pages/Registerpage.jsx';
 import Loginpage from '../src/user/pages/Loginpage';
+
+// Admin Pages
 import UsersAdminpage from './admin/pages/UsersAdminpage';
+import AddUsersAdminpage from './admin/pages/AddUsersAdmin.jsx';
+import EditUsersAdminpage from './admin/pages/EditusersAdmin.jsx';
+import MentorAdminpage from './admin/pages/MentorAdminpage.jsx';
+import AddMentorAdminpage from './admin/pages/AddMentorAdminpage.jsx';
+import EditMentorAdminpage from './admin/pages/EditMentorAdminpage.jsx';
+
+// Mentor Pages
 import UsersMentorpage from './mentors/pages/UsersMentorpage';
 import LessonsMentorpage from './mentors/pages/LessonsMentorpage';
 import SessionMentorpage from './mentors/pages/SessionsMentorpage';
@@ -36,23 +54,17 @@ import AddWebinarMentorpage from './mentors/pages/AddWebinarMentorpage.jsx';
 import EditWebinarMentorpage from './mentors/pages/EditWebinarMentorpage.jsx';
 import AddBlogMentorpage from './mentors/pages/AddBlogMentorpage.jsx';
 import EditBlogMentorpage from './mentors/pages/EditBlogMentorpage.jsx';
-import AddUsersAdminpage from './admin/pages/AddUsersAdmin.jsx';
-import EditUsersAdminpage from './admin/pages/EditusersAdmin.jsx';
-import MentorAdminpage from './admin/pages/MentorAdminpage.jsx';
-import AddMentorAdminpage from './admin/pages/AddMentorAdminpage.jsx';
-import { putAccessToken } from './utils/api.js';
-import EditMentorAdminpage from './admin/pages/EditMentorAdminpage.jsx';
-import { useNavigate } from 'react-router';
-import { getUserLogin } from './utils/auth.js';
+
+// Shared
+import Errorpage from './shared/pages/404';
 
 const App = () => {
   const navigate = useNavigate();
   const [authUser, setAuthUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // Get user login saat pertama kali load
   useEffect(() => {
-    const getAccessToken = async () => {
+    const fetchUser = async () => {
       try {
         const { data } = await getUserLogin();
         setAuthUser(data);
@@ -62,10 +74,9 @@ const App = () => {
         setLoading(false);
       }
     };
-    getAccessToken();
+    fetchUser();
   }, []);
 
-  // Handler ketika login berhasil
   const loginSuccessToken = async (accessToken) => {
     try {
       setLoading(true);
@@ -77,32 +88,29 @@ const App = () => {
     } catch (error) {
       console.error('Login error:', error.message);
     } finally {
-      setLoading(false); // selesai login
+      setLoading(false);
     }
   };
 
-  // Saat loading, jangan render apa-apa kecuali indikator loading
+  const onLogoutHandler = () => {
+    setAuthUser(null);
+    putAccessToken('');
+  };
+
   if (loading) return <p style={{ textAlign: 'center' }}>Loading...</p>;
 
-  if (authUser === null) {
-    <Routes>
-      <Route element={<Loginpage />} path="/login" />;
-    </Routes>;
-  }
-
-  // Render halaman berdasarkan access level
   if (authUser?.accessLevel === 'admin') {
     return (
       <main>
         <Routes>
-          <Route element={<UsersAdminpage />} path="/" />
-          <Route element={<UsersAdminpage />} path="/users" />
-          <Route element={<AddUsersAdminpage />} path="/users/add" />
-          <Route element={<EditUsersAdminpage />} path="/users/:userId" />
-          <Route element={<MentorAdminpage />} path="/mentors" />
-          <Route element={<AddMentorAdminpage />} path="/mentors/add" />
-          <Route element={<EditMentorAdminpage />} path="/mentors/:mentorId" />
-          <Route element={<Errorpage />} path="*" />
+          <Route path="/" element={<UsersAdminpage />} />
+          <Route path="/users" element={<UsersAdminpage />} />
+          <Route path="/users/add" element={<AddUsersAdminpage />} />
+          <Route path="/users/:userId" element={<EditUsersAdminpage />} />
+          <Route path="/mentors" element={<MentorAdminpage />} />
+          <Route path="/mentors/add" element={<AddMentorAdminpage />} />
+          <Route path="/mentors/:mentorId" element={<EditMentorAdminpage />} />
+          <Route path="*" element={<Errorpage />} />
         </Routes>
       </main>
     );
@@ -112,28 +120,27 @@ const App = () => {
     return (
       <main>
         <Routes>
-          <Route element={<UsersMentorpage />} path="/" />
-          <Route element={<BlogMentorpage />} path="/blogs" />
-          <Route element={<AddBlogMentorpage />} path="/blogs/add" />
-          <Route element={<EditBlogMentorpage />} path="/blogs/:blogId" />
-          <Route element={<UsersMentorpage />} path="/mentees" />
-          <Route element={<DetailUsersMentorpage />} path="/mentees/:userId" />
-          <Route element={<LessonsMentorpage />} path="/mylessons" />
-          <Route element={<AddLessonMentorpage />} path="/mylessons/add" />
-          <Route element={<EditLessonMentorpage />} path="/mylessons/:lessonId" />
-          <Route element={<SessionMentorpage />} path="/sessions" />
-          <Route element={<AddSessionMentorpage />} path="/sessions/add" />
-          <Route element={<EditSessionMentorpage />} path="/sessions/:sessionId" />
-          <Route element={<WebinarMentorpage />} path="/webinars" />
-          <Route element={<AddWebinarMentorpage />} path="/webinars/add" />
-          <Route element={<EditWebinarMentorpage />} path="/webinars/:webinarId" />
-          <Route element={<Errorpage />} path="*" />
+          <Route path="/" element={<UsersMentorpage />} />
+          <Route path="/blogs" element={<BlogMentorpage />} />
+          <Route path="/blogs/add" element={<AddBlogMentorpage />} />
+          <Route path="/blogs/:blogId" element={<EditBlogMentorpage />} />
+          <Route path="/mentees" element={<UsersMentorpage />} />
+          <Route path="/mentees/:userId" element={<DetailUsersMentorpage />} />
+          <Route path="/mylessons" element={<LessonsMentorpage />} />
+          <Route path="/mylessons/add" element={<AddLessonMentorpage />} />
+          <Route path="/mylessons/:lessonId" element={<EditLessonMentorpage />} />
+          <Route path="/sessions" element={<SessionMentorpage />} />
+          <Route path="/sessions/add" element={<AddSessionMentorpage />} />
+          <Route path="/sessions/:sessionId" element={<EditSessionMentorpage />} />
+          <Route path="/webinars" element={<WebinarMentorpage />} />
+          <Route path="/webinars/add" element={<AddWebinarMentorpage />} />
+          <Route path="/webinars/:webinarId" element={<EditWebinarMentorpage />} />
+          <Route path="*" element={<Errorpage />} />
         </Routes>
       </main>
     );
   }
 
-  // Halaman umum (user / belum login)
   return (
     <>
       <header
@@ -145,20 +152,19 @@ const App = () => {
           zIndex: 2,
         }}
       >
-        <Navigation type="navbar" />
+        <Navigation type="navbar" authuser={authUser} onLogout={onLogoutHandler} />
       </header>
       <main>
         <Routes>
-          <Route element={<Homepage />} path="/" />
-          <Route element={<Blogpage />} path="/blog" />
-          <Route element={<DetailBlogpage />} path="/blog/:blogId" />
-          <Route element={<JoinUspage />} path="/joinus" />
-          <Route element={<AddMentorpage />} path="/joinus/add" />
-          <Route element={<Loginpage onLoginSuccess={loginSuccessToken} />} path="/login" />
-          <Route element={<Registerpage />} path="/register" />
-          <Route element={<DetailMentorpage />} path="/mentors/:mentorId" />
-          <Route element={<Mentorpage />} path="/mentors" />
-          <Route element={<Errorpage />} path="*" />
+          <Route path="/" element={<Homepage />} />
+          <Route path="/blog" element={<Blogpage />} />
+          <Route path="/blog/:blogId" element={<DetailBlogpage />} />
+          <Route path="/joinus" element={<JoinUspage />} />
+          <Route path="/joinus/add" element={<AddMentorpage />} />
+          <Route path="/login" element={<Loginpage onLoginSuccess={loginSuccessToken} />} />
+          <Route path="/register" element={<Registerpage />} />
+          <Route path="/mentors" element={<Mentorpage />} />
+          <Route path="/mentors/:mentorId" element={<DetailMentorpage />} />
           <Route
             path="/mentors/:mentorId/payment"
             element={
@@ -207,6 +213,7 @@ const App = () => {
               </ProtectedRoute>
             }
           />
+          <Route path="*" element={<Errorpage />} />
         </Routes>
       </main>
       <footer>
