@@ -32,7 +32,6 @@ import AuthContext from '../../shared/context/authContext';
 
 const Navigation = ({ type, children, onLogout }) => {
   const { authUser } = useContext(AuthContext);
-  console.log(authUser);
   const location = useLocation();
   const navigate = useNavigate();
   const links = [
