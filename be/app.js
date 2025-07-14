@@ -26,7 +26,7 @@ app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/api/mentors", mentorsRouter);
 app.use("/api/sessions", sessionsRouter);
-app.use('/api/mentors', paymentRouter)
+app.use('/api', paymentRouter)
 app.use('/api', userRouter)
 
 // catch 404 and forward to error handler

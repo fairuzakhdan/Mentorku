@@ -60,17 +60,13 @@ const createPayment = async (req, res) => {
 
 const getAllPayment = async (req, res) => {
   try {
-    const payments = await Payment();
+    const payments = await Payment.find();
     return res.status(200).json({
       status: "success",
       data: payments,
     });
   } catch (err) {
-    return res.status(200).json({
-      status: "failed",
-      data: null,
-      message: "Internal Server Error",
-    });
+    console.log(err.message)
   }
 };
 
