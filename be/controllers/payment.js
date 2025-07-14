@@ -60,13 +60,19 @@ const createPayment = async (req, res) => {
 
 const getAllPayment = async (req, res) => {
   try {
-    const payments = await Payment.find();
+    const payments = await Payment.find({ userId: req.user.id })
+      .populate({
+        path: "mentorId",
+        select: "name role profilePicture",
+      })
+      .exec();
+    console.log(payments);
     return res.status(200).json({
       status: "success",
       data: payments,
     });
   } catch (err) {
-    console.log(err.message)
+    console.log(err.message);
   }
 };
 

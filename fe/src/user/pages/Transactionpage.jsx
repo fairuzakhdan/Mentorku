@@ -3,34 +3,37 @@ import { Box, Text, Flex, Grid, GridItem, Button, Stack } from '@chakra-ui/react
 import CardHorizontal from '../../components/Fragments/CardHorizontal';
 import BreadcrumbLink from '../../components/Fragments/Breadcrumb';
 import { VscFolderLibrary } from 'react-icons/vsc';
+import { useEffect, useState } from 'react';
+import { getAllPayment } from '../../utils/payment';
 const Transactionpage = () => {
-  const mentors = [
-    {
-      id: '1',
-      name: 'John Doe',
-      role: 'UI/UX Designer',
-      image:
-        'https://images.unsplash.com/photo-1623366302587-b38b1ddaefd9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTF8fGVudGVwcmVuZXVyfGVufDB8fDB8fHww',
-      price: 75000,
-      schedules: [
-        { days: 'Senin', time: '08.00 - 10.00' },
-        { days: 'Rabu', time: '20.00 - 10.00' },
-      ],
-    },
-    {
-      id: '2',
-      name: 'John Doe',
-      role: 'UI/UX Designer',
-      image:
-        'https://images.unsplash.com/photo-1742119971773-57e0131095b0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NjZ8fGVudGVwcmVuZXVyfGVufDB8fDB8fHww',
-      price: 75000,
-      schedules: [
-        { days: 'Senin', time: '08.00 - 10.00' },
-        { days: 'Rabu', time: '20.00 - 10.00' },
-        { days: 'Rabu', time: '20.00 - 10.00' },
-      ],
-    },
-  ];
+  const [mentors, setMentors] = useState([]);
+  // const mentors = [
+  //   {
+  //     id: '1',
+  //     name: 'John Doe',
+  //     role: 'UI/UX Designer',
+  //     image:
+  //       'https://images.unsplash.com/photo-1623366302587-b38b1ddaefd9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTF8fGVudGVwcmVuZXVyfGVufDB8fDB8fHww',
+  //     price: 75000,
+  //     schedules: [
+  //       { days: 'Senin', time: '08.00 - 10.00' },
+  //       { days: 'Rabu', time: '20.00 - 10.00' },
+  //     ],
+  //   },
+  //   {
+  //     id: '2',
+  //     name: 'John Doe',
+  //     role: 'UI/UX Designer',
+  //     image:
+  //       'https://images.unsplash.com/photo-1742119971773-57e0131095b0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NjZ8fGVudGVwcmVuZXVyfGVufDB8fDB8fHww',
+  //     price: 75000,
+  //     schedules: [
+  //       { days: 'Senin', time: '08.00 - 10.00' },
+  //       { days: 'Rabu', time: '20.00 - 10.00' },
+  //       { days: 'Rabu', time: '20.00 - 10.00' },
+  //     ],
+  //   },
+  // ];
   const links = [
     {
       title: 'Transaction',
@@ -38,6 +41,16 @@ const Transactionpage = () => {
       icon: VscFolderLibrary,
     },
   ];
+  useEffect(() => {
+    getAllPayment()
+      .then(({ data }) => {
+        console.log(data);
+        setMentors(data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
   return (
     <>
       <Navigation type="sidebar">
@@ -48,8 +61,8 @@ const Transactionpage = () => {
             {mentors.map((mentor) => (
               <CardHorizontal
                 type="image"
-                image={mentor.image}
-                key={mentor.id}
+                image={mentor.mentorId.profilePicture.url}
+                key={mentor._id}
                 borderLeft="7px solid teal"
                 border="none"
                 height={120}
@@ -57,7 +70,10 @@ const Transactionpage = () => {
               >
                 <Flex w={'60vw'}>
                   <Box flex={5}>
-                    <CardHorizontal.Header name={mentor.name} title={mentor.role} />
+                    <CardHorizontal.Header
+                      name={mentor.mentorId.name}
+                      title={mentor.mentorId.role}
+                    />
                     <Flex gap={3}>
                       {mentor.schedules.map((schedule, index) => (
                         <Text
@@ -73,7 +89,7 @@ const Transactionpage = () => {
                       ))}
                     </Flex>
                     <Text fontSize={'lg'} color="red" fontWeight={'bold'}>
-                      {mentor.price.toLocaleString('id-ID', {
+                      {mentor.totalPrice.toLocaleString('id-ID', {
                         style: 'currency',
                         currency: 'IDR',
                         minimumFractionDigits: 0,
@@ -85,11 +101,11 @@ const Transactionpage = () => {
                       p={1}
                       color="white"
                       fontSize={'lg'}
-                      backgroundColor="green.500"
+                      backgroundColor={mentor.status === 'pending' ? 'gray.500' : 'green.500'}
                       textAlign={'center'}
                       rounded={'md'}
                     >
-                      Selesai
+                      {mentor.status}
                     </Text>
                   </Box>
                 </Flex>

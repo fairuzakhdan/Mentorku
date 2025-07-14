@@ -1,4 +1,4 @@
-import { fetchWithToken } from './api';
+import { api, fetchWithToken } from './api';
 export const loadMidtransScript = () => {
   return new Promise((resolve, reject) => {
     if (document.getElementById('midtrans-script')) return resolve();
@@ -42,7 +42,7 @@ export const handleSnapPayment = (token, onSuccessNavigate) => {
 };
 
 export const requestSnapToken = async (mentorId, paymentData) => {
-  const res = await fetchWithToken(`http://localhost:3000/api/mentors/${mentorId}/payment`, {
+  const res = await fetchWithToken(`${api}/mentors/${mentorId}/payment`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(paymentData),
@@ -54,4 +54,13 @@ export const requestSnapToken = async (mentorId, paymentData) => {
   }
 
   return res.json(); // Berisi token dan data pembayaran
+};
+
+export const getAllPayment = async () => {
+  const response = await fetchWithToken(`${api}/payment`);
+  const responseJson = await response.json();
+  if (responseJson.status !== 'success') {
+    return { error: true, data: null };
+  }
+  return { error: false, data: responseJson.data };
 };
