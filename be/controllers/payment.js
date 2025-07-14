@@ -48,7 +48,7 @@ const createPayment = async (req, res) => {
     res.status(200).json({
       status: "success",
       token: transaction.token,
-      // redirect_url: transaction.redirect_url,
+     
     });
   } catch (error) {
     res.status(500).json({
