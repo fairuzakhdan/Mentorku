@@ -13,14 +13,14 @@ const AuthLayouts = ({ children, type }) => {
       backgroundColor={'#ccc'}
     >
       <Flex h={'70vh'} w={'70%'} margin={'auto'} rounded={'xl'} shadow={'sm'} position={'relative'}>
-        <CloseButton
+        {/* <CloseButton
           position={'absolute'}
           right={-5}
           top={-5}
           backgroundColor={'red.500'}
           shadow={'sm'}
           _hover={{ backgroundColor: 'red.600' }}
-        />
+        /> */}
         <Box flex={1} roundedLeft={'xl'} backgroundColor={'textGreen'}>
           {type === 'register' ? (
             <Image

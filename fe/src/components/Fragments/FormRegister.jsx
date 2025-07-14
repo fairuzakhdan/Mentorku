@@ -4,10 +4,13 @@ import useInput from '../../hooks/useInput';
 import { PasswordInput } from '@/components/ui/password-input';
 import { Check } from '../Elements/FormInput';
 
-const FormRegister = () => {
+const FormRegister = ({ onRegister }) => {
   const [fullName, onChangeFullName] = useInput('');
   const [email, onChangeEmail] = useInput('');
   const [password, onChangePassword] = useInput('');
+  const registerHandler = () => {
+    onRegister({ fullName, email, password });
+  };
   return (
     <Stack rowGap={4}>
       <FormInput
@@ -35,7 +38,9 @@ const FormRegister = () => {
         required
       />
       <Check label={'Accept terms and conditions'} />
-      <Button colorPalette={'teal'}>SignUp</Button>
+      <Button colorPalette={'teal'} onClick={registerHandler}>
+        SignUp
+      </Button>
     </Stack>
   );
 };
