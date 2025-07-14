@@ -27,8 +27,12 @@ import { SiGooglemeet } from 'react-icons/si';
 import { useLocation } from 'react-router';
 import AvatarCard from '../Elements/Avatar';
 import { useNavigate } from 'react-router';
+import { useContext } from 'react';
+import AuthContext from '../../shared/context/authContext';
 
-const Navigation = ({ type, children, authuser, onLogout }) => {
+const Navigation = ({ type, children, onLogout }) => {
+  const { authUser } = useContext(AuthContext);
+  console.log(authUser);
   const location = useLocation();
   const navigate = useNavigate();
   const links = [
@@ -116,7 +120,7 @@ const Navigation = ({ type, children, authuser, onLogout }) => {
                   <FaChalkboardTeacher /> Activity
                 </Button>
               </Link>
-              {authuser ? (
+              {authUser ? (
                 <Button
                   onClick={onLogout}
                   variant="solid"
@@ -124,7 +128,7 @@ const Navigation = ({ type, children, authuser, onLogout }) => {
                   outline="1px solid teal"
                   _hover={{ bg: 'gray.500', color: 'white' }}
                 >
-                  <BiLogIn /> {authuser.email}
+                  <BiLogIn /> {authUser.email}
                 </Button>
               ) : (
                 <Button
@@ -153,8 +157,8 @@ const Navigation = ({ type, children, authuser, onLogout }) => {
                   objectFit={'cover'}
                   rounded={'full'}
                 />
-                <Text fontSize={'lg'} fontWeight={'semibold'}>
-                  Fairuz Akhdan
+                <Text fontSize={'lg'} fontWeight={'semibold'} color={'gray.500'}>
+                  {authUser.email}
                 </Text>
               </Stack>
               {activitys.map((activity) => {

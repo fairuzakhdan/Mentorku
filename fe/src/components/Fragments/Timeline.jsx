@@ -22,7 +22,7 @@ const TimelineFlow = ({ mentor, type }) => {
                   {item.position}
                 </Timeline.Title>
                 <Timeline.Description textStyle="sm">
-                  {item.company} - {item.years}
+                  {item.company} - {`${item.years} years`}
                 </Timeline.Description>
               </>
             )}

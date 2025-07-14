@@ -1,7 +1,8 @@
 // App.jsx (Clean Code Version)
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { Routes, Route, useNavigate } from 'react-router';
 import '@fontsource/poppins/400.css';
+import AuthContext from './shared/context/authContext.jsx';
 
 // Layouts
 import Navigation from './components/Layouts/Navigation';
@@ -55,7 +56,6 @@ import EditWebinarMentorpage from './mentors/pages/EditWebinarMentorpage.jsx';
 import AddBlogMentorpage from './mentors/pages/AddBlogMentorpage.jsx';
 import EditBlogMentorpage from './mentors/pages/EditBlogMentorpage.jsx';
 
-// Shared
 import Errorpage from './shared/pages/404';
 
 const App = () => {
@@ -96,6 +96,10 @@ const App = () => {
     setAuthUser(null);
     putAccessToken('');
   };
+
+  const authContextValue = useMemo(() => {
+    return { authUser, setAuthUser };
+  }, [authUser]);
 
   if (loading) return <p style={{ textAlign: 'center' }}>Loading...</p>;
 
@@ -142,7 +146,7 @@ const App = () => {
   }
 
   return (
-    <>
+    <AuthContext.Provider value={authContextValue}>
       <header
         style={{
           borderBottom: '1px solid #ccc',
@@ -152,7 +156,7 @@ const App = () => {
           zIndex: 2,
         }}
       >
-        <Navigation type="navbar" authuser={authUser} onLogout={onLogoutHandler} />
+        <Navigation type="navbar" onLogout={onLogoutHandler} />
       </header>
       <main>
         <Routes>
@@ -219,7 +223,7 @@ const App = () => {
       <footer>
         <Footer />
       </footer>
-    </>
+    </AuthContext.Provider>
   );
 };
 

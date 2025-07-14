@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Navigation from '../../components/Layouts/Navigation';
 import { Text, Grid, GridItem, Box, Flex, Group, Span, Stack, Image } from '@chakra-ui/react';
 import Layouts from '../../components/Layouts/Layouts';
 import { LuFileBadge2 } from 'react-icons/lu';
 import { MdOutlineStar } from 'react-icons/md';
 import Progress from '../../components/Fragments/ProgressCircle';
+import AuthContext from '../../shared/context/authContext';
 
 const Activitypage = () => {
+  const { authUser } = useContext(AuthContext);
   const value = 50;
   return (
     <Navigation type="sidebar">
@@ -70,7 +72,7 @@ const Activitypage = () => {
           </Group>
         </Flex>
         <Box backgroundColor={'textGreen'} p={5} mt={5} rounded={'lg'}>
-          <Text fontSize={'2xl'}>Hallo, Fairuz Akhdan !</Text>
+          <Text fontSize={'2xl'}>Hallo, {authUser.email} !</Text>
           <Text fontSize={'xl'} mt={3}>
             Mulai Belajar lagi, Kumpulkan SkillPoin dan Skillbadge dari Mentorku
           </Text>
