@@ -44,7 +44,6 @@ const createPayment = async (req, res) => {
 
     const payment = new Payment(paymentBody);
     await payment.save();
-
     res.status(200).json({
       status: "success",
       token: transaction.token,
