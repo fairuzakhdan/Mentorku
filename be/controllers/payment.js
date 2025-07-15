@@ -62,7 +62,7 @@ const getAllPayment = async (req, res) => {
     const payments = await Payment.find({ userId: req.user.id })
       .populate({
         path: "mentorId",
-        select: "name role profilePicture",
+        select: "name role profilePicture phone",
       })
       .exec();
     console.log(payments);

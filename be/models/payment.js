@@ -16,6 +16,10 @@ const paymentSchema = new Schema({
   totalPrice: {
     type: Number,
   },
+  linkMeet: {
+    type: String,
+    default: "No Set",
+  },
   userId: {
     type: String,
     ref: "User",

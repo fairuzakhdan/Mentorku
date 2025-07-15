@@ -21,13 +21,23 @@ const Paymentpage = () => {
   const [isLoading, setIsLoading] = useState(true);
   const payment = location.state?.payment;
 
+  // Load Midtrans script ketika payment sudah tersedia
   useEffect(() => {
-    loadMidtransScript()
-      .then(() => setSnapReady(true))
-      .catch((err) => console.error(err));
+    const initializePayment = async () => {
+      try {
+        await loadMidtransScript();
+        setSnapReady(true);
+      } catch (err) {
+        console.error(err);
+      } finally {
+        setIsLoading(false);
+      }
+    };
 
-    setIsLoading(false);
-  }, []);
+    if (payment) {
+      initializePayment();
+    }
+  }, [payment]);
 
   const addPayment = async () => {
     try {
