@@ -12,7 +12,6 @@ const createPayment = async (req, res) => {
     const { mentorId } = req.params;
     const { totalPrice, schedules } = req.body;
     const user = req.user;
-    console.log(user);
     if (!totalPrice || !mentorId || !user) {
       return res.status(400).json({ message: "Missing required data" });
     }

@@ -11,7 +11,7 @@ const mentorsRouter = require("./routes/mentors");
 const sessionsRouter = require("./routes/sessions");
 const paymentRouter = require("./routes/payment");
 const userRouter = require("./routes/users");
-const lessonRouter = require("./routes/lessons");
+const lessonRouter = require('./routes/lessons');
 
 var app = express();
 

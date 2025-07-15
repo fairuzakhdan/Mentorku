@@ -1,14 +1,17 @@
 const Lesson = require("../models/lessons");
 
 const createLesson = async (req, res) => {
+  console.log(req.user);
   const newLesson = {
     topic: req.body.topic,
     videos: req.body.videos,
     articles: req.body.articles,
     mentorId: req.user.id,
   };
+  console.log(newLesson);
   try {
-    const lesson = await Lesson.create(newLesson);
+    const lesson = new Lesson(newLesson);
+    await lesson.save();
     return res.status(201).json({
       status: "success",
       data: lesson,
@@ -19,5 +22,12 @@ const createLesson = async (req, res) => {
     });
   }
 };
+const getAllLesson = async (req, res) => {
+  const lessons = await Lesson.find();
+  return res.status(200).json({
+    status: "success",
+    data: lessons,
+  });
+};
 
-module.exports = { createLesson };
+module.exports = { createLesson, getAllLesson };
