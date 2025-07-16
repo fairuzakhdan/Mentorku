@@ -157,7 +157,7 @@ const Navigation = ({ type, children, onLogout }) => {
                   rounded={'full'}
                 />
                 <Text fontSize={'lg'} fontWeight={'semibold'} color={'gray.500'}>
-                  {authUser.email}
+                  {authUser.email.split('@')[0]}
                 </Text>
               </Stack>
               {activitys.map((activity) => {

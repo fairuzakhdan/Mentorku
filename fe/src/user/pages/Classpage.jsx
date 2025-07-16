@@ -24,23 +24,6 @@ import { getClassForPaymentSuccess } from '../../utils/lessons';
 
 const Classpage = () => {
   const [mentors, setMentors] = useState([]);
-  // const date = getCurrentDateTime(new Date());
-
-  // const data = [
-  //   {
-  //     id: '1',
-  //     name: 'John Doe',
-  //     role: 'Frontend Developer',
-  //     image:
-  //       'https://images.unsplash.com/photo-1623366302587-b38b1ddaefd9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTF8fGVudGVwcmVuZXVyfGVufDB8fDB8fHww',
-  //     linkMeet: 'https://meet.google.com/pre-ztbc-ohe',
-  //     schedules: [
-  //       { days: 'Senin', time: '08.00 - 10.00' },
-  //       { days: 'Rabu', time: '20.00 - 10.00' },
-  //     ],
-  //     date,
-  //   },
-  // ];
   const links = [
     {
       href: '/mentors/class',
@@ -49,7 +32,6 @@ const Classpage = () => {
     },
   ];
   useEffect(() => {
-    // setMentors(data);
     getClassForPaymentSuccess()
       .then(({ data }) => {
         setMentors(data);
@@ -66,11 +48,16 @@ const Classpage = () => {
           {mentors.map((mentor, index) => (
             <Grid templateColumns="repeat(4, 1fr)" gap={2} my={4} key={index}>
               <GridItem colSpan={3}>
-                <CardHorizontal type="image" image={mentor.image} shadow={'sm'} height={120}>
+                <CardHorizontal
+                  type="image"
+                  image={mentor.mentorId.profilePicture.url}
+                  shadow={'sm'}
+                  height={120}
+                >
                   <Text fontSize={'lg'} fontWeight={'bold'} color={'textGreen'}>
                     Mentor On Demand
                   </Text>
-                  <CardHorizontal.Header name={mentor.name} role={mentor.role} />
+                  <CardHorizontal.Header name={mentor.mentorId.name} role={mentor.mentorId.role} />
                   <Flex columnGap={3} flexWrap="wrap">
                     {mentor.schedules.map((schedule, index) => (
                       <Group
@@ -132,7 +119,7 @@ const Classpage = () => {
                     {'Join Meet'}
                     <SiGooglemeet size={20} />
                   </Link>
-                  <LinkRouter to={`/mentors/class/${mentor.id}`}>
+                  <LinkRouter to={`/mentors/class/${mentor.mentorId._id}`}>
                     <Text
                       display={'flex'}
                       px={5}

@@ -10,35 +10,12 @@ import { useEffect, useState } from 'react';
 import { FaTasks } from 'react-icons/fa';
 import CardBox from '../../components/Fragments/CardBox';
 import Modal from '../../components/Fragments/Modal';
+import { getLessonForPaymentSuccessByMentorId } from '../../utils/lessons';
 
 const DetailClasspage = () => {
-  const { classId } = useParams();
+  const { mentorId } = useParams();
   const [activeVideo, setActiveVideo] = useState([]);
-  const modul = [
-    {
-      id: '1',
-      link: 'https://youtu.be/jCb9fpPrxLc?si=72IANTq2kVB8C_-b',
-      title: 'Berpikir Secara Computational Thinking',
-      createdAT: '2023-06-01',
-      owner: 'John Doe',
-    },
-    {
-      id: '2',
-      link: 'https://youtu.be/oa-n-ppT-dk?si=T6Bik5ZkazfzB7j3',
-      title: 'Pengenalan Komputasi',
-      createdAT: '2023-06-01',
-      owner: 'John Doe',
-    },
-  ];
-  const articles = [
-    {
-      id: '1',
-      header: 'Computational Thinking & Problem Solving',
-      title: 'Apa itu computational thinking?',
-      description:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis,ccusamus nihil ducimus quae exercitationem impedit eligendi architecto natus suscipit numquam, blanditiis voluptatibus cupiditate? Eaque , consequuntur accusamus maxime distinctio accusantium, harum nobis expedita minima inventore libero blanditiis voluptatibus cupiditate? Eaque. Esse, temporibus suscipit? Deleniti quo minima voluptas fugit inventore? Omnis provident exercitationem, officia qui consequatur culpa quidem, consequuntur accusamus maxime distinctio accusantium, harum nobis expedita minima inventore libero explicabo perspiciatis. Quos, deserunt. Voluptatem laborum nisi sunt delectus necessitatibus sapiente repellendus magni ipsum laboriosam, pariatur vero optio obcaecati corrupti? Quis, dolore assumenda et ab corrupti culpa. Itaque eveniet sint amet tempore? Quibusdam, enim? Commodi voluptate maiores placeat dolorum unde debitis iste itaque sunt laboriosam temporibus. Numquam at sunt est magni ab reiciendis velit natus, minus eum perspiciatis nemo maxime adipisci explicabo. Autem labore ex atque sit accusantium quae architecto officiis dolorum asperiores a perspiciatis vitae expedita qui placeat libero repellat ipsa illum provident, facilis enim. Expedita impedit velit soluta illum tempora! Ducimus, nihil maiores? Asperiores assumenda voluptatum rerum ipsam tempore cumque, esse aperiam enim modi? Dolor doloremque sed  recusandae quisquam, repellendus itaque consectetur aut tenetur deleniti ipsa officia iste atque voluptatibus! Dolore, beatae velit repudiandae aliquid veritatis expedita temporibus deserunt impedit voluptatem maiores eligendi tenetur ipsum quos earum obcaecati modi praesentium doloribus quia. Inventore maxime ipsam voluptatem maiores hic, exercitationem quaerat! luptatem sunt dicta beatae, voluptate laborum at. Minima, vero. Sapiente ex quisquam mollitia exercitationem cupiditate sint, do Voluptatem sunt dicta beatae, voluptate lab orum at. Minima, vero. Sapiente ex quisquam  tionem quaerat! luptatem sunt dicta beatae, voluptate  vero. Sapiente ex quisquam mollitia exercitationem cupiditate sint, do Voluptatem sunt dicta beatae, voluptate lab oru laborum at. Minima, vero. Sapiente ex quisquam mollitia exercitmollitia exercitationem cupiditate sint, dolore!',
-    },
-  ];
+  const [lessons, setLessons] = useState(null);
   const task = [
     {
       id: '1',
@@ -76,17 +53,23 @@ const DetailClasspage = () => {
       icon: VscFolderLibrary,
     },
     {
-      href: '/mentors/class/' + classId,
+      href: '/mentors/class/' + mentorId,
       title: 'Kelas Saya',
       icon: PiBooksBold,
     },
   ];
   useEffect(() => {
-    if (modul.length > 0) {
-      setActiveVideo(modul[0]);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    getLessonForPaymentSuccessByMentorId(mentorId)
+      .then(({ data }) => {
+        setLessons(data);
+        if (data.videos.length > 0) {
+          setActiveVideo(data.videos[0]);
+        }
+      })
+      .catch(({ error }) => {
+        console.log(error);
+      });
+  }, [mentorId]);
   return (
     <>
       <Navigation type="sidebar">
@@ -104,25 +87,26 @@ const DetailClasspage = () => {
                         <Ratio link={activeVideo.link} title={activeVideo.title} />
                       </GridItem>
                       <GridItem colSpan={1} padding={4} overflowY="auto">
-                        {modul.map((item) => (
-                          <Box
-                            key={item.id}
-                            display={'flex'}
-                            bgColor={activeVideo.id === item.id ? 'green.200' : 'white'}
-                            p={2}
-                            flexDirection={'column'}
-                            mb={4}
-                            onClick={() => setActiveVideo(item)}
-                            cursor={'pointer'}
-                          >
-                            <Text fontWeight="semibold" fontSize="sm">
-                              {item.title}
-                            </Text>
-                            <Box fontSize="xs" color="gray.600">
-                              {item.owner} – {new Date(item.createdAT).toLocaleDateString()}
+                        {lessons &&
+                          lessons.videos.map((item) => (
+                            <Box
+                              key={item._id}
+                              display={'flex'}
+                              bgColor={activeVideo.id === item.id ? 'green.200' : 'white'}
+                              p={2}
+                              flexDirection={'column'}
+                              mb={4}
+                              onClick={() => setActiveVideo(item)}
+                              cursor={'pointer'}
+                            >
+                              <Text fontWeight="semibold" fontSize="sm">
+                                {item.title}
+                              </Text>
+                              <Box fontSize="xs" color="gray.600">
+                                {item.owner} – {new Date(item.createdAT).toLocaleDateString()}
+                              </Box>
                             </Box>
-                          </Box>
-                        ))}
+                          ))}
                       </GridItem>
                     </Grid>
                   ),
@@ -138,19 +122,20 @@ const DetailClasspage = () => {
                       overflowY="auto"
                       maxHeight={450}
                     >
-                      {articles.map((article) => (
-                        <Stack overflowY="auto" p={5} mb={3}>
-                          <Text fontSize="xl" fontWeight="bold" color="textGreen">
-                            {article.header}
-                          </Text>
-                          <Text fontSize="lg" color="gray.600" fontWeight="semibold">
-                            {article.title}
-                          </Text>
-                          <Text fontSize="sm" color="gray.600" textAlign={'justify'}>
-                            {article.description}
-                          </Text>
-                        </Stack>
-                      ))}
+                      {lessons &&
+                        lessons.articles.map((article) => (
+                          <Stack overflowY="auto" p={5} mb={3} key={article._id}>
+                            <Text fontSize="xl" fontWeight="bold" color="textGreen">
+                              {article.header}
+                            </Text>
+                            <Text fontSize="lg" color="gray.600" fontWeight="semibold">
+                              {article.title}
+                            </Text>
+                            <Text fontSize="sm" color="gray.600" textAlign={'justify'}>
+                              {article.description}
+                            </Text>
+                          </Stack>
+                        ))}
                     </Box>
                   ),
                 },
@@ -160,25 +145,23 @@ const DetailClasspage = () => {
                   content: (
                     <Group p={3} gap={5} flexWrap="wrap" justifyContent={'space-between'}>
                       {task.map((task) => (
-                        <>
-                          <CardBox
-                            width={300}
-                            shadow="none"
-                            key={task.id}
-                            hover={{ transform: 'scale(1)', backgroundColor: 'gray' }}
-                            backgroundColor="gray.600"
-                          >
-                            <Flex p={3} alignItems={'center'}>
-                              <FaTasks color="#FFC107" size={20} />
-                              <CardBox.Header name={task.category} fontSize="sm" />
-                            </Flex>
-                            <Modal
-                              label="View Detail Task"
-                              title={task.title}
-                              description={task.description}
-                            />
-                          </CardBox>
-                        </>
+                        <CardBox
+                          width={300}
+                          shadow="none"
+                          key={task.id}
+                          hover={{ transform: 'scale(1)', backgroundColor: 'gray' }}
+                          backgroundColor="gray.600"
+                        >
+                          <Flex p={3} alignItems={'center'}>
+                            <FaTasks color="#FFC107" size={20} />
+                            <CardBox.Header name={task.category} fontSize="sm" />
+                          </Flex>
+                          <Modal
+                            label="View Detail Task"
+                            title={task.title}
+                            description={task.description}
+                          />
+                        </CardBox>
                       ))}
                     </Group>
                   ),

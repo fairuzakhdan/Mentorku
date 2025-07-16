@@ -20,6 +20,14 @@ const lessonSchema = new Schema({
       link: {
         type: String,
       },
+      owner: {
+        type: String,
+      },
+      createdAt: {
+        type: String,
+        default: () =>
+          moment().tz("Asia/Jakarta").format("YYYY-MM-DD HH:mm:ss"),
+      },
     },
   ],
   articles: [

@@ -2,25 +2,71 @@ const Lesson = require("../models/lessons");
 const Payment = require("../models/payment");
 
 const getLessonForSuccessPayment = async (req, res) => {
-  const payment = await Payment.find({ status: "success" }).populate(
-    "mentorId",
-    { select: "profilePicture" }
-  );
-  res.status(200).json({
-    status: "success",
-    data: payment,
-  });
+  try {
+    const payments = await Payment.find({
+      status: "success",
+      userId: req.user.id,
+    }).populate({
+      path: "mentorId",
+      select: "name role profilePicture phone",
+    });
+    res.status(200).json({
+      status: "success",
+      data: payments,
+    });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({
+      status: "error",
+      message: "Gagal mengambil data lesson.",
+    });
+  }
+};
+
+const getLessonsByMentorForUser = async (req, res) => {
+  const { mentorId } = req.params;
+  // const userId = req.user.id;
+
+  try {
+    // const payment = await Payment.findOne({
+    //   userId,
+    //   status: "success",
+    //   // mentorId,
+    // });
+
+    // if (!payment) {
+    //   return res.status(403).json({
+    //     status: "forbidden",
+    //     message: "Akses ditolak, belum membayar mentor ini",
+    //   });
+    // }
+    const lessons = await Lesson.findOne({ mentorId });
+
+    return res.status(200).json({
+      status: "success",
+      data: lessons,
+    });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({
+      status: "error",
+      message: "Gagal mengambil data lesson",
+    });
+  }
 };
 
 const createLesson = async (req, res) => {
-  console.log(req.user);
+  const { topic, videos, articles } = req.body;
+  const videosWithOwner = videos.map((video) => ({
+    ...video,
+    owner: req.user.email.split("@")[0],
+  }));
   const newLesson = {
-    topic: req.body.topic,
-    videos: req.body.videos,
-    articles: req.body.articles,
+    topic,
+    videos: videosWithOwner,
+    articles,
     mentorId: req.user.id,
   };
-  console.log(newLesson);
   try {
     const lesson = new Lesson(newLesson);
     await lesson.save();
@@ -42,4 +88,9 @@ const getAllLesson = async (req, res) => {
   });
 };
 
-module.exports = { getLessonForSuccessPayment, createLesson, getAllLesson };
+module.exports = {
+  getLessonForSuccessPayment,
+  getLessonsByMentorForUser,
+  createLesson,
+  getAllLesson,
+};

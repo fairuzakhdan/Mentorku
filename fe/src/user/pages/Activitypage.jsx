@@ -72,7 +72,7 @@ const Activitypage = () => {
           </Group>
         </Flex>
         <Box backgroundColor={'textGreen'} p={5} mt={5} rounded={'lg'}>
-          <Text fontSize={'2xl'}>Hallo, {authUser.email} !</Text>
+          <Text fontSize={'2xl'}>Hallo, {authUser.email.split('@')[0]} !</Text>
           <Text fontSize={'xl'} mt={3}>
             Mulai Belajar lagi, Kumpulkan SkillPoin dan Skillbadge dari Mentorku
           </Text>

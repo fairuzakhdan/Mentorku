@@ -194,7 +194,7 @@ const App = () => {
             }
           />
           <Route
-            path="/mentors/class/:classId"
+            path="/mentors/class/:mentorId"
             element={
               <ProtectedRoute>
                 <DetailClasspage />
