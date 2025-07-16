@@ -2,7 +2,10 @@ const Lesson = require("../models/lessons");
 const Payment = require("../models/payment");
 
 const getLessonForSuccessPayment = async (req, res) => {
-  const payment = await Payment.find({ status: "success" });
+  const payment = await Payment.find({ status: "success" }).populate(
+    "mentorId",
+    { select: "profilePicture" }
+  );
   res.status(200).json({
     status: "success",
     data: payment,

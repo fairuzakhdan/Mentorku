@@ -16,7 +16,6 @@ import { useEffect, useState } from 'react';
 import { Link } from '@chakra-ui/react';
 import { SiGooglemeet } from 'react-icons/si';
 import { GiRead } from 'react-icons/gi';
-import { getCurrentDateTime } from '../../utils/date';
 import BreadcrumbLink from '../../components/Fragments/Breadcrumb';
 import { VscFolderLibrary } from 'react-icons/vsc';
 import { PiBooksBold } from 'react-icons/pi';
@@ -56,7 +55,7 @@ const Classpage = () => {
         setMentors(data);
       })
       .catch((err) => {
-        console.log(err);
+        console.log(err.error);
       });
   }, []);
   return (
