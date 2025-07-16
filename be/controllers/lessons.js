@@ -47,7 +47,6 @@ const getLessonsByMentorForUser = async (req, res) => {
       data: lessons,
     });
   } catch (error) {
-    console.error(error);
     return res.status(500).json({
       status: "error",
       message: "Gagal mengambil data lesson",

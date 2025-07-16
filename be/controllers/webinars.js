@@ -1,5 +1,5 @@
 const Webinar = require("../models/webinars");
-
+const Payment = require("../models/payment");
 const createWebinar = async (req, res) => {
   try {
     const webinarBody = {
@@ -24,4 +24,30 @@ const createWebinar = async (req, res) => {
   }
 };
 
-module.exports = { createWebinar };
+const getAllWebinar = async (req, res) => {
+  const webinars = await Webinar.find();
+  res.status(200).json({
+    status: "success",
+    data: webinars,
+  });
+};
+
+const getAllWebinarByStatusSuccess = async (req, res) => {
+  try {
+    const webinars = await Webinar.find();
+
+    return res.status(200).json({
+      status: "success",
+      data: webinars,
+    });
+  } catch (err) {
+    console.error("Error getAllWebinarByStatusSuccess:", err);
+    return res.status(500).json({
+      status: "failed",
+      message: "Terjadi kesalahan pada server",
+      data: null,
+    });
+  }
+};
+
+module.exports = { createWebinar, getAllWebinar, getAllWebinarByStatusSuccess };

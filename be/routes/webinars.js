@@ -2,7 +2,14 @@ const express = require("express");
 const router = express.Router();
 const webinars = require("../controllers/webinars");
 const verifyToken = require("../middlewares/verifyToken");
+const paymentSuccess = require("../middlewares/paymentSuccess");
+router
+  .route("/")
+  .post(verifyToken, webinars.createWebinar)
+  .get(webinars.getAllWebinar);
 
-router.route("/").post(verifyToken, webinars.createWebinar);
+router
+  .route("/success")
+  .get(verifyToken, paymentSuccess, webinars.getAllWebinarByStatusSuccess);
 
 module.exports = router;
