@@ -21,26 +21,27 @@ import BreadcrumbLink from '../../components/Fragments/Breadcrumb';
 import { VscFolderLibrary } from 'react-icons/vsc';
 import { PiBooksBold } from 'react-icons/pi';
 import { Link as LinkRouter } from 'react-router';
+import { getClassForPaymentSuccess } from '../../utils/lessons';
 
 const Classpage = () => {
   const [mentors, setMentors] = useState([]);
-  const date = getCurrentDateTime(new Date());
+  // const date = getCurrentDateTime(new Date());
 
-  const data = [
-    {
-      id: '1',
-      name: 'John Doe',
-      role: 'Frontend Developer',
-      image:
-        'https://images.unsplash.com/photo-1623366302587-b38b1ddaefd9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTF8fGVudGVwcmVuZXVyfGVufDB8fDB8fHww',
-      linkMeet: 'https://meet.google.com/pre-ztbc-ohe',
-      schedules: [
-        { days: 'Senin', time: '08.00 - 10.00' },
-        { days: 'Rabu', time: '20.00 - 10.00' },
-      ],
-      date,
-    },
-  ];
+  // const data = [
+  //   {
+  //     id: '1',
+  //     name: 'John Doe',
+  //     role: 'Frontend Developer',
+  //     image:
+  //       'https://images.unsplash.com/photo-1623366302587-b38b1ddaefd9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTF8fGVudGVwcmVuZXVyfGVufDB8fDB8fHww',
+  //     linkMeet: 'https://meet.google.com/pre-ztbc-ohe',
+  //     schedules: [
+  //       { days: 'Senin', time: '08.00 - 10.00' },
+  //       { days: 'Rabu', time: '20.00 - 10.00' },
+  //     ],
+  //     date,
+  //   },
+  // ];
   const links = [
     {
       href: '/mentors/class',
@@ -49,8 +50,14 @@ const Classpage = () => {
     },
   ];
   useEffect(() => {
-    setMentors(data);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    // setMentors(data);
+    getClassForPaymentSuccess()
+      .then(({ data }) => {
+        setMentors(data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }, []);
   return (
     <Navigation type="sidebar">

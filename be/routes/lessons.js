@@ -8,4 +8,6 @@ router
   .post(verifyToken, lessons.createLesson)
   .get(verifyToken, lessons.getAllLesson);
 
+router.route("/class").get(verifyToken, lessons.getLessonForSuccessPayment);
+
 module.exports = router;

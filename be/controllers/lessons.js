@@ -1,4 +1,13 @@
 const Lesson = require("../models/lessons");
+const Payment = require("../models/payment");
+
+const getLessonForSuccessPayment = async (req, res) => {
+  const payment = await Payment.find({ status: "success" });
+  res.status(200).json({
+    status: "success",
+    data: payment,
+  });
+};
 
 const createLesson = async (req, res) => {
   console.log(req.user);
@@ -30,4 +39,4 @@ const getAllLesson = async (req, res) => {
   });
 };
 
-module.exports = { createLesson, getAllLesson };
+module.exports = { getLessonForSuccessPayment, createLesson, getAllLesson };
