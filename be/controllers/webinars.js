@@ -34,7 +34,10 @@ const getAllWebinar = async (req, res) => {
 
 const getAllWebinarByStatusSuccess = async (req, res) => {
   try {
-    const webinars = await Webinar.find();
+    const webinars = await Webinar.find().populate({
+      path: "mentorId",
+      select: "profilePicture",
+    });
 
     return res.status(200).json({
       status: "success",

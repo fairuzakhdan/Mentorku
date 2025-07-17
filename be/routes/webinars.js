@@ -6,7 +6,7 @@ const paymentSuccess = require("../middlewares/paymentSuccess");
 router
   .route("/")
   .post(verifyToken, webinars.createWebinar)
-  .get(webinars.getAllWebinar);
+  .get(verifyToken, webinars.getAllWebinar);
 
 router
   .route("/success")

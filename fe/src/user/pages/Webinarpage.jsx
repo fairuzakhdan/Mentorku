@@ -77,12 +77,14 @@ const Webinarpage = () => {
   useEffect(() => {
     getAllWebinarByPayment()
       .then(({ data }) => {
-        console.log(data);
+        if (data.length > 0) {
+          setWebinars(data);
+        }
       })
       .catch((err) => {
         console.log(err);
       });
-  });
+  }, []);
   return (
     <Navigation type="sidebar">
       <Box marginLeft="10" marginRight="16" color="textBlue" mt={5}>
@@ -100,7 +102,12 @@ const Webinarpage = () => {
                 }}
               >
                 <Group p={3}>
-                  <Image src={webinar.image} width={100} height={150} rounded={'full'} />
+                  <Image
+                    src={webinar.mentorId.profilePicture.url}
+                    width={100}
+                    height={150}
+                    rounded={'full'}
+                  />
                   <Stack>
                     <CardBox.Header fontSize="lg" name={webinar.title} />
                     <Text textAlign={'end'} fontSize={'sm'} ml={5} color={'gray.200'}>

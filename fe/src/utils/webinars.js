@@ -8,3 +8,12 @@ export const getAllWebinarByPayment = async () => {
   }
   return { error: false, data: responseJson.data };
 };
+
+export const getAllWebinar = async () => {
+  const response = await fetchWithToken(`${api}/webinars`);
+  const responseJson = await response.json();
+  if (responseJson.status !== 'success') {
+    return { error: true, data: null };
+  }
+  return { error: false, data: responseJson.data };
+};
