@@ -11,7 +11,7 @@ const AddWebinarMentorpage = () => {
       .then(({ data }) => {
         const { error } = data;
         if (error) return;
-        alert('webinar success ditambahkan');
+        alert('Webinar success ditambahkan');
         navigate('/webinars');
       })
       .catch((error) => {

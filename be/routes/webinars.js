@@ -14,6 +14,7 @@ router
 
 router
   .route("/:webinarId")
+  .get(verifyToken, webinars.getWebinarById)
   .delete(verifyToken, webinars.deleteWebinarById)
   .put(verifyToken, webinars.updateWebinarById);
 

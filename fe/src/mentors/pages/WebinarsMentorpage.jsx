@@ -6,6 +6,7 @@ import AddButton from '../../shared/components/AddButon';
 import { useState, useEffect } from 'react';
 import { getAllWebinar } from '../../utils/webinars';
 import { deleteWebinarById } from '../../utils/webinars';
+
 const WebinarMentorpage = () => {
   const [webinars, setWebinars] = useState([]);
   const headers = ['Topic', 'LinkWebinar', 'Date', 'Time', 'Description'];
@@ -23,7 +24,6 @@ const WebinarMentorpage = () => {
     deleteWebinarById(webinarId)
       .then(({ error }) => {
         if (!error) {
-          // Filter item yang tidak dihapus
           setWebinars((prev) => prev.filter((webinar) => webinar._id !== webinarId));
         }
       })
@@ -31,6 +31,7 @@ const WebinarMentorpage = () => {
         console.log(error);
       });
   };
+
   return (
     <Sidebar type={'mentor'}>
       <Box color={'textBlue'}>

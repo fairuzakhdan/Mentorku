@@ -9,6 +9,14 @@ export const getAllWebinarByPayment = async () => {
   return { error: false, data: responseJson.data };
 };
 
+export const getWebinarById = async (webinarId) => {
+  const response = await fetchWithToken(`${api}/webinars/${webinarId}`);
+  const responseJson = await response.json();
+  if (responseJson.status !== 'success') {
+    return { error: true, data: null };
+  }
+  return { error: false, data: responseJson.data };
+};
 export const getAllWebinar = async () => {
   const response = await fetchWithToken(`${api}/webinars`);
   const responseJson = await response.json();
@@ -45,4 +53,19 @@ export const deleteWebinarById = async (webinarId) => {
     return { error: true, data: null };
   }
   return { error: false, data: responseJson.data };
+};
+
+export const updateWebinarById = async (webinarId, body) => {
+  const response = await fetchWithToken(`${api}/webinars/${webinarId}`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(body),
+  });
+  const responseJson = await response.json();
+  if (responseJson.status !== 'success') {
+    return { error: true, data: null };
+  }
+  return { error: false, message: responseJson.message };
 };

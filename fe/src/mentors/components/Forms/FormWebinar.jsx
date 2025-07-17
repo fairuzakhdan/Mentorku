@@ -5,10 +5,8 @@ import { useEffect } from 'react';
 import { Stack, Flex, Button } from '@chakra-ui/react';
 
 const FormWebinar = ({ initialData = {}, type = 'add', onSubmit }) => {
-  const [topic, onChangeTopic, setTopic] = useInput(initialData.topic || '');
-  const [linkWebinar, onChangeLinkWebinar, setLinkWebinar] = useInput(
-    initialData.linkWebinar || '',
-  );
+  const [topic, onChangeTopic, setTopic] = useInput(initialData.title || '');
+  const [linkWebinar, onChangeLinkWebinar, setLinkWebinar] = useInput(initialData.linkMeet || '');
   const [date, onChangeDate, setDate] = useInput(initialData.date || '');
   const [time, onChangeTime, setTime] = useInput(initialData.time || '');
   const [description, onChangeDescription, setDescription] = useInput(
@@ -16,24 +14,21 @@ const FormWebinar = ({ initialData = {}, type = 'add', onSubmit }) => {
   );
 
   const handleSubmit = () => {
-    onSubmit({
-      topic,
-      linkWebinar,
-      date,
-      time,
-      description,
-    });
+    const data = { topic, linkWebinar, date, time, description };
+    onSubmit(data);
   };
+
   useEffect(() => {
-    if (type === 'edit') {
-      setTopic(initialData.topic);
-      setLinkWebinar(initialData.linkWebinar);
-      setDate(initialData.date);
-      setTime(initialData.time);
-      setDescription(initialData.description);
+    if (type === 'edit' && initialData && Object.keys(initialData).length > 0) {
+      setTopic(initialData.title || '');
+      setLinkWebinar(initialData.linkMeet || '');
+      setDate(initialData.date || '');
+      setTime(initialData.time || '');
+      setDescription(initialData.description || '');
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [initialData]);
+  }, [initialData, type]);
+  // console.log({ topic, linkWebinar, date, time, description });
   return (
     <Stack rowGap={7} color={'textBlue'}>
       <Flex columnGap={5}>
