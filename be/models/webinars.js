@@ -16,8 +16,11 @@ const webinarSchema = new Schema({
     type: String,
     required: true,
   },
-  datetime: {
-    type: Date,
+  date: {
+    type: String,
+  },
+  time: {
+    type: String,
   },
   linkMeet: {
     type: String,

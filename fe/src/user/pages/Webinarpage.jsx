@@ -111,7 +111,7 @@ const Webinarpage = () => {
                   <Stack>
                     <CardBox.Header fontSize="lg" name={webinar.title} />
                     <Text textAlign={'end'} fontSize={'sm'} ml={5} color={'gray.200'}>
-                      {webinar.datetime}
+                      {`${webinar.date}/${webinar.time}`}
                     </Text>
                     <Link
                       href={webinar.linkMeet}

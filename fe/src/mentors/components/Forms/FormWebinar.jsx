@@ -1,11 +1,10 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import FormInput from '../../../components/Elements/FormInput';
 import { FormTextArea } from '../../../components/Elements/FormInput';
 import useInput from '../../../hooks/useInput';
 import { useEffect } from 'react';
-import { Stack, Box, Flex, Text, Button } from '@chakra-ui/react';
+import { Stack, Flex, Button } from '@chakra-ui/react';
+
 const FormWebinar = ({ initialData = {}, type = 'add', onSubmit }) => {
-  console.log(initialData.topic);
   const [topic, onChangeTopic, setTopic] = useInput(initialData.topic || '');
   const [linkWebinar, onChangeLinkWebinar, setLinkWebinar] = useInput(
     initialData.linkWebinar || '',
@@ -33,6 +32,7 @@ const FormWebinar = ({ initialData = {}, type = 'add', onSubmit }) => {
       setTime(initialData.time);
       setDescription(initialData.description);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [initialData]);
   return (
     <Stack rowGap={7} color={'textBlue'}>

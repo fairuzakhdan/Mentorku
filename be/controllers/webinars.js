@@ -1,17 +1,26 @@
 const Webinar = require("../models/webinars");
 const Payment = require("../models/payment");
+const moment = require("moment-timezone");
+
 const createWebinar = async (req, res) => {
   try {
+    const formattedDate = moment
+      .tz(req.body.date, "Asia/Jakarta")
+      .format("YYYY-MM-DD"); // ⬅️ hanya tanggal saja
+
     const webinarBody = {
       title: req.body.title,
       description: req.body.description,
-      datetime: req.body.datetime,
-      linkMeet: req.body.datetime,
+      date: formattedDate, // ⬅️ simpan sebagai string "2025-07-17"
+      time: req.body.time,
+      linkMeet: req.body.linkMeet,
       mentorId: req.user.id,
     };
+
     const webinar = new Webinar(webinarBody);
     await webinar.save();
-    res.status(201).json({
+
+    return res.status(201).json({
       status: "success",
       data: webinar,
     });
@@ -25,17 +34,21 @@ const createWebinar = async (req, res) => {
 };
 
 const getAllWebinar = async (req, res) => {
-  const webinars = await Webinar.find({ mentorId: req.user.id });
-  if (!webinars) {
-    res.status(404).json({
+  try {
+    const webinars = await Webinar.find({ mentorId: req.user.id });
+    return res.status(200).json({
+      status: "success",
+      data: webinars,
+    });
+  } catch (error) {
+    console.error("Gagal mengambil data webinar:", error);
+
+    return res.status(500).json({
       status: "failed",
+      message: "Terjadi kesalahan pada server",
       data: null,
     });
   }
-  res.status(200).json({
-    status: "success",
-    data: webinars,
-  });
 };
 
 const getAllWebinarByStatusSuccess = async (req, res) => {
@@ -59,4 +72,40 @@ const getAllWebinarByStatusSuccess = async (req, res) => {
   }
 };
 
-module.exports = { createWebinar, getAllWebinar, getAllWebinarByStatusSuccess };
+const deleteWebinarById = async (req, res) => {
+  const { webinarId } = req.params;
+
+  try {
+    const webinar = await Webinar.findOne({
+      _id: webinarId,
+      mentorId: req.user.id,
+    });
+
+    if (!webinar) {
+      return res.status(403).json({
+        status: "failed",
+        message: "Not Authorized or Webinar not found",
+      });
+    }
+
+    await webinar.deleteOne();
+
+    return res.status(200).json({
+      status: "success",
+      message: "Webinar successfully deleted",
+    });
+  } catch (error) {
+    return res.status(500).json({
+      status: "error",
+      message: "Something went wrong",
+      error: error.message,
+    });
+  }
+};
+
+module.exports = {
+  createWebinar,
+  getAllWebinar,
+  getAllWebinarByStatusSuccess,
+  deleteWebinarById,
+};
