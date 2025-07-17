@@ -25,7 +25,13 @@ const createWebinar = async (req, res) => {
 };
 
 const getAllWebinar = async (req, res) => {
-  const webinars = await Webinar.find();
+  const webinars = await Webinar.find({ mentorId: req.user.id });
+  if (!webinars) {
+    res.status(404).json({
+      status: "failed",
+      data: null,
+    });
+  }
   res.status(200).json({
     status: "success",
     data: webinars,
