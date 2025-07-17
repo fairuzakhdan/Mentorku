@@ -15,7 +15,11 @@ import BreadcrumbLink from '../../components/Fragments/Breadcrumb';
 import { VscFolderLibrary } from 'react-icons/vsc';
 import CardBox from '../../components/Fragments/CardBox';
 import CircleBadge from '../../components/Elements/Badge';
+import { getAllWebinarByPayment } from '../../utils/webinars';
+import { useEffect, useState } from 'react';
+
 const Webinarpage = () => {
+  const [webinars, setWebinars] = useState([]);
   const links = [
     {
       title: 'Webinar',
@@ -23,53 +27,62 @@ const Webinarpage = () => {
       icon: VscFolderLibrary,
     },
   ];
-  const webinars = [
-    {
-      title: 'Persiapan Karir diera digital',
-      image:
-        'https://images.unsplash.com/photo-1742119971773-57e0131095b0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NjZ8fGVudGVwcmVuZXVyfGVufDB8fDB8fHww',
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora, odio esse inventore similique tempore dolore autem eum? Similique dolor veritatis voluptatem tenetur deserunt quibusdam ut laborum mollitia, vitae ea! Beatae. Mollitia, magni aliquid porro accusamus unde neque! Soluta repellat enim molestias officiis nesciunt quae in tempora odit voluptatem corrupti, possimus repudiandae sequi sint beatae architecto alias nam facilis minus Aperiam officia eos accusantium distinctio quaerat? Dolores repellat quia distinctio placeat aperiam, deleniti iure eos magnam maxime, voluptatem qui ipsum porro nisi recusandae. Deserunt officiis facilis, molestias fuga ea nemo. Atque est accusantium sed quam impedit corrupti facere eos itaque quaerat. Alias molestiae quis dicta ratione hic sint culpa tempora quia consequatur expedita. Nesciunt, error distinctio at quod facere sunt. Neque dignissimos ipsum, exercitationem possimus aliquid odio, tempora corrupti necessitatibus optio expedita nobis unde aut aliquam illo et quae adipisci assumenda, dolor pariatur accusantium. Unde placeat neque dignissimos debitis vel. rem',
-      datetime: '5/07/2025',
-      linkMeet: 'https://meet.google.com/pre-ztbc-ohe',
-    },
-    {
-      title: 'Persiapan Karir diera digital',
-      image:
-        'https://images.unsplash.com/photo-1742119971773-57e0131095b0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NjZ8fGVudGVwcmVuZXVyfGVufDB8fDB8fHww',
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora, odio esse inventore similique tempore dolore autem eum? Similique dolor veritatis voluptatem tenetur deserunt quibusdam ut laborum mollitia, vitae ea! Beatae. Mollitia, magni aliquid porro accusamus unde neque! Soluta repellat enim molestias officiis nesciunt quae in tempora odit voluptatem corrupti, possimus repudiandae sequi sint beatae architecto alias nam facilis minus Aperiam officia eos accusantium distinctio quaerat? Dolores repellat quia distinctio placeat aperiam, deleniti iure eos magnam maxime, voluptatem qui ipsum porro nisi recusandae. Deserunt officiis facilis, molestias fuga ea nemo. Atque est accusantium sed quam impedit corrupti facere eos itaque quaerat. Alias molestiae quis dicta ratione hic sint culpa tempora quia consequatur expedita. Nesciunt, error distinctio at quod facere sunt. Neque dignissimos ipsum, exercitationem possimus aliquid odio, tempora corrupti necessitatibus optio expedita nobis unde aut aliquam illo et quae adipisci assumenda, dolor pariatur accusantium. Unde placeat neque dignissimos debitis vel. rem',
-      datetime: '5/07/2025',
-      linkMeet: 'https://meet.google.com/pre-ztbc-ohe',
-    },
-    {
-      title: 'Persiapan Karir diera digital',
-      image:
-        'https://images.unsplash.com/photo-1742119971773-57e0131095b0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NjZ8fGVudGVwcmVuZXVyfGVufDB8fDB8fHww',
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora, odio esse inventore similique tempore dolore autem eum? Similique dolor veritatis voluptatem tenetur deserunt quibusdam ut laborum mollitia, vitae ea! Beatae. Mollitia, magni aliquid porro accusamus unde neque! Soluta repellat enim molestias officiis nesciunt quae in tempora odit voluptatem corrupti, possimus repudiandae sequi sint beatae architecto alias nam facilis minus Aperiam officia eos accusantium distinctio quaerat? Dolores repellat quia distinctio placeat aperiam, deleniti iure eos magnam maxime, voluptatem qui ipsum porro nisi recusandae. Deserunt officiis facilis, molestias fuga ea nemo. Atque est accusantium sed quam impedit corrupti facere eos itaque quaerat. Alias molestiae quis dicta ratione hic sint culpa tempora quia consequatur expedita. Nesciunt, error distinctio at quod facere sunt. Neque dignissimos ipsum, exercitationem possimus aliquid odio, tempora corrupti necessitatibus optio expedita nobis unde aut aliquam illo et quae adipisci assumenda, dolor pariatur accusantium. Unde placeat neque dignissimos debitis vel. rem',
-      datetime: '5/07/2025',
-      linkMeet: 'https://meet.google.com/pre-ztbc-ohe',
-    },
-    {
-      title: 'Persiapan Karir diera digital',
-      image:
-        'https://images.unsplash.com/photo-1742119971773-57e0131095b0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NjZ8fGVudGVwcmVuZXVyfGVufDB8fDB8fHww',
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora, odio esse inventore similique tempore dolore autem eum? Similique dolor veritatis voluptatem tenetur deserunt quibusdam ut laborum mollitia, vitae ea! Beatae. Mollitia, magni aliquid porro accusamus unde neque! Soluta repellat enim molestias officiis nesciunt quae in tempora odit voluptatem corrupti, possimus repudiandae sequi sint beatae architecto alias nam facilis minus Aperiam officia eos accusantium distinctio quaerat? Dolores repellat quia distinctio placeat aperiam, deleniti iure eos magnam maxime, voluptatem qui ipsum porro nisi recusandae. Deserunt officiis facilis, molestias fuga ea nemo. Atque est accusantium sed quam impedit corrupti facere eos itaque quaerat. Alias molestiae quis dicta ratione hic sint culpa tempora quia consequatur expedita. Nesciunt, error distinctio at quod facere sunt. Neque dignissimos ipsum, exercitationem possimus aliquid odio, tempora corrupti necessitatibus optio expedita nobis unde aut aliquam illo et quae adipisci assumenda, dolor pariatur accusantium. Unde placeat neque dignissimos debitis vel. rem',
-      datetime: '5/07/2025',
-      linkMeet: 'https://meet.google.com/pre-ztbc-ohe',
-    },
-    {
-      title: 'Persiapan Karir diera digital',
-      image:
-        'https://images.unsplash.com/photo-1742119971773-57e0131095b0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NjZ8fGVudGVwcmVuZXVyfGVufDB8fDB8fHww',
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora, odio esse inventore similique tempore dolore autem eum? Similique dolor veritatis voluptatem tenetur deserunt quibusdam ut laborum mollitia, vitae ea! Beatae. Mollitia, magni aliquid porro accusamus unde neque! Soluta repellat enim molestias officiis nesciunt quae in tempora odit voluptatem corrupti, possimus repudiandae sequi sint beatae architecto alias nam facilis minus Aperiam officia eos accusantium distinctio quaerat? Dolores repellat quia distinctio placeat aperiam, deleniti iure eos magnam maxime, voluptatem qui ipsum porro nisi recusandae. Deserunt officiis facilis, molestias fuga ea nemo. Atque est accusantium sed quam impedit corrupti facere eos itaque quaerat. Alias molestiae quis dicta ratione hic sint culpa tempora quia consequatur expedita. Nesciunt, error distinctio at quod facere sunt. Neque dignissimos ipsum, exercitationem possimus aliquid odio, tempora corrupti necessitatibus optio expedita nobis unde aut aliquam illo et quae adipisci assumenda, dolor pariatur accusantium. Unde placeat neque dignissimos debitis vel. rem',
-      datetime: '5/07/2025',
-      linkMeet: 'https://meet.google.com/pre-ztbc-ohe',
-    },
-  ];
+  // const webinars = [
+  //   {
+  //     title: 'Persiapan Karir diera digital',
+  //     image:
+  //       'https://images.unsplash.com/photo-1742119971773-57e0131095b0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NjZ8fGVudGVwcmVuZXVyfGVufDB8fDB8fHww',
+  //     description:
+  //       'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora, odio esse inventore similique tempore dolore autem eum? Similique dolor veritatis voluptatem tenetur deserunt quibusdam ut laborum mollitia, vitae ea! Beatae. Mollitia, magni aliquid porro accusamus unde neque! Soluta repellat enim molestias officiis nesciunt quae in tempora odit voluptatem corrupti, possimus repudiandae sequi sint beatae architecto alias nam facilis minus Aperiam officia eos accusantium distinctio quaerat? Dolores repellat quia distinctio placeat aperiam, deleniti iure eos magnam maxime, voluptatem qui ipsum porro nisi recusandae. Deserunt officiis facilis, molestias fuga ea nemo. Atque est accusantium sed quam impedit corrupti facere eos itaque quaerat. Alias molestiae quis dicta ratione hic sint culpa tempora quia consequatur expedita. Nesciunt, error distinctio at quod facere sunt. Neque dignissimos ipsum, exercitationem possimus aliquid odio, tempora corrupti necessitatibus optio expedita nobis unde aut aliquam illo et quae adipisci assumenda, dolor pariatur accusantium. Unde placeat neque dignissimos debitis vel. rem',
+  //     datetime: '5/07/2025',
+  //     linkMeet: 'https://meet.google.com/pre-ztbc-ohe',
+  //   },
+  //   {
+  //     title: 'Persiapan Karir diera digital',
+  //     image:
+  //       'https://images.unsplash.com/photo-1742119971773-57e0131095b0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NjZ8fGVudGVwcmVuZXVyfGVufDB8fDB8fHww',
+  //     description:
+  //       'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora, odio esse inventore similique tempore dolore autem eum? Similique dolor veritatis voluptatem tenetur deserunt quibusdam ut laborum mollitia, vitae ea! Beatae. Mollitia, magni aliquid porro accusamus unde neque! Soluta repellat enim molestias officiis nesciunt quae in tempora odit voluptatem corrupti, possimus repudiandae sequi sint beatae architecto alias nam facilis minus Aperiam officia eos accusantium distinctio quaerat? Dolores repellat quia distinctio placeat aperiam, deleniti iure eos magnam maxime, voluptatem qui ipsum porro nisi recusandae. Deserunt officiis facilis, molestias fuga ea nemo. Atque est accusantium sed quam impedit corrupti facere eos itaque quaerat. Alias molestiae quis dicta ratione hic sint culpa tempora quia consequatur expedita. Nesciunt, error distinctio at quod facere sunt. Neque dignissimos ipsum, exercitationem possimus aliquid odio, tempora corrupti necessitatibus optio expedita nobis unde aut aliquam illo et quae adipisci assumenda, dolor pariatur accusantium. Unde placeat neque dignissimos debitis vel. rem',
+  //     datetime: '5/07/2025',
+  //     linkMeet: 'https://meet.google.com/pre-ztbc-ohe',
+  //   },
+  //   {
+  //     title: 'Persiapan Karir diera digital',
+  //     image:
+  //       'https://images.unsplash.com/photo-1742119971773-57e0131095b0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NjZ8fGVudGVwcmVuZXVyfGVufDB8fDB8fHww',
+  //     description:
+  //       'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora, odio esse inventore similique tempore dolore autem eum? Similique dolor veritatis voluptatem tenetur deserunt quibusdam ut laborum mollitia, vitae ea! Beatae. Mollitia, magni aliquid porro accusamus unde neque! Soluta repellat enim molestias officiis nesciunt quae in tempora odit voluptatem corrupti, possimus repudiandae sequi sint beatae architecto alias nam facilis minus Aperiam officia eos accusantium distinctio quaerat? Dolores repellat quia distinctio placeat aperiam, deleniti iure eos magnam maxime, voluptatem qui ipsum porro nisi recusandae. Deserunt officiis facilis, molestias fuga ea nemo. Atque est accusantium sed quam impedit corrupti facere eos itaque quaerat. Alias molestiae quis dicta ratione hic sint culpa tempora quia consequatur expedita. Nesciunt, error distinctio at quod facere sunt. Neque dignissimos ipsum, exercitationem possimus aliquid odio, tempora corrupti necessitatibus optio expedita nobis unde aut aliquam illo et quae adipisci assumenda, dolor pariatur accusantium. Unde placeat neque dignissimos debitis vel. rem',
+  //     datetime: '5/07/2025',
+  //     linkMeet: 'https://meet.google.com/pre-ztbc-ohe',
+  //   },
+  //   {
+  //     title: 'Persiapan Karir diera digital',
+  //     image:
+  //       'https://images.unsplash.com/photo-1742119971773-57e0131095b0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NjZ8fGVudGVwcmVuZXVyfGVufDB8fDB8fHww',
+  //     description:
+  //       'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora, odio esse inventore similique tempore dolore autem eum? Similique dolor veritatis voluptatem tenetur deserunt quibusdam ut laborum mollitia, vitae ea! Beatae. Mollitia, magni aliquid porro accusamus unde neque! Soluta repellat enim molestias officiis nesciunt quae in tempora odit voluptatem corrupti, possimus repudiandae sequi sint beatae architecto alias nam facilis minus Aperiam officia eos accusantium distinctio quaerat? Dolores repellat quia distinctio placeat aperiam, deleniti iure eos magnam maxime, voluptatem qui ipsum porro nisi recusandae. Deserunt officiis facilis, molestias fuga ea nemo. Atque est accusantium sed quam impedit corrupti facere eos itaque quaerat. Alias molestiae quis dicta ratione hic sint culpa tempora quia consequatur expedita. Nesciunt, error distinctio at quod facere sunt. Neque dignissimos ipsum, exercitationem possimus aliquid odio, tempora corrupti necessitatibus optio expedita nobis unde aut aliquam illo et quae adipisci assumenda, dolor pariatur accusantium. Unde placeat neque dignissimos debitis vel. rem',
+  //     datetime: '5/07/2025',
+  //     linkMeet: 'https://meet.google.com/pre-ztbc-ohe',
+  //   },
+  //   {
+  //     title: 'Persiapan Karir diera digital',
+  //     image:
+  //       'https://images.unsplash.com/photo-1742119971773-57e0131095b0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NjZ8fGVudGVwcmVuZXVyfGVufDB8fDB8fHww',
+  //     description:
+  //       'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora, odio esse inventore similique tempore dolore autem eum? Similique dolor veritatis voluptatem tenetur deserunt quibusdam ut laborum mollitia, vitae ea! Beatae. Mollitia, magni aliquid porro accusamus unde neque! Soluta repellat enim molestias officiis nesciunt quae in tempora odit voluptatem corrupti, possimus repudiandae sequi sint beatae architecto alias nam facilis minus Aperiam officia eos accusantium distinctio quaerat? Dolores repellat quia distinctio placeat aperiam, deleniti iure eos magnam maxime, voluptatem qui ipsum porro nisi recusandae. Deserunt officiis facilis, molestias fuga ea nemo. Atque est accusantium sed quam impedit corrupti facere eos itaque quaerat. Alias molestiae quis dicta ratione hic sint culpa tempora quia consequatur expedita. Nesciunt, error distinctio at quod facere sunt. Neque dignissimos ipsum, exercitationem possimus aliquid odio, tempora corrupti necessitatibus optio expedita nobis unde aut aliquam illo et quae adipisci assumenda, dolor pariatur accusantium. Unde placeat neque dignissimos debitis vel. rem',
+  //     datetime: '5/07/2025',
+  //     linkMeet: 'https://meet.google.com/pre-ztbc-ohe',
+  //   },
+  // ];
+  useEffect(() => {
+    getAllWebinarByPayment()
+      .then(({ data }) => {
+        console.log(data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  });
   return (
     <Navigation type="sidebar">
       <Box marginLeft="10" marginRight="16" color="textBlue" mt={5}>

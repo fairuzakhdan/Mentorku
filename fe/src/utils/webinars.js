@@ -1,6 +1,6 @@
 import { api, fetchWithToken } from './api';
 
-const getAllWebinarByPayment = async () => {
+export const getAllWebinarByPayment = async () => {
   const response = await fetchWithToken(`${api}/webinars/success`);
   const responseJson = await response.json();
   if (responseJson.status !== 'success') {
