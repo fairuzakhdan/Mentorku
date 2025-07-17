@@ -103,9 +103,37 @@ const deleteWebinarById = async (req, res) => {
   }
 };
 
+const updateWebinarById = async (req, res) => {
+  const { webinarId } = req.params;
+  try {
+    const webinar = await Webinar.findOne({
+      mentorId: req.user.id,
+      _id: webinarId,
+    });
+    if (!webinar) {
+      return res.status(403).json({
+        status: "failed",
+        message: "Not Authorized or Webinar not found",
+      });
+    }
+    await webinar.updateOne(req.body);
+    return res.status(200).json({
+      status: "success",
+      message: "Webinar successfully updated",
+    });
+  } catch (error) {
+    return res.status(500).json({
+      status: "error",
+      message: "Something went wrong",
+      error: error.message,
+    });
+  }
+};
+
 module.exports = {
   createWebinar,
   getAllWebinar,
   getAllWebinarByStatusSuccess,
   deleteWebinarById,
+  updateWebinarById,
 };

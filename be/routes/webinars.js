@@ -12,6 +12,9 @@ router
   .route("/success")
   .get(verifyToken, paymentSuccess, webinars.getAllWebinarByStatusSuccess);
 
-router.route("/:webinarId").delete(verifyToken, webinars.deleteWebinarById);
+router
+  .route("/:webinarId")
+  .delete(verifyToken, webinars.deleteWebinarById)
+  .put(verifyToken, webinars.updateWebinarById);
 
 module.exports = router;
