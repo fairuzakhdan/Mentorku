@@ -15,14 +15,14 @@ const TableBodySessions = ({ items, onDeleteById }) => {
           <Table.Cell>{item.day}</Table.Cell>
           <Table.Cell>
             <Group>
-              {item.times.map((i, index) => (
+              {item.session.map((i, index) => (
                 <Text key={index} color={'red'}>
-                  {i.duration}
+                  {i.times}
                 </Text>
               ))}
             </Group>
           </Table.Cell>
-          <Table.Cell>{item.session} Session/week</Table.Cell>
+          <Table.Cell>{item.meeting} Session/week</Table.Cell>
           <Table.Cell textAlign={'center'} p={0}>
             <Button
               p={0}

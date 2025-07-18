@@ -3,14 +3,25 @@ import TableArea from '../../shared/components/Table';
 import { Box, Text, Button, Flex } from '@chakra-ui/react';
 import AddButton from '../../shared/components/AddButon';
 import TableBodySessions from '../components/TableBody/TableBodySessions';
-import { itemSession } from '../utils/mentorrole';
 import { useEffect, useState } from 'react';
+import { getAllSession } from '../../utils/sessions';
 const SessionMentorpage = () => {
   const headers = ['Day', 'Duration', 'Session'];
   const [sessions, setSessions] = useState([]);
   useEffect(() => {
-    setSessions(itemSession);
+    getAllSession()
+      .then(({ data, error }) => {
+        if (error) {
+          alert(error);
+        } else {
+          setSessions(data);
+        }
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
   }, []);
+
   return (
     <Sidebar type={'mentor'}>
       <Box color={'textBlue'}>

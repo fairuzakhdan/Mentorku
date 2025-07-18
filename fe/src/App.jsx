@@ -122,26 +122,28 @@ const App = () => {
 
   if (authUser?.accessLevel === 'mentor') {
     return (
-      <main>
-        <Routes>
-          <Route path="/" element={<UsersMentorpage />} />
-          <Route path="/blogs" element={<BlogMentorpage />} />
-          <Route path="/blogs/add" element={<AddBlogMentorpage />} />
-          <Route path="/blogs/:blogId" element={<EditBlogMentorpage />} />
-          <Route path="/mentees" element={<UsersMentorpage />} />
-          <Route path="/mentees/:userId" element={<DetailUsersMentorpage />} />
-          <Route path="/mylessons" element={<LessonsMentorpage />} />
-          <Route path="/mylessons/add" element={<AddLessonMentorpage />} />
-          <Route path="/mylessons/:lessonId" element={<EditLessonMentorpage />} />
-          <Route path="/sessions" element={<SessionMentorpage />} />
-          <Route path="/sessions/add" element={<AddSessionMentorpage />} />
-          <Route path="/sessions/:sessionId" element={<EditSessionMentorpage />} />
-          <Route path="/webinars" element={<WebinarMentorpage />} />
-          <Route path="/webinars/add" element={<AddWebinarMentorpage />} />
-          <Route path="/webinars/:webinarId" element={<EditWebinarMentorpage />} />
-          <Route path="*" element={<Errorpage />} />
-        </Routes>
-      </main>
+      <AuthContext.Provider value={authContextValue}>
+        <main>
+          <Routes>
+            <Route path="/" element={<UsersMentorpage />} />
+            <Route path="/blogs" element={<BlogMentorpage />} />
+            <Route path="/blogs/add" element={<AddBlogMentorpage />} />
+            <Route path="/blogs/:blogId" element={<EditBlogMentorpage />} />
+            <Route path="/mentees" element={<UsersMentorpage />} />
+            <Route path="/mentees/:userId" element={<DetailUsersMentorpage />} />
+            <Route path="/mylessons" element={<LessonsMentorpage />} />
+            <Route path="/mylessons/add" element={<AddLessonMentorpage />} />
+            <Route path="/mylessons/:lessonId" element={<EditLessonMentorpage />} />
+            <Route path="/sessions" element={<SessionMentorpage />} />
+            <Route path="/sessions/add" element={<AddSessionMentorpage />} />
+            <Route path="/sessions/:sessionId" element={<EditSessionMentorpage />} />
+            <Route path="/webinars" element={<WebinarMentorpage />} />
+            <Route path="/webinars/add" element={<AddWebinarMentorpage />} />
+            <Route path="/webinars/:webinarId" element={<EditWebinarMentorpage />} />
+            <Route path="*" element={<Errorpage />} />
+          </Routes>
+        </main>
+      </AuthContext.Provider>
     );
   }
 

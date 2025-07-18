@@ -62,6 +62,7 @@ const login = async (req, res) => {
         email: user.email,
         id: user._id,
         accessLevel: user.accessLevel,
+        image: user.profilePicture.url,
       },
       process.env.PRIVATE_KEY_JWT,
       { expiresIn: "1h" }
@@ -78,7 +79,7 @@ const login = async (req, res) => {
   }
 };
 
-const getUserLogin = (req, res) => {
+const getUserLogin = async (req, res) => {
   const user = req.user;
 
   if (!user) {
@@ -87,8 +88,7 @@ const getUserLogin = (req, res) => {
       data: null,
     });
   }
-
-  res.status(200).json({
+  return res.status(200).json({
     status: "success",
     data: user,
   });

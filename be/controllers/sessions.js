@@ -2,8 +2,8 @@ const z = require("zod");
 const Session = require("../models/sessions");
 
 const getAllSession = async (req, res) => {
-  const sessions = await Session.find();
-  res.status(200).json({
+  const sessions = await Session.find({ mentorId: req.user.id });
+  return res.status(200).json({
     status: "success",
     data: sessions,
   });
@@ -13,7 +13,7 @@ const getSessionById = async (req, res) => {
   const { sessionId } = req.params;
   const session = await Session.findById(sessionId);
   if (!session) {
-    res.status(404).json({
+    return res.status(404).json({
       status: "failed",
       data: null,
       message: "Session Not Found",
@@ -61,6 +61,7 @@ const createSession = async (req, res) => {
   };
   try {
     const newSession = new Session(sessionPost);
+    console.log(newSession);
     await newSession.save();
     return res.status(201).json({
       status: "success",

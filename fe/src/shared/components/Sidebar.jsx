@@ -11,12 +11,13 @@ import { FaBlog } from 'react-icons/fa';
 import SearchBar from '../../components/Fragments/SearchBar';
 import { RiLogoutBoxLine } from 'react-icons/ri';
 import Logo from '../../assets/images/4k-logo-removebg-preview.png';
+import AuthContext from '../context/authContext';
+import { useContext } from 'react';
+import { putAccessToken } from '../../utils/api';
+import { useNavigate } from 'react-router';
 const Sidebar = ({ children, type }) => {
-  const user = {
-    name: 'John Doe',
-    image:
-      'https://images.unsplash.com/photo-1636368086488-bb2c04738214?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8ODA3fHx0ZWFjaGVyfGVufDB8fDB8fHww',
-  };
+  const navigate = useNavigate();
+  const { authUser, setAuthUser } = useContext(AuthContext);
   const location = useLocation();
   const linkAdmin = [
     {
@@ -57,6 +58,11 @@ const Sidebar = ({ children, type }) => {
       icon: FaBlog,
     },
   ];
+  const onLogoutHandler = () => {
+    setAuthUser(null);
+    putAccessToken('');
+    navigate('/login');
+  };
   return (
     <Grid templateColumns={'repeat(6, 1fr)'} height={'100vh'}>
       <GridItem colSpan={1} shadow={'lg'} backgroundColor={'textGreen'}>
@@ -111,7 +117,13 @@ const Sidebar = ({ children, type }) => {
                 );
               })}
             <Box position={'absolute'} bottom={type === 'mentor' ? -24 : '-72'} width={'100%'}>
-              <Button backgroundColor={'gray.300'} width={'80%'} color={'teal'} fontSize={'md'}>
+              <Button
+                backgroundColor={'gray.300'}
+                width={'80%'}
+                color={'teal'}
+                fontSize={'md'}
+                onClick={onLogoutHandler}
+              >
                 <RiLogoutBoxLine />
                 Logout
               </Button>
@@ -132,8 +144,8 @@ const Sidebar = ({ children, type }) => {
               />
             </Box>
             <Group>
-              <Text color={'gray.600'}>{user.name}</Text>
-              <AvatarCard image={user.image} size="sm" rounded="full" />
+              <Text color={'gray.600'}>{authUser.email}</Text>
+              <AvatarCard image={authUser.image} size="sm" rounded="full" />
             </Group>
           </Flex>
         </Box>
