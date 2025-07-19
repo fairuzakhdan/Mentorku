@@ -4,7 +4,7 @@ import TableArea from '../../shared/components/Table';
 import TableBodyMentee from '../components/TableBody/TableBodyMente';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router';
-import { getAllPayment } from '../../utils/payment';
+import { getAllMentee } from '../../utils/mentee';
 const UsersMentorpage = () => {
   const navigate = useNavigate();
   const [mentees, setMentees] = useState([]);
@@ -210,9 +210,8 @@ const UsersMentorpage = () => {
   ];
   useEffect(() => {
     // setMentees(items);
-    getAllPayment()
+    getAllMentee()
       .then(({ data }) => {
-        console.log(data);
         setMentees(data);
       })
       .catch((error) => {
