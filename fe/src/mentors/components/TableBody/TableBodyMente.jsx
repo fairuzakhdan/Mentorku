@@ -7,9 +7,10 @@ import FormInput from '../../../components/Elements/FormInput';
 import useInput from '../../../hooks/useInput';
 import { useState } from 'react';
 
-const FormEditMentoring = ({ sessions, link, editMentoring }) => {
+const FormEditMentoring = ({ sessions, link, editMentoring, status }) => {
   const [linkMentoring, onChangeLinkMentoring] = useInput(link);
   const [sessionsMentoring, setSessionsMentoring] = useState(sessions);
+  const [statusMentoring, onChangeStatusMentoring] = useInput(status);
   const handleChangeSession = (event, index, field) => {
     const updated = [...sessionsMentoring];
     updated[index] = {
@@ -25,8 +26,8 @@ const FormEditMentoring = ({ sessions, link, editMentoring }) => {
           <Group key={index} padding="2" rounded={'md'} bg={'white'}>
             <FormInput
               label={'Day'}
-              value={session.day}
-              onChange={(e) => handleChangeSession(e, index, 'day')}
+              value={session.days}
+              onChange={(e) => handleChangeSession(e, index, 'days')}
             />
             <FormInput
               label={'Time'}
@@ -36,11 +37,16 @@ const FormEditMentoring = ({ sessions, link, editMentoring }) => {
           </Group>
         ))}
       </Flex>
-      <Box mt={3}>
+      <Box mt={3} display={'flex'} columnGap={3}>
         <FormInput
           label={'Link Mentoring'}
           value={linkMentoring}
           onChange={onChangeLinkMentoring}
+        />
+        <FormInput
+          label={'Status Payment'}
+          value={statusMentoring}
+          onChange={onChangeStatusMentoring}
         />
       </Box>
       <Button
@@ -111,7 +117,13 @@ const TableBodyMentee = ({ items, onDeleteById }) => {
                     <FaEdit />
                   </Button>
                 }
-                content={<FormEditMentoring sessions={item.sessions} link={item.linkMentoring} />}
+                content={
+                  <FormEditMentoring
+                    sessions={item.schedules}
+                    link={item.linkMeet}
+                    status={item.status}
+                  />
+                }
               />
               <Button
                 p={0}
