@@ -1,4 +1,4 @@
-import { api, putAccessToken, getAccessToken, fetchWithToken } from './api';
+import { api, fetchWithToken } from './api';
 
 export const login = async ({ email, password }) => {
   const response = await fetch(`${api}/auth/login`, {

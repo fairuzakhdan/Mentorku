@@ -8,6 +8,12 @@ router
   .post(verifyToken, lessons.createLesson)
   .get(verifyToken, lessons.getAllLesson);
 
+router
+  .route("/:lessonId")
+  .get(verifyToken, lessons.getLessonById)
+  .put(verifyToken, lessons.updateLessonById)
+  .delete(verifyToken, lessons.deleteLessonById);
+
 router.route("/class").get(verifyToken, lessons.getLessonForSuccessPayment);
 router
   .route("/koridor/:mentorId")

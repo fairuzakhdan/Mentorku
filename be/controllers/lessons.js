@@ -25,23 +25,8 @@ const getLessonForSuccessPayment = async (req, res) => {
 
 const getLessonsByMentorForUser = async (req, res) => {
   const { mentorId } = req.params;
-  // const userId = req.user.id;
-
   try {
-    // const payment = await Payment.findOne({
-    //   userId,
-    //   status: "success",
-    //   // mentorId,
-    // });
-
-    // if (!payment) {
-    //   return res.status(403).json({
-    //     status: "forbidden",
-    //     message: "Akses ditolak, belum membayar mentor ini",
-    //   });
-    // }
     const lessons = await Lesson.findOne({ mentorId });
-
     return res.status(200).json({
       status: "success",
       data: lessons,
@@ -80,10 +65,74 @@ const createLesson = async (req, res) => {
   }
 };
 const getAllLesson = async (req, res) => {
-  const lessons = await Lesson.find();
+  const lessons = await Lesson.find({ mentorId: req.user.id });
   return res.status(200).json({
     status: "success",
     data: lessons,
+  });
+};
+
+const getLessonById = async (req, res) => {
+  const { lessonId } = req.params;
+  const lesson = await Lesson.findOne({ _id: lessonId, mentorId: req.user.id });
+  if (!lesson) {
+    return res.status(403).json({
+      status: "failed",
+      message: "forbidden",
+    });
+  }
+  return res.status(200).json({
+    status: "success",
+    data: lesson,
+  });
+};
+
+const updateLessonById = async (req, res) => {
+  const { lessonId } = req.params;
+  const lesson = await Lesson.findOne({ _id: lessonId, mentorId: req.user.id });
+  if (!lesson) {
+    return res.status(403).json({
+      status: "failed",
+      message: "Forbidden",
+    });
+  }
+  try {
+    const videosWithOwner = req.body.videos.map((video) => ({
+      ...video,
+      owner: req.user.email.split("@")[0],
+    }));
+    await lesson.updateOne({
+      ...req.body,
+      videos: videosWithOwner,
+      mentorId: req.user.id,
+    });
+    return res.status(200).json({
+      status: "success",
+      message: "Lesson successfully updated",
+    });
+  } catch (err) {
+    return res.status(500).json({
+      error: "Internal Server Error",
+    });
+  }
+};
+
+const deleteLessonById = async (req, res) => {
+  const { lessonId } = req.params;
+  const lesson = await Lesson.findOne({
+    _id: lessonId,
+    mentorId: req.user.id,
+  });
+  if (!lesson) {
+    return res.status(403).json({
+      status: 'failed',
+      message: "Forbidden",
+    });
+  }
+  await lesson.deleteOne();
+  res.status(200).json({
+    status: "success",
+    message: "Lesson successfully deleted",
   });
 };
 
@@ -92,4 +141,7 @@ module.exports = {
   getLessonsByMentorForUser,
   createLesson,
   getAllLesson,
+  getLessonById,
+  updateLessonById,
+  deleteLessonById,
 };

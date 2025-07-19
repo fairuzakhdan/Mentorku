@@ -146,7 +146,11 @@ const updateWebinarById = async (req, res) => {
         message: "Not Authorized or Webinar not found",
       });
     }
-    await webinar.updateOne({ ...req.body, date: formattedDate });
+    await webinar.updateOne({
+      ...req.body,
+      date: formattedDate,
+      mentorId: req.user.id,
+    });
     return res.status(200).json({
       status: "success",
       message: "Webinar successfully updated",

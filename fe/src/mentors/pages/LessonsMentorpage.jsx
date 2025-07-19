@@ -4,12 +4,18 @@ import TableArea from '../../shared/components/Table';
 import TableBodyLessons from '../components/TableBody/TableBodyLessons';
 import { useEffect, useState } from 'react';
 import AddButton from '../../shared/components/AddButon';
-import { itemLesson } from '../utils/mentorrole';
+import { getAllLesson } from '../../utils/lessons';
 const LessonsMentorpage = () => {
   const [lessons, setLessons] = useState([]);
   const headers = ['Topic', 'Title Videos', 'Total Videos', 'Header Articles', 'Title Articles'];
   useEffect(() => {
-    setLessons(itemLesson);
+    getAllLesson()
+      .then(({ data }) => {
+        setLessons(data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }, []);
   return (
     <Sidebar type={'mentor'}>
