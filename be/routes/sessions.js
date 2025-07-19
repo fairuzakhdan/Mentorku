@@ -9,9 +9,9 @@ router
   .post(verifyToken, sessions.createSession);
 router
   .route("/:sessionId")
-  .get(sessions.getSessionById)
-  .put(sessions.updateSessionById)
-  .delete(sessions.deleteSessionById);
+  .get(verifyToken, sessions.getSessionById)
+  .put(verifyToken, sessions.updateSessionById)
+  .delete(verifyToken, sessions.deleteSessionById);
 
 router.route("/mentors/:mentorId").get(sessions.getSessionByMentorId);
 

@@ -5,11 +5,9 @@ import { createSession } from '../../utils/sessions';
 import { useNavigate } from 'react-router';
 const AddSessionMentorpage = () => {
   const navigate = useNavigate();
-  const addHandlerCreateSession = ({ day, session, times }) => {
-    const transformedTimes = times.map((item) => ({
-      times: item.duration,
-    }));
-    createSession({ day, meeting: session, session: transformedTimes })
+  const addHandlerCreateSession = ({ day, session, meeting }) => {
+    console.log({ day, session, meeting });
+    createSession({ day, session, meeting })
       .then(({ data }) => {
         alert('Session successfully added');
         navigate('/sessions');

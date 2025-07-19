@@ -11,7 +11,10 @@ const getAllSession = async (req, res) => {
 
 const getSessionById = async (req, res) => {
   const { sessionId } = req.params;
-  const session = await Session.findById(sessionId);
+  const session = await Session.findOne({
+    _id: sessionId,
+    mentorId: req.user.id,
+  });
   if (!session) {
     return res.status(404).json({
       status: "failed",
@@ -27,7 +30,6 @@ const getSessionById = async (req, res) => {
 
 const getSessionByMentorId = async (req, res) => {
   const { mentorId } = req.params;
-  console.log(mentorId);
   try {
     const sessions = await Session.find({ mentorId });
 
@@ -81,25 +83,24 @@ const createSession = async (req, res) => {
 
 const updateSessionById = async (req, res) => {
   const { sessionId } = req.params;
-  //   const userMentor = req.user;
-  const session = await Session.findById(sessionId);
+  const session = await Session.findOne({
+    _id: sessionId,
+    mentorId: req.user.id,
+  });
   if (!session) {
-    return res.status(404).json({
+    return res.status(403).json({
       status: "failed",
-      message: "Session Not Found",
+      message: "Forbidden",
     });
   }
   try {
-    const updateSession = await Session.findByIdAndUpdate(
-      sessionId,
-      { ...req.body, emailMentor: req.user.email },
-      {
-        new: true,
-      }
-    );
+    await session.updateOne({
+      ...req.body,
+      mentorId: req.user.id,
+    });
     return res.status(200).json({
       status: "success",
-      data: updateSession,
+      message: "Session successfully updated",
     });
   } catch (err) {
     if (err instanceof z.ZodError) {
@@ -117,16 +118,20 @@ const updateSessionById = async (req, res) => {
 const deleteSessionById = async (req, res) => {
   const { sessionId } = req.params;
   try {
-    const session = await Session.findById(sessionId);
+    const session = await Session.findOne({
+      _id: sessionId,
+      mentorId: req.user.id,
+    });
     if (!session) {
-      return res.status(404).json({
+      return res.status(403).json({
         status: false,
-        message: "Session Not Found",
+        message: "Forbidden",
       });
     }
     await session.deleteOne();
     res.status(200).json({
       status: "success",
+      message: "Session successfully deleted",
     });
   } catch (err) {
     return res.status(500).json({

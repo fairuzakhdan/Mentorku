@@ -4,37 +4,37 @@ import useInput from '../../../hooks/useInput';
 import { IoIosAddCircle } from 'react-icons/io';
 import { useState, useEffect } from 'react';
 const FormSession = ({ initialData, type = 'add', onSubmitHanlder }) => {
-  const [times, setTimes] = useState([]);
+  const [session, setSession] = useState([]);
   const [day, onChangeDay, setDay] = useInput('');
-  const [session, onChangeSession, setSession] = useInput('');
-  const [duration, onChangeDuration] = useInput('');
-  const addDuration = ({ duration }) => {
-    if (!duration) {
+  const [meeting, onChangeMeeting, setMeeting] = useInput('');
+  const [times, onChangeTimes] = useInput('');
+  const addDuration = ({ times }) => {
+    if (!times) {
       alert('Duration tidak boleh kosong');
       return;
     }
-    const newDuration = {
-      duration,
+    const newTimes = {
+      times,
     };
-    setTimes([...times, newDuration]);
+    setSession([...session, newTimes]);
   };
 
   useEffect(() => {
     if (type === 'edit') {
-      setTimes(initialData.times || []);
+      setSession(initialData.session || []);
       setDay(initialData.day || '');
-      setSession(initialData.session || '');
+      setMeeting(initialData.meeting || '');
       // setDuration(initialData.duration || '');
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [initialData]);
   const changeHandleTimes = (e, index, field) => {
-    const updateTime = [...times];
+    const updateTime = [...session];
     updateTime[index][field] = e.target.value;
-    setTimes(updateTime);
+    setSession(updateTime);
   };
   const submitHandler = () => {
-    onSubmitHanlder({ day, session, times });
+    onSubmitHanlder({ day, session, meeting });
   };
   return (
     <>
@@ -51,8 +51,8 @@ const FormSession = ({ initialData, type = 'add', onSubmitHanlder }) => {
           <FormInput
             label={type === 'add' ? 'Add Session' : 'Edit Session'}
             required
-            value={session}
-            onChange={onChangeSession}
+            value={meeting}
+            onChange={onChangeMeeting}
             placeholder={'2 Sesssion/week'}
             type="number"
           />
@@ -63,31 +63,31 @@ const FormSession = ({ initialData, type = 'add', onSubmitHanlder }) => {
               <FormInput
                 label={'Add Duration'}
                 required
-                value={duration}
-                onChange={onChangeDuration}
+                value={times}
+                onChange={onChangeTimes}
                 placeholder={'08:00-10:00'}
                 type="text"
               />
             </Box>
-            <Button colorPalette={'teal'} onClick={() => addDuration({ duration })}>
+            <Button colorPalette={'teal'} onClick={() => addDuration({ times })}>
               Add Duration
             </Button>
           </Flex>
         )}
         <Flex columnGap={5}>
-          {times.map((time, index) => (
+          {session.map((time, index) => (
             <Box key={index}>
               {type === 'add' && (
                 <Text color={'red'} fontSize={'sm'}>
-                  Duration : {time.duration}
+                  Duration : {time.times}
                 </Text>
               )}
               {type === 'edit' && (
                 <FormInput
                   label={'Edit Duration'}
                   required
-                  value={time.duration}
-                  onChange={(e) => changeHandleTimes(e, index, 'duration')}
+                  value={time.times}
+                  onChange={(e) => changeHandleTimes(e, index, 'times')}
                   placeholder={'Enter duration'}
                   type="text"
                 />
