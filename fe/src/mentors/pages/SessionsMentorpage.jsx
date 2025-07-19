@@ -5,6 +5,7 @@ import AddButton from '../../shared/components/AddButon';
 import TableBodySessions from '../components/TableBody/TableBodySessions';
 import { useEffect, useState } from 'react';
 import { getAllSession } from '../../utils/sessions';
+import { deleteSessionById } from '../../utils/sessions';
 const SessionMentorpage = () => {
   const headers = ['Day', 'Duration', 'Session'];
   const [sessions, setSessions] = useState([]);
@@ -22,6 +23,21 @@ const SessionMentorpage = () => {
       });
   }, []);
 
+  const deleteSessionHandler = (sessionId) => {
+    deleteSessionById(sessionId)
+      .then(({ error, message }) => {
+        if (error) {
+          alert(message);
+        } else {
+          const session = sessions.filter((session) => session._id !== sessionId);
+          setSessions(session);
+        }
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  };
+
   return (
     <Sidebar type={'mentor'}>
       <Box color={'textBlue'}>
@@ -30,7 +46,7 @@ const SessionMentorpage = () => {
           <AddButton label={'Add Session'} toLink={'/sessions/add'} />
         </Flex>
         <TableArea headers={headers}>
-          <TableBodySessions items={sessions} />
+          <TableBodySessions items={sessions} onDeleteById={deleteSessionHandler} />
         </TableArea>
       </Box>
     </Sidebar>
