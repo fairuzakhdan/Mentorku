@@ -4,6 +4,7 @@ import TableArea from '../../shared/components/Table';
 import TableBodyMentee from '../components/TableBody/TableBodyMente';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router';
+import { getAllPayment } from '../../utils/payment';
 const UsersMentorpage = () => {
   const navigate = useNavigate();
   const [mentees, setMentees] = useState([]);
@@ -208,8 +209,15 @@ const UsersMentorpage = () => {
     },
   ];
   useEffect(() => {
-    setMentees(items);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    // setMentees(items);
+    getAllPayment()
+      .then(({ data }) => {
+        console.log(data);
+        setMentees(data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   }, []);
   const onDetailById = (id) => {
     navigate(`/mentees/${id}`);

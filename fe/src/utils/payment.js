@@ -59,6 +59,7 @@ export const requestSnapToken = async (mentorId, paymentData) => {
 export const getAllPayment = async () => {
   const response = await fetchWithToken(`${api}/payment`);
   const responseJson = await response.json();
+  console.log(responseJson);
   if (responseJson.status !== 'success') {
     return { error: true, data: null };
   }

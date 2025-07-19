@@ -44,7 +44,6 @@ const Transactionpage = () => {
   useEffect(() => {
     getAllPayment()
       .then(({ data }) => {
-        console.log(data);
         setMentors(data);
       })
       .catch((err) => {

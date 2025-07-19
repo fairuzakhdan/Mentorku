@@ -13,6 +13,7 @@ const paymentRouter = require("./routes/payment");
 const userRouter = require("./routes/users");
 const lessonRouter = require("./routes/lessons");
 const webinarRouter = require("./routes/webinars");
+const menteeRouter = require("./routes/menteee");
 
 var app = express();
 
@@ -32,6 +33,7 @@ app.use("/api", paymentRouter);
 app.use("/api", userRouter);
 app.use("/api/lessons", lessonRouter);
 app.use("/api/webinars", webinarRouter);
+app.use("/api/mentees", menteeRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
