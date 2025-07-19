@@ -4,7 +4,7 @@ import TableArea from '../../shared/components/Table';
 import TableBodyLessons from '../components/TableBody/TableBodyLessons';
 import { useEffect, useState } from 'react';
 import AddButton from '../../shared/components/AddButon';
-import { getAllLesson } from '../../utils/lessons';
+import { getAllLesson, deleteLessonById } from '../../utils/lessons';
 const LessonsMentorpage = () => {
   const [lessons, setLessons] = useState([]);
   const headers = ['Topic', 'Title Videos', 'Total Videos', 'Header Articles', 'Title Articles'];
@@ -17,6 +17,20 @@ const LessonsMentorpage = () => {
         console.log(err);
       });
   }, []);
+  const deleteLessonHandler = (lessonId) => {
+    deleteLessonById(lessonId)
+      .then(({ error, message }) => {
+        if (error) {
+          alert(message);
+        } else {
+          const lesson = lessons.filter((lesson) => lesson._id !== lessonId);
+          setLessons(lesson);
+        }
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  };
   return (
     <Sidebar type={'mentor'}>
       <Box color={'textBlue'}>
@@ -25,7 +39,7 @@ const LessonsMentorpage = () => {
           <AddButton label={'Add Lessons'} toLink={'/mylessons/add'} />
         </Flex>
         <TableArea headers={headers}>
-          <TableBodyLessons items={lessons} />
+          <TableBodyLessons items={lessons} onDeleteById={deleteLessonHandler} />
         </TableArea>
       </Box>
     </Sidebar>

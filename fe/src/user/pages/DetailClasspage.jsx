@@ -103,7 +103,7 @@ const DetailClasspage = () => {
                                 {item.title}
                               </Text>
                               <Box fontSize="xs" color="gray.600">
-                                {item.owner} – {new Date(item.createdAT).toLocaleDateString()}
+                                {item.owner} – {item.createdAt.split(' ')[0]}
                               </Box>
                             </Box>
                           ))}

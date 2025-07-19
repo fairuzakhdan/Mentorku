@@ -26,7 +26,7 @@ const TableBodyLessons = ({ items, onDeleteById }) => {
               backgroundColor={'transparent'}
               color={'textGreen'}
               _hover={{ color: 'gray.800' }}
-              onClick={() => toDetailById(item.id)}
+              onClick={() => toDetailById(item._id)}
             >
               <FaEdit />
             </Button>
@@ -35,7 +35,7 @@ const TableBodyLessons = ({ items, onDeleteById }) => {
               backgroundColor={'transparent'}
               color={'red'}
               _hover={{ color: 'gray.800' }}
-              onClick={() => onDeleteById(item.id)}
+              onClick={() => onDeleteById(item._id)}
             >
               <MdOutlineDeleteOutline />
             </Button>

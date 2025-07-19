@@ -10,6 +10,7 @@ const getLessonForSuccessPayment = async (req, res) => {
       path: "mentorId",
       select: "name role profilePicture phone",
     });
+    console.log(payments);
     res.status(200).json({
       status: "success",
       data: payments,
@@ -57,6 +58,7 @@ const createLesson = async (req, res) => {
     return res.status(201).json({
       status: "success",
       data: lesson,
+      message: "Lesson successfully created",
     });
   } catch (err) {
     return res.status(500).json({
