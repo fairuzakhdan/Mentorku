@@ -86,10 +86,10 @@ const TableBodyMentee = ({ items, onDeleteById }) => {
           </Table.Cell>
           <Table.Cell p={0}>
             <Text
-              backgroundColor={'green.500'}
+              backgroundColor={item.status === 'success' ? 'green.500' : 'gray.500'}
               textAlign={'center'}
               color={'white'}
-              p={0}
+              py={1}
               rounded={'md'}
             >
               {item.status}
