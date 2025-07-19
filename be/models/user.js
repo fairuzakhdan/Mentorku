@@ -16,6 +16,10 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
+  telephone: {
+    type: String,
+    default: "081234567890",
+  },
   password: {
     type: String,
     required: true,
