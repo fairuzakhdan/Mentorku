@@ -1,3 +1,4 @@
+const User = require("../models/user");
 const isAdmin = async (req, res, next) => {
   try {
     const user = req.user;
@@ -15,8 +16,7 @@ const isAdmin = async (req, res, next) => {
         message: "Not Authorized - Admin access required",
       });
     }
-
-    next(); // lanjut ke middleware berikutnya
+    next();
   } catch (error) {
     console.error("isAdmin middleware error:", error.message);
     return res.status(500).json({
