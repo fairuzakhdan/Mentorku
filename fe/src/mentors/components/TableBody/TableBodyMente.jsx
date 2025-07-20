@@ -6,7 +6,7 @@ import Modal from '../../../components/Fragments/Modal';
 import FormInput from '../../../components/Elements/FormInput';
 import useInput from '../../../hooks/useInput';
 import { useState } from 'react';
-
+import { updateMenteeForPaid } from '../../../utils/mentee';
 const FormEditMentoring = ({ sessions, link, editMentoring, status }) => {
   const [linkMentoring, onChangeLinkMentoring] = useInput(link);
   const [sessionsMentoring, setSessionsMentoring] = useState(sessions);
@@ -52,7 +52,7 @@ const FormEditMentoring = ({ sessions, link, editMentoring, status }) => {
       <Button
         mt={3}
         colorPalette={'teal'}
-        onClick={() => editMentoring({ linkMentoring, sessionsMentoring })}
+        onClick={() => editMentoring({ linkMentoring, sessionsMentoring, statusMentoring })}
       >
         Edit
       </Button>
@@ -60,6 +60,31 @@ const FormEditMentoring = ({ sessions, link, editMentoring, status }) => {
   );
 };
 const TableBodyMentee = ({ items, onDeleteById }) => {
+  const [findId, setFindById] = useState({});
+  const setId = (id) => {
+    setFindById(id);
+  };
+  const editMentoringHandler = ({ linkMentoring, sessionsMentoring, statusMentoring }) => {
+    updateMenteeForPaid({
+      _id: findId,
+      linkMeet: linkMentoring,
+      status: statusMentoring,
+      schedules: sessionsMentoring,
+    })
+      .then(({ error, message }) => {
+        if (error) {
+          alert(message);
+        } else {
+          alert(message);
+        }
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+    // console.log(findId);
+    // console.log({ linkMentoring, sessionsMentoring, statusMentoring });
+  };
+
   return (
     <>
       {items.map((item, index) => (
@@ -112,7 +137,7 @@ const TableBodyMentee = ({ items, onDeleteById }) => {
                     backgroundColor={'transparent'}
                     color={'textGreen'}
                     _hover={{ color: 'gray.800' }}
-                    // onClick={() => toDetailById(item.id)}
+                    onClick={() => setId(item._id)}
                   >
                     <FaEdit />
                   </Button>
@@ -122,6 +147,7 @@ const TableBodyMentee = ({ items, onDeleteById }) => {
                     sessions={item.schedules}
                     link={item.linkMeet}
                     status={item.status}
+                    editMentoring={editMentoringHandler}
                   />
                 }
               />
@@ -130,7 +156,7 @@ const TableBodyMentee = ({ items, onDeleteById }) => {
                 backgroundColor={'transparent'}
                 color={'red'}
                 _hover={{ color: 'gray.800' }}
-                onClick={() => onDeleteById(item.id)}
+                onClick={() => onDeleteById(item._id)}
               >
                 <MdOutlineDeleteOutline />
               </Button>

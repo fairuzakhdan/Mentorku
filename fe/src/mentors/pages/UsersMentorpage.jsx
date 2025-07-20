@@ -3,10 +3,9 @@ import { Text, Box } from '@chakra-ui/react';
 import TableArea from '../../shared/components/Table';
 import TableBodyMentee from '../components/TableBody/TableBodyMente';
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router';
 import { getAllMentee } from '../../utils/mentee';
+import { deleteMenteeForPaid } from '../../utils/mentee';
 const UsersMentorpage = () => {
-  const navigate = useNavigate();
   const [mentees, setMentees] = useState([]);
   const headers = [
     'Email',
@@ -26,15 +25,29 @@ const UsersMentorpage = () => {
         console.error(error);
       });
   }, []);
-  const onDetailById = (id) => {
-    navigate(`/mentees/${id}`);
+  // const onDetailById = (id) => {
+  //   navigate(`/mentees/${id}`);
+  // };
+  const deleteHandler = (paymentId) => {
+    deleteMenteeForPaid(paymentId)
+      .then(({ message, error }) => {
+        if (error) {
+          alert(message);
+        } else {
+          alert(message);
+          setMentees((prev) => prev.filter((mentee) => mentee._id !== paymentId));
+        }
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
   };
   return (
     <Sidebar type={'mentor'}>
       <Box color={'textBlue'}>
         <Text fontSize={'xl'}>Mentees</Text>
         <TableArea headers={headers}>
-          <TableBodyMentee items={mentees} toDetailById={onDetailById} />
+          <TableBodyMentee items={mentees} onDeleteById={deleteHandler} />
         </TableArea>
       </Box>
     </Sidebar>
