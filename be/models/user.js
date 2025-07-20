@@ -24,6 +24,10 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
+  institution: {
+    type: String,
+    default: "No Set",
+  },
   profilePicture: {
     url: {
       type: String,
