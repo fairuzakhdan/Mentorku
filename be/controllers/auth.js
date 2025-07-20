@@ -81,7 +81,6 @@ const login = async (req, res) => {
 
 const getUserLogin = async (req, res) => {
   const user = req.user;
-
   if (!user) {
     return res.status(404).json({
       status: "failed",

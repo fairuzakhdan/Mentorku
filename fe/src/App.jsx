@@ -105,18 +105,20 @@ const App = () => {
 
   if (authUser?.accessLevel === 'admin') {
     return (
-      <main>
-        <Routes>
-          <Route path="/" element={<UsersAdminpage />} />
-          <Route path="/users" element={<UsersAdminpage />} />
-          <Route path="/users/add" element={<AddUsersAdminpage />} />
-          <Route path="/users/:userId" element={<EditUsersAdminpage />} />
-          <Route path="/mentors" element={<MentorAdminpage />} />
-          <Route path="/mentors/add" element={<AddMentorAdminpage />} />
-          <Route path="/mentors/:mentorId" element={<EditMentorAdminpage />} />
-          <Route path="*" element={<Errorpage />} />
-        </Routes>
-      </main>
+      <AuthContext.Provider value={authContextValue}>
+        <main>
+          <Routes>
+            <Route path="/" element={<UsersAdminpage />} />
+            <Route path="/users" element={<UsersAdminpage />} />
+            <Route path="/users/add" element={<AddUsersAdminpage />} />
+            <Route path="/users/:userId" element={<EditUsersAdminpage />} />
+            <Route path="/mentors" element={<MentorAdminpage />} />
+            <Route path="/mentors/add" element={<AddMentorAdminpage />} />
+            <Route path="/mentors/:mentorId" element={<EditMentorAdminpage />} />
+            <Route path="*" element={<Errorpage />} />
+          </Routes>
+        </main>
+      </AuthContext.Provider>
     );
   }
 
