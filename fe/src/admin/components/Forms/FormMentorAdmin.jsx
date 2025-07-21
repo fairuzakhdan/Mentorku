@@ -20,6 +20,8 @@ const FormMentorAdmin = ({ type = 'add', initialData = {}, onSubmit }) => {
   const [linkedin, onChangeLinkedin, setLinkedin] = useInput('');
   const [company, onChangeCompany] = useInput('');
   const [position, onChangePosition] = useInput('');
+  const [cvResume, onChangeCvResume, setCvResume] = useInput('');
+  const [portopolio, onChangePortopolio, setPortopolio] = useInput('');
   const [years, onChangeYears] = useInput('');
   const [organization, onChangeOrganization] = useInput('');
   const [major, onChangeMajor] = useInput('');
@@ -45,6 +47,8 @@ const FormMentorAdmin = ({ type = 'add', initialData = {}, onSubmit }) => {
       setExperience(initialData.experience || []);
       setEducations(initialData.education || []);
       setLinkedin(initialData.linkedin || '');
+      setCvResume(initialData.cvResume || '');
+      setPortopolio(initialData.portopolio || '');
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [initialData]);
@@ -113,6 +117,10 @@ const FormMentorAdmin = ({ type = 'add', initialData = {}, onSubmit }) => {
         skills,
         expertise,
         linkedin,
+        experience,
+        educations,
+        cvResume,
+        portopolio,
       });
     }
     if (type === 'edit') {
@@ -132,6 +140,8 @@ const FormMentorAdmin = ({ type = 'add', initialData = {}, onSubmit }) => {
         experience,
         educations,
         linkedin,
+        cvResume,
+        portopolio,
       });
     }
   };
@@ -216,6 +226,22 @@ const FormMentorAdmin = ({ type = 'add', initialData = {}, onSubmit }) => {
         <FormInput
           label={'Add Linkedin Mentor'}
           placeholder={'Enter Linkedin (https://www.linkedin.com)'}
+          type="text"
+          value={linkedin}
+          onChange={onChangeLinkedin}
+        />
+      </Flex>
+      <Flex columnGap={3}>
+        <FormInput
+          label={'Add CvResume Mentor'}
+          placeholder={'Enter Resume (https://www/cvresume)'}
+          type="text"
+          value={cvResume}
+          onChange={onChangeCvResume}
+        />
+        <FormInput
+          label={'Add Linkedin Mentor'}
+          placeholder={'Enter Linkedin (https://www/porto)'}
           type="text"
           value={linkedin}
           onChange={onChangeLinkedin}
@@ -322,41 +348,34 @@ const FormMentorAdmin = ({ type = 'add', initialData = {}, onSubmit }) => {
           <Group alignItems={'center'}>
             <Flex columnGap={2}>
               <FormInput
-                label={'Add Company Mentor'}
-                placeholder={'Example (Google Indonesia)'}
+                label={'Organization Mentor'}
+                placeholder={'Example (Universitas Indonesia)'}
                 type="text"
-                onChange={onChangeCompany}
-                value={company}
+                onChange={onChangeOrganization}
+                value={organization}
               />
               <FormInput
-                label={'Add Position Mentor'}
-                placeholder={'Example (Web App)'}
+                label={'Major Mentor'}
+                placeholder={'Example (Computer Science)'}
                 type="text"
-                onChange={onChangePosition}
-                value={position}
-              />
-              <FormInput
-                label={'How Long Year'}
-                placeholder={'Example (5)'}
-                type="number"
-                onChange={onChangeYears}
-                value={years}
+                onChange={onChangeMajor}
+                value={major}
               />
             </Flex>
 
             <Button
               mt={6}
-              onClick={() => onClickExperience({ company, position, years })}
+              onClick={() => onClickEducation({ organization, major })}
               bgColor={'gray.400'}
               color={'white'}
             >
-              Add Experience
+              Add Education
             </Button>
 
             <Group flexWrap={'wrap'}>
-              {experience.map((item, index) => (
+              {educations.map((item, index) => (
                 <Button size={'xs'} mt={6} border={'1px solid teal'} key={index}>
-                  {item.company}-{item.position}-{item.years}
+                  {item.organization}-{item.major}
                 </Button>
               ))}
             </Group>
