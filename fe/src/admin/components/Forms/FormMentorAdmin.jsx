@@ -18,6 +18,9 @@ const FormMentorAdmin = ({ type = 'add', initialData = {}, onSubmit }) => {
   const [skill, onChangeSkill, setSkill] = useInput('');
   const [expert, onChangeExpert, setExpert] = useInput('');
   const [linkedin, onChangeLinkedin, setLinkedin] = useInput('');
+  const [company, onChangeCompany] = useInput('');
+  const [position, onChangePosition] = useInput('');
+  const [years, onChangeYears] = useInput('');
   const [expertise, setExpertise] = useState([]);
   const [skills, setSkills] = useState([]);
   const [experience, setExperience] = useState([]);
@@ -76,6 +79,14 @@ const FormMentorAdmin = ({ type = 'add', initialData = {}, onSubmit }) => {
     };
     setExpertise([...expertise, newExpert]);
     setExpert('');
+  };
+  const onClickExperience = ({ company, position, years }) => {
+    const newExp = {
+      company,
+      position,
+      years,
+    };
+    setExperience({ ...experience, newExp });
   };
   const handleSubmit = () => {
     if (type === 'add') {
@@ -260,29 +271,37 @@ const FormMentorAdmin = ({ type = 'add', initialData = {}, onSubmit }) => {
           <Group alignItems={'center'}>
             <Flex columnGap={2}>
               <FormInput
-                label={'Add Expertise Mentor'}
-                placeholder={'Example (Data Science)'}
+                label={'Add Company Mentor'}
+                placeholder={'Example (Google Indonesia)'}
                 type="text"
-                onChange={onChangeExpert}
-                value={expert}
+                onChange={onChangeCompany}
+                value={company}
               />
               <FormInput
-                label={'Add Expertise Mentor'}
-                placeholder={'Example (Data Science)'}
+                label={'Add Position Mentor'}
+                placeholder={'Example (Web App)'}
                 type="text"
-                onChange={onChangeExpert}
-                value={expert}
+                onChange={onChangePosition}
+                value={position}
+              />
+              <FormInput
+                label={'How Long Year'}
+                placeholder={'Example (5)'}
+                type="number"
+                onChange={onChangeYears}
+                value={years}
               />
             </Flex>
 
             <Button
               mt={6}
-              onClick={() => onClickExpert(expert)}
+              onClick={() => onClickExperience({ company, position, years })}
               bgColor={'gray.400'}
               color={'white'}
             >
-              Add Expertise
+              Add Experience
             </Button>
+
             <Group flexWrap={'wrap'}>
               {expertise.map((item, index) => (
                 <Button size={'xs'} mt={6} border={'1px solid teal'} key={index}>
