@@ -15,6 +15,9 @@ const FormMentorAdmin = ({ type = 'add', initialData = {}, onSubmit }) => {
   const [phone, onChangePhone, setPhone] = useInput('');
   const [summary, onChangeSummary, setSummary] = useInput('');
   const [language, onChangeLanguage, setLanguage] = useInput('');
+  const [skill, onChangeSkill, setSkill] = useInput('');
+  const [expert, onChangeExpert, setExpert] = useInput('');
+  const [linkedin, onChangeLinkedin, setLinkedin] = useInput('');
   const [expertise, setExpertise] = useState([]);
   const [skills, setSkills] = useState([]);
   const [experience, setExperience] = useState([]);
@@ -36,6 +39,7 @@ const FormMentorAdmin = ({ type = 'add', initialData = {}, onSubmit }) => {
       setSkills(initialData.skills || []);
       setExperience(initialData.experience || []);
       setEducations(initialData.education || []);
+      setLinkedin(initialData.linkedin || '');
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [initialData]);
@@ -59,6 +63,20 @@ const FormMentorAdmin = ({ type = 'add', initialData = {}, onSubmit }) => {
     updateEducations[index][field] = e.target.value;
     setEducations(updateEducations);
   };
+  const onClickSkills = (skill) => {
+    const newSkill = {
+      skill,
+    };
+    setSkills([...skills, newSkill]);
+    setSkill('');
+  };
+  const onClickExpert = (expert) => {
+    const newExpert = {
+      expert,
+    };
+    setExpertise([...expertise, newExpert]);
+    setExpert('');
+  };
   const handleSubmit = () => {
     if (type === 'add') {
       onSubmit({
@@ -72,6 +90,9 @@ const FormMentorAdmin = ({ type = 'add', initialData = {}, onSubmit }) => {
         phone,
         summary,
         language,
+        skills,
+        expertise,
+        linkedin,
       });
     }
     if (type === 'edit') {
@@ -90,6 +111,7 @@ const FormMentorAdmin = ({ type = 'add', initialData = {}, onSubmit }) => {
         skills,
         experience,
         educations,
+        linkedin,
       });
     }
   };
@@ -134,15 +156,13 @@ const FormMentorAdmin = ({ type = 'add', initialData = {}, onSubmit }) => {
           value={role}
           onChange={onChangeRole}
         />
-        {language.map((skill, index) => (
-          <FormInput
-            placeholder={'Enter Skill mentor'}
-            label={'Add Role Mentor'}
-            type="text"
-            value={skill}
-            onChange={(e) => handleSkills(e, index)}
-          />
-        ))}
+        <FormInput
+          label={'Add Language Mentor'}
+          placeholder={'Enter Language mentor (Indonesia,English)'}
+          type="text"
+          value={language}
+          onChange={onChangeLanguage}
+        />
       </Flex>
       <Flex columnGap={5}>
         <FormTextArea
@@ -159,13 +179,84 @@ const FormMentorAdmin = ({ type = 'add', initialData = {}, onSubmit }) => {
           onChange={onChangePrice}
         />
         <FormInput
-          label={'Add Access Level'}
-          placeholder={'Enter level (mentor/validation/failed)'}
+          label={'Add Status mentor'}
+          placeholder={'Enter Status (mentor/validation/failed)'}
           type="text"
           value={status}
           onChange={onChangeStatus}
         />
       </Flex>
+      <FormTextArea
+        label={'Add Description Mentor'}
+        placeholder={'Enter Description mentor'}
+        value={summary}
+        onChange={onChangeSummary}
+      />
+      <FormInput
+        label={'Add Linkedin Mentor'}
+        placeholder={'Enter Linkedin (mentor/validation/failed)'}
+        type="text"
+        value={status}
+        onChange={onChangeStatus}
+      />
+      {type === 'add' && (
+        <Stack>
+          <Group alignItems={'center'}>
+            <Box>
+              <FormInput
+                label={'Add Skill Mentor'}
+                placeholder={'Example (React/Testing)'}
+                type="text"
+                onChange={onChangeSkill}
+                value={skill}
+              />
+            </Box>
+
+            <Button
+              mt={6}
+              onClick={() => onClickSkills(skill)}
+              bgColor={'gray.400'}
+              color={'white'}
+            >
+              Add Skill
+            </Button>
+            <Group flexWrap={'wrap'}>
+              {skills.map((item, index) => (
+                <Button size={'xs'} mt={6} border={'1px solid teal'} key={index}>
+                  {item.skill}
+                </Button>
+              ))}
+            </Group>
+          </Group>
+          <Group alignItems={'center'}>
+            <Box>
+              <FormInput
+                label={'Add Expertise Mentor'}
+                placeholder={'Example (Data Science)'}
+                type="text"
+                onChange={onChangeExpert}
+                value={expert}
+              />
+            </Box>
+
+            <Button
+              mt={6}
+              onClick={() => onClickExpert(expert)}
+              bgColor={'gray.400'}
+              color={'white'}
+            >
+              Add Expertise
+            </Button>
+            <Group flexWrap={'wrap'}>
+              {expertise.map((item, index) => (
+                <Button size={'xs'} mt={6} border={'1px solid teal'} key={index}>
+                  {item.expert}
+                </Button>
+              ))}
+            </Group>
+          </Group>
+        </Stack>
+      )}
       {type === 'edit' && (
         <>
           <Flex columnGap={5}>

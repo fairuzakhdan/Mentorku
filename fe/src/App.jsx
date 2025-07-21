@@ -66,7 +66,11 @@ const App = () => {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const { data } = await getUserLogin();
+        const { data, error } = await getUserLogin();
+        if (error || !data) {
+          putAccessToken('');
+          return;
+        }
         setAuthUser(data);
       } catch (err) {
         console.error('User not logged in:', err.message);

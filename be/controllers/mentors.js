@@ -96,7 +96,7 @@ const createMentors = async (req, res) => {
     role: req.body.role,
     linkedin: req.body.linkedin,
     language: req.body.language,
-    accessLevel: req.body.accessLevel,
+    status: req.body.status,
     location: req.body.location,
     price: req.body.price,
     cvResume: req.body.cvResume,
@@ -105,9 +105,8 @@ const createMentors = async (req, res) => {
     skills: req.body.skills,
     experience: req.body.experience,
     expertise: req.body.expertise,
-    education: req.body.education,
     summary: req.body.summary,
-    reviews: req.body.reviews,
+    education: req.body.education,
   };
 
   try {
@@ -127,6 +126,42 @@ const createMentors = async (req, res) => {
       });
     }
     return res.status(500).json({ error: "Internal Server Error" });
+  }
+};
+
+const createMentorForAdmin = async (req, res) => {
+  const mentorPost = {
+    name: req.body.name,
+    password: bcrypt.hashSync(req.body.password, 10),
+    email: req.body.email,
+    role: req.body.role,
+    language: req.body.language,
+    status: req.body.status,
+    location: req.body.location,
+    price: req.body.price,
+    phone: req.body.phone,
+    skills: req.body.skills,
+    expertise: req.body.expertise,
+    summary: req.body.summary,
+  };
+  try {
+    const mentor = new Mentor(mentorPost);
+    await mentor.save();
+    return res.status(201).json({
+      status: "success",
+      message: "Mentor berhasil ditambahkan",
+      data: mentor,
+    });
+  } catch (err) {
+    if (err instanceof z.ZodError) {
+      return res.status(400).json({
+        message: "Data tidak valid",
+        errors: err.errors,
+      });
+    }
+    return res
+      .status(500)
+      .json({ status: "failed", error: "Internal Server Error" });
   }
 };
 
@@ -201,6 +236,7 @@ const deleteMentorById = async (req, res) => {
 module.exports = {
   getAllMentors,
   createMentors,
+  createMentorForAdmin,
   findMentorByRecommendation,
   getMentorById,
   updateMentorById,
