@@ -1,6 +1,6 @@
 import FormInput from '../../../components/Elements/FormInput';
 import { Box, Flex, Stack, Group, Button } from '@chakra-ui/react';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import useInput from '../../../hooks/useInput';
 import UploadFile from '../../../components/Elements/FileUpload';
 const FormUsersAdmin = ({ type = 'add', initialData = {}, onSubmit }) => {
@@ -9,7 +9,7 @@ const FormUsersAdmin = ({ type = 'add', initialData = {}, onSubmit }) => {
   const [fullName, onChangeFullName, setFullName] = useInput('');
   const [institution, onChangeInstitution, setInstitution] = useInput('');
   const [telephone, onChangeTelephone, setTelephone] = useInput('');
-  const [image, setImage] = useState([]);
+  // const [image, setImage] = useState([]);
 
   useEffect(() => {
     if (type === 'edit') {
@@ -18,7 +18,7 @@ const FormUsersAdmin = ({ type = 'add', initialData = {}, onSubmit }) => {
       setFullName(initialData.fullName || '');
       setInstitution(initialData.institution || '');
       setTelephone(initialData.telephone || '');
-      setImage(initialData.image);
+      // setImage(initialData.image);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [initialData]);
@@ -29,7 +29,7 @@ const FormUsersAdmin = ({ type = 'add', initialData = {}, onSubmit }) => {
       fullName,
       institution,
       telephone,
-      image,
+      // image,
     });
   };
   return (
@@ -38,7 +38,7 @@ const FormUsersAdmin = ({ type = 'add', initialData = {}, onSubmit }) => {
         <FormInput
           value={email}
           onChange={onChangeEmail}
-          label={'Add Email'}
+          label={type === 'add' ? 'Add Email' : 'Edit Email'}
           name={'email'}
           placeholder={'example@gmail.com'}
           type={'email'}
@@ -46,7 +46,7 @@ const FormUsersAdmin = ({ type = 'add', initialData = {}, onSubmit }) => {
         <FormInput
           value={password}
           onChange={onChangePassword}
-          label={'Add Password'}
+          label={type === 'add' ? 'Add Password' : 'Edit Password'}
           name={'password'}
           placeholder={'************'}
           type={'password'}
@@ -56,7 +56,7 @@ const FormUsersAdmin = ({ type = 'add', initialData = {}, onSubmit }) => {
         <FormInput
           value={fullName}
           onChange={onChangeFullName}
-          label={'Add Full Name'}
+          label={type === 'add' ? 'Add Fullname' : 'Edit Fullname'}
           name={'fullName'}
           placeholder={'Enter User Full Name'}
           type={'text'}
@@ -64,7 +64,7 @@ const FormUsersAdmin = ({ type = 'add', initialData = {}, onSubmit }) => {
         <FormInput
           value={telephone}
           onChange={onChangeTelephone}
-          label={'Add Telephone'}
+          label={type === 'add' ? 'Add Telephone' : 'Edit Telephone'}
           name={'telephone'}
           placeholder={'Enter User Telephone'}
           type={'number'}
@@ -76,24 +76,23 @@ const FormUsersAdmin = ({ type = 'add', initialData = {}, onSubmit }) => {
           <FormInput
             value={institution}
             onChange={onChangeInstitution}
-            label={'Add Institution'}
+            label={type === 'add' ? 'Add Institution' : 'Edit Institution'}
             name={'institution'}
             placeholder={'Enter User Institution'}
             type={'text'}
           />
         </Box>
-        <Box mb={-2} flex={1}>
-          <UploadFile onFilesChange={setImage} />
+        <Box flex={1}>
+          <Button
+            onClick={onSubmitHandler}
+            colorPalette={'teal'}
+            width={'fit-content'}
+            alignSelf={'flex-end'}
+          >
+            {type === 'add' ? 'Add User' : 'Update User'}
+          </Button>
         </Box>
       </Flex>
-      <Button
-        onClick={onSubmitHandler}
-        colorPalette={'teal'}
-        width={'fit-content'}
-        alignSelf={'flex-end'}
-      >
-        {type === 'add' ? 'Add User' : 'Update User'}
-      </Button>
     </Stack>
   );
 };

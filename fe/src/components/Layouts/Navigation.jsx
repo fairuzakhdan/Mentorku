@@ -150,7 +150,7 @@ const Navigation = ({ type, children, onLogout }) => {
             <Stack paddingLeft={5} paddingBlock={5} alignItems="flex-start" rowGap={7}>
               <Stack color={'gray.700'} alignItems={'center'} m="auto" rowGap={5}>
                 <Image
-                  src="https://img.freepik.com/premium-vector/person-with-blue-shirt-that-says-name-person_1029948-7040.jpg?semt=ais_hybrid&w=740"
+                  src={authUser.image}
                   width={100}
                   height={100}
                   objectFit={'cover'}

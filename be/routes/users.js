@@ -17,7 +17,7 @@ router
 router
   .route("/users/:userId")
   .get(verifyToken, isAdmin, users.getUserById)
-  .put(verifyToken, users.updateUserById)
+  .patch(verifyToken, users.updateUserById)
   .delete(verifyToken, isAdmin, users.deleteUserById);
 
 module.exports = router;

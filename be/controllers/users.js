@@ -46,16 +46,28 @@ const getUserById = async (req, res) => {
 
 const updateUserById = async (req, res) => {
   const { userId } = req.params;
-  const passwordHash = await bcrypt.hashSync(req.body.password, 10);
   try {
     const user = await User.findById(userId);
-    await user.updateOne({ ...req.body, password: passwordHash });
+    if (!user) {
+      return res.status(404).json({
+        status: "failed",
+        message: "User not found",
+      });
+    }
+
+    let updateData = { ...req.body };
+    if (req.body.password) {
+      updateData.password = bcrypt.hashSync(req.body.password, 10);
+    }
+    const result = await user.updateOne(updateData);
+    console.log(result);
+
     return res.status(200).json({
       status: "success",
       message: "User successfully updated",
     });
   } catch (err) {
-    console.log(err.message);
+    console.error(err.message);
     return res.status(500).json({
       status: "failed",
       message: "Internal server error",
