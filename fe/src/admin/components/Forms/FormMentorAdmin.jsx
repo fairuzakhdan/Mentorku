@@ -11,6 +11,10 @@ const FormMentorAdmin = ({ type = 'add', initialData = {}, onSubmit }) => {
   const [role, onChangeRole, setRole] = useInput('');
   const [location, onChangeLocation, setLocation] = useInput('');
   const [price, onChangePrice, setPrice] = useInput('');
+  const [status, onChangeStatus, setStatus] = useInput('');
+  const [phone, onChangePhone, setPhone] = useInput('');
+  const [summary, onChangeSummary, setSummary] = useInput('');
+  const [language, onChangeLanguage, setLanguage] = useInput('');
   const [expertise, setExpertise] = useState([]);
   const [skills, setSkills] = useState([]);
   const [experience, setExperience] = useState([]);
@@ -24,6 +28,10 @@ const FormMentorAdmin = ({ type = 'add', initialData = {}, onSubmit }) => {
       setRole(initialData.role || '');
       setLocation(initialData.location || '');
       setPrice(initialData.price || '');
+      setPhone(initialData.phone || '');
+      setSummary(initialData.summary || '');
+      setLanguage(initialData.language || '');
+      setStatus(initialData.status || '');
       setExpertise(initialData.expertise || []);
       setSkills(initialData.skills || []);
       setExperience(initialData.experience || []);
@@ -60,6 +68,10 @@ const FormMentorAdmin = ({ type = 'add', initialData = {}, onSubmit }) => {
         role,
         location,
         price,
+        status,
+        phone,
+        summary,
+        language,
       });
     }
     if (type === 'edit') {
@@ -69,7 +81,11 @@ const FormMentorAdmin = ({ type = 'add', initialData = {}, onSubmit }) => {
         name,
         role,
         location,
+        phone,
+        summary,
+        language,
         price,
+        status,
         expertise,
         skills,
         experience,
@@ -86,6 +102,13 @@ const FormMentorAdmin = ({ type = 'add', initialData = {}, onSubmit }) => {
           type="email"
           value={email}
           onChange={onChangeEmail}
+        />
+        <FormInput
+          label={'Add Phone Mentor'}
+          placeholder={'Enter mentor phone'}
+          type="number"
+          value={phone}
+          onChange={onChangePhone}
         />
 
         <FormInput
@@ -111,6 +134,15 @@ const FormMentorAdmin = ({ type = 'add', initialData = {}, onSubmit }) => {
           value={role}
           onChange={onChangeRole}
         />
+        {language.map((skill, index) => (
+          <FormInput
+            placeholder={'Enter Skill mentor'}
+            label={'Add Role Mentor'}
+            type="text"
+            value={skill}
+            onChange={(e) => handleSkills(e, index)}
+          />
+        ))}
       </Flex>
       <Flex columnGap={5}>
         <FormTextArea
@@ -125,6 +157,13 @@ const FormMentorAdmin = ({ type = 'add', initialData = {}, onSubmit }) => {
           type="number"
           value={price}
           onChange={onChangePrice}
+        />
+        <FormInput
+          label={'Add Access Level'}
+          placeholder={'Enter level (mentor/validation/failed)'}
+          type="text"
+          value={status}
+          onChange={onChangeStatus}
         />
       </Flex>
       {type === 'edit' && (

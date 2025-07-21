@@ -15,7 +15,7 @@ const mentorSchema = new Schema({
   role: { type: String },
   linkedin: { type: String },
   language: { type: [String] },
-  accessLevel: {
+  status: {
     type: String,
     enum: ["mentor", "validation", "failed"],
     default: "validation",
