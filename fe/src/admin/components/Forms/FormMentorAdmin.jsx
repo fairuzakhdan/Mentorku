@@ -217,6 +217,22 @@ const FormMentorAdmin = ({ type = 'add', initialData = {}, onSubmit }) => {
         />
       </Flex>
       <Flex columnGap={3}>
+        <FormInput
+          label={'Add CvResume Mentor'}
+          placeholder={'Enter Resume (https://www/cvresume)'}
+          type="text"
+          value={cvResume}
+          onChange={onChangeCvResume}
+        />
+        <FormInput
+          label={'Add Portopolio Mentor'}
+          placeholder={'Enter Portopolio (https://www/porto)'}
+          type="text"
+          value={portopolio}
+          onChange={onChangePortopolio}
+        />
+      </Flex>
+      <Flex columnGap={3}>
         <FormTextArea
           label={'Add Description Mentor'}
           placeholder={'Enter Description mentor'}
@@ -226,22 +242,6 @@ const FormMentorAdmin = ({ type = 'add', initialData = {}, onSubmit }) => {
         <FormInput
           label={'Add Linkedin Mentor'}
           placeholder={'Enter Linkedin (https://www.linkedin.com)'}
-          type="text"
-          value={linkedin}
-          onChange={onChangeLinkedin}
-        />
-      </Flex>
-      <Flex columnGap={3}>
-        <FormInput
-          label={'Add CvResume Mentor'}
-          placeholder={'Enter Resume (https://www/cvresume)'}
-          type="text"
-          value={cvResume}
-          onChange={onChangeCvResume}
-        />
-        <FormInput
-          label={'Add Linkedin Mentor'}
-          placeholder={'Enter Linkedin (https://www/porto)'}
           type="text"
           value={linkedin}
           onChange={onChangeLinkedin}
