@@ -21,6 +21,8 @@ const FormMentorAdmin = ({ type = 'add', initialData = {}, onSubmit }) => {
   const [company, onChangeCompany] = useInput('');
   const [position, onChangePosition] = useInput('');
   const [years, onChangeYears] = useInput('');
+  const [organization, onChangeOrganization] = useInput('');
+  const [major, onChangeMajor] = useInput('');
   const [expertise, setExpertise] = useState([]);
   const [skills, setSkills] = useState([]);
   const [experience, setExperience] = useState([]);
@@ -86,7 +88,14 @@ const FormMentorAdmin = ({ type = 'add', initialData = {}, onSubmit }) => {
       position,
       years,
     };
-    setExperience({ ...experience, newExp });
+    setExperience([...experience, newExp]);
+  };
+  const onClickEducation = ({ organization, major }) => {
+    const newEdu = {
+      organization,
+      major,
+    };
+    setEducations([...educations, newEdu]);
   };
   const handleSubmit = () => {
     if (type === 'add') {
@@ -303,9 +312,51 @@ const FormMentorAdmin = ({ type = 'add', initialData = {}, onSubmit }) => {
             </Button>
 
             <Group flexWrap={'wrap'}>
-              {expertise.map((item, index) => (
+              {experience.map((item, index) => (
                 <Button size={'xs'} mt={6} border={'1px solid teal'} key={index}>
-                  {item.expert}
+                  {item.company}-{item.position}-{item.years}
+                </Button>
+              ))}
+            </Group>
+          </Group>
+          <Group alignItems={'center'}>
+            <Flex columnGap={2}>
+              <FormInput
+                label={'Add Company Mentor'}
+                placeholder={'Example (Google Indonesia)'}
+                type="text"
+                onChange={onChangeCompany}
+                value={company}
+              />
+              <FormInput
+                label={'Add Position Mentor'}
+                placeholder={'Example (Web App)'}
+                type="text"
+                onChange={onChangePosition}
+                value={position}
+              />
+              <FormInput
+                label={'How Long Year'}
+                placeholder={'Example (5)'}
+                type="number"
+                onChange={onChangeYears}
+                value={years}
+              />
+            </Flex>
+
+            <Button
+              mt={6}
+              onClick={() => onClickExperience({ company, position, years })}
+              bgColor={'gray.400'}
+              color={'white'}
+            >
+              Add Experience
+            </Button>
+
+            <Group flexWrap={'wrap'}>
+              {experience.map((item, index) => (
+                <Button size={'xs'} mt={6} border={'1px solid teal'} key={index}>
+                  {item.company}-{item.position}-{item.years}
                 </Button>
               ))}
             </Group>
