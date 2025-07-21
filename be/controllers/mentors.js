@@ -143,6 +143,7 @@ const createMentorForAdmin = async (req, res) => {
     skills: req.body.skills,
     expertise: req.body.expertise,
     summary: req.body.summary,
+    linkedin: req.body.linkedin,
   };
   try {
     const mentor = new Mentor(mentorPost);

@@ -186,19 +186,21 @@ const FormMentorAdmin = ({ type = 'add', initialData = {}, onSubmit }) => {
           onChange={onChangeStatus}
         />
       </Flex>
-      <FormTextArea
-        label={'Add Description Mentor'}
-        placeholder={'Enter Description mentor'}
-        value={summary}
-        onChange={onChangeSummary}
-      />
-      <FormInput
-        label={'Add Linkedin Mentor'}
-        placeholder={'Enter Linkedin (mentor/validation/failed)'}
-        type="text"
-        value={status}
-        onChange={onChangeStatus}
-      />
+      <Flex columnGap={3}>
+        <FormTextArea
+          label={'Add Description Mentor'}
+          placeholder={'Enter Description mentor'}
+          value={summary}
+          onChange={onChangeSummary}
+        />
+        <FormInput
+          label={'Add Linkedin Mentor'}
+          placeholder={'Enter Linkedin (https://www.linkedin.com)'}
+          type="text"
+          value={linkedin}
+          onChange={onChangeLinkedin}
+        />
+      </Flex>
       {type === 'add' && (
         <Stack>
           <Group alignItems={'center'}>
@@ -238,6 +240,40 @@ const FormMentorAdmin = ({ type = 'add', initialData = {}, onSubmit }) => {
                 value={expert}
               />
             </Box>
+
+            <Button
+              mt={6}
+              onClick={() => onClickExpert(expert)}
+              bgColor={'gray.400'}
+              color={'white'}
+            >
+              Add Expertise
+            </Button>
+            <Group flexWrap={'wrap'}>
+              {expertise.map((item, index) => (
+                <Button size={'xs'} mt={6} border={'1px solid teal'} key={index}>
+                  {item.expert}
+                </Button>
+              ))}
+            </Group>
+          </Group>
+          <Group alignItems={'center'}>
+            <Flex columnGap={2}>
+              <FormInput
+                label={'Add Expertise Mentor'}
+                placeholder={'Example (Data Science)'}
+                type="text"
+                onChange={onChangeExpert}
+                value={expert}
+              />
+              <FormInput
+                label={'Add Expertise Mentor'}
+                placeholder={'Example (Data Science)'}
+                type="text"
+                onChange={onChangeExpert}
+                value={expert}
+              />
+            </Flex>
 
             <Button
               mt={6}
