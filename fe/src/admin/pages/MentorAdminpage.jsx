@@ -3,8 +3,9 @@ import { Box, Text, Flex } from '@chakra-ui/react';
 import { useState, useEffect } from 'react';
 import TableArea from '../../shared/components/Table';
 import TableBodyMentorAdmin from '../components/TableBody/TableBodyMentorAdmin';
-import { mentors as itemMentor } from '../../utils/mentors';
+// import { mentors as itemMentor } from '../../utils/mentors';
 import AddButton from '../../shared/components/AddButon';
+import { getAllMentorForAdmin } from '../../utils/mentors';
 const MentorAdminpage = () => {
   const [mentors, setMentors] = useState([]);
   const headers = [
@@ -15,11 +16,21 @@ const MentorAdminpage = () => {
     'Expertise',
     'Price',
     'CV/Resume',
-    'Description',
+    'Status',
     'Image',
   ];
   useEffect(() => {
-    setMentors(itemMentor);
+    getAllMentorForAdmin()
+      .then(({ error, data }) => {
+        if (error) {
+          alert('faild fetch data');
+        } else {
+          setMentors(data);
+        }
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
   }, []);
   return (
     <Sidebar type={'admin'}>

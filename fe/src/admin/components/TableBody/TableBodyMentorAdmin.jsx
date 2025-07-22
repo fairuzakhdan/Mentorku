@@ -17,16 +17,17 @@ const TableBodyMentorAdmin = ({ items }) => {
       {items.map((item, index) => (
         <Table.Row key={index} backgroundColor={'gray.200'}>
           <Table.Cell>{index + 1}</Table.Cell>
-          <Table.Cell>{item.email}</Table.Cell>
+          <Table.Cell>{item.email.substring(0, 15)}</Table.Cell>
           <Table.Cell>{item.name}</Table.Cell>
-          <Table.Cell>{hidePassword(item.password)}</Table.Cell>
+          <Table.Cell>{hidePassword(item.password.substring(0, 10))}</Table.Cell>
           <Table.Cell>{`${item.role.substring(0, 5)}...`}</Table.Cell>
           <Table.Cell>
-            {item.expertise.map((exp, index) => (
+            <Text mr={1}>{`${item.expertise[0].substring(0, 10)}`}</Text>
+            {/* {item.expertise.map((exp, index) => (
               <Group key={index} columnGap={2}>
                 <Text mr={1}>{`${exp.substring(0, 3)}`}</Text>
               </Group>
-            ))}
+            ))} */}
           </Table.Cell>
           <Table.Cell>{item.price}</Table.Cell>
           <Table.Cell>
@@ -34,9 +35,26 @@ const TableBodyMentorAdmin = ({ items }) => {
               View CV/Res...
             </Link>
           </Table.Cell>
-          <Table.Cell>{`${item.summary.substring(0, 10)}`}</Table.Cell>
+          <Table.Cell p={0} m={0}>
+            <Text
+              bgColor={
+                item.status === 'mentor'
+                  ? 'green.400'
+                  : item.status === 'failed'
+                    ? 'red.400'
+                    : item.status === 'validation'
+                      ? 'blue.400'
+                      : 'gray.200'
+              }
+              rounded={'xl'}
+              p={1}
+              m={0}
+            >
+              {item.status}
+            </Text>
+          </Table.Cell>
           <Table.Cell>
-            <AvatarCard image={item.image} rounded="full" size="xs" />
+            <AvatarCard image={item.profilePicture.url} rounded="full" size="xs" />
           </Table.Cell>
           <Table.Cell textAlign={'center'} p={0}>
             <Button
@@ -44,7 +62,7 @@ const TableBodyMentorAdmin = ({ items }) => {
               backgroundColor={'transparent'}
               color={'textGreen'}
               _hover={{ color: 'gray.800' }}
-              onClick={() => toDetailById(item.id)}
+              onClick={() => toDetailById(item._id)}
             >
               <FaEdit />
             </Button>

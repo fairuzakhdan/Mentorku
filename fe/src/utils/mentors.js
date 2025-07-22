@@ -1,5 +1,5 @@
 import { SiPeakdesign } from 'react-icons/si';
-import { api } from './api';
+import { api, fetchWithToken } from './api';
 
 // const api = 'http://localhost:3000/api';
 
@@ -14,6 +14,66 @@ export const getAllMentor = async () => {
 
 export const getMentorById = async (id) => {
   const response = await fetch(`${api}/mentors/${id}`);
+  const responseJson = await response.json();
+  if (responseJson.status !== 'success') {
+    return { error: true, data: null };
+  }
+  return { error: false, data: responseJson.data };
+};
+
+export const getAllMentorForAdmin = async () => {
+  const response = await fetchWithToken(`${api}/mentors/admin`);
+  const responseJson = await response.json();
+  if (responseJson.status !== 'success') {
+    return { error: true, data: null };
+  }
+  return { error: false, data: responseJson.data };
+};
+
+export const createMentorForAdmin = async ({
+  name,
+  password,
+  email,
+  role,
+  linkedin,
+  language,
+  status,
+  location,
+  price,
+  cvResume,
+  portofolio,
+  phone,
+  skills,
+  experience,
+  expertise,
+  summary,
+  education,
+}) => {
+  const response = await fetchWithToken(`${api}/mentors/admin`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      name,
+      password,
+      email,
+      role,
+      linkedin,
+      language,
+      status,
+      location,
+      price,
+      cvResume,
+      portofolio,
+      phone,
+      skills,
+      experience,
+      expertise,
+      summary,
+      education,
+    }),
+  });
   const responseJson = await response.json();
   if (responseJson.status !== 'success') {
     return { error: true, data: null };
