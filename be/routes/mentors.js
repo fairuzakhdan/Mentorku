@@ -12,6 +12,8 @@ router
   .route("/admin")
   .post(verifyToken, isAdmin, mentors.createMentors)
   .get(verifyToken, isAdmin, mentors.getAllMentors);
+
+router.route("/:mentorId/admin", verifyToken, isAdmin, mentors.getMentorById);
 router
   .route("/:mentorId")
   .get(mentors.getMentorById)
