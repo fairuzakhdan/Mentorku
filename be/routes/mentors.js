@@ -8,6 +8,7 @@ router
   .route("/")
   .get(verifyToken, isAdmin, mentors.getAllMentors)
   .post(mentors.createMentors);
+
 router
   .route("/admin")
   .post(verifyToken, isAdmin, mentors.createMentors)

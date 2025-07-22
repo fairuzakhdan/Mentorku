@@ -73,17 +73,11 @@ const FormMentorAdmin = ({ type = 'add', initialData = {}, onSubmit }) => {
     setEducations(updateEducations);
   };
   const onClickSkills = (skill) => {
-    const newSkill = {
-      skill,
-    };
-    setSkills([...skills, newSkill]);
+    setSkills([...skills, skill]);
     setSkill('');
   };
   const onClickExpert = (expert) => {
-    const newExpert = {
-      expert,
-    };
-    setExpertise([...expertise, newExpert]);
+    setExpertise([...expertise, expert]);
     setExpert('');
   };
   const onClickExperience = ({ company, position, years }) => {
@@ -271,7 +265,7 @@ const FormMentorAdmin = ({ type = 'add', initialData = {}, onSubmit }) => {
             <Group flexWrap={'wrap'}>
               {skills.map((item, index) => (
                 <Button size={'xs'} mt={6} border={'1px solid teal'} key={index}>
-                  {item.skill}
+                  {item}
                 </Button>
               ))}
             </Group>
@@ -298,7 +292,7 @@ const FormMentorAdmin = ({ type = 'add', initialData = {}, onSubmit }) => {
             <Group flexWrap={'wrap'}>
               {expertise.map((item, index) => (
                 <Button size={'xs'} mt={6} border={'1px solid teal'} key={index}>
-                  {item.expert}
+                  {item}
                 </Button>
               ))}
             </Group>

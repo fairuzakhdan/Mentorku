@@ -112,7 +112,7 @@ const createMentors = async (req, res) => {
   try {
     const newMentor = new Mentor(mentorPost);
     await newMentor.save();
-
+    console.log(mentorPost);
     return res.status(201).json({
       status: "success",
       message: "Mentor berhasil ditambahkan",
@@ -125,6 +125,7 @@ const createMentors = async (req, res) => {
         errors: err.errors,
       });
     }
+    console.log(err.message)
     return res.status(500).json({ error: "Internal Server Error" });
   }
 };

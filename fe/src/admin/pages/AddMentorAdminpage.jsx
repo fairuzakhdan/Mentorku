@@ -16,13 +16,13 @@ const AddMentorAdminpage = () => {
     location,
     price,
     cvResume,
-    portofolio,
+    portopolio,
     phone,
     skills,
     experience,
     expertise,
     summary,
-    education,
+    educations,
   }) => {
     createMentorForAdmin({
       name,
@@ -35,16 +35,15 @@ const AddMentorAdminpage = () => {
       location,
       price,
       cvResume,
-      portofolio,
+      portopolio,
       phone,
       skills,
       experience,
       expertise,
       summary,
-      education,
+      education: educations,
     })
       .then(({ error, data }) => {
-        console.log(data);
         if (error) {
           alert('Add Mentor Failed');
         } else {
