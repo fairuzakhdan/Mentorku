@@ -43,7 +43,7 @@ const AddMentorAdminpage = () => {
       summary,
       education: educations,
     })
-      .then(({ error, data }) => {
+      .then(({ error }) => {
         if (error) {
           alert('Add Mentor Failed');
         } else {
