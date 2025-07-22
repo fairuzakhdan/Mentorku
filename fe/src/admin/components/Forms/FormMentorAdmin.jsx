@@ -356,7 +356,7 @@ const FormMentorAdmin = ({ type = 'add', initialData = {}, onSubmit }) => {
               />
               <FormInput
                 label={'Major Mentor'}
-                placeholder={'Example (Computer Science)'}
+                placeholder={'Example (S1 Computer Science)'}
                 type="text"
                 onChange={onChangeMajor}
                 value={major}

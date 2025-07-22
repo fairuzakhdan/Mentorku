@@ -44,6 +44,7 @@ const AddMentorAdminpage = () => {
       education,
     })
       .then(({ error, data }) => {
+        console.log(data);
         if (error) {
           alert('Add Mentor Failed');
         } else {
@@ -58,7 +59,7 @@ const AddMentorAdminpage = () => {
   return (
     <Sidebar type={'admin'}>
       <Box color={'textBlue'}>
-        <FormMentorAdmin type="add" onSubmit={(data) => console.log(data)} />
+        <FormMentorAdmin type="add" onSubmit={addMentorHandlerForAdmin} />
       </Box>
     </Sidebar>
   );

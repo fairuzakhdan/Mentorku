@@ -30,6 +30,16 @@ export const getAllMentorForAdmin = async () => {
   return { error: false, data: responseJson.data };
 };
 
+export const getMentorIdForAdmin = async (mentorId) => {
+  const response = await fetchWithToken(`${api}/mentors/${mentorId}/admin`);
+  const responseJson = await response.json();
+  console.log(responseJson);
+  if (responseJson.status !== 'success') {
+    return { error: true, data: null };
+  }
+  return { error: false, data: responseJson.data };
+};
+
 export const createMentorForAdmin = async ({
   name,
   password,
