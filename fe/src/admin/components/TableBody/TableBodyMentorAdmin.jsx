@@ -37,12 +37,13 @@ const TableBodyMentorAdmin = ({ items }) => {
           </Table.Cell>
           <Table.Cell p={0} m={0}>
             <Text
+              textAlign={'center'}
               bgColor={
-                item.status === 'mentor'
+                item.accessLevel === 'mentor'
                   ? 'green.400'
-                  : item.status === 'failed'
+                  : item.accessLevel === 'failed'
                     ? 'red.400'
-                    : item.status === 'validation'
+                    : item.accessLevel === 'validation'
                       ? 'blue.400'
                       : 'gray.200'
               }
@@ -50,7 +51,7 @@ const TableBodyMentorAdmin = ({ items }) => {
               p={1}
               m={0}
             >
-              {item.status}
+              {item.accessLevel}
             </Text>
           </Table.Cell>
           <Table.Cell>

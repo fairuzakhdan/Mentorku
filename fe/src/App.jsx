@@ -1,6 +1,6 @@
 // App.jsx (Clean Code Version)
 import React, { useState, useEffect, useMemo } from 'react';
-import { Routes, Route, useNavigate } from 'react-router';
+import { Routes, Route, useNavigate, Navigate } from 'react-router';
 import '@fontsource/poppins/400.css';
 import AuthContext from './shared/context/authContext.jsx';
 

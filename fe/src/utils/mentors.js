@@ -47,7 +47,7 @@ export const createMentorForAdmin = async ({
   role,
   linkedin,
   language,
-  status,
+  accessLevel,
   location,
   price,
   cvResume,
@@ -71,7 +71,7 @@ export const createMentorForAdmin = async ({
       role,
       linkedin,
       language,
-      status,
+      accessLevel,
       location,
       price,
       cvResume,
@@ -89,6 +89,21 @@ export const createMentorForAdmin = async ({
     return { error: true, data: null };
   }
   return { error: false, data: responseJson.data };
+};
+
+export const updateMentorByIdForAdmin = async (mentorId, body) => {
+  const response = await fetchWithToken(`${api}/mentors/${mentorId}/admin`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(body),
+  });
+  const responseJson = await response.json();
+  if (responseJson.status !== 'success') {
+    return { error: true, data: null, message: responseJson.message };
+  }
+  return { error: false, data: responseJson.data, message: responseJson.message };
 };
 
 const mentors = [

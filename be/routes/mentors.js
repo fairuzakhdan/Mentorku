@@ -4,10 +4,7 @@ const verifyToken = require("../middlewares/verifyToken");
 const isAdmin = require("../middlewares/isAdmin");
 const mentors = require("../controllers/mentors");
 
-router
-  .route("/")
-  .get(verifyToken, isAdmin, mentors.getAllMentors)
-  .post(mentors.createMentors);
+router.route("/").get(mentors.getAllMentors).post(mentors.createMentors);
 
 router
   .route("/admin")
@@ -16,7 +13,8 @@ router
 
 router
   .route("/:mentorId/admin")
-  .get(verifyToken, isAdmin, mentors.getMentorById);
+  .get(verifyToken, isAdmin, mentors.getMentorById)
+  .put(verifyToken, isAdmin, mentors.updateMentorById);
 
 router
   .route("/:mentorId")

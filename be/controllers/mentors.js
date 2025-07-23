@@ -96,7 +96,7 @@ const createMentors = async (req, res) => {
     role: req.body.role,
     linkedin: req.body.linkedin,
     language: req.body.language,
-    status: req.body.status,
+    accessLevel: req.body.accessLevel,
     location: req.body.location,
     price: req.body.price,
     cvResume: req.body.cvResume,
@@ -125,7 +125,7 @@ const createMentors = async (req, res) => {
         errors: err.errors,
       });
     }
-    console.log(err.message)
+    console.log(err.message);
     return res.status(500).json({ error: "Internal Server Error" });
   }
 };
@@ -199,17 +199,23 @@ const updateMentorById = async (req, res) => {
   }
 
   try {
-    const updatedMentor = await Mentor.findByIdAndUpdate(mentorId, req.body, {
-      new: true,
-    });
+    const updatedMentor = await Mentor.findByIdAndUpdate(
+      mentorId,
+      { ...req.body, password: bcrypt.hashSync(req.body.password, 10) },
+      {
+        new: true,
+      }
+    );
     return res.status(200).json({
-      status: true,
+      status: "success",
       message: "Mentor berhasil diubah",
       data: updatedMentor,
     });
   } catch (err) {
+    console.log(err.message);
     return res.status(500).json({
       error: "Internal Server Error",
+      message: err.message,
     });
   }
 };

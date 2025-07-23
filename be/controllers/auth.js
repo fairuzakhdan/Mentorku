@@ -41,7 +41,7 @@ const login = async (req, res) => {
   try {
     let user = await User.findOne({ email });
     if (!user) {
-      user = await Mentor.findOne({ email });
+      user = await Mentor.findOne({ email, accessLevel: 'mentor' });
     }
     if (!user) {
       return res.status(404).json({

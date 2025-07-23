@@ -2,9 +2,11 @@ import Sidebar from '../../shared/components/Sidebar';
 import FormMentorAdmin from '../components/Forms/FormMentorAdmin';
 import { Box } from '@chakra-ui/react';
 import { useParams } from 'react-router';
+import { useNavigate } from 'react-router';
 import { useState, useEffect } from 'react';
-import { getMentorIdForAdmin } from '../../utils/mentors';
+import { getMentorIdForAdmin, updateMentorByIdForAdmin } from '../../utils/mentors';
 const EditMentorAdminpage = () => {
+  const navigate = useNavigate();
   const [mentor, setMentor] = useState({});
   const { mentorId } = useParams();
   useEffect(() => {
@@ -20,10 +22,24 @@ const EditMentorAdminpage = () => {
         console.log(err.message);
       });
   }, [mentorId]);
+  const updateMentorForAdminHandler = (data) => {
+    updateMentorByIdForAdmin(mentorId, data)
+      .then(({ error, message }) => {
+        if (error) {
+          alert('Edit Mentor Failed');
+        } else {
+          alert(message);
+          navigate('/mentors');
+        }
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  };
   return (
     <Sidebar type={'admin'}>
       <Box color={'textBlue'}>
-        <FormMentorAdmin type="edit" initialData={mentor} onSubmit={(data) => console.log(data)} />
+        <FormMentorAdmin type="edit" initialData={mentor} onSubmit={updateMentorForAdminHandler} />
       </Box>
     </Sidebar>
   );

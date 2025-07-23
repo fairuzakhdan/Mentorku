@@ -41,7 +41,7 @@ const FormMentorAdmin = ({ type = 'add', initialData = {}, onSubmit }) => {
       setPhone(initialData.phone || '');
       setSummary(initialData.summary || '');
       setLanguage(initialData.language || '');
-      setStatus(initialData.status || '');
+      setStatus(initialData.accessLevel || '');
       setExpertise(initialData.expertise || []);
       setSkills(initialData.skills || []);
       setExperience(initialData.experience || []);
@@ -128,7 +128,7 @@ const FormMentorAdmin = ({ type = 'add', initialData = {}, onSubmit }) => {
         summary,
         language,
         price,
-        status,
+        accessLevel: status,
         expertise,
         skills,
         experience,
@@ -446,7 +446,7 @@ const FormMentorAdmin = ({ type = 'add', initialData = {}, onSubmit }) => {
                   <FormInput
                     label={'Edit  Year'}
                     placeholder={'Enter Year'}
-                    type="text"
+                    type="number"
                     value={exp.years}
                     onChange={(e) => handleExperience(e, index, 'years')}
                   />

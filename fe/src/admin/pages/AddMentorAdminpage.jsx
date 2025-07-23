@@ -31,7 +31,7 @@ const AddMentorAdminpage = () => {
       role,
       linkedin,
       language,
-      status,
+      accessLevel: status,
       location,
       price,
       cvResume,
