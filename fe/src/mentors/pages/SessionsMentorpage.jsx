@@ -6,6 +6,7 @@ import TableBodySessions from '../components/TableBody/TableBodySessions';
 import { useEffect, useState } from 'react';
 import { getAllSession } from '../../utils/sessions';
 import { deleteSessionById } from '../../utils/sessions';
+import FormLiveSession from '../components/Forms/FormLiveSession';
 const SessionMentorpage = () => {
   const headers = ['Day', 'Duration'];
   const [sessions, setSessions] = useState([]);
@@ -45,9 +46,16 @@ const SessionMentorpage = () => {
           <Text fontSize={'xl'}>Sessions</Text>
           <AddButton label={'Add Session'} toLink={'/sessions/add'} />
         </Flex>
-        <TableArea headers={headers}>
-          <TableBodySessions items={sessions} onDeleteById={deleteSessionHandler} />
-        </TableArea>
+        <Flex width={'full'} columnGap={5}>
+          <Box flex={2}>
+            <TableArea headers={headers}>
+              <TableBodySessions items={sessions} onDeleteById={deleteSessionHandler} />
+            </TableArea>
+          </Box>
+          <Box>
+            <FormLiveSession />
+          </Box>
+        </Flex>
       </Box>
     </Sidebar>
   );
