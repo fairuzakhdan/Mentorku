@@ -1,5 +1,5 @@
 import React from 'react';
-import { Tabs } from '@chakra-ui/react';
+import { Tabs, Text } from '@chakra-ui/react';
 import PropTypes from 'prop-types';
 
 const TabsLink = ({ tabs }) => {

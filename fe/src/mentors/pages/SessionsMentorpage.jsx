@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react';
 import { getAllSession } from '../../utils/sessions';
 import { deleteSessionById } from '../../utils/sessions';
 const SessionMentorpage = () => {
-  const headers = ['Day', 'Duration', 'Session'];
+  const headers = ['Day', 'Duration'];
   const [sessions, setSessions] = useState([]);
   useEffect(() => {
     getAllSession()

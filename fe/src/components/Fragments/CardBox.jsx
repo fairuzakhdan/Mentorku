@@ -59,7 +59,14 @@ const Header = ({ name, role, fontSize = 'lg', color = 'white' }) => {
     </Card.Header>
   );
 };
-const Body = ({ title, summary, price, color = 'white', fontSize = 'md' }) => {
+const Body = ({
+  title,
+  summary,
+  price,
+  color = 'white',
+  fontSize = 'md',
+  scheduleType = 'month',
+}) => {
   return (
     <Card.Body pt="3" pb="0">
       <Card.Title mt="2" color={color}>
@@ -71,7 +78,7 @@ const Body = ({ title, summary, price, color = 'white', fontSize = 'md' }) => {
               style: 'currency',
               currency: 'IDR',
               minimumFractionDigits: 0,
-            })}/Month`
+            })}/${scheduleType}`
           : null}
       </Card.Title>
       <Card.Description>{summary}</Card.Description>

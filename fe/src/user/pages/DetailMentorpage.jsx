@@ -33,12 +33,13 @@ import Selected from '../../components/Fragments/Selected';
 import TabsLink from '../../components/Fragments/Tabs';
 import { useNavigate } from 'react-router';
 import { LuHouse, LuUserRoundSearch } from 'react-icons/lu';
-import { getMentorById } from '../../utils/mentors';
+import { getMentorById, getLiveSession } from '../../utils/mentors';
 
 const DetailMentorpage = () => {
   const navigate = useNavigate();
   const { mentorId } = useParams();
   const [detailMentor, setDetailMentor] = useState(null);
+  const [liveSession, setLiveSession] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [selectedDays, setSelectedDays] = useState({});
 
@@ -55,6 +56,26 @@ const DetailMentorpage = () => {
       .finally(() => {
         setIsLoading(false);
       });
+
+    getLiveSession(mentorId)
+      .then(({ data, error }) => {
+        if (error || !data) {
+          setLiveSession({
+            meetingPerWeek: 2,
+            scheduleType: 'Weekly',
+          });
+        } else {
+          setLiveSession(data);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+        // fallback juga ditambahkan di catch
+        setLiveSession({
+          meetingPerWeek: 2,
+          scheduleType: 'Weekly',
+        });
+      });
   }, [mentorId, navigate]);
   if (isLoading) {
     return <div>Loading...</div>;
@@ -65,8 +86,9 @@ const DetailMentorpage = () => {
     setSelectedDays(days);
   };
   const addTimes = () => {
-    if (Object.keys(selectedDays).length < 2) {
-      alert('Please select at least two days before hiring a mentor.');
+    const requiredMeetings = liveSession?.meetingPerWeek ?? 2;
+    if (Object.keys(selectedDays).length < requiredMeetings) {
+      alert(`Please select at least ${requiredMeetings} days before hiring a mentor.`);
     } else {
       const select = Object.entries(selectedDays).map(([day, timeObj]) => ({
         days: day,
@@ -155,6 +177,7 @@ const DetailMentorpage = () => {
                             <CardBox.Body
                               color="textBlue"
                               price={detailMentor.price}
+                              scheduleType={liveSession.scheduleType}
                               fontSize="xl"
                               summary="Cocok untuk mereka yang ingin melakukan perubahan karier, mendapatkan promosi, atau membutuhkan bimbingan/arahan karier"
                             />
@@ -189,6 +212,9 @@ const DetailMentorpage = () => {
                     ]}
                   />
                   <Box w="100%" p={3}>
+                    <Text fontSize={'sm'} p={0} mt={-3} mb={1} color={'gray.500'} textAlign={'end'}>
+                      {`Weekly Schedule: ${liveSession?.meetingPerWeek ?? 2} ${liveSession?.meetingPerWeek === 1 ? 'Meeting' : 'Meetings'}`}
+                    </Text>
                     <Button
                       variant="solid"
                       colorPalette="teal"

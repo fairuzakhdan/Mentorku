@@ -90,6 +90,15 @@ export const createMentor = async ({
   return { error: false, data: responseJson.data };
 };
 
+export const getLiveSession = async (mentorId) => {
+  const response = await fetch(`${api}/lives/${mentorId}`);
+  const responseJson = await response.json();
+  if (responseJson.status !== 'success') {
+    return { error: true, data: null };
+  }
+  return { error: false, data: responseJson.data };
+};
+
 export const createMentorForAdmin = async ({
   name,
   password,

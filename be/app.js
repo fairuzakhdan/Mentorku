@@ -7,7 +7,6 @@ var logger = require("morgan");
 const cors = require("cors");
 var indexRouter = require("./routes/index");
 
-
 const mentorsRouter = require("./routes/mentors");
 const sessionsRouter = require("./routes/sessions");
 const paymentRouter = require("./routes/payment");
@@ -15,6 +14,7 @@ const userRouter = require("./routes/users");
 const lessonRouter = require("./routes/lessons");
 const webinarRouter = require("./routes/webinars");
 const menteeRouter = require("./routes/menteee");
+const liveSessionRouter = require("./routes/liveSession");
 
 var app = express();
 
@@ -34,6 +34,7 @@ app.use("/api", userRouter);
 app.use("/api/lessons", lessonRouter);
 app.use("/api/webinars", webinarRouter);
 app.use("/api/mentees", menteeRouter);
+app.use("/api/lives", liveSessionRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

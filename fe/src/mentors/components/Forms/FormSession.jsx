@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react';
 const FormSession = ({ initialData, type = 'add', onSubmitHanlder }) => {
   const [session, setSession] = useState([]);
   const [day, onChangeDay, setDay] = useInput('');
-  const [meeting, onChangeMeeting, setMeeting] = useInput('');
+  // const [meeting, onChangeMeeting, setMeeting] = useInput('');
   const [times, onChangeTimes] = useInput('');
   const addDuration = ({ times }) => {
     if (!times) {
@@ -23,7 +23,7 @@ const FormSession = ({ initialData, type = 'add', onSubmitHanlder }) => {
     if (type === 'edit') {
       setSession(initialData.session || []);
       setDay(initialData.day || '');
-      setMeeting(initialData.meeting || '');
+      // setMeeting(initialData.meeting || '');
       // setDuration(initialData.duration || '');
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -34,7 +34,7 @@ const FormSession = ({ initialData, type = 'add', onSubmitHanlder }) => {
     setSession(updateTime);
   };
   const submitHandler = () => {
-    onSubmitHanlder({ day, session, meeting });
+    onSubmitHanlder({ day, session });
   };
   return (
     <>
@@ -48,14 +48,14 @@ const FormSession = ({ initialData, type = 'add', onSubmitHanlder }) => {
             placeholder={'Enter day session'}
             type="text"
           />
-          <FormInput
+          {/* <FormInput
             label={type === 'add' ? 'Add Session' : 'Edit Session'}
             required
             value={meeting}
             onChange={onChangeMeeting}
             placeholder={'2 Sesssion/week'}
             type="number"
-          />
+          /> */}
         </Flex>
         {type === 'add' && (
           <Flex columnGap={5} alignItems={'end'} backgroundColor={'white'} p={5} rounded={'lg'}>

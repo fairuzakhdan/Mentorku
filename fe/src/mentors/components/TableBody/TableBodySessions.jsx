@@ -22,7 +22,7 @@ const TableBodySessions = ({ items, onDeleteById }) => {
               ))}
             </Group>
           </Table.Cell>
-          <Table.Cell>{item.meeting} Session/week</Table.Cell>
+          {/* <Table.Cell>{item.meeting} Session/week</Table.Cell> */}
           <Table.Cell textAlign={'center'} p={0}>
             <Button
               p={0}
