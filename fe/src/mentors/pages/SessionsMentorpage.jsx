@@ -7,6 +7,8 @@ import { useEffect, useState } from 'react';
 import { getAllSession } from '../../utils/sessions';
 import { deleteSessionById } from '../../utils/sessions';
 import FormLiveSession from '../components/Forms/FormLiveSession';
+import { createLiveSession } from '../../utils/mentors';
+
 const SessionMentorpage = () => {
   const headers = ['Day', 'Duration'];
   const [sessions, setSessions] = useState([]);
@@ -39,6 +41,19 @@ const SessionMentorpage = () => {
       });
   };
 
+  const addLiveSession = ({ scheduleType, meetingPerWeek }) => {
+    createLiveSession({ scheduleType, meetingPerWeek })
+      .then(({ data, error, message }) => {
+        if (error) {
+          alert(message);
+        } else {
+          alert(message);
+        }
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  };
   return (
     <Sidebar type={'mentor'}>
       <Box color={'textBlue'}>
@@ -53,7 +68,7 @@ const SessionMentorpage = () => {
             </TableArea>
           </Box>
           <Box>
-            <FormLiveSession />
+            <FormLiveSession onSubmit={addLiveSession} />
           </Box>
         </Flex>
       </Box>
