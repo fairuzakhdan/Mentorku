@@ -24,6 +24,7 @@ import FormAddExperienceMentor from '../../components/Fragments/FormAddExperienc
 import useInput from '../../hooks/useInput';
 import { useState } from 'react';
 import { useNavigate } from 'react-router';
+import { createMentor } from '../../utils/mentors';
 
 const AddProfileContent = ({ formState }) => {
   const {
@@ -37,6 +38,8 @@ const AddProfileContent = ({ formState }) => {
     onChangeDate,
     location,
     onChangeLocation,
+    phone,
+    onChangePhone,
   } = formState;
   return (
     <Box>
@@ -64,6 +67,8 @@ const AddProfileContent = ({ formState }) => {
         </Box>
       </Group>
       <FormAddProfileMentor
+        phone={phone}
+        onChangePhone={onChangePhone}
         name={name}
         onChangeName={onChangeName}
         email={email}
@@ -96,7 +101,7 @@ const AddAboutContent = ({
       </Text>
       <FormAddAboutMentor
         valueLanguage={valueLanguage}
-        setLanguage={setLanguage} // ⬅️ TAMBAHKAN INI
+        setLanguage={setLanguage}
         valueLinkedIn={valueLinkedIn}
         valueSummary={valueSummary}
         onChangeLinkedIn={onChangeLinkedIn}
@@ -151,23 +156,23 @@ const AddMentorpage = () => {
   const [location, onChangeLocation] = useInput('');
   const [summary, onChangeSummary] = useInput('');
   const [linkedIn, onChangeLinkedIn] = useInput('');
+  const [phone, onChangePhone] = useInput('');
   const [language, setLanguage] = useState([]);
   const [skills, setSkills] = useState([]);
+  const [valueExpertise, setExpertise] = useState([]);
 
   const [valueCv, onChangecV] = useInput('');
   const [valuePortfolio, onChangePortfolio] = useInput('');
-  const [valueExpertise, onExpertiseChange] = useInput('');
   const [valueCurrentPosition, onChangeCurrentPosition] = useInput('');
   const [valuePriceSalary, onChangePriceSalary] = useInput('');
   const [education, setEducation] = useState([]);
   const [experience, setExperience] = useState([]);
-  console.log({ education, experience });
+
   const educationHandler = (education) => {
     setEducation(education);
   };
 
   const experienceHandler = (experience) => {
-    console.log(experience);
     setExperience(experience);
   };
 
@@ -182,6 +187,8 @@ const AddMentorpage = () => {
     onChangeDate,
     location,
     onChangeLocation,
+    phone,
+    onChangePhone,
   };
   const aboutValue = {
     valueLanguage: language,
@@ -219,7 +226,7 @@ const AddMentorpage = () => {
           valuePortfolio={valuePortfolio}
           onChangePortfolio={onChangePortfolio}
           valueExpertise={valueExpertise}
-          onExpertiseChange={onExpertiseChange}
+          onExpertiseChange={setExpertise}
           valueCurrentPosition={valueCurrentPosition}
           onChangeCurrentPosition={onChangeCurrentPosition}
           valuePriceSalary={valuePriceSalary}
@@ -229,9 +236,42 @@ const AddMentorpage = () => {
     },
   ];
   const addMentorHandler = () => {
-    console.log('add mentor');
+    const image = {
+      url: date,
+    };
+    const mentorData = {
+      phone,
+      name,
+      email,
+      password,
+      profilePicture: image,
+      location,
+      summary,
+      linkedin: linkedIn,
+      language,
+      skills,
+      education,
+      experience,
+      cvResume: valueCv,
+      portopolio: valuePortfolio,
+      expertise: valueExpertise,
+      role: valueCurrentPosition,
+      price: valuePriceSalary,
+    };
+
     // dispatch Add Mentor
-    alert('Anda Berhasil Daftar Sebagai Mentor, tunggu informasi selanjutnya');
+    // alert('Anda Berhasil Daftar Sebagai Mentor, tunggu informasi selanjutnya');
+    createMentor(mentorData)
+      .then(({ error, message }) => {
+        if (error) {
+          alert(message);
+        } else {
+          alert('Anda Berhasil Daftar Sebagai Mentor, tunggu informasi selanjutnya');
+        }
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
     navigate('/');
   };
   return (

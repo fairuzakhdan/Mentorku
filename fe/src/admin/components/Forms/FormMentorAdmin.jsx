@@ -10,6 +10,7 @@ const FormMentorAdmin = ({ type = 'add', initialData = {}, onSubmit }) => {
   const [name, onChangeName, setName] = useInput('');
   const [role, onChangeRole, setRole] = useInput('');
   const [location, onChangeLocation, setLocation] = useInput('');
+  const [profilePicture, onChangeprofilePicture, setprofilePicture] = useInput('');
   const [price, onChangePrice, setPrice] = useInput('');
   const [status, onChangeStatus, setStatus] = useInput('');
   const [phone, onChangePhone, setPhone] = useInput('');
@@ -41,6 +42,7 @@ const FormMentorAdmin = ({ type = 'add', initialData = {}, onSubmit }) => {
       setPhone(initialData.phone || '');
       setSummary(initialData.summary || '');
       setLanguage(initialData.language || '');
+      setprofilePicture(initialData.profilePicture?.url || '');
       setStatus(initialData.accessLevel || '');
       setExpertise(initialData.expertise || []);
       setSkills(initialData.skills || []);
@@ -96,49 +98,41 @@ const FormMentorAdmin = ({ type = 'add', initialData = {}, onSubmit }) => {
     setEducations([...educations, newEdu]);
   };
   const handleSubmit = () => {
+    const profilePictureData = {
+      url: profilePicture,
+    };
+
+    const data = {
+      email,
+      password,
+      name,
+      role,
+      location,
+      price,
+      phone,
+      summary,
+      language,
+      skills,
+      expertise,
+      linkedin,
+      experience,
+      educations,
+      cvResume,
+      portopolio,
+      profilePicture: profilePictureData,
+    };
+
     if (type === 'add') {
-      onSubmit({
-        email,
-        password,
-        name,
-        role,
-        location,
-        price,
-        status,
-        phone,
-        summary,
-        language,
-        skills,
-        expertise,
-        linkedin,
-        experience,
-        educations,
-        cvResume,
-        portopolio,
-      });
+      data.status = status;
+      onSubmit(data);
     }
+
     if (type === 'edit') {
-      onSubmit({
-        email,
-        password,
-        name,
-        role,
-        location,
-        phone,
-        summary,
-        language,
-        price,
-        accessLevel: status,
-        expertise,
-        skills,
-        experience,
-        educations,
-        linkedin,
-        cvResume,
-        portopolio,
-      });
+      data.accessLevel = status;
+      onSubmit(data);
     }
   };
+
   return (
     <Stack rowGap={7}>
       <Flex columnGap={5}>
@@ -224,6 +218,13 @@ const FormMentorAdmin = ({ type = 'add', initialData = {}, onSubmit }) => {
           type="text"
           value={portopolio}
           onChange={onChangePortopolio}
+        />
+        <FormInput
+          label={'Add URL For Profile Image'}
+          placeholder={'Enter Portopolio (https://www/image)'}
+          type="text"
+          value={profilePicture}
+          onChange={onChangeprofilePicture}
         />
       </Flex>
       <Flex columnGap={3}>

@@ -24,6 +24,8 @@ const FormAddProfileMentor = ({
   onChangeDate,
   location,
   onChangeLocation,
+  phone,
+  onChangePhone,
 }) => {
   return (
     <Flex columnGap={5} mt={5}>
@@ -39,10 +41,10 @@ const FormAddProfileMentor = ({
         />
         <FormInput
           required
-          label={'Tanggal Lahir'}
-          placeholder={'Masukkan Tanggal Lahir'}
-          type="date"
-          name="date"
+          label={'URL Profile Image'}
+          placeholder={'Masukkan URL Photo'}
+          type="text"
+          name="img"
           value={date}
           onChange={onChangeDate}
         />
@@ -66,6 +68,15 @@ const FormAddProfileMentor = ({
           name="password"
           value={password}
           onChange={onChangePassword}
+        />
+        <FormInput
+          required
+          label={'Telephone'}
+          placeholder={'0896'}
+          type="text"
+          name="telephone"
+          value={phone}
+          onChange={onChangePhone}
         />
       </Stack>
     </Flex>

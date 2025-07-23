@@ -33,7 +33,57 @@ export const getAllMentorForAdmin = async () => {
 export const getMentorIdForAdmin = async (mentorId) => {
   const response = await fetchWithToken(`${api}/mentors/${mentorId}/admin`);
   const responseJson = await response.json();
-  console.log(responseJson);
+  if (responseJson.status !== 'success') {
+    return { error: true, data: null };
+  }
+  return { error: false, data: responseJson.data };
+};
+
+export const createMentor = async ({
+  name,
+  password,
+  email,
+  role,
+  linkedin,
+  language,
+  profilePicture,
+  location,
+  price,
+  cvResume,
+  portopolio,
+  phone,
+  skills,
+  experience,
+  expertise,
+  summary,
+  education,
+}) => {
+  const response = await fetch(`${api}/mentors`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      name,
+      password,
+      email,
+      role,
+      linkedin,
+      language,
+      location,
+      price,
+      cvResume,
+      portopolio,
+      profilePicture,
+      phone,
+      skills,
+      experience,
+      expertise,
+      summary,
+      education,
+    }),
+  });
+  const responseJson = await response.json();
   if (responseJson.status !== 'success') {
     return { error: true, data: null };
   }
@@ -48,6 +98,7 @@ export const createMentorForAdmin = async ({
   linkedin,
   language,
   accessLevel,
+  profilePicture,
   location,
   price,
   cvResume,
@@ -76,6 +127,7 @@ export const createMentorForAdmin = async ({
       price,
       cvResume,
       portopolio,
+      profilePicture,
       phone,
       skills,
       experience,
@@ -104,6 +156,20 @@ export const updateMentorByIdForAdmin = async (mentorId, body) => {
     return { error: true, data: null, message: responseJson.message };
   }
   return { error: false, data: responseJson.data, message: responseJson.message };
+};
+
+export const deleteMentorByIdForAdmin = async (mentorId) => {
+  const response = await fetchWithToken(`${api}/mentors/${mentorId}/admin`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+  const responseJson = await response.json();
+  if (responseJson.status !== 'success') {
+    return { error: true, data: null, message: responseJson.message };
+  }
+  return { error: false, message: responseJson.message };
 };
 
 const mentors = [

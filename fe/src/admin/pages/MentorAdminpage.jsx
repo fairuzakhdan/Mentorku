@@ -6,6 +6,7 @@ import TableBodyMentorAdmin from '../components/TableBody/TableBodyMentorAdmin';
 // import { mentors as itemMentor } from '../../utils/mentors';
 import AddButton from '../../shared/components/AddButon';
 import { getAllMentorForAdmin } from '../../utils/mentors';
+import { deleteMentorByIdForAdmin } from '../../utils/mentors';
 const MentorAdminpage = () => {
   const [mentors, setMentors] = useState([]);
   const headers = [
@@ -32,6 +33,22 @@ const MentorAdminpage = () => {
         console.log(err.message);
       });
   }, []);
+
+  const deleteMentorHandler = (mentorId) => {
+    deleteMentorByIdForAdmin(mentorId)
+      .then(({ error, message }) => {
+        if (error) {
+          alert(message);
+        } else {
+          alert(message);
+          const mentor = mentors.filter((m) => m._id !== mentorId);
+          setMentors(mentor);
+        }
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  };
   return (
     <Sidebar type={'admin'}>
       <Box color={'textBlue'}>
@@ -40,7 +57,7 @@ const MentorAdminpage = () => {
           <AddButton label={'Add Mentor'} toLink={'/mentors/add'} />
         </Flex>
         <TableArea headers={headers}>
-          <TableBodyMentorAdmin items={mentors} />
+          <TableBodyMentorAdmin items={mentors} onDeleteById={deleteMentorHandler} />
         </TableArea>
       </Box>
     </Sidebar>

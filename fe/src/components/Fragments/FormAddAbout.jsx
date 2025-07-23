@@ -48,11 +48,12 @@ const FormAddAboutMentor = ({
   ];
 
   const languages = [{ label: 'Indonesia' }, { label: 'English' }];
+
   const handleChangeSkills = (label) => {
     const updated = skills.includes(label)
       ? skills.filter((item) => item !== label)
       : [...skills, label];
-
+    console.log('Updated skills:', updated);
     onSkillsChange?.(updated);
   };
   const handleChangeLanguage = (label) => {

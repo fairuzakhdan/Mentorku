@@ -88,10 +88,31 @@ const getAllMentors = async (req, res) => {
   });
 };
 
+const getActiveMentors = async (req, res) => {
+  try {
+    const mentors = await Mentor.find({ accessLevel: "mentor" });
+
+    return res.status(200).json({
+      status: "success",
+      data: mentors,
+    });
+  } catch (err) {
+    return res.status(500).json({
+      status: "error",
+      message: err.message,
+    });
+  }
+};
+
 const createMentors = async (req, res) => {
+  const image = {
+    url: req.body.profilePicture?.url || "public/images/user.jpg",
+    filename: req.body.profilePicture?.filename || "user.jpg",
+  };
   const mentorPost = {
     name: req.body.name,
     password: bcrypt.hashSync(req.body.password, 10),
+    profilePicture: image,
     email: req.body.email,
     role: req.body.role,
     linkedin: req.body.linkedin,
@@ -130,43 +151,6 @@ const createMentors = async (req, res) => {
   }
 };
 
-// const createMentorForAdmin = async (req, res) => {
-//   const mentorPost = {
-//     name: req.body.name,
-//     password: bcrypt.hashSync(req.body.password, 10),
-//     email: req.body.email,
-//     role: req.body.role,
-//     language: req.body.language,
-//     status: req.body.status,
-//     location: req.body.location,
-//     price: req.body.price,
-//     phone: req.body.phone,
-//     skills: req.body.skills,
-//     expertise: req.body.expertise,
-//     summary: req.body.summary,
-//     linkedin: req.body.linkedin,
-//   };
-//   try {
-//     const mentor = new Mentor(mentorPost);
-//     await mentor.save();
-//     return res.status(201).json({
-//       status: "success",
-//       message: "Mentor berhasil ditambahkan",
-//       data: mentor,
-//     });
-//   } catch (err) {
-//     if (err instanceof z.ZodError) {
-//       return res.status(400).json({
-//         message: "Data tidak valid",
-//         errors: err.errors,
-//       });
-//     }
-//     return res
-//       .status(500)
-//       .json({ status: "failed", error: "Internal Server Error" });
-//   }
-// };
-
 const getMentorById = async (req, res) => {
   try {
     const { mentorId } = req.params;
@@ -199,9 +183,17 @@ const updateMentorById = async (req, res) => {
   }
 
   try {
+    const image = {
+      url: req.body.profilePicture?.url || "public/images/user.jpg",
+      filename: req.body.profilePicture?.filename || "user.jpg",
+    };
     const updatedMentor = await Mentor.findByIdAndUpdate(
       mentorId,
-      { ...req.body, password: bcrypt.hashSync(req.body.password, 10) },
+      {
+        ...req.body,
+        password: bcrypt.hashSync(req.body.password, 10),
+        profilePicture: image,
+      },
       {
         new: true,
       }
@@ -225,13 +217,13 @@ const deleteMentorById = async (req, res) => {
     const mentor = await Mentor.findById(mentorId);
     if (!mentor) {
       return res.status(404).json({
-        status: false,
+        status: "failed",
         message: "Mentor tidak ditemukan",
       });
     }
     await mentor.deleteOne();
     res.status(200).json({
-      status: true,
+      status: "success",
       message: "Mentor berhasil dihapus",
     });
   } catch (err) {
@@ -243,6 +235,7 @@ const deleteMentorById = async (req, res) => {
 
 module.exports = {
   getAllMentors,
+  getActiveMentors,
   createMentors,
   // createMentorForAdmin,
   findMentorByRecommendation,

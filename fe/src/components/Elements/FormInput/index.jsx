@@ -88,9 +88,9 @@ export const Check = ({ label, size = 'sm', checked }) => {
     </Checkbox.Root>
   );
 };
-export const CheckBox = ({ label }) => {
+export const CheckBox = ({ label, onChange }) => {
   return (
-    <CheckboxCard.Root maxW="240px">
+    <CheckboxCard.Root maxW="240px" onCheckedChange={onChange}>
       <CheckboxCard.HiddenInput />
       <CheckboxCard.Control>
         <CheckboxCard.Label>{label}</CheckboxCard.Label>

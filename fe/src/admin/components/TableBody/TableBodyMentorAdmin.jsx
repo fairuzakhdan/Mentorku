@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router';
 import AvatarCard from '../../../components/Elements/Avatar';
 import { FaEdit } from 'react-icons/fa';
 import { MdOutlineDeleteOutline } from 'react-icons/md';
-const TableBodyMentorAdmin = ({ items }) => {
+const TableBodyMentorAdmin = ({ items, onDeleteById }) => {
   const navigate = useNavigate();
   const toDetailById = (id) => {
     navigate(`/mentors/${id}`);
@@ -23,11 +23,6 @@ const TableBodyMentorAdmin = ({ items }) => {
           <Table.Cell>{`${item.role.substring(0, 5)}...`}</Table.Cell>
           <Table.Cell>
             <Text mr={1}>{`${item.expertise[0].substring(0, 10)}`}</Text>
-            {/* {item.expertise.map((exp, index) => (
-              <Group key={index} columnGap={2}>
-                <Text mr={1}>{`${exp.substring(0, 3)}`}</Text>
-              </Group>
-            ))} */}
           </Table.Cell>
           <Table.Cell>{item.price}</Table.Cell>
           <Table.Cell>
@@ -72,7 +67,7 @@ const TableBodyMentorAdmin = ({ items }) => {
               backgroundColor={'transparent'}
               color={'red'}
               _hover={{ color: 'gray.800' }}
-              //   onClick={() => onDeleteById(item.id)}
+              onClick={() => onDeleteById(item._id)}
             >
               <MdOutlineDeleteOutline />
             </Button>

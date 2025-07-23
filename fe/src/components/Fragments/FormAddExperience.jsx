@@ -89,7 +89,7 @@ const FormAddExperienceMentor = ({
     const updated = valueExpertise.includes(label)
       ? valueExpertise.filter((item) => item !== label)
       : [...valueExpertise, label];
-    console.log(updated);
+    console.log('Updated expertise:', updated);
     onExpertiseChange?.(updated);
   };
   return (
