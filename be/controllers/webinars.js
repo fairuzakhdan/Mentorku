@@ -53,9 +53,20 @@ const getAllWebinar = async (req, res) => {
 
 const getAllWebinarByStatusSuccess = async (req, res) => {
   try {
-    const webinars = await Webinar.find().populate({
+    const userId = req.user.id;
+
+    // Ambil semua pembayaran sukses oleh user ini
+    const payments = await Payment.find({ userId, status: "success" });
+
+    // Ambil mentorId dari pembayaran yang sukses
+    const paidMentorIds = payments.map((payment) => payment.mentorId);
+
+    // Ambil webinar yang mentorId-nya sesuai dengan yang sudah dibayar
+    const webinars = await Webinar.find({
+      mentorId: { $in: paidMentorIds },
+    }).populate({
       path: "mentorId",
-      select: "profilePicture",
+      select: "profilePicture name",
     });
 
     return res.status(200).json({

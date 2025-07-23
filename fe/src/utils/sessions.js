@@ -29,13 +29,13 @@ export const getSessionById = async (sessionId) => {
   return { error: false, data: responseJson.data };
 };
 
-export const createSession = async ({ day, session, meeting }) => {
+export const createSession = async ({ day, session }) => {
   const response = await fetchWithToken(`${api}/sessions`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({ day, session, meeting }),
+    body: JSON.stringify({ day, session }),
   });
   const responseJson = await response.json();
   if (responseJson.status !== 'success') {

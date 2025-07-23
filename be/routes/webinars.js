@@ -10,7 +10,7 @@ router
 
 router
   .route("/success")
-  .get(verifyToken, paymentSuccess, webinars.getAllWebinarByStatusSuccess);
+  .get(verifyToken, webinars.getAllWebinarByStatusSuccess);
 
 router
   .route("/:webinarId")

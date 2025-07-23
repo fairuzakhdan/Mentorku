@@ -7,11 +7,12 @@ import { useEffect, useState } from 'react';
 import { getAllSession } from '../../utils/sessions';
 import { deleteSessionById } from '../../utils/sessions';
 import FormLiveSession from '../components/Forms/FormLiveSession';
-import { createLiveSession } from '../../utils/mentors';
+import { createLiveSession, getLiveSessionForMentor, updateLiveSession } from '../../utils/mentors';
 
 const SessionMentorpage = () => {
   const headers = ['Day', 'Duration'];
   const [sessions, setSessions] = useState([]);
+  const [liveSession, setLiveSession] = useState({});
   useEffect(() => {
     getAllSession()
       .then(({ data, error }) => {
@@ -19,6 +20,18 @@ const SessionMentorpage = () => {
           alert(error);
         } else {
           setSessions(data);
+        }
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+
+    getLiveSessionForMentor()
+      .then(({ data, error }) => {
+        if (error || !data) {
+          setLiveSession([]);
+        } else {
+          setLiveSession(data);
         }
       })
       .catch((err) => {
@@ -43,7 +56,7 @@ const SessionMentorpage = () => {
 
   const addLiveSession = ({ scheduleType, meetingPerWeek }) => {
     createLiveSession({ scheduleType, meetingPerWeek })
-      .then(({ data, error, message }) => {
+      .then(({ error, message }) => {
         if (error) {
           alert(message);
         } else {
@@ -54,6 +67,23 @@ const SessionMentorpage = () => {
         console.log(err.message);
       });
   };
+
+  const updateLiveSessionHandler = ({ scheduleType, meetingPerWeek }) => {
+    const body = { scheduleType, meetingPerWeek };
+    updateLiveSession(body)
+      .then(({ error, message }) => {
+        if (error) {
+          alert(message);
+        } else {
+          alert(message);
+        }
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  };
+  const isEditing = liveSession && Object.keys(liveSession).length > 0;
+
   return (
     <Sidebar type={'mentor'}>
       <Box color={'textBlue'}>
@@ -68,7 +98,10 @@ const SessionMentorpage = () => {
             </TableArea>
           </Box>
           <Box>
-            <FormLiveSession onSubmit={addLiveSession} />
+            <FormLiveSession
+              onSubmit={isEditing ? updateLiveSessionHandler : addLiveSession}
+              initialData={liveSession}
+            />
           </Box>
         </Flex>
       </Box>

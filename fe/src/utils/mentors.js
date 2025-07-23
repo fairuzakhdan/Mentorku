@@ -114,6 +114,30 @@ export const createLiveSession = async ({ scheduleType, meetingPerWeek }) => {
   return { error: false, data: responseJson.data, message: responseJson.message };
 };
 
+export const updateLiveSession = async (body) => {
+  const response = await fetchWithToken(`${api}/lives`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(body),
+  });
+  const responseJson = await response.json();
+  if (responseJson.status !== 'success') {
+    return { error: true, data: null, message: responseJson.message };
+  }
+  return { error: false, message: responseJson.message };
+};
+
+export const getLiveSessionForMentor = async () => {
+  const response = await fetchWithToken(`${api}/lives`);
+  const responseJson = await response.json();
+  if (responseJson.status !== 'success') {
+    return { error: true, data: null };
+  }
+  return { error: false, data: responseJson.data };
+};
+
 export const createMentorForAdmin = async ({
   name,
   password,

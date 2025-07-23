@@ -40,6 +40,7 @@ const createLiveSession = async (req, res) => {
     return res.status(201).json({
       status: "success",
       data: newLiveSession,
+      message: "Add Successfull",
     });
   } catch (err) {
     console.log(err.message);
@@ -59,7 +60,9 @@ const updatedLiveSession = async (req, res) => {
         message: "Live Session Not Found",
       });
     }
-    await LiveSession.updateOne(req.body);
+
+    await LiveSession.updateOne({ mentorId: req.user.id }, req.body);
+
     return res.status(200).json({
       status: "success",
       message: "Live Session Successfully Updated",
@@ -67,7 +70,8 @@ const updatedLiveSession = async (req, res) => {
   } catch (err) {
     return res.status(500).json({
       status: "failed",
-      message: "Live Session failed Updated",
+      message: "Live Session failed to Update",
+      error: err.message,
     });
   }
 };
