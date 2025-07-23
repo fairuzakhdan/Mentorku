@@ -1,31 +1,44 @@
 import FormInput from '../../../components/Elements/FormInput';
 import { Flex, Box, Stack, Button } from '@chakra-ui/react';
 import useInput from '../../../hooks/useInput';
-const FormLiveSession = ({ initialData }) => {
-  const [schedule, onChangeScheduleType, setScheduleType] = useInput('');
-  const [meetingWeek, onChangeMeetingWeek, SetMeetingWeek] = useInput('');
+
+const FormLiveSession = ({ initialData = {}, onSubmit }) => {
+  const isEdit = Boolean(initialData && Object.keys(initialData).length > 0);
+
+  const [scheduleType, onChangeScheduleType] = useInput(initialData.scheduleType || '');
+  const [meetingPerWeek, onChangeMeetingPerWeek] = useInput(initialData.meetingPerWeek || '');
+
+  const handleSubmit = () => {
+    onSubmit({
+      scheduleType,
+      meetingPerWeek: Number(meetingPerWeek),
+    });
+  };
+
   return (
     <Stack rowGap={5} bgColor={'white'} p={5} mt={5} rounded={'xl'} shadow={'sm'}>
       <FormInput
-        label={initialData.length === 0 ? 'Add ScheduleType' : 'Edit ScheduleType'}
+        label={isEdit ? 'Edit Schedule Type' : 'Add Schedule Type'}
         required
-        value={schedule}
+        value={scheduleType}
         onChange={onChangeScheduleType}
         placeholder={'month/week'}
         type="text"
       />
       <FormInput
-        label={initialData.length === 0 ? 'Add Meeting/Week' : 'Edit Meeting/Week'}
+        label={isEdit ? 'Edit Meetings per Week' : 'Add Meetings per Week'}
         required
-        value={meetingWeek}
-        onChange={onChangeMeetingWeek}
+        value={meetingPerWeek}
+        onChange={onChangeMeetingPerWeek}
         placeholder={'2'}
         type="number"
+        min={1}
       />
-      <Button colorPalette={'teal'}>
-        {initialData.length === 0 ? 'Add Schedule' : 'Edit Schedule'}
+      <Button colorPalette={'teal'} onClick={handleSubmit}>
+        {isEdit ? 'Update Schedule' : 'Add Schedule'}
       </Button>
     </Stack>
   );
 };
+
 export default FormLiveSession;

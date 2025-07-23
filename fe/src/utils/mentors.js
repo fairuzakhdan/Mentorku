@@ -99,6 +99,21 @@ export const getLiveSession = async (mentorId) => {
   return { error: false, data: responseJson.data };
 };
 
+export const createLiveSession = async ({ scheduleType, meetingPerWeek }) => {
+  const response = await fetchWithToken(`${api}/lives`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ scheduleType, meetingPerWeek }),
+  });
+  const responseJson = await response.json();
+  if (responseJson.status !== 'success') {
+    return { error: true, data: null, message: responseJson.message };
+  }
+  return { error: false, data: responseJson.data, message: responseJson.message };
+};
+
 export const createMentorForAdmin = async ({
   name,
   password,
