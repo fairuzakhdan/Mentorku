@@ -8,7 +8,6 @@ import AuthContext from './shared/context/authContext.jsx';
 import Navigation from './components/Layouts/Navigation';
 import Footer from './components/Layouts/Footer';
 
-
 import { putAccessToken } from './utils/api.js';
 import { getUserLogin } from './utils/auth.js';
 
