@@ -2,10 +2,12 @@ import React from 'react';
 import Layouts from '../../components/Layouts/Layouts';
 import { Box, Image, Flex, Text, Grid, GridItem, Group } from '@chakra-ui/react';
 import SearchBar from '../../components/Fragments/SearchBar';
-// import { mentors as data } from '../../utils/mentors';
+import CheckBox from '../../components/Fragments/CheckBox';
 import { useState, useEffect } from 'react';
 import CardBox from '../../components/Fragments/CardBox';
 import ButtonGroup from '../../components/Fragments/ButtonGroup';
+import { Pagination } from 'swiper/modules';
+import { SwiperSlide, Swiper } from 'swiper/react';
 import { Link } from 'react-router';
 import { getAllMentor } from '../../utils/mentors';
 const Mentorpage = () => {
@@ -70,9 +72,10 @@ const Mentorpage = () => {
         </Box>
       </Box>
       <Layouts>
-        <Group justifyContent={'center'} w={'full'} my={5}>
-          <ButtonGroup />
-        </Group>
+        <Box my={5}>
+          <CheckBox />
+          {/* <ButtonGroup /> */}
+        </Box>
       </Layouts>
       <Layouts>
         <Grid templateColumns={'repeat(5, 1fr)'} gap={5}>
