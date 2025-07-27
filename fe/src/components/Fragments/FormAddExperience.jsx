@@ -48,7 +48,7 @@ const FormAddExperienceMentor = ({
     const newExperience = {
       company,
       position,
-      year,
+      years: year,
     };
 
     const updateExperience = [...experience, newExperience];
@@ -149,6 +149,7 @@ const FormAddExperienceMentor = ({
             />
             <FormInput
               label={'Masa kerja'}
+              type="number"
               placeholder={'5 years'}
               value={year}
               onChange={onChangeYear}

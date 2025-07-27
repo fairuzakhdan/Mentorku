@@ -258,9 +258,7 @@ const AddMentorpage = () => {
       role: valueCurrentPosition,
       price: valuePriceSalary,
     };
-
-    // dispatch Add Mentor
-    // alert('Anda Berhasil Daftar Sebagai Mentor, tunggu informasi selanjutnya');
+    console.log(mentorData);
     createMentor(mentorData)
       .then(({ error, message }) => {
         if (error) {
