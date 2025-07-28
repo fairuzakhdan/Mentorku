@@ -21,6 +21,7 @@ import { VscFolderLibrary } from 'react-icons/vsc';
 import { PiBooksBold } from 'react-icons/pi';
 import { Link as LinkRouter } from 'react-router';
 import { getClassForPaymentSuccess } from '../../utils/lessons';
+import { FaWhatsapp } from 'react-icons/fa6';
 
 const Classpage = () => {
   const [mentors, setMentors] = useState([]);
@@ -46,7 +47,7 @@ const Classpage = () => {
         <BreadcrumbLink links={links} color="textBlue" size="md" />
         <Box rounded={'lg'} mt={4}>
           {mentors.map((mentor, index) => (
-            <Grid templateColumns="repeat(4, 1fr)" gap={2} my={4} key={index}>
+            <Grid templateColumns="repeat(4, 1fr)" gap={2} my={4} key={index} position={'relative'}>
               <GridItem colSpan={3}>
                 <CardHorizontal
                   type="image"
@@ -74,6 +75,26 @@ const Classpage = () => {
                         <Text>{schedule.time}</Text>
                       </Group>
                     ))}
+
+                    <Box
+                      display="flex"
+                      justifyContent="end"
+                      width={220}
+                      rounded="md"
+                      position={'absolute'}
+                      bottom={0}
+                      right={0}
+                    >
+                      <Button
+                        bg="transparent"
+                        _hover={{ bg: 'gray.100' }}
+                        p={0}
+                        m={0}
+                        onClick={() => window.open(`https://wa.me/${mentor.mentorId.phone}`)}
+                      >
+                        <FaWhatsapp color="green" size={50} />
+                      </Button>
+                    </Box>
                   </Flex>
                 </CardHorizontal>
               </GridItem>

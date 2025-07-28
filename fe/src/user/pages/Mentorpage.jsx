@@ -1,23 +1,22 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Layouts from '../../components/Layouts/Layouts';
-import { Box, Image, Flex, Text, Grid, GridItem, Group } from '@chakra-ui/react';
+import { Box, Image, Flex, Text, Grid, GridItem } from '@chakra-ui/react';
 import SearchBar from '../../components/Fragments/SearchBar';
 import CheckBox from '../../components/Fragments/CheckBox';
-import { useState, useEffect } from 'react';
 import CardBox from '../../components/Fragments/CardBox';
-import ButtonGroup from '../../components/Fragments/ButtonGroup';
-import { Pagination } from 'swiper/modules';
-import { SwiperSlide, Swiper } from 'swiper/react';
 import { Link } from 'react-router';
-import { getAllMentor } from '../../utils/mentors';
+import { getAllMentor, findReccomendedMentorByExpertise } from '../../utils/mentors';
+
 const Mentorpage = () => {
   const [mentors, setMentors] = useState([]);
+  const [defaultMentors, setDefaultMentors] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
-    setIsLoading(true);
     getAllMentor()
       .then(({ data }) => {
         setMentors(data);
+        setDefaultMentors(data); // simpan semua mentor ke state cadangan
       })
       .catch((err) => {
         console.log(err);
@@ -25,13 +24,31 @@ const Mentorpage = () => {
       .finally(() => {
         setIsLoading(false);
       });
-    // console.log(data);
-    // setMentors(data);
-    // setIsLoading(false);
   }, []);
+
+  const findReccomendedHandler = async (body) => {
+    if (!body || !body.expertise || body.expertise.length === 0) {
+      setMentors(defaultMentors); // gunakan data awal dari state, tanpa fetch ulang
+      return;
+    }
+
+    findReccomendedMentorByExpertise(body)
+      .then(({ data }) => {
+        if (!data || data.length === 0) {
+          setMentors(defaultMentors); // fallback ke semua mentor jika kosong
+        } else {
+          setMentors(data);
+        }
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  };
+
   if (isLoading) {
     return <div>Loading...</div>;
   }
+
   return (
     <>
       <Box backgroundColor="textGreen" display="flex">
@@ -71,12 +88,13 @@ const Mentorpage = () => {
           />
         </Box>
       </Box>
+
       <Layouts>
         <Box my={5}>
-          <CheckBox />
-          {/* <ButtonGroup /> */}
+          <CheckBox data={findReccomendedHandler} />
         </Box>
       </Layouts>
+
       <Layouts>
         <Grid templateColumns={'repeat(5, 1fr)'} gap={5}>
           {mentors.map((mentor, index) => (
@@ -117,4 +135,5 @@ const Mentorpage = () => {
     </>
   );
 };
+
 export default Mentorpage;

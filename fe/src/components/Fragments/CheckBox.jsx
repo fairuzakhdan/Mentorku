@@ -9,20 +9,20 @@ import 'swiper/css/pagination';
 const expertiseMentor = [
   { label: 'UI/UX Design', value: 'UI/UX Design' },
   { label: 'Software Engineer', value: 'Software Engineer' },
-  { label: 'Frontend Developer', value: 'Frontend Developer' },
-  { label: 'Backend Developer', value: 'Backend Developer' },
-  { label: 'Mobile Developer', value: 'Mobile Developer' },
+  { label: 'Frontend Developer', value: 'Frontend' },
+  { label: 'Backend Developer', value: 'Backend' },
+  { label: 'Mobile Developer', value: 'Mobile' },
   { label: 'ML & AI', value: 'Machine Learning' },
-  { label: 'Blockchain', value: 'Blockchain Developer' },
+  { label: 'Blockchain', value: 'Blockchain' },
   { label: 'Cyber Security', value: 'Cyber Security' },
   { label: 'Data Analyst', value: 'Data Analyst' },
   { label: 'Data Science', value: 'Data Science' },
   { label: 'Design', value: 'Design' },
   { label: 'Quality Assurance', value: 'Quality Assurance' },
-  { label: 'Game Dev', value: 'Game Developer' },
+  { label: 'Game Dev', value: 'Game' },
 ];
 
-const CheckBox = () => {
+const CheckBox = ({ data }) => {
   const [selected, setSelected] = useState([]);
 
   // Fungsi saat checkbox diklik
@@ -37,23 +37,13 @@ const CheckBox = () => {
 
   // Fungsi untuk fetch/filter mentor dari database (atau lokal)
   const fetchMentorByExpertise = async (expertise) => {
-    const filter = expertise.length > 0 ? { expertise: { $in: expertise } } : {}; // jika kosong, tampilkan semua
-
-    console.log('QUERY FILTER:', filter);
-
-    // Contoh: jika pakai API
-    // const res = await fetch('/api/mentors', {
-    //   method: 'POST',
-    //   headers: { 'Content-Type': 'application/json' },
-    //   body: JSON.stringify(filter),
-    // });
-    // const data = await res.json();
-    // console.log('Mentor Result:', data);
+    data({ expertise });
   };
 
   // Panggil ulang setiap kali selected berubah
   useEffect(() => {
     fetchMentorByExpertise(selected);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selected]);
 
   return (

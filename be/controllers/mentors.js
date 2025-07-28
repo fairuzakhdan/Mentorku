@@ -8,7 +8,7 @@ const bcrypt = require("bcrypt");
 const findMentorByRecommendation = async (req, res) => {
   try {
     let { expertise } = req.body;
-
+    console.log(expertise)
     // Validasi input
     if (!Array.isArray(expertise) || expertise.length === 0) {
       return res
@@ -64,6 +64,7 @@ const findMentorByRecommendation = async (req, res) => {
     const result = scores
       .filter((score) => score.similarity > 0)
       .map((score) => ({
+        _id: score.mentor.id,
         name: score.mentor.name,
         expertise: score.mentor.expertise,
         similarity: score.similarity.toFixed(2), // Menampilkan dua angka di belakang koma
@@ -73,7 +74,10 @@ const findMentorByRecommendation = async (req, res) => {
         profilePicture: score.mentor.profilePicture,
       }));
 
-    res.json(result);
+    res.status(200).json({
+      status: 'success',
+      data: result,
+    })
   } catch (err) {
     console.error("Error:", err);
     res.status(500).json({ message: "Internal Server Error" });

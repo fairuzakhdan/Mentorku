@@ -30,6 +30,22 @@ export const getAllMentorForAdmin = async () => {
   return { error: false, data: responseJson.data };
 };
 
+export const findReccomendedMentorByExpertise = async (body) => {
+  const response = await fetch(`${api}/mentors/recommend`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(body),
+  });
+  const responseJson = await response.json();
+  // console.log(responseJson.data);
+  if (responseJson.status !== 'success') {
+    return { error: true, data: null };
+  }
+  return { error: false, data: responseJson.data };
+};
+
 export const getMentorIdForAdmin = async (mentorId) => {
   const response = await fetchWithToken(`${api}/mentors/${mentorId}/admin`);
   const responseJson = await response.json();
