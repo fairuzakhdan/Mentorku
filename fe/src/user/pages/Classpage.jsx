@@ -86,13 +86,14 @@ const Classpage = () => {
                       right={0}
                     >
                       <Button
-                        bg="transparent"
-                        _hover={{ bg: 'gray.100' }}
+                        bg="green.500"
+                        rounded={'full'}
+                        _hover={{ bg: 'gray.600' }}
                         p={0}
-                        m={0}
+                        m={3}
                         onClick={() => window.open(`https://wa.me/${mentor.mentorId.phone}`)}
                       >
-                        <FaWhatsapp color="green" size={50} />
+                        <FaWhatsapp color="white" size={50} />
                       </Button>
                     </Box>
                   </Flex>
