@@ -3,7 +3,6 @@ import React, { useState, useEffect, useMemo } from 'react';
 import { Routes, Route, useNavigate, Navigate } from 'react-router';
 import '@fontsource/poppins/400.css';
 import AuthContext from './shared/context/authContext.jsx';
-
 // Layouts
 import Navigation from './components/Layouts/Navigation';
 import Footer from './components/Layouts/Footer';
