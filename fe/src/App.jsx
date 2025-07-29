@@ -12,7 +12,6 @@ import { getUserLogin } from './utils/auth.js';
 
 // Protected
 import ProtectedRoute from './components/Fragments/protectedRoute.jsx';
-
 // User Pages
 import Homepage from '../src/user/pages/Homepage';
 import Mentorpage from '../src/user/pages/Mentorpage';
