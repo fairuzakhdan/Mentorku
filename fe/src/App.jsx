@@ -1,4 +1,4 @@
-// App.jsx (Clean Code Ver
+// App.jsx (Clean Code
 import React, { useState, useEffect, useMemo } from 'react';
 import { Routes, Route, useNavigate, Navigate } from 'react-router';
 import '@fontsource/poppins/400.css';
