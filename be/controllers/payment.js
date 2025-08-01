@@ -1,7 +1,7 @@
 const midtransClient = require("midtrans-client");
 const Payment = require("../models/payment");
 
-// Setup
+// Setu
 const snap = new midtransClient.Snap({
   isProduction: false,
   serverKey: process.env.SERVER_KEY_MIDTRANS,
