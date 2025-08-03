@@ -26,7 +26,6 @@ import JoinUspage from '../src/user/pages/JoinUspage';
 import AddMentorpage from '../src/user/pages/AddMentorpage';
 import Registerpage from './user/pages/Registerpage.jsx';
 import Loginpage from '../src/user/pages/Loginpage';
-
 // Admin Pages
 import UsersAdminpage from './admin/pages/UsersAdminpage';
 import AddUsersAdminpage from './admin/pages/AddUsersAdmin.jsx';
