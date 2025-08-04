@@ -49,7 +49,6 @@ import AddWebinarMentorpage from './mentors/pages/AddWebinarMentorpage.jsx';
 import EditWebinarMentorpage from './mentors/pages/EditWebinarMentorpage.jsx';
 import AddBlogMentorpage from './mentors/pages/AddBlogMentorpage.jsx';
 import EditBlogMentorpage from './mentors/pages/EditBlogMentorpage.jsx';
-
 import Errorpage from './shared/pages/404';
 
 const App = () => {
