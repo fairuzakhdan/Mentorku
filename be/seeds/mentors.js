@@ -566,7 +566,7 @@ async function seedMentor() {
     {
       name: "Vishal Bagla",
       email: "vishalbagla@gmail.com",
-      phone: "082711212",
+      phone: "0827112412",
       password: "vishal123",
       role: "Product Management",
       expertise: ["Product Management", "Design"],
