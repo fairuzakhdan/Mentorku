@@ -43,7 +43,7 @@ export const updateUserById = async ({ userId, body }) => {
     body: JSON.stringify(body),
   });
   const responseJson = await response.json();
-  //   console.log(resp
+  //   console.log(res
   if (responseJson.status !== 'success') {
     return { error: true, data: null, message: responseJson.message };
   }
