@@ -90,6 +90,7 @@ const TableBodyMentee = ({ items, onDeleteById }) => {
       {items.map((item, index) => (
         <Table.Row key={index} backgroundColor={'gray.200'}>
           <Table.Cell>{index + 1}</Table.Cell>
+          {console.log(item)}
           <Table.Cell>{item.userId.email}</Table.Cell>
           <Table.Cell>{item.userId.fullName}</Table.Cell>
           <Table.Cell>{item.userId.telephone}</Table.Cell>

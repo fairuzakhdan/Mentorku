@@ -22,7 +22,9 @@ const TableBodyMentorAdmin = ({ items, onDeleteById }) => {
           <Table.Cell>{hidePassword(item.password.substring(0, 10))}</Table.Cell>
           <Table.Cell>{`${item.role.substring(0, 5)}...`}</Table.Cell>
           <Table.Cell>
-            <Text mr={1}>{`${item.expertise[0].substring(0, 10)}`}</Text>
+            <Text mr={1}>
+              {item.expertise?.[0] ? `${item.expertise[0].substring(0, 5)}...` : ''}
+            </Text>
           </Table.Cell>
           <Table.Cell>{item.price}</Table.Cell>
           <Table.Cell>

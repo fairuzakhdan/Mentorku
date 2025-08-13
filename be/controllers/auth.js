@@ -67,6 +67,7 @@ const login = async (req, res) => {
       process.env.PRIVATE_KEY_JWT,
       { expiresIn: "1h" }
     );
+   
     return res.status(200).json({
       status: "success",
       token,
