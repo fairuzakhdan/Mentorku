@@ -100,7 +100,7 @@ async function seedMentor() {
       },
     },
     {
-      // 2
+      // 
       name: "Vineet Maheshwari",
       email: "vineetmaheshwari@gmail.com",
       phone: "082711212",
