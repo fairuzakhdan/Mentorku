@@ -263,7 +263,7 @@ async function seedMentor() {
     {
       name: "Ankit Raj",
       email: "ankitraj@gmail.com",
-      phone: "082711212",
+      phone: "0827115212",
       password: "ankit123",
       role: "Quality Assurance",
       expertise: ["Backend Developer", "Automated Testing"],
