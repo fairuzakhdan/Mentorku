@@ -354,7 +354,7 @@ async function seedMentor() {
     {
       name: "Jimit Doshi",
       email: "jimitdoshi@gmail.com",
-      phone: "082711212",
+      phone: "0827117212",
       password: "jimit123",
       role: "Senior Member Of Technical",
       expertise: ["Testing", "API", "Postman", "AWS"],
@@ -374,7 +374,7 @@ async function seedMentor() {
       linkedin: "https://www.linkedin.com/in/jimit-doshi-1072a8a2/",
       language: ["Indonesia", "English"],
       location: "Bali",
-      price: 75000,
+      price: 85000,
       cvResume: "https://www.gogle.com",
       portopolio: "https://www.gogle.com",
       education: [
