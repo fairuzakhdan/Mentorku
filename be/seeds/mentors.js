@@ -507,7 +507,7 @@ async function seedMentor() {
       linkedin: "https://www.linkedin.com/in/singhster/",
       language: ["Indonesia", "English", "Mandarin"],
       location: "Bali",
-      price: 75000,
+      price: 85000,
       cvResume: "https://www.gogle.com",
       portopolio: "https://www.gogle.com",
       education: [
