@@ -546,7 +546,7 @@ async function seedMentor() {
       linkedin: "https://www.linkedin.com/in/twinkle-bajaj-903480150/",
       language: ["Indonesia", "English", "Tagalog"],
       location: "Bali",
-      price: 95000,
+      price: 90000,
       cvResume: "https://www.gogle.com",
       portopolio: "https://www.gogle.com",
       education: [
