@@ -591,7 +591,7 @@ async function seedMentor() {
       education: [
         {
           organization: "Institut Teknologi Bandung",
-          major: "S2 Computer Science",
+          major: "S1 Computer Science",
         },
       ],
       summary:
