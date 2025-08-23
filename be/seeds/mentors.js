@@ -565,7 +565,7 @@ async function seedMentor() {
     {
       name: "Vishal Bagla",
       email: "vishalbagla@gmail.com",
-      phone: "082112412",
+      phone: "0824112412",
       password: "vishal123",
       role: "Product Management",
       expertise: ["Product Management", "Design"],
@@ -574,7 +574,7 @@ async function seedMentor() {
         {
           company: "Telkom Indonesia",
           position: "Fullstack Developer",
-          years: 5,
+          years: 15,
         },
         {
           company: "Indosat Ooredo",
