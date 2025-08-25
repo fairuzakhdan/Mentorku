@@ -702,7 +702,7 @@ async function seedMentor() {
       linkedin: "https://www.linkedin.com/in/piyush-khushlani/",
       language: ["Indonesia", "English", "Tagalog"],
       location: "Bali",
-      price: 75000,
+      price: 70000,
       cvResume: "https://www.gogle.com",
       portopolio: "https://www.gogle.com",
       education: [
