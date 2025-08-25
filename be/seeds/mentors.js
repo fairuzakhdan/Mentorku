@@ -663,7 +663,7 @@ async function seedMentor() {
       linkedin: "https://www.linkedin.com/in/souren-hazra-b0687895/",
       language: ["Indonesia", "English", "Tagalog"],
       location: "Bali",
-      price: 75000,
+      price: 85000,
       cvResume: "https://www.gogle.com",
       portopolio: "https://www.gogle.com",
       education: [
