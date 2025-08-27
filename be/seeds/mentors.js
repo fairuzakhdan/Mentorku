@@ -721,7 +721,7 @@ async function seedMentor() {
     {
       name: "Durgesh Yadav",
       email: "durgeshyadav@gmail.com",
-      phone: "082711212",
+      phone: "0827114212",
       password: "durgesh123",
       role: "Data Analyst",
       expertise: ["Data Analyst", "Data Science", "Machine Learning"],
