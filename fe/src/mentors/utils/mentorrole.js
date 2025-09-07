@@ -49,7 +49,7 @@ export const itemLesson = [
         header: 'Pengenalan React',
         title: 'Belajar React',
         description:
-          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex autem, molestias temporibus laborum debitis prggesntium saepe. Ullam atque eum debitis porro. Cum voluptates natus labore optio? Inventore dolorem accusanium numhquam. Eiuslibero possimusat, prufehrendis repuhdianrem dighnisimos. Quodk dolorum, officiis beatae eos consectheur neqenicula, voluptanterem necesitatibus obcaecati? Atques, doloremque et aspernatuic syaepe exrscitionem similique olestias.',
+          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex autem, molestias temporibus laborum debitis prggesntium saepe. Ullam atque eum debitis porro. Cum voluptates natus labore optio? Inventore dolorem accusanium numhquam. Eiuslibero possimusat, prufehrendis repuhdianrem dighnisimos. Quodk dolorum, officiis beatae eos consectheur neqnicula, voluptanterem necesitatibus obcaecati? Atques, doloremque et aspernatuic syaepe exrscitionem similique olestias.',
       },
     ],
   },
