@@ -786,7 +786,7 @@ async function seedMentor() {
       linkedin: "https://www.linkedin.com/in/rishi2907/",
       language: ["Indonesia", "English", "Tagalog"],
       location: "Bali",
-      price: 85000,
+      price: 80000,
       cvResume: "https://www.gogle.com",
       portopolio: "https://www.gogle.com",
       education: [
@@ -805,7 +805,7 @@ async function seedMentor() {
     {
       name: "Krunalkumar Shah",
       email: "krunalkumarshah@gmail.com",
-      phone: "0827161w2712",
+      phone: "082716142712",
       password: "krunalkumar123",
       role: "Teaching Assistant",
       expertise: ["Cyber security ", "Penetration Testing"],
