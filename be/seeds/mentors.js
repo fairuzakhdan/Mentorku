@@ -805,7 +805,7 @@ async function seedMentor() {
     {
       name: "Krunalkumar Shah",
       email: "krunalkumarshah@gmail.com",
-      phone: "08271612712",
+      phone: "0827161w2712",
       password: "krunalkumar123",
       role: "Teaching Assistant",
       expertise: ["Cyber security ", "Penetration Testing"],
