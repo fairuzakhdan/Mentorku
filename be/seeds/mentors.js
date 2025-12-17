@@ -824,7 +824,7 @@ async function seedMentor() {
       ],
       linkedin: "https://www.linkedin.com/in/realkrunalkumar/",
       language: ["Indonesia", "English", "Tagalog"],
-      location: "Bali",
+      location: "Batam",
       price: 75000,
       cvResume: "https://www.gogle.com",
       portopolio: "https://www.gogle.com",
