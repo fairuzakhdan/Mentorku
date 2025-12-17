@@ -780,7 +780,7 @@ async function seedMentor() {
         {
           company: "Indosat Ooredo",
           position: "Software Developer",
-          years: 10,
+          years: 12,
         },
       ],
       linkedin: "https://www.linkedin.com/in/rishi2907/",
