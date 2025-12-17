@@ -757,7 +757,7 @@ async function seedMentor() {
         },
       ],
       summary:
-        "Saya adalah Software Engineer dengan pengalaman dalam perancangan, pengembangan, dan optimasi sistem perangkat lunak. Saya berfokus pada solusi teknologi yang efisien dan skalabel.",
+        "Saya adalah Software Engineer dengan pengalaman dalam perancangan, pengembangan, dan optimasi sistem perangkat lunak.Saya berfokus pada solusi teknologi yang efisien dan skalabel.",
       profilePicture: {
         url: "https://images.unsplash.com/photo-1633332755192-727a05c4013d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTB8fHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D",
         filename: "user.jpg",
@@ -786,7 +786,7 @@ async function seedMentor() {
       linkedin: "https://www.linkedin.com/in/rishi2907/",
       language: ["Indonesia", "English", "Tagalog"],
       location: "Bali",
-      price: 75000,
+      price: 85000,
       cvResume: "https://www.gogle.com",
       portopolio: "https://www.gogle.com",
       education: [
